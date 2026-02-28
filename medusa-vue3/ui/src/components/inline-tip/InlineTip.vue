@@ -1,12 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue"
-import Tooltip from "@/components/tooltip/Tooltip.vue"
-import {
-  CheckCircleMiniSolid,
-  ExclamationCircleSolid,
-  InformationCircleSolid,
-  XCircleSolid,
-} from "@medusa-vue/icons"
 import { clx } from "@/utils/clx"
 
 interface InlineTipProps {
@@ -18,37 +11,37 @@ const props = withDefaults(defineProps<InlineTipProps>(), {
   variant: "info",
 })
 
-const iconMap = {
-  info: InformationCircleSolid,
-  warning: ExclamationCircleSolid,
-  error: XCircleSolid,
-  success: CheckCircleMiniSolid,
-}
-
-const toneClasses = {
-  info: "text-ui-fg-subtle",
-  warning: "text-ui-tag-orange-icon",
-  error: "text-ui-tag-red-icon",
-  success: "text-ui-tag-green-icon",
-}
-
-const icon = computed(() => iconMap[props.variant])
-const tone = computed(() => toneClasses[props.variant])
+const barClass = computed(() => {
+  switch (props.variant) {
+    case "warning":
+      return "bg-ui-tag-orange-icon"
+    case "error":
+      return "bg-ui-tag-red-icon"
+    case "success":
+      return "bg-ui-tag-green-icon"
+    default:
+      return "bg-ui-tag-neutral-icon"
+  }
+})
 </script>
 
 <template>
-  <Tooltip :content="label" as-child>
-    <span
-      :class="
-        clx(
-          'inline-flex items-center gap-1 rounded-md outline-none',
-          tone,
-          $attrs.class
-        )
-      "
-    >
+  <div
+    :class="
+      clx(
+        'bg-ui-bg-component txt-small text-ui-fg-subtle grid grid-cols-[4px_1fr] items-start gap-3 rounded-lg border p-3',
+        $attrs.class as string
+      )
+    "
+  >
+    <div
+      role="presentation"
+      :class="clx('h-full w-1 rounded-full', barClass)"
+    />
+    <div class="text-pretty">
+      <strong class="txt-small-plus text-ui-fg-base">{{ label }}:</strong>
+      {{ " " }}
       <slot />
-      <component :is="icon" class="h-4 w-4" />
-    </span>
-  </Tooltip>
+    </div>
+  </div>
 </template>

@@ -94,15 +94,15 @@ const createStoryShowcase = (
     Object.fromEntries(stories.map((story, index) => [`Story${index}`, story.component])),
     `<div class="grid w-full gap-4 md:grid-cols-2">
       ${stories
-        .map(
-          (story, index) => `
+      .map(
+        (story, index) => `
             <div class="rounded-md border border-ui-border-base bg-ui-bg-base p-4">
               <p class="mb-3 text-xs uppercase tracking-[0.16em] text-ui-fg-muted">${story.label}</p>
               <Story${index} />
             </div>
           `
-        )
-        .join("")}
+      )
+      .join("")}
     </div>`
   ),
   code: stories.map((story) => story.code).join("\n\n"),
@@ -187,11 +187,10 @@ const createPromptExample = (variant: "danger" | "confirmation" = "danger") =>
       <PromptContent>
         <PromptHeader>
           <PromptTitle>${variant === "confirmation" ? "Confirm Action" : "Delete something"}</PromptTitle>
-          <PromptDescription>${
-            variant === "confirmation"
-              ? "Are you sure you want to proceed? This action can be undone."
-              : "Are you sure? This cannot be undone."
-          }</PromptDescription>
+          <PromptDescription>${variant === "confirmation"
+      ? "Are you sure you want to proceed? This action can be undone."
+      : "Are you sure? This cannot be undone."
+    }</PromptDescription>
         </PromptHeader>
         <PromptFooter>
           <PromptCancel>Cancel</PromptCancel>
@@ -232,11 +231,10 @@ const createIconBadgeSizesExample = () =>
 const createInlineTipExample = (variant: "info" | "warning" | "error" | "success" = "info") =>
   createComponent(
     {
-      Button,
       InlineTip,
     },
-    `<InlineTip label="This is a ${variant} tip" variant="${variant}">
-      <Button variant="secondary">Hover me</Button>
+    `<InlineTip label="${variant === 'info' ? 'Tip' : variant === 'success' ? 'Success' : variant === 'warning' ? 'Warning' : 'Error'}" variant="${variant}">
+      Medusa UI is a package of Vue components to be used in Medusa Admin customizations.
     </InlineTip>`
   )
 
@@ -448,7 +446,7 @@ const createFocusModalExample = (
             </FocusModalContent>
           </FocusModal>
         </div>`
-        : mode === "form"
+      : mode === "form"
         ? `<div class="flex flex-col items-center gap-2">
             <FocusModal :open="open" @update:open="open = $event">
               <FocusModalTrigger as-child>
@@ -624,7 +622,7 @@ const createToastExample = (
           action: {
             altText: "Undo product creation",
             label: "Undo",
-            onClick: () => {},
+            onClick: () => { },
           },
           duration: 10000,
         }),
@@ -862,19 +860,19 @@ const customExamples: Record<string, ExampleEntry> = {
   },
   "inline-tip-demo": {
     component: createInlineTipExample("info"),
-    code: `<InlineTip label="This is a tip">\n  <Button variant="secondary">Hover me</Button>\n</InlineTip>`,
+    code: `<InlineTip label="Tip">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
   },
   "inline-tip-success": {
     component: createInlineTipExample("success"),
-    code: `<InlineTip label="Everything looks good" variant="success">\n  <Button variant="secondary">Hover me</Button>\n</InlineTip>`,
+    code: `<InlineTip label="Success" variant="success">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
   },
   "inline-tip-warning": {
     component: createInlineTipExample("warning"),
-    code: `<InlineTip label="Please review this change" variant="warning">\n  <Button variant="secondary">Hover me</Button>\n</InlineTip>`,
+    code: `<InlineTip label="Warning" variant="warning">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
   },
   "inline-tip-error": {
     component: createInlineTipExample("error"),
-    code: `<InlineTip label="Something went wrong" variant="error">\n  <Button variant="secondary">Hover me</Button>\n</InlineTip>`,
+    code: `<InlineTip label="Error" variant="error">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
     hideFeedback: true,
   },
   "data-table-demo": {
@@ -1146,9 +1144,9 @@ const resolveGenericStory = (slug: string, exampleName: string): ExampleEntry | 
 
   return story
     ? {
-        component: story.component,
-        code: story.code,
-      }
+      component: story.component,
+      code: story.code,
+    }
     : null
 }
 
