@@ -1,0 +1,5 @@
+export { default as ProgressTabs } from "./ProgressTabs.vue"
+export { default as ProgressTabsList } from "./ProgressTabsList.vue"
+export { default as ProgressTabsTrigger } from "./ProgressTabsTrigger.vue"
+export { default as ProgressTabsContent } from "./ProgressTabsContent.vue"
+export { default as ProgressTabsProgressIndicator } from "./ProgressTabsProgressIndicator.vue"

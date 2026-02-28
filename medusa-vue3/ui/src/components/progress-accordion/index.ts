@@ -1,0 +1,5 @@
+export { default as ProgressAccordion } from "./ProgressAccordion.vue"
+export { default as ProgressAccordionItem } from "./ProgressAccordionItem.vue"
+export { default as ProgressAccordionHeader } from "./ProgressAccordionHeader.vue"
+export { default as ProgressAccordionContent } from "./ProgressAccordionContent.vue"
+export { default as ProgressAccordionProgressIndicator } from "./ProgressAccordionProgressIndicator.vue"

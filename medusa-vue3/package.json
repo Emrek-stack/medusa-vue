@@ -1,0 +1,19 @@
+{
+  "name": "medusa-vue3",
+  "private": true,
+  "workspaces": [
+    "icons",
+    "toolbox",
+    "ui-preset",
+    "ui",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @medusa-vue/docs",
+    "dev:docs": "npm run dev --workspace @medusa-vue/docs",
+    "generate:docs": "npm run generate --workspace @medusa-vue/docs",
+    "build:packages": "npm run build --workspace @medusa-vue/toolbox && npm run build --workspace @medusa-vue/icons && npm run build --workspace @medusa-vue/ui-preset && npm run build --workspace @medusa-vue/ui",
+    "build:docs": "npm run build --workspace @medusa-vue/docs",
+    "build": "npm run build:packages && npm run build:docs"
+  }
+}
