@@ -1,0 +1,39 @@
+{
+    "name": "@medusa-vue/icons",
+    "version": "1.0.0",
+    "description": "Medusa Vue icon library",
+    "author": "Emre Karahan<emre.karahan@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/medusa-vue/medusa-vue.git",
+        "directory": "packages/icons"
+    },
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "toolbox icons -o './src/components' && tsup && npm run build:types",
+        "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+        "dev": "tsup --watch"
+    },
+    "peerDependencies": {
+        "vue": "^3.0.0"
+    },
+    "devDependencies": {
+        "@medusa-vue/toolbox": "file:../toolbox",
+        "esbuild-plugin-vue": "^0.2.4",
+        "fs-extra": "^11.2.0",
+        "glob": "^10.3.10",
+        "tsup": "^8.0.2",
+        "typescript": "^5.0.0",
+        "vue": "^3.4.0",
+        "vue-tsc": "^2.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
