@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.10.0",
-    "@minima-vue/icons": "file:../icons",
-    "@minima-vue/ui": "file:../ui",
-    "@minima-vue/ui-preset": "file:../ui-preset",
+    "@minima-vue/icons": "*",
+    "@minima-vue/ui": "*",
+    "@minima-vue/ui-preset": "*",
     "vue": "^3.4.19",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@minima-vue/toolbox": "file:../toolbox",
+    "@minima-vue/toolbox": "*",
     "@vitejs/plugin-vue": "^5.2.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",

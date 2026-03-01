@@ -1,0 +1,94 @@
+name: Changesets Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  detect-release-commit:
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.detect.outputs.should_release }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect version commit
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mapfile -t changed_files < <(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")
+
+          if [ ${#changed_files[@]} -eq 0 ]; then
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          release_file_changed=false
+          only_release_files=true
+
+          for file in "${changed_files[@]}"; do
+            if [[ "$file" =~ ^(icons|toolbox|ui|ui-preset)/package\.json$ ]] || [[ "$file" =~ ^(icons|toolbox|ui|ui-preset)/CHANGELOG\.md$ ]]; then
+              release_file_changed=true
+              continue
+            fi
+
+            if [[ "$file" =~ ^\.changeset/.*$ ]] || [[ "$file" == "package-lock.json" ]]; then
+              continue
+            fi
+
+            only_release_files=false
+          done
+
+          if [[ "$release_file_changed" == "true" && "$only_release_files" == "true" ]]; then
+            echo "should_release=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "should_release=false" >> "$GITHUB_OUTPUT"
+
+  publish:
+    needs: detect-release-commit
+    if: needs.detect-release-commit.outputs.should_release == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build packages and docs
+        run: npm run build
+
+      - name: Publish packages with Changesets
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run release
+
+      - name: Push git tags
+        run: git push --follow-tags
