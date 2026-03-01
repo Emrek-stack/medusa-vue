@@ -7,7 +7,7 @@ import { clx } from "@/utils/clx"
   <RadixTabsList
     :class="
       clx(
-        'flex w-full items-center gap-2 border-b border-ui-border-base pb-2',
+        'flex items-center',
         $attrs.class
       )
     "

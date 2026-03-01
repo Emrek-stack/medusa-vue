@@ -17,7 +17,7 @@ const buttonVariant = computed(() =>
 <template>
   <RadixAlertDialogAction :as-child="asChild ?? false">
     <slot v-if="asChild" />
-    <Button v-else :variant="buttonVariant">
+    <Button v-else size="small" :variant="buttonVariant">
       <slot />
     </Button>
   </RadixAlertDialogAction>

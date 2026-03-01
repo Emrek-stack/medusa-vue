@@ -21,10 +21,13 @@ const props = withDefaults(
     :disabled="disabled"
     :class="
       clx(
-        'txt-compact-small-plus inline-flex items-center gap-2 rounded-md px-3 py-2 text-ui-fg-subtle outline-none transition',
-        'data-[state=active]:bg-ui-bg-subtle data-[state=active]:text-ui-fg-base',
-        'disabled:pointer-events-none disabled:text-ui-fg-disabled',
-        $attrs.class
+        'txt-compact-small-plus transition-fg text-ui-fg-muted bg-ui-bg-subtle border-r-ui-border-base inline-flex h-[52px] w-full max-w-[200px] flex-1 items-center gap-x-2 border-r px-4 text-left outline-none',
+        'group/trigger overflow-hidden text-ellipsis whitespace-nowrap',
+        'disabled:bg-ui-bg-disabled disabled:text-ui-fg-muted',
+        'hover:bg-ui-bg-subtle-hover',
+        'focus-visible:bg-ui-bg-base focus-visible:z-[1]',
+        'data-[state=active]:text-ui-fg-base data-[state=active]:bg-ui-bg-base',
+        $attrs.class,
       )
     "
   >

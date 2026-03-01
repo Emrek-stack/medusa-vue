@@ -14,7 +14,7 @@ defineProps<{
     :disabled="disabled"
     :class="
       clx(
-        'overflow-hidden rounded-lg border border-ui-border-base bg-ui-bg-base',
+        'border-ui-border-base border-b last-of-type:border-b-0',
         $attrs.class
       )
     "

@@ -12,7 +12,7 @@ defineProps<{
     :value="value"
     :class="
       clx(
-        'mt-4 rounded-lg border border-ui-border-base bg-ui-bg-base p-4 outline-none',
+        'outline-none',
         $attrs.class
       )
     "

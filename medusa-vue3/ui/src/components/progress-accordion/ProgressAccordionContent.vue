@@ -7,7 +7,7 @@ import { clx } from "@/utils/clx"
   <RadixAccordionContent
     :class="
       clx(
-        'txt-compact-small overflow-hidden px-4 py-3 text-ui-fg-subtle',
+        'overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down pl-[88px] pr-6',
         $attrs.class
       )
     "

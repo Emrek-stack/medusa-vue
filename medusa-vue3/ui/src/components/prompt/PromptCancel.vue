@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <RadixAlertDialogCancel :as-child="asChild ?? false">
     <slot v-if="asChild" />
-    <Button v-else variant="secondary">
+    <Button v-else size="small" variant="secondary">
       <slot />
     </Button>
   </RadixAlertDialogCancel>

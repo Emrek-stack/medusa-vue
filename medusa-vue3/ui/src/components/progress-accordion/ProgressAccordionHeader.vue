@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { AccordionHeader as RadixAccordionHeader, AccordionTrigger as RadixAccordionTrigger } from "radix-vue"
-import { ChevronDownMini } from "@medusa-vue/icons"
+import { PlusMini } from "@medusa-vue/icons"
 import { clx } from "@/utils/clx"
+import { IconButton } from "@/components/icon-button"
 import ProgressAccordionProgressIndicator from "./ProgressAccordionProgressIndicator.vue"
 
 const props = withDefaults(
@@ -15,21 +16,20 @@ const props = withDefaults(
 </script>
 
 <template>
-  <RadixAccordionHeader>
-    <RadixAccordionTrigger
-      :class="
-        clx(
-          'txt-compact-small-plus flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-ui-fg-base outline-none transition',
-          'hover:bg-ui-bg-subtle data-[state=open]:border-b data-[state=open]:border-ui-border-base',
-          $attrs.class
-        )
-      "
-    >
-      <span class="flex items-center gap-2">
-        <ProgressAccordionProgressIndicator :status="props.status" />
-        <slot />
-      </span>
-      <ChevronDownMini class="h-4 w-4 transition-transform data-[state=open]:rotate-180" />
+  <RadixAccordionHeader
+    :class="
+      clx(
+        'h3-core text-ui-fg-base group flex w-full flex-1 items-center gap-4 px-6',
+        $attrs.class
+      )
+    "
+  >
+    <ProgressAccordionProgressIndicator :status="props.status" />
+    <slot />
+    <RadixAccordionTrigger as-child class="ml-auto">
+      <IconButton variant="transparent">
+        <PlusMini class="transform transition-transform group-data-[state=open]:rotate-45" />
+      </IconButton>
     </RadixAccordionTrigger>
   </RadixAccordionHeader>
 </template>

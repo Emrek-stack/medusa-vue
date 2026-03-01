@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <RadixAlertDialogTrigger :as-child="asChild ?? true">
+  <RadixAlertDialogTrigger :as-child="asChild ?? true" v-bind="$attrs">
     <slot />
   </RadixAlertDialogTrigger>
 </template>

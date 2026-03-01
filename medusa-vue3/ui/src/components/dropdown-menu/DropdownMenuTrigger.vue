@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <RadixDropdownMenuTrigger :as-child="asChild">
+  <RadixDropdownMenuTrigger :as-child="asChild" v-bind="$attrs">
     <slot />
   </RadixDropdownMenuTrigger>
 </template>

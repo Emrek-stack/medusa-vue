@@ -1,8 +1,14 @@
-import { defineComponent, ref } from "vue"
+import { computed, defineComponent, ref } from "vue"
 import {
   Alert,
   Badge,
   Button,
+  Checkbox,
+  CommandBar,
+  CommandBarBar,
+  CommandBarCommand,
+  CommandBarSeperator,
+  CommandBarValue,
   CodeBlock,
   CodeBlockBody,
   CodeBlockHeader,
@@ -30,6 +36,7 @@ import {
   FocusModalTitle,
   FocusModalTrigger,
   Heading,
+  IconButton,
   IconBadge,
   InlineTip,
   Input,
@@ -72,6 +79,7 @@ import {
   ExclamationCircleSolid,
   InformationCircleSolid,
   PlusMini,
+  Sun,
   XCircleSolid,
 } from "@medusa-vue/icons"
 import { getStoriesForComponent } from "@docs/utils/storybook"
@@ -238,6 +246,52 @@ const createInlineTipExample = (variant: "info" | "warning" | "error" | "success
     </InlineTip>`
   )
 
+const createCommandBarExample = () =>
+  createComponent(
+    {
+      Checkbox,
+      CommandBar,
+      CommandBarBar,
+      CommandBarCommand,
+      CommandBarSeperator,
+      CommandBarValue,
+      Label,
+      Text,
+    },
+    `<div class="flex w-full max-w-[420px] flex-col justify-center gap-y-2">
+      <div class="flex items-center gap-x-2">
+        <Checkbox :checked="selected" @update:checked="onCheckedChange" />
+        <Label>Item One</Label>
+      </div>
+      <div>
+        <Text size="small" class="text-ui-fg-muted">
+          Check the box to view the command bar
+        </Text>
+      </div>
+      <CommandBar :open="selected">
+        <CommandBarBar>
+          <CommandBarValue>1 selected</CommandBarValue>
+          <CommandBarSeperator />
+          <CommandBarCommand label="Delete" shortcut="d" :action="onDelete" />
+          <CommandBarSeperator />
+          <CommandBarCommand label="Edit" shortcut="e" :action="onEdit" />
+        </CommandBarBar>
+      </CommandBar>
+    </div>`,
+    () => {
+      const selected = ref(false)
+
+      return {
+        selected,
+        onCheckedChange: (checked: boolean | "indeterminate") => {
+          selected.value = checked === true
+        },
+        onDelete: () => window.alert("Delete"),
+        onEdit: () => window.alert("Edit"),
+      }
+    }
+  )
+
 const createDataTableExample = (mode:
   | "base"
   | "row-click"
@@ -351,21 +405,108 @@ const createProgressTabsExample = (
 ) =>
   createComponent(
     {
+      Button,
       ProgressTabs,
       ProgressTabsContent,
       ProgressTabsList,
       ProgressTabsTrigger,
+      Text,
     },
-    `<ProgressTabs ${mode === "controlled" ? 'model-value="shipping"' : 'default-value="general"'}>
-      <ProgressTabsList>
-        <ProgressTabsTrigger value="general" status="${mode === "status" ? "completed" : "not-started"}">General</ProgressTabsTrigger>
-        <ProgressTabsTrigger value="shipping" status="${mode === "status" ? "in-progress" : "not-started"}">Shipping</ProgressTabsTrigger>
-        <ProgressTabsTrigger value="payment" ${mode === "disabled" ? ":disabled=\"true\"" : ""}>Payment</ProgressTabsTrigger>
-      </ProgressTabsList>
-      <ProgressTabsContent value="general">General step content</ProgressTabsContent>
-      <ProgressTabsContent value="shipping">Shipping step content</ProgressTabsContent>
-      <ProgressTabsContent value="payment">Payment step content</ProgressTabsContent>
-    </ProgressTabs>`
+    mode === "controlled"
+      ? `<div class="flex w-full flex-col gap-4 px-4">
+          <ProgressTabs :model-value="active" @update:model-value="active = $event">
+            <div class="border-b border-ui-border-base">
+              <ProgressTabsList>
+                <ProgressTabsTrigger value="general">General</ProgressTabsTrigger>
+                <ProgressTabsTrigger value="shipping">Shipping</ProgressTabsTrigger>
+                <ProgressTabsTrigger value="payment">Payment</ProgressTabsTrigger>
+              </ProgressTabsList>
+            </div>
+            <div class="mt-2">
+              <ProgressTabsContent value="general">
+                <Text size="small">This is the General step.</Text>
+              </ProgressTabsContent>
+              <ProgressTabsContent value="shipping">
+                <Text size="small">This is the Shipping step.</Text>
+              </ProgressTabsContent>
+              <ProgressTabsContent value="payment">
+                <Text size="small">This is the Payment step.</Text>
+              </ProgressTabsContent>
+            </div>
+          </ProgressTabs>
+          <div class="mt-4 flex gap-2 self-end">
+            <Button variant="secondary" @click="handlePrev" :disabled="currentIndex === 0">Prev</Button>
+            <Button @click="handleNext" :disabled="currentIndex === steps.length - 1">Next</Button>
+          </div>
+        </div>`
+      : `<div class="w-full px-4">
+          <ProgressTabs default-value="general">
+            <div class="border-b border-ui-border-base">
+              <ProgressTabsList>
+                <ProgressTabsTrigger value="general" status="${mode === "status" ? "completed" : "not-started"}">General</ProgressTabsTrigger>
+                <ProgressTabsTrigger value="shipping" status="${mode === "status" ? "in-progress" : "not-started"}" ${mode === "disabled" ? ':disabled="true"' : ""}>Shipping</ProgressTabsTrigger>
+                <ProgressTabsTrigger value="payment" status="${mode === "status" ? "not-started" : "not-started"}">Payment</ProgressTabsTrigger>
+              </ProgressTabsList>
+            </div>
+            <div class="mt-2">
+              <ProgressTabsContent value="general">
+                <Text size="small">${
+                  mode === "base"
+                    ? "At ACME, we're dedicated to providing you with an exceptional shopping experience. Our wide selection of products caters to your every need, from fashion to electronics and beyond. We take pride in our commitment to quality, customer satisfaction, and timely delivery. Our friendly customer support team is here to assist you with any inquiries or concerns you may have. Thank you for choosing ACME as your trusted online shopping destination."
+                    : mode === "status"
+                      ? "General step is completed."
+                      : "This is the General step."
+                }</Text>
+              </ProgressTabsContent>
+              <ProgressTabsContent value="shipping">
+                <Text size="small">${
+                  mode === "base"
+                    ? "Shipping is a crucial part of our service, designed to ensure your products reach you quickly and securely. Our dedicated team works tirelessly to process orders, carefully package items, and coordinate with reliable carriers to deliver your purchases to your doorstep. We take pride in our efficient shipping process, guaranteeing your satisfaction with every delivery."
+                    : mode === "status"
+                      ? "Shipping step is in progress."
+                      : mode === "disabled"
+                        ? "This is the Shipping step (disabled)."
+                        : "This is the Shipping step."
+                }</Text>
+              </ProgressTabsContent>
+              <ProgressTabsContent value="payment">
+                <Text size="small">${
+                  mode === "base"
+                    ? "Our payment process is designed to make your shopping experience smooth and secure. We offer a variety of payment options to accommodate your preferences, from credit and debit cards to online payment gateways. Rest assured that your financial information is protected through advanced encryption methods. Shopping with us means you can shop with confidence, knowing your payments are safe and hassle-free."
+                    : mode === "status"
+                      ? "Payment step has not started."
+                      : "This is the Payment step."
+                }</Text>
+              </ProgressTabsContent>
+            </div>
+          </ProgressTabs>
+        </div>`,
+    () => {
+      const steps = ["general", "shipping", "payment"]
+      const active = ref("general")
+
+      const currentIndex = computed(() => steps.indexOf(active.value))
+
+      const handleNext = () => {
+        if (currentIndex.value < steps.length - 1) {
+          active.value = steps[currentIndex.value + 1]
+        }
+      }
+
+      const handlePrev = () => {
+        if (currentIndex.value > 0) {
+          active.value = steps[currentIndex.value - 1]
+        }
+      }
+
+      return {
+        active,
+        currentIndex,
+        handleNext,
+        handlePrev,
+        steps,
+      }
+    }
   )
 
 const createProgressAccordionExample = (
@@ -373,30 +514,115 @@ const createProgressAccordionExample = (
 ) =>
   createComponent(
     {
+      Button,
       ProgressAccordion,
       ProgressAccordionContent,
       ProgressAccordionHeader,
       ProgressAccordionItem,
+      Text,
     },
-    `<ProgressAccordion
-      type="${mode === "multiple" ? "multiple" : "single"}"
-      ${mode === "controlled" ? ':model-value="[\'general\']"' : 'default-value="general"'}
-    >
-      <div class="space-y-3">
-        <ProgressAccordionItem value="general">
-          <ProgressAccordionHeader status="${mode === "status" ? "completed" : "not-started"}">General</ProgressAccordionHeader>
-          <ProgressAccordionContent>General step content</ProgressAccordionContent>
-        </ProgressAccordionItem>
-        <ProgressAccordionItem value="shipping">
-          <ProgressAccordionHeader status="${mode === "status" ? "in-progress" : "not-started"}">Shipping</ProgressAccordionHeader>
-          <ProgressAccordionContent>Shipping step content</ProgressAccordionContent>
-        </ProgressAccordionItem>
-        <ProgressAccordionItem value="payment" ${mode === "disabled" ? ":disabled=\"true\"" : ""}>
-          <ProgressAccordionHeader>Payment</ProgressAccordionHeader>
-          <ProgressAccordionContent>Payment step content</ProgressAccordionContent>
-        </ProgressAccordionItem>
-      </div>
-    </ProgressAccordion>`
+    mode === "controlled"
+      ? `<div class="flex w-full flex-col gap-4 px-4">
+          <ProgressAccordion type="single" :model-value="open" @update:model-value="open = $event">
+            <ProgressAccordionItem value="general">
+              <ProgressAccordionHeader>General</ProgressAccordionHeader>
+              <ProgressAccordionContent>
+                <div class="flex flex-col gap-2 pb-6">
+                  <Text size="small">This is the General step.</Text>
+                </div>
+              </ProgressAccordionContent>
+            </ProgressAccordionItem>
+            <ProgressAccordionItem value="shipping">
+              <ProgressAccordionHeader>Shipping</ProgressAccordionHeader>
+              <ProgressAccordionContent>
+                <div class="flex flex-col gap-2 pb-6">
+                  <Text size="small">This is the Shipping step.</Text>
+                </div>
+              </ProgressAccordionContent>
+            </ProgressAccordionItem>
+            <ProgressAccordionItem value="payment">
+              <ProgressAccordionHeader>Payment</ProgressAccordionHeader>
+              <ProgressAccordionContent>
+                <div class="flex flex-col gap-2 pb-6">
+                  <Text size="small">This is the Payment step.</Text>
+                </div>
+              </ProgressAccordionContent>
+            </ProgressAccordionItem>
+          </ProgressAccordion>
+          <div class="mt-4 flex gap-2 self-end">
+            <Button variant="secondary" @click="handlePrev" :disabled="currentIndex === 0">Prev</Button>
+            <Button @click="handleNext" :disabled="currentIndex === steps.length - 1">Next</Button>
+          </div>
+        </div>`
+      : `<div class="w-full px-4">
+          <ProgressAccordion type="${mode === "multiple" ? "multiple" : "single"}" default-value="general">
+            <ProgressAccordionItem value="general">
+              <ProgressAccordionHeader status="${mode === "status" ? "not-started" : "not-started"}">General</ProgressAccordionHeader>
+              <ProgressAccordionContent>
+                <div class="pb-6">
+                  <Text size="small">${
+                    mode === "status"
+                      ? "This step has not started yet."
+                      : mode === "disabled"
+                        ? "This step is enabled."
+                        : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare, tortor nec commodo ultrices, diam leo porttitor eros, eget ultricies mauris nisl nec nisl. Donec quis magna euismod, lacinia ipsum id, varius velit."
+                  }</Text>
+                </div>
+              </ProgressAccordionContent>
+            </ProgressAccordionItem>
+            <ProgressAccordionItem value="shipping" ${mode === "disabled" ? ":disabled=\"true\"" : ""}>
+              <ProgressAccordionHeader status="${mode === "status" ? "in-progress" : "not-started"}">Shipping</ProgressAccordionHeader>
+              <ProgressAccordionContent>
+                <div class="pb-6">
+                  <Text size="small">${
+                    mode === "status"
+                      ? "This step is in progress."
+                      : mode === "disabled"
+                        ? "This step is disabled and cannot be opened."
+                        : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare, tortor nec commodo ultrices, diam leo porttitor eros, eget ultricies mauris nisl nec nisl. Donec quis magna euismod, lacinia ipsum id, varius velit."
+                  }</Text>
+                </div>
+              </ProgressAccordionContent>
+            </ProgressAccordionItem>
+            ${
+              mode === "status"
+                ? `<ProgressAccordionItem value="payment">
+                    <ProgressAccordionHeader status="completed">Payment</ProgressAccordionHeader>
+                    <ProgressAccordionContent>
+                      <div class="pb-6">
+                        <Text size="small">This step is completed.</Text>
+                      </div>
+                    </ProgressAccordionContent>
+                  </ProgressAccordionItem>`
+                : ""
+            }
+          </ProgressAccordion>
+        </div>`,
+    () => {
+      const steps = ["general", "shipping", "payment"]
+      const open = ref("general")
+      const currentIndex = computed(() => steps.indexOf(open.value))
+
+      const handleNext = () => {
+        if (currentIndex.value < steps.length - 1) {
+          open.value = steps[currentIndex.value + 1]
+        }
+      }
+
+      const handlePrev = () => {
+        if (currentIndex.value > 0) {
+          open.value = steps[currentIndex.value - 1]
+        }
+      }
+
+      return {
+        open,
+        currentIndex,
+        steps,
+        handleNext,
+        handlePrev,
+      }
+    }
   )
 
 const createFocusModalExample = (
@@ -850,6 +1076,52 @@ const customExamples: Record<string, ExampleEntry> = {
     ),
     code: `<IconBadge>\n  <BuildingTax />\n</IconBadge>`,
   },
+  "icon-button-demo": {
+    component: createComponent(
+      { IconButton, PlusMini },
+      `<IconButton><PlusMini /></IconButton>`
+    ),
+    code: `<IconButton>\n  <PlusMini />\n</IconButton>`,
+  },
+  "icon-button-all-variants": {
+    component: createComponent(
+      { IconButton, PlusMini },
+      `<div class="flex gap-2">
+        <IconButton variant="primary"><PlusMini /></IconButton>
+        <IconButton variant="transparent"><PlusMini /></IconButton>
+      </div>`
+    ),
+    code: `<IconButton variant="primary">\n  <PlusMini />\n</IconButton>\n<IconButton variant="transparent">\n  <PlusMini />\n</IconButton>`,
+  },
+  "icon-button-all-sizes": {
+    component: createComponent(
+      { IconButton, PlusMini },
+      `<div class="flex items-center gap-2">
+        <IconButton size="2xsmall"><PlusMini /></IconButton>
+        <IconButton size="xsmall"><PlusMini /></IconButton>
+        <IconButton size="small"><PlusMini /></IconButton>
+        <IconButton size="base"><PlusMini /></IconButton>
+        <IconButton size="large"><PlusMini /></IconButton>
+        <IconButton size="xlarge"><PlusMini /></IconButton>
+      </div>`
+    ),
+    code: `<IconButton size="2xsmall"><PlusMini /></IconButton>\n<IconButton size="xsmall"><PlusMini /></IconButton>\n<IconButton size="small"><PlusMini /></IconButton>\n<IconButton size="base"><PlusMini /></IconButton>\n<IconButton size="large"><PlusMini /></IconButton>\n<IconButton size="xlarge"><PlusMini /></IconButton>`,
+  },
+  "icon-button-loading": {
+    component: createComponent(
+      { IconButton, PlusMini },
+      `<IconButton is-loading class="relative"><PlusMini /></IconButton>`
+    ),
+    code: `<IconButton is-loading class="relative">\n  <PlusMini />\n</IconButton>`,
+  },
+  "icon-button-disabled": {
+    component: createComponent(
+      { IconButton, PlusMini },
+      `<IconButton :disabled="true"><PlusMini /></IconButton>`
+    ),
+    code: `<IconButton :disabled="true">\n  <PlusMini />\n</IconButton>`,
+    hideFeedback: true,
+  },
   "icon-badge-all-colors": {
     component: createIconBadgeColorsExample(),
     code: `<IconBadge color="grey"><BuildingTax /></IconBadge>\n<IconBadge color="green"><BuildingTax /></IconBadge>\n<IconBadge color="red"><BuildingTax /></IconBadge>\n<IconBadge color="blue"><BuildingTax /></IconBadge>\n<IconBadge color="orange"><BuildingTax /></IconBadge>\n<IconBadge color="purple"><BuildingTax /></IconBadge>`,
@@ -873,6 +1145,56 @@ const customExamples: Record<string, ExampleEntry> = {
   "inline-tip-error": {
     component: createInlineTipExample("error"),
     code: `<InlineTip label="Error" variant="error">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
+    hideFeedback: true,
+  },
+  "command-bar-demo": {
+    component: createCommandBarExample(),
+    code: `<script setup lang="ts">
+import { ref } from "vue"
+
+const selected = ref(false)
+</script>
+
+<template>
+  <div class="flex flex-col justify-center gap-y-2">
+    <div class="flex items-center gap-x-2">
+      <Checkbox :checked="selected" @update:checked="selected = $event === true" />
+      <Label>Item One</Label>
+    </div>
+    <Text size="small" class="text-ui-fg-muted">
+      Check the box to view the command bar
+    </Text>
+    <CommandBar :open="selected">
+      <CommandBarBar>
+        <CommandBarValue>1 selected</CommandBarValue>
+        <CommandBarSeperator />
+        <CommandBarCommand label="Delete" shortcut="d" :action="() => window.alert('Delete')" />
+        <CommandBarSeperator />
+        <CommandBarCommand label="Edit" shortcut="e" :action="() => window.alert('Edit')" />
+      </CommandBarBar>
+    </CommandBar>
+  </div>
+</template>`,
+    hideFeedback: true,
+  },
+  "icon-color": {
+    component: createComponent(
+      { Sun },
+      `<div class="flex items-center justify-center">
+        <Sun color="#2563eb" />
+      </div>`
+    ),
+    code: `<Sun color="#2563eb" />`,
+    hideFeedback: true,
+  },
+  "icon-color-classes": {
+    component: createComponent(
+      { Sun },
+      `<div class="flex items-center justify-center">
+        <Sun class="text-ui-fg-interactive" />
+      </div>`
+    ),
+    code: `<Sun class="text-ui-fg-interactive" />`,
     hideFeedback: true,
   },
   "data-table-demo": {
