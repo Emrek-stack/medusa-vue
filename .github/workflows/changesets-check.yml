@@ -1,0 +1,70 @@
+name: Changeset Required
+
+on:
+  pull_request:
+    branches:
+      - development
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+
+permissions:
+  contents: read
+
+jobs:
+  changeset-required:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate changeset presence
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin development --depth=1
+
+          mapfile -t changed_files < <(git diff --name-only origin/development...HEAD)
+
+          if [ ${#changed_files[@]} -eq 0 ]; then
+            echo "No changed files detected."
+            exit 0
+          fi
+
+          requires_changeset=false
+          has_changeset=false
+
+          for file in "${changed_files[@]}"; do
+            if [[ "$file" =~ ^\.changeset/.*\.md$ ]] && [[ "$file" != ".changeset/README.md" ]]; then
+              has_changeset=true
+            fi
+
+            case "$file" in
+              docs/*|reference/*|.github/*|README.md|CONTRIBUTING.md|.changeset/README.md)
+                continue
+                ;;
+            esac
+
+            requires_changeset=true
+          done
+
+          if [[ "$requires_changeset" == "false" ]]; then
+            echo "Docs/meta-only PR detected. Changeset is not required."
+            exit 0
+          fi
+
+          if [[ "$has_changeset" == "true" ]]; then
+            echo "Changeset detected."
+            exit 0
+          fi
+
+          echo "A changeset file is required for release-worthy changes targeting development."
+          echo "Run 'npx changeset' and commit the generated file under .changeset/."
+          exit 1
