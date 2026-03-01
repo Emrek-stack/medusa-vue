@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
 import { RouterLink, RouterView, useRoute } from "vue-router"
-import { Button, Toaster, TooltipProvider } from "@medusa-vue/ui"
+import { Toaster, TooltipProvider } from "@medusa-vue/ui"
 import {
   BarsThree,
   ChevronDownMini,
@@ -15,6 +15,16 @@ import { navigationItems } from "@docs/data/navigation"
 
 const route = useRoute()
 const sidebarOpen = ref(false)
+
+const mainNavItems = [
+  { type: "link", title: "Get Started", to: "/" },
+  { type: "dropdown", title: "Product" },
+  { type: "dropdown", title: "Build" },
+  { type: "dropdown", title: "Tools" },
+  { type: "dropdown", title: "Reference" },
+  { type: "link", title: "User Guide", to: null },
+  { type: "button", title: "Cloud" },
+] as const
 
 const docsSection = computed(() => {
   if (route.path.startsWith("/components")) {
@@ -72,103 +82,98 @@ const docsSection = computed(() => {
         <div class="relative flex h-full max-w-full flex-1 flex-col gap-[8px] lg:py-1 lg:mr-1">
           <div class="flex h-full w-full flex-col overflow-hidden bg-ui-bg-base md:rounded-lg shadow-elevation-card-rest">
             <header class="sticky top-0 z-30 border-b border-ui-border-base bg-ui-bg-base">
-              <div class="flex h-[58px] items-center justify-between gap-4 px-4">
+              <div class="flex w-full items-center justify-between gap-4 px-4">
                 <div class="flex items-center gap-[10px]">
-                  <Button
-                    class="!p-[6.5px] lg:hidden"
-                    variant="transparent"
-                    size="small"
+                  <button
+                    type="button"
+                    class="my-[10px] inline-flex items-center justify-center rounded-[6px] p-[6.5px] text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle lg:hidden"
                     @click="sidebarOpen = true"
                     aria-label="Open navigation"
                   >
                     <SidebarLeft class="h-4 w-4" />
-                  </Button>
+                  </button>
 
                   <RouterLink
                     to="/"
-                    class="flex h-5 w-5 items-center justify-center text-ui-fg-base"
+                    class="inline-flex items-center justify-center"
                   >
-                    <Medusa class="h-5 w-5" />
+                    <span class="my-[14px] inline-flex items-center justify-center rounded-[6px] bg-ui-bg-base p-[1px] shadow-borders-base">
+                      <span class="inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-ui-fg-subtle">
+                        <Medusa class="h-5 w-5" />
+                      </span>
+                    </span>
                   </RouterLink>
                 </div>
 
-                <nav class="hidden flex-1 items-center gap-[26px] lg:flex">
-                  <RouterLink
-                    to="/"
-                    class="text-compact-small-plus py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    Get Started
-                  </RouterLink>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus flex items-center gap-1 py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    <span>Product</span>
-                    <ChevronDownMini class="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus flex items-center gap-1 py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    <span>Build</span>
-                    <ChevronDownMini class="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus flex items-center gap-1 py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    <span>Tools</span>
-                    <ChevronDownMini class="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus flex items-center gap-1 py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    <span>Reference</span>
-                    <ChevronDownMini class="h-4 w-4" />
-                  </button>
-                  <RouterLink
-                    :to="docsSection"
-                    class="text-compact-small-plus py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    User Guide
-                  </RouterLink>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus py-1 text-ui-fg-muted transition hover:text-ui-fg-subtle"
-                  >
-                    Cloud
-                  </button>
+                <nav class="hidden flex-1 lg:block">
+                  <ul class="my-[10px] hidden items-center justify-start gap-4 lg:flex">
+                    <li
+                      v-for="item in mainNavItems"
+                      :key="item.title"
+                      class="group flex items-center"
+                    >
+                      <RouterLink
+                        v-if="item.type === 'link'"
+                        :to="item.title === 'User Guide' ? docsSection : item.to || '/'"
+                        class="inline-flex items-center justify-center gap-1 rounded-[4px] text-compact-small-plus no-underline transition"
+                        :class="route.path === (item.title === 'User Guide' ? docsSection : item.to || '/')
+                          ? 'text-ui-fg-base'
+                          : 'text-ui-fg-muted hover:text-ui-fg-subtle'"
+                      >
+                        {{ item.title }}
+                      </RouterLink>
+                      <button
+                        v-else-if="item.type === 'dropdown'"
+                        type="button"
+                        class="inline-flex items-center justify-center gap-1 rounded-[4px] py-1 text-compact-small-plus text-ui-fg-muted transition hover:text-ui-fg-subtle"
+                      >
+                        <span>{{ item.title }}</span>
+                        <ChevronDownMini class="h-4 w-4" />
+                      </button>
+                      <button
+                        v-else
+                        type="button"
+                        class="inline-flex items-center justify-center gap-1 rounded-[4px] py-1 text-compact-small-plus text-ui-fg-muted transition hover:text-ui-fg-subtle"
+                      >
+                        {{ item.title }}
+                      </button>
+                    </li>
+                  </ul>
                 </nav>
 
-                <div class="hidden items-center lg:flex">
+                <div
+                  class="hidden items-center my-[10px] lg:flex"
+                  data-testid="main-nav-actions"
+                >
                   <button
                     type="button"
-                    class="text-compact-small-plus rounded-md px-2 py-1 text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
+                    class="hidden items-center rounded-[6px] px-2 py-1 text-compact-small-plus text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle lg:inline-flex"
                   >
-                    Help
-                    <ChevronDownMini class="ml-1 inline h-4 w-4" />
+                    <span>Help</span>
+                    <ChevronDownMini class="ml-1 h-4 w-4" />
                   </button>
-                  <button
-                    type="button"
-                    class="text-compact-small-plus rounded-md px-2 py-1 text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
-                  >
-                    Ask Bloom
-                  </button>
-                  <button
-                    type="button"
-                    class="rounded-md p-2 text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
-                    aria-label="Search"
-                  >
-                    <MagnifyingGlassMini class="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    class="rounded-md p-2 text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
-                    aria-label="Open menu"
-                  >
-                    <BarsThree class="h-4 w-4" />
-                  </button>
+                  <div class="flex items-center">
+                    <button
+                      type="button"
+                      class="inline-flex items-center justify-center rounded-[6px] px-2 py-1 text-compact-small-plus text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
+                    >
+                      Ask Bloom
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-flex items-center justify-center rounded-[6px] p-[6.5px] text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle"
+                      aria-label="Search"
+                    >
+                      <MagnifyingGlassMini class="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      class="hidden items-center justify-center rounded-[6px] p-[6.5px] text-ui-fg-muted transition hover:bg-ui-button-transparent-hover hover:text-ui-fg-subtle lg:inline-flex"
+                      aria-label="Open menu"
+                    >
+                      <BarsThree class="h-5 w-5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </header>
