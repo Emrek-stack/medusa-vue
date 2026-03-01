@@ -7,19 +7,33 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/medusa-vue/medusa-vue.git",
-        "directory": "packages/icons"
+        "directory": "medusa-vue3/icons"
+    },
+    "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/icons",
+    "bugs": {
+        "url": "https://github.com/medusa-vue/medusa-vue/issues"
     },
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
     "files": [
-        "dist"
+        "dist",
+        "README.md"
     ],
     "scripts": {
         "build": "tsup && npm run build:types",
         "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist",
         "dev": "tsup --watch",
-        "generate": "toolbox icons -o './src/components'"
+        "generate": "toolbox icons -o './src/components'",
+        "prepack": "npm run build"
     },
     "peerDependencies": {
         "vue": "^3.0.0"

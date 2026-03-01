@@ -366,10 +366,14 @@ const createDataTableExample = (mode:
     () => ({})
   )
 
-const createAlertExample = (variant: "info" | "success" | "warning" | "error" = "info", dismissible = false) =>
+const createAlertExample = (
+  message: string,
+  variant: "info" | "success" | "warning" | "error" = "info",
+  dismissible = false
+) =>
   createComponent(
     { Alert },
-    `<Alert variant="${variant}" :dismissible="${dismissible ? "true" : "false"}">Here's a message</Alert>`
+    `<Alert variant="${variant}" :dismissible="${dismissible ? "true" : "false"}">${message}</Alert>`
   )
 
 const createTabsExample = (
@@ -943,24 +947,24 @@ const createDrawerExample = (mode: "demo" | "form" = "demo") =>
 
 const customExamples: Record<string, ExampleEntry> = {
   "alert-demo": {
-    component: createAlertExample("info"),
+    component: createAlertExample("You are viewing Medusa docs.", "info"),
     code: `<Alert>Here's a message</Alert>`,
   },
   "alert-success": {
-    component: createAlertExample("success"),
-    code: `<Alert variant="success">Success message</Alert>`,
+    component: createAlertExample("Data updated successfully!", "success"),
+    code: `<Alert variant="success">Data updated successfully!</Alert>`,
   },
   "alert-warning": {
-    component: createAlertExample("warning"),
-    code: `<Alert variant="warning">Warning message</Alert>`,
+    component: createAlertExample("Be careful!", "warning"),
+    code: `<Alert variant="warning">Be careful!</Alert>`,
   },
   "alert-error": {
-    component: createAlertExample("error"),
-    code: `<Alert variant="error">Error message</Alert>`,
+    component: createAlertExample("An error occured while updating data.", "error"),
+    code: `<Alert variant="error">An error occured while updating data.</Alert>`,
   },
   "alert-dismissable": {
-    component: createAlertExample("info", true),
-    code: `<Alert dismissible>Dismiss me</Alert>`,
+    component: createAlertExample("You are viewing Medusa docs.", "info", true),
+    code: `<Alert dismissible={true}>You are viewing Medusa docs.</Alert>`,
     hideFeedback: true,
   },
   "button-demo": {

@@ -5,6 +5,15 @@
     "author": "Emre Karahan <emre.karahan@gmail.com>",
     "license": "MIT",
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/medusa-vue/medusa-vue.git",
+        "directory": "medusa-vue3/ui"
+    },
+    "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/ui",
+    "bugs": {
+        "url": "https://github.com/medusa-vue/medusa-vue/issues"
+    },
     "main": "./dist/medusa-vue-ui.umd.js",
     "module": "./dist/medusa-vue-ui.es.js",
     "types": "./dist/index.d.ts",
@@ -14,21 +23,27 @@
             "import": "./dist/medusa-vue-ui.es.js",
             "require": "./dist/medusa-vue-ui.umd.js"
         },
-        "./style.css": "./dist/style.css"
+        "./style.css": "./dist/style.css",
+        "./package.json": "./package.json"
     },
     "files": [
-        "dist"
+        "dist",
+        "README.md"
+    ],
+    "sideEffects": [
+        "*.css"
     ],
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "prepack": "npm run build"
     },
     "peerDependencies": {
-        "@medusa-vue/icons": "file:../icons",
-        "@medusa-vue/ui-preset": "file:../ui-preset",
+        "@medusa-vue/icons": "^1.0.0",
+        "@medusa-vue/ui-preset": "^1.0.0",
         "vue": "^3.4.0"
     },
     "dependencies": {

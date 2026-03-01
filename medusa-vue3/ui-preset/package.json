@@ -6,7 +6,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/medusa-vue/medusa-vue.git",
-    "directory": "packages/ui-preset"
+    "directory": "medusa-vue3/ui-preset"
+  },
+  "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/ui-preset",
+  "bugs": {
+    "url": "https://github.com/medusa-vue/medusa-vue/issues"
   },
   "author": "Emre Karahan<emre.karahan@gmail.com>",
   "exports": {
@@ -18,10 +22,15 @@
   },
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "generate": "toolbox tokens -o './src/theme'",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",

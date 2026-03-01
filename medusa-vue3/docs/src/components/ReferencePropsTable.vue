@@ -20,7 +20,7 @@ const getType = (entry: {
   <div class="overflow-hidden rounded-md border border-ui-border-base bg-ui-bg-base">
     <table class="min-w-full divide-y divide-ui-border-base">
       <thead class="bg-ui-bg-subtle">
-        <tr class="text-left text-xs uppercase tracking-[0.16em] text-ui-fg-muted">
+        <tr class="text-left txt-xsmall-plus text-ui-fg-muted">
           <th class="px-4 py-3">Prop</th>
           <th class="px-4 py-3">Type</th>
           <th class="px-4 py-3">Required</th>
@@ -28,9 +28,9 @@ const getType = (entry: {
           <th class="px-4 py-3">Description</th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-ui-border-base text-sm text-ui-fg-base">
+      <tbody class="divide-y divide-ui-border-base txt-compact-small text-ui-fg-base">
         <tr v-for="(entry, key) in propsMap" :key="key">
-          <td class="px-4 py-3 align-top font-medium">{{ key }}</td>
+          <td class="px-4 py-3 align-top txt-compact-small-plus">{{ key }}</td>
           <td class="px-4 py-3 align-top font-mono text-xs">{{ getType(entry) }}</td>
           <td class="px-4 py-3 align-top">{{ entry.required ? "Yes" : "No" }}</td>
           <td class="px-4 py-3 align-top font-mono text-xs">{{ entry.defaultValue?.value ?? "-" }}</td>

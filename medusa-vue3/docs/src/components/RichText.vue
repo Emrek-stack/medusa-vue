@@ -14,8 +14,8 @@ const html = computed(() => renderInlineMarkdown(props.content))
   <p
     :class="
       lead
-        ? 'text-compact-small-plus text-ui-fg-base'
-        : 'text-compact-small-plus text-ui-fg-base'
+        ? 'txt-medium text-ui-fg-base'
+        : 'txt-medium text-ui-fg-base'
     "
     v-html="html"
   />

@@ -12,14 +12,14 @@ const tocItems = [
 
 <template>
   <div class="docs-page-grid">
-    <article class="min-w-0 space-y-8">
+    <article class="min-w-0">
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
         <span>Medusa UI</span>
       </nav>
 
-      <div class="space-y-8">
+      <div class="docs-flow">
         <h1 class="docs-page-title">
           Medusa UI Documentation
         </h1>

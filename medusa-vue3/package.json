@@ -13,6 +13,8 @@
     "dev:docs": "npm run dev --workspace @medusa-vue/docs",
     "generate:docs": "npm run generate --workspace @medusa-vue/docs",
     "build:packages": "npm run build --workspace @medusa-vue/toolbox && npm run build --workspace @medusa-vue/icons && npm run build --workspace @medusa-vue/ui-preset && npm run build --workspace @medusa-vue/ui",
+    "pack:packages": "npm pack --workspace @medusa-vue/toolbox && npm pack --workspace @medusa-vue/icons && npm pack --workspace @medusa-vue/ui-preset && npm pack --workspace @medusa-vue/ui",
+    "publish:packages": "npm publish --workspace @medusa-vue/toolbox && npm publish --workspace @medusa-vue/icons && npm publish --workspace @medusa-vue/ui-preset && npm publish --workspace @medusa-vue/ui",
     "build:docs": "npm run build --workspace @medusa-vue/docs",
     "build": "npm run build:packages && npm run build:docs"
   }

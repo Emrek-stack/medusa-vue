@@ -66,7 +66,7 @@ const transformCode = (value: string) =>
         <span>Medusa UI</span>
       </nav>
 
-      <div class="space-y-8">
+      <div class="docs-flow">
         <template v-for="(block, index) in doc.blocks" :key="`${block.type}-${index}`">
           <h1
             v-if="block.type === 'heading' && block.level === 1"

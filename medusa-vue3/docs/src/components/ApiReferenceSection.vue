@@ -21,7 +21,7 @@ const getSpec = (name: string) => specMap[name]
       <h3
         v-if="props.componentsToShow.length > 1"
         :id="componentName.toLowerCase().replace(/[^a-z0-9]+/g, '-')"
-        class="text-xl font-semibold text-ui-fg-base"
+        class="docs-subsection-title"
       >
         {{ componentName }}
       </h3>

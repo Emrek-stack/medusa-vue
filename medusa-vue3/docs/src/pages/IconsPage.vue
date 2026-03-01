@@ -25,14 +25,14 @@ export default {
 
 <template>
   <div class="docs-page-grid">
-    <article class="min-w-0 space-y-8">
+    <article class="min-w-0">
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
         <span>Medusa UI</span>
       </nav>
 
-      <div class="space-y-8">
+      <div class="docs-flow">
         <h1 class="docs-page-title">Icons</h1>
 
         <RichText
@@ -56,7 +56,7 @@ export default {
         </h3>
 
         <div class="docs-card px-6 py-4">
-          <ul class="list-disc space-y-2 pl-5 text-compact-small-plus text-ui-fg-base">
+          <ul class="list-disc space-y-2 pl-5 txt-compact-small-plus text-ui-fg-base">
             <li>Vue 3 installed in your project.</li>
           </ul>
         </div>

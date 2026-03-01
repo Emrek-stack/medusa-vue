@@ -14,10 +14,10 @@ defineProps<{
       {{ eyebrow }}
     </Badge>
     <div class="space-y-3">
-      <h1 class="text-h1 text-ui-fg-base">
+      <h1 class="h1-docs text-ui-fg-base">
         {{ title }}
       </h1>
-      <p class="max-w-3xl text-compact-small-plus text-ui-fg-subtle">
+      <p class="max-w-3xl txt-compact-small-plus text-ui-fg-subtle">
         {{ description }}
       </p>
     </div>

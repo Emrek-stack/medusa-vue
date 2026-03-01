@@ -13,17 +13,17 @@ withDefaults(
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center gap-3 text-compact-small text-ui-fg-subtle">
+  <div class="flex flex-wrap items-center gap-2.5 txt-compact-small text-ui-fg-subtle">
     <span>{{ question }}</span>
-    <Button size="small" variant="transparent">
+    <Button size="small" variant="transparent" class="!px-1.5">
       <ThumbUp />
       It was helpful
     </Button>
-    <Button size="small" variant="transparent">
+    <Button size="small" variant="transparent" class="!px-1.5">
       <ThumbDown />
       It wasn't helpful
     </Button>
-    <Button size="small" variant="transparent">
+    <Button size="small" variant="transparent" class="!px-1.5">
       <FlagMini />
       Report Issue
     </Button>

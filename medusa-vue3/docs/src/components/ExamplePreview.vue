@@ -18,11 +18,11 @@ const example = computed(() => resolveExample(props.slug, props.exampleName))
 </script>
 
 <template>
-  <section class="my-4 flex flex-col space-y-3">
+  <section class="my-4 flex flex-col space-y-4">
     <div class="flex items-center gap-2">
       <button
         type="button"
-        class="text-compact-small-plus rounded-full border px-[10px] py-1 transition"
+        class="rounded-full border px-[10px] py-1 txt-compact-small-plus transition"
         :class="
           activeTab === 'preview'
             ? 'border-ui-border-base bg-ui-bg-base text-ui-fg-base'
@@ -34,7 +34,7 @@ const example = computed(() => resolveExample(props.slug, props.exampleName))
       </button>
       <button
         type="button"
-        class="text-compact-small-plus rounded-full border px-[10px] py-1 transition"
+        class="txt-compact-small-plus rounded-full border px-[10px] py-1 transition"
         :class="
           activeTab === 'code'
             ? 'border-ui-border-base bg-ui-bg-base text-ui-fg-base'
@@ -48,7 +48,7 @@ const example = computed(() => resolveExample(props.slug, props.exampleName))
 
     <div
       v-if="activeTab === 'preview'"
-      class="flex min-h-[400px] w-full overflow-auto rounded-xl border border-ui-border-base bg-ui-bg-base px-10 py-5"
+      class="flex min-h-[400px] w-full overflow-auto rounded-xl border border-ui-border-base bg-ui-bg-base px-11 py-10"
       :class="[
         (example?.disableCenterAlignPreview ?? disableCenterAlignPreview)
           ? 'items-start justify-start'
@@ -61,7 +61,12 @@ const example = computed(() => resolveExample(props.slug, props.exampleName))
       </Alert>
     </div>
 
-    <DocsCodeBlock v-else-if="example?.code" :code="example.code" lang="vue" />
+    <DocsCodeBlock
+      v-else-if="example?.code"
+      :code="example.code"
+      lang="vue"
+      class="w-full"
+    />
 
     <FeedbackRow
       v-if="!(example?.hideFeedback ?? hideFeedback)"

@@ -1,6 +1,33 @@
 import type { Config } from "tailwindcss"
 import preset from "@medusa-vue/ui-preset"
 
+const docsSpacing = {
+  "docs_0.125": "2px",
+  "docs_0.25": "4px",
+  "docs_0.5": "8px",
+  "docs_0.75": "12px",
+  docs_1: "16px",
+  "docs_1.5": "24px",
+  docs_2: "32px",
+  "docs_2.5": "40px",
+  docs_3: "48px",
+  docs_4: "64px",
+  docs_5: "80px",
+  docs_6: "96px",
+  docs_7: "112px",
+  docs_8: "128px",
+} as const
+
+const docsRadius = {
+  "docs_xxs": "2px",
+  "docs_xs": "4px",
+  "docs_sm": "6px",
+  "docs_DEFAULT": "8px",
+  "docs_md": "8px",
+  "docs_lg": "12px",
+  "docs_xl": "16px",
+} as const
+
 const config: Config = {
   presets: [preset as Config],
   content: [
@@ -38,54 +65,34 @@ const config: Config = {
           "monospace",
         ],
       },
-      fontSize: {
-        h1: ["24px", { lineHeight: "125%", fontWeight: "500" }],
-        h2: ["18px", { lineHeight: "160%", fontWeight: "500" }],
-        h3: ["16px", { lineHeight: "160%", fontWeight: "500" }],
-        h4: ["14px", { lineHeight: "160%", fontWeight: "500" }],
-        "compact-x-large-plus": [
-          "18px",
-          { lineHeight: "20px", fontWeight: "500" },
-        ],
-        "compact-x-large": [
-          "18px",
-          { lineHeight: "20px", fontWeight: "400" },
-        ],
-        "compact-large-plus": [
-          "16px",
-          { lineHeight: "20px", fontWeight: "500" },
-        ],
-        "compact-large": ["16px", { lineHeight: "20px", fontWeight: "400" }],
-        "compact-medium-plus": [
-          "14px",
-          { lineHeight: "20px", fontWeight: "500" },
-        ],
-        "compact-medium": ["14px", { lineHeight: "20px", fontWeight: "400" }],
-        "compact-small-plus": [
-          "13px",
-          { lineHeight: "20px", fontWeight: "500" },
-        ],
-        "compact-small": ["13px", { lineHeight: "20px", fontWeight: "400" }],
-        "compact-x-small-plus": [
-          "12px",
-          { lineHeight: "20px", fontWeight: "500" },
-        ],
-        "compact-x-small": ["12px", { lineHeight: "20px", fontWeight: "400" }],
-        "x-large-plus": ["18px", { lineHeight: "150%", fontWeight: "500" }],
-        "x-large": ["18px", { lineHeight: "150%", fontWeight: "400" }],
-        "large-plus": ["16px", { lineHeight: "150%", fontWeight: "500" }],
-        large: ["16px", { lineHeight: "150%", fontWeight: "400" }],
-        "medium-plus": ["14px", { lineHeight: "160%", fontWeight: "500" }],
-        medium: ["14px", { lineHeight: "160%", fontWeight: "400" }],
-        small: ["13px", { lineHeight: "150%", fontWeight: "400" }],
-        "small-plus": ["13px", { lineHeight: "150%", fontWeight: "500" }],
-        "x-small": ["12px", { lineHeight: "150%", fontWeight: "400" }],
-        "x-small-plus": ["12px", { lineHeight: "150%", fontWeight: "500" }],
-        "code-label": ["12px", { lineHeight: "15px", fontWeight: "500" }],
-        "code-body": ["12px", { lineHeight: "150%", fontWeight: "400" }],
-      },
       lineHeight: {
         DEFAULT: "24px",
+      },
+      spacing: {
+        ...docsSpacing,
+      },
+      borderRadius: {
+        ...docsRadius,
+      },
+      width: {
+        toc: "221px",
+        "sidebar-xs": "calc(100% - 20px)",
+      },
+      maxWidth: {
+        "sidebar-xs": "calc(100% - 20px)",
+        "sidebar-sm": "300px",
+        "sidebar-md": "300px",
+        "sidebar-lg": "221px",
+        "sidebar-xl": "221px",
+        "sidebar-xxl": "221px",
+        "sidebar-xxxl": "221px",
+        "inner-content-xs": "100%",
+        "inner-content-sm": "100%",
+        "inner-content-md": "100%",
+        "inner-content-lg": "550px",
+        "inner-content-xl": "640px",
+        "inner-content-xxl": "640px",
+        "inner-content-xxxl": "640px",
       },
       boxShadow: {
         spotlight: "0 18px 40px rgba(24, 24, 27, 0.12)",
@@ -93,6 +100,8 @@ const config: Config = {
       backgroundImage: {
         "hero-grid":
           "linear-gradient(to right, rgba(24,24,27,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(24,24,27,0.04) 1px, transparent 1px)",
+        "border-dotted":
+          "linear-gradient(90deg,var(--border-strong) 1px,transparent 1px)",
       },
     },
   },
