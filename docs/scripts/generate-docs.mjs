@@ -8,9 +8,6 @@ const projectRoot = path.resolve(docsRoot, "..")
 const uiRoot = path.join(projectRoot, "ui/src")
 const componentsRoot = path.join(uiRoot, "components")
 const generatedRoot = path.join(docsRoot, "src/generated")
-const referenceRoot = path.resolve(projectRoot, "reference/medusa-2.13.1/www/apps/ui")
-const referencePagesRoot = path.join(referenceRoot, "app/components")
-const referenceSpecsRoot = path.join(referenceRoot, "specs/components")
 
 const toStartCase = (value) =>
   value
@@ -263,184 +260,11 @@ const buildManifest = async () => {
   return items.sort((left, right) => left.title.localeCompare(right.title))
 }
 
-const parseExampleTag = (tagSource) => ({
-  type: "example",
-  name: tagSource.match(/name="([^"]+)"/)?.[1] ?? "",
-  hideFeedback: tagSource.includes("hideFeedback"),
-  disableCenterAlignPreview: tagSource.includes("disableCenterAlignPreview"),
-})
-
-const parseReferenceTag = (tagSource) => {
-  const mainComponent = tagSource.match(/mainComponent="([^"]+)"/)?.[1] ?? ""
-  const componentsMatch = tagSource.match(/componentsToShow=\{\[([\s\S]*?)\]\}/)
-  const componentsToShow = componentsMatch
-    ? componentsMatch[1]
-      .split(",")
-      .map((item) => item.replace(/['"\n\r]/g, "").trim())
-      .filter(Boolean)
-    : [mainComponent]
-
-  return {
-    type: "api-reference",
-    mainComponent,
-    componentsToShow,
-  }
+const fallbackDescription = (item) => {
+  return `A component for working with ${item.title.toLowerCase()} values in Minima Vue.`
 }
 
-const parseReferencePage = async (slug) => {
-  const filePath = path.join(referencePagesRoot, slug, "page.mdx")
-  const source = await readFile(filePath)
-
-  if (!source) {
-    return null
-  }
-
-  const metadataTitle =
-    source.match(/title:\s*`([^`]+)`/)?.[1] ??
-    source.match(/#\s+\{metadata\.title\}/)?.[1] ??
-    toStartCase(slug)
-
-  let cleaned = source
-
-  if (cleaned.startsWith("---")) {
-    cleaned = cleaned.replace(/^---[\s\S]*?---\n+/, "")
-  }
-
-  cleaned = cleaned
-    .replace(/^(?:import .*?\n)+/m, "")
-    .replace(/export const metadata = \{[\s\S]*?\}\n+/m, "")
-    .replace(/# \{metadata\.title\}/g, `# ${metadataTitle}`)
-    .trim()
-
-  const lines = cleaned.split(/\r?\n/)
-  const blocks = []
-
-  for (let index = 0; index < lines.length; index += 1) {
-    const line = lines[index]
-    const trimmed = line.trim()
-
-    if (!trimmed || trimmed === "---") {
-      continue
-    }
-
-    if (trimmed.startsWith("```")) {
-      const lang = trimmed.slice(3).trim() || "txt"
-      const codeLines = []
-      index += 1
-
-      while (index < lines.length && !lines[index].trim().startsWith("```")) {
-        codeLines.push(lines[index])
-        index += 1
-      }
-
-      blocks.push({
-        type: "code",
-        lang,
-        code: codeLines.join("\n"),
-      })
-      continue
-    }
-
-    if (trimmed.startsWith("<ComponentExample")) {
-      let tagSource = trimmed
-
-      while (!tagSource.includes("/>") && index < lines.length - 1) {
-        index += 1
-        tagSource += lines[index].trim()
-      }
-
-      blocks.push(parseExampleTag(tagSource))
-      continue
-    }
-
-    if (trimmed.startsWith("<ComponentReference")) {
-      let tagSource = trimmed
-
-      while (!tagSource.includes("/>") && index < lines.length - 1) {
-        index += 1
-        tagSource += lines[index].trim()
-      }
-
-      blocks.push(parseReferenceTag(tagSource))
-      continue
-    }
-
-    if (/^#{1,3}\s+/.test(trimmed)) {
-      const [, hashes, text] = trimmed.match(/^(#{1,3})\s+(.*)$/)
-      blocks.push({
-        type: "heading",
-        level: hashes.length,
-        text,
-        id: slugify(text),
-      })
-      continue
-    }
-
-    const paragraphLines = [trimmed]
-
-    while (index < lines.length - 1) {
-      const nextLine = lines[index + 1].trim()
-
-      if (
-        !nextLine ||
-        nextLine === "---" ||
-        nextLine.startsWith("```") ||
-        nextLine.startsWith("<ComponentExample") ||
-        nextLine.startsWith("<ComponentReference") ||
-        /^#{1,3}\s+/.test(nextLine)
-      ) {
-        break
-      }
-
-      paragraphLines.push(nextLine)
-      index += 1
-    }
-
-    blocks.push({
-      type: "paragraph",
-      content: paragraphLines.join(" "),
-    })
-  }
-
-  return {
-    slug,
-    title: metadataTitle,
-    blocks,
-  }
-}
-
-const buildReferenceSpecs = async () => {
-  const files = (await walkFiles(referenceSpecsRoot)).filter((filePath) =>
-    filePath.endsWith(".json")
-  )
-  const specs = {}
-
-  for (const filePath of files) {
-    const source = await readFile(filePath)
-
-    if (!source) {
-      continue
-    }
-
-    const spec = JSON.parse(source)
-
-    if (spec.displayName) {
-      specs[spec.displayName] = spec
-    }
-  }
-
-  return specs
-}
-
-const fallbackDescription = (item, spec) => {
-  if (spec?.description?.trim()) {
-    return spec.description.trim()
-  }
-
-  return `A component for working with ${item.title.toLowerCase()} values in Medusa UI.`
-}
-
-const buildFallbackDoc = (item, spec) => {
+const buildFallbackDoc = (item) => {
   const importNames = item.exports.map((entry) => entry.name).join(", ")
   const blocks = [
     {
@@ -451,7 +275,7 @@ const buildFallbackDoc = (item, spec) => {
     },
     {
       type: "paragraph",
-      content: fallbackDescription(item, spec),
+      content: fallbackDescription(item),
     },
     {
       type: "paragraph",
@@ -498,23 +322,21 @@ const buildFallbackDoc = (item, spec) => {
   }
 }
 
-const buildReferenceDocs = async (manifest) => {
+const buildDocs = async (manifest) => {
   const docs = []
-  const specs = await buildReferenceSpecs()
 
   for (const item of manifest) {
-    const doc = await parseReferencePage(item.slug)
-
-    docs.push(doc ?? buildFallbackDoc(item, specs[item.mainExport]))
+    docs.push(buildFallbackDoc(item))
   }
 
-  return { docs, specs }
+  // Also simulate empty specs for frontend imports that may require them
+  return { docs, specs: {} }
 }
 
 await fs.mkdir(generatedRoot, { recursive: true })
 
 const manifest = await buildManifest()
-const { docs: referenceDocs, specs: referenceSpecs } = await buildReferenceDocs(manifest)
+const { docs: componentDocs, specs: referenceSpecs } = await buildDocs(manifest)
 
 await fs.writeFile(
   path.join(generatedRoot, "component-manifest.json"),
@@ -523,7 +345,7 @@ await fs.writeFile(
 
 await fs.writeFile(
   path.join(generatedRoot, "component-docs.json"),
-  JSON.stringify(referenceDocs, null, 2)
+  JSON.stringify(componentDocs, null, 2)
 )
 
 await fs.writeFile(
