@@ -1,5 +1,5 @@
 {
-  "name": "medusa-vue3",
+  "name": "minima-vue3",
   "private": true,
   "workspaces": [
     "icons",

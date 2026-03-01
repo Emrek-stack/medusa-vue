@@ -54,7 +54,7 @@ export const navigationItems: SidebarItem[] = [
     title: "Installation",
     initialOpen: true,
     items: [
-      { title: "Medusa Admin Extension", to: "/installation/medusa-admin-extension" },
+      { title: "Admin Extension", to: "/installation/medusa-admin-extension" },
       { title: "Standalone Project", to: "/installation/standalone-project" },
     ],
   },

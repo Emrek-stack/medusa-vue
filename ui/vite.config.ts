@@ -19,8 +19,8 @@ export default defineConfig({
     build: {
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
-            name: 'MedusaVueUI',
-            fileName: (format) => `medusa-vue-ui.${format}.js`
+            name: 'MinimaVueUI',
+            fileName: (format) => `minima-vue-ui.${format}.js`
         },
         rollupOptions: {
             external: ['vue', '@minima-vue/icons', '@minima-vue/ui-preset'],

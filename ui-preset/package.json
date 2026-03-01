@@ -1,16 +1,16 @@
 {
   "name": "@minima-vue/ui-preset",
   "version": "1.0.0",
-  "description": "Medusa Vue UI preset",
+  "description": "Minima Vue UI preset",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/medusa-vue/medusa-vue.git",
-    "directory": "medusa-vue3/ui-preset"
+    "url": "https://github.com/minima-vue/minima-vue.git",
+    "directory": "minima-vue3/ui-preset"
   },
-  "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/ui-preset",
+  "homepage": "https://github.com/minima-vue/minima-vue/tree/main/minima-vue3/ui-preset",
   "bugs": {
-    "url": "https://github.com/medusa-vue/medusa-vue/issues"
+    "url": "https://github.com/minima-vue/minima-vue/issues"
   },
   "author": "Emre Karahan<emre.karahan@gmail.com>",
   "exports": {

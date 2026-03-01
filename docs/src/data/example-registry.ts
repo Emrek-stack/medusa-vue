@@ -142,7 +142,7 @@ const createCodeBlockExample = (options?: {
       hideCopy: options?.hideCopy,
     },
     {
-      label: "Medusa JS SDK",
+      label: "JS SDK",
       language: "ts",
       code: `sdk.store.product.retrieve("PRODUCT_ID")\n  .then(({ product }) => {\n    console.log(product.title)\n  })`,
       hideLineNumbers: options?.hideLineNumbers,
@@ -242,7 +242,7 @@ const createInlineTipExample = (variant: "info" | "warning" | "error" | "success
       InlineTip,
     },
     `<InlineTip label="${variant === 'info' ? 'Tip' : variant === 'success' ? 'Success' : variant === 'warning' ? 'Warning' : 'Error'}" variant="${variant}">
-      Medusa UI is a package of Vue components to be used in Medusa Admin customizations.
+      Minima Vue is a package of Vue components built for admin extensions.
     </InlineTip>`
   )
 
@@ -947,7 +947,7 @@ const createDrawerExample = (mode: "demo" | "form" = "demo") =>
 
 const customExamples: Record<string, ExampleEntry> = {
   "alert-demo": {
-    component: createAlertExample("You are viewing Medusa docs.", "info"),
+    component: createAlertExample("You are viewing Minima docs.", "info"),
     code: `<Alert>Here's a message</Alert>`,
   },
   "alert-success": {
@@ -963,8 +963,8 @@ const customExamples: Record<string, ExampleEntry> = {
     code: `<Alert variant="error">An error occured while updating data.</Alert>`,
   },
   "alert-dismissable": {
-    component: createAlertExample("You are viewing Medusa docs.", "info", true),
-    code: `<Alert dismissible={true}>You are viewing Medusa docs.</Alert>`,
+    component: createAlertExample("You are viewing Minima docs.", "info", true),
+    code: `<Alert dismissible={true}>You are viewing Minima docs.</Alert>`,
     hideFeedback: true,
   },
   "button-demo": {
@@ -1136,19 +1136,19 @@ const customExamples: Record<string, ExampleEntry> = {
   },
   "inline-tip-demo": {
     component: createInlineTipExample("info"),
-    code: `<InlineTip label="Tip">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
+    code: `<InlineTip label="Tip">\n  Minima Vue is a package of Vue components built for admin extensions.\n</InlineTip>`,
   },
   "inline-tip-success": {
     component: createInlineTipExample("success"),
-    code: `<InlineTip label="Success" variant="success">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
+    code: `<InlineTip label="Success" variant="success">\n  Minima Vue is a package of Vue components built for admin extensions.\n</InlineTip>`,
   },
   "inline-tip-warning": {
     component: createInlineTipExample("warning"),
-    code: `<InlineTip label="Warning" variant="warning">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
+    code: `<InlineTip label="Warning" variant="warning">\n  Minima Vue is a package of Vue components built for admin extensions.\n</InlineTip>`,
   },
   "inline-tip-error": {
     component: createInlineTipExample("error"),
-    code: `<InlineTip label="Error" variant="error">\n  Medusa UI is a package of Vue components to be used in Medusa Admin customizations.\n</InlineTip>`,
+    code: `<InlineTip label="Error" variant="error">\n  Minima Vue is a package of Vue components built for admin extensions.\n</InlineTip>`,
     hideFeedback: true,
   },
   "command-bar-demo": {

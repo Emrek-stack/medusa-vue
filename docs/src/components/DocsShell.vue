@@ -6,7 +6,6 @@ import {
   BarsThree,
   ChevronDownMini,
   MagnifyingGlassMini,
-  Medusa,
   SidebarLeft,
   SparklesMiniSolid,
   XMarkMini,
@@ -124,7 +123,7 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
                     class="my-[14px] inline-flex items-center justify-center rounded-docs_sm bg-ui-bg-base p-docs_0.125 shadow-borders-base"
                   >
                     <span class="h-[20px] w-[20px] rounded-docs_xs">
-                      <Medusa class="bordered-icon h-5 w-5 rounded-docs_xs text-ui-fg-subtle" />
+                      <SparklesMiniSolid class="bordered-icon h-5 w-5 rounded-docs_xs text-ui-fg-subtle" />
                     </span>
                   </span>
                 </RouterLink>

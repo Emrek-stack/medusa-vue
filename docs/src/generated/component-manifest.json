@@ -25,7 +25,14 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "alert-demo",
+      "alert-success",
+      "alert-warning",
+      "alert-error",
+      "alert-dismissable"
+    ],
+    "hasStories": true
   },
   {
     "slug": "avatar",
@@ -108,6 +115,7 @@
         "label": "XLarge"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -201,6 +209,7 @@
         "label": "Large"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -283,6 +292,14 @@
         "name": "XLarge",
         "label": "XLarge"
       }
+    ],
+    "customExampleNames": [
+      "button-demo",
+      "button-all-variants",
+      "button-all-sizes",
+      "button-loading",
+      "button-with-icon",
+      "button-as-link"
     ],
     "hasStories": true
   },
@@ -383,6 +400,7 @@
         "label": "Max Value"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -423,6 +441,7 @@
         "label": "Disabled Indeterminate"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -442,6 +461,13 @@
         "name": "Default",
         "label": "Default"
       }
+    ],
+    "customExampleNames": [
+      "code-block-demo",
+      "code-block-single",
+      "code-block-no-header",
+      "code-block-no-lines",
+      "code-block-no-copy"
     ],
     "hasStories": true
   },
@@ -489,6 +515,13 @@
         "label": "No Header"
       }
     ],
+    "customExampleNames": [
+      "code-block-demo",
+      "code-block-single",
+      "code-block-no-header",
+      "code-block-no-lines",
+      "code-block-no-copy"
+    ],
     "hasStories": true
   },
   {
@@ -527,6 +560,9 @@
         "name": "Default",
         "label": "Default"
       }
+    ],
+    "customExampleNames": [
+      "command-bar-demo"
     ],
     "hasStories": true
   },
@@ -603,6 +639,9 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [
+      "command-bar-demo"
+    ],
     "hasStories": true
   },
   {
@@ -627,6 +666,7 @@
         "label": "In Layout"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -670,6 +710,7 @@
         "label": "Custom Content"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -761,6 +802,7 @@
         "label": "Controlled"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -818,7 +860,20 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "data-table-demo",
+      "data-table-row-click",
+      "data-table-custom-cell",
+      "data-table-search",
+      "data-table-pagination",
+      "data-table-filters",
+      "data-table-filters-date",
+      "data-table-filters-initial",
+      "data-table-sorting",
+      "data-table-sorting-initial",
+      "data-table-commands"
+    ],
+    "hasStories": true
   },
   {
     "slug": "date-picker",
@@ -950,6 +1005,7 @@
         "label": "Small"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -970,6 +1026,7 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1037,6 +1094,10 @@
         "name": "Default",
         "label": "Default"
       }
+    ],
+    "customExampleNames": [
+      "drawer-demo",
+      "drawer-form"
     ],
     "hasStories": true
   },
@@ -1175,6 +1236,7 @@
         "label": "Checkboxes"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1231,6 +1293,12 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [
+      "focus-modal-demo",
+      "focus-modal-controlled",
+      "focus-modal-form",
+      "focus-modal-nested"
+    ],
     "hasStories": true
   },
   {
@@ -1259,6 +1327,7 @@
         "label": "H3"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1294,6 +1363,7 @@
         "label": "With Icon"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1328,7 +1398,12 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "icon-badge-demo",
+      "icon-badge-all-colors",
+      "icon-badge-all-sizes"
+    ],
+    "hasStories": true
   },
   {
     "slug": "icon-button",
@@ -1407,6 +1482,13 @@
         "label": "Is Loading"
       }
     ],
+    "customExampleNames": [
+      "icon-button-demo",
+      "icon-button-all-variants",
+      "icon-button-all-sizes",
+      "icon-button-loading",
+      "icon-button-disabled"
+    ],
     "hasStories": true
   },
   {
@@ -1435,7 +1517,13 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "inline-tip-demo",
+      "inline-tip-success",
+      "inline-tip-warning",
+      "inline-tip-error"
+    ],
+    "hasStories": true
   },
   {
     "slug": "input",
@@ -1475,6 +1563,7 @@
         "label": "Small"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1495,6 +1584,7 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1546,6 +1636,7 @@
         "label": "Small Regular"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1615,6 +1706,7 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1654,7 +1746,15 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "progress-accordion-demo",
+      "progress-accordion-single",
+      "progress-accordion-multiple",
+      "progress-accordion-status",
+      "progress-accordion-controlled",
+      "progress-accordion-disabled"
+    ],
+    "hasStories": true
   },
   {
     "slug": "progress-tabs",
@@ -1693,7 +1793,13 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "progress-tabs-demo",
+      "progress-tabs-status",
+      "progress-tabs-controlled",
+      "progress-tabs-disabled"
+    ],
+    "hasStories": true
   },
   {
     "slug": "prompt",
@@ -1777,6 +1883,10 @@
         "label": "Confirmation"
       }
     ],
+    "customExampleNames": [
+      "prompt-demo",
+      "prompt-confirmation"
+    ],
     "hasStories": true
   },
   {
@@ -1813,6 +1923,7 @@
         "label": "Disabled"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1914,6 +2025,7 @@
         "label": "Disabled"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -1965,6 +2077,10 @@
         "label": "Purple"
       }
     ],
+    "customExampleNames": [
+      "status-badge-demo",
+      "status-badge-all-colors"
+    ],
     "hasStories": true
   },
   {
@@ -2001,6 +2117,7 @@
         "label": "Checked Disabled"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2104,6 +2221,7 @@
         "label": "Paginated"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2156,7 +2274,14 @@
       }
     ],
     "stories": [],
-    "hasStories": false
+    "customExampleNames": [
+      "tabs-demo",
+      "tabs-controlled",
+      "tabs-disabled",
+      "tabs-icons",
+      "tabs-vertical"
+    ],
+    "hasStories": true
   },
   {
     "slug": "text",
@@ -2233,6 +2358,7 @@
         "label": "Base Regular Mono"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2253,6 +2379,7 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2308,6 +2435,7 @@
         "label": "Controlled"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2367,6 +2495,7 @@
         "label": "With Action"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   },
   {
@@ -2393,6 +2522,7 @@
         "label": "Default"
       }
     ],
+    "customExampleNames": [],
     "hasStories": true
   }
 ]

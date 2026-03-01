@@ -1,17 +1,17 @@
 {
   "name": "@minima-vue/toolbox",
   "version": "1.0.0",
-  "description": "CLI tool for importing Figma designs for Medusa UI",
+  "description": "CLI tool for importing Figma designs for Minima Vue",
   "license": "MIT",
   "author": "Emre Karahan <emre.karahan@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/medusa-vue/medusa-vue.git",
-    "directory": "medusa-vue3/toolbox"
+    "url": "https://github.com/minima-vue/minima-vue.git",
+    "directory": "minima-vue3/toolbox"
   },
-  "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/toolbox",
+  "homepage": "https://github.com/minima-vue/minima-vue/tree/main/minima-vue3/toolbox",
   "bugs": {
-    "url": "https://github.com/medusa-vue/medusa-vue/issues"
+    "url": "https://github.com/minima-vue/minima-vue/issues"
   },
   "bin": "./bin/toolbox.js",
   "main": "./dist/index.js",

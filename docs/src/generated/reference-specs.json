@@ -1,5271 +1,1641 @@
 {
   "Alert": {
-    "description": "This component is based on the div element and supports all of its props",
-    "methods": [],
     "displayName": "Alert",
+    "description": "A component for working with alert values in Minima Vue.",
     "props": {
       "variant": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"error\" | \"success\" | \"warning\" | \"info\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"error\""
-            },
-            {
-              "name": "literal",
-              "value": "\"success\""
-            },
-            {
-              "name": "literal",
-              "value": "\"warning\""
-            },
-            {
-              "name": "literal",
-              "value": "\"info\""
-            }
-          ]
-        },
-        "description": "The variant of the alert",
+        "description": "",
         "defaultValue": {
-          "value": "\"info\"",
-          "computed": false
+          "value": "\"info\""
+        },
+        "tsType": {
+          "raw": "\"info\" | \"error\" | \"success\" | \"warning\"",
+          "name": "\"info\" | \"error\" | \"success\" | \"warning\""
         }
       },
       "dismissible": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether the alert is dismissible",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       }
     }
   },
   "Avatar": {
-    "description": "This component is based on the [Radix UI Avatar](https://www.radix-ui.com/primitives/docs/components/avatar) primitive.",
-    "methods": [],
     "displayName": "Avatar",
+    "description": "A component for working with avatar values in Minima Vue.",
     "props": {
+      "variant": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"rounded\""
+        },
+        "tsType": {
+          "raw": "\"squared\" | \"rounded\"",
+          "name": "\"squared\" | \"rounded\""
+        }
+      },
+      "size": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"base\""
+        },
+        "tsType": {
+          "raw": "\"2xsmall\" | \"xsmall\" | \"small\" | \"base\" | \"large\" | \"xlarge\"",
+          "name": "\"2xsmall\" | \"xsmall\" | \"small\" | \"base\" | \"large\" | \"xlarge\""
+        }
+      },
       "src": {
         "required": false,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The URL of the image used in the Avatar."
+        }
       },
       "fallback": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "Text to show in the avatar if the URL provided in `src` can't be opened."
+        }
       },
-      "variant": {
+      "asChild": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"rounded\"",
-          "computed": false
+          "value": "false"
         },
-        "description": "The style of the avatar.",
         "tsType": {
-          "name": "union",
-          "raw": "\"squared\" \\| \"rounded\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"squared\""
-            },
-            {
-              "name": "literal",
-              "value": "\"rounded\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The size of the avatar's border radius.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"2xsmall\" \\| \"xsmall\" \\| \"small\" \\| \"base\" \\| \"large\" \\| \"xlarge\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"2xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xlarge\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "boolean",
+          "name": "boolean"
+        }
       }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
+    }
   },
   "Badge": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
     "displayName": "Badge",
+    "description": "A component for working with badge values in Minima Vue.",
     "props": {
-      "asChild": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `span` element and use the\npassed child element instead.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
       "size": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "\"base\""
         },
-        "description": "The badge's size.",
         "tsType": {
-          "name": "union",
-          "raw": "\"2xsmall\" \\| \"xsmall\" \\| \"small\" \\| \"base\" \\| \"large\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"2xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "\"2xsmall\" | \"xsmall\" | \"small\" | \"base\" | \"large\"",
+          "name": "\"2xsmall\" | \"xsmall\" | \"small\" | \"base\" | \"large\""
+        }
       },
       "rounded": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "\"base\""
         },
-        "description": "The style of the badge's border radius.",
         "tsType": {
-          "name": "union",
-          "raw": "\"base\" \\| \"full\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"full\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "\"base\" | \"full\"",
+          "name": "\"base\" | \"full\""
+        }
       },
       "color": {
-        "defaultValue": {
-          "value": "\"grey\"",
-          "computed": false
-        },
-        "description": "The badge's color.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"green\" \\| \"red\" \\| \"blue\" \\| \"orange\" \\| \"grey\" \\| \"purple\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"green\""
-            },
-            {
-              "name": "literal",
-              "value": "\"red\""
-            },
-            {
-              "name": "literal",
-              "value": "\"blue\""
-            },
-            {
-              "name": "literal",
-              "value": "\"orange\""
-            },
-            {
-              "name": "literal",
-              "value": "\"grey\""
-            },
-            {
-              "name": "literal",
-              "value": "\"purple\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
-  },
-  "Button": {
-    "description": "This component is based on the `button` element and supports all of its props",
-    "methods": [],
-    "displayName": "Button",
-    "props": {
-      "isLoading": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to show a loading spinner.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "\"grey\""
+        },
+        "tsType": {
+          "raw": "\"green\" | \"red\" | \"blue\" | \"orange\" | \"grey\" | \"purple\"",
+          "name": "\"green\" | \"red\" | \"blue\" | \"orange\" | \"grey\" | \"purple\""
         }
       },
       "asChild": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `button` element and use the\npassed child element instead.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      }
+    }
+  },
+  "Button": {
+    "displayName": "Button",
+    "description": "A component for working with button values in Minima Vue.",
+    "props": {
+      "variant": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"primary\""
+        },
+        "tsType": {
+          "raw": "\"primary\" | \"secondary\" | \"transparent\" | \"danger\"",
+          "name": "\"primary\" | \"secondary\" | \"transparent\" | \"danger\""
         }
       },
-      "variant": {
-        "defaultValue": {
-          "value": "\"primary\"",
-          "computed": false
-        },
-        "description": "The button's style.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"primary\" \\| \"transparent\" \\| \"secondary\" \\| \"danger\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"primary\""
-            },
-            {
-              "name": "literal",
-              "value": "\"transparent\""
-            },
-            {
-              "name": "literal",
-              "value": "\"secondary\""
-            },
-            {
-              "name": "literal",
-              "value": "\"danger\""
-            }
-          ]
-        },
-        "required": false
-      },
       "size": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "\"base\""
         },
-        "description": "The button's size.",
         "tsType": {
-          "name": "union",
-          "raw": "\"small\" \\| \"base\" \\| \"large\" \\| \"xlarge\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xlarge\""
-            }
-          ]
+          "raw": "\"small\" | \"base\" | \"large\" | \"xlarge\"",
+          "name": "\"small\" | \"base\" | \"large\" | \"xlarge\""
+        }
+      },
+      "isLoading": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false"
         },
-        "required": false
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "asChild": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
       }
-    },
-    "composes": [
-      "VariantProps"
-    ]
+    }
   },
   "Calendar": {
-    "description": "Calendar component used to select a date.\nIts props are based on [React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html#calendar-1).",
-    "methods": [],
     "displayName": "Calendar",
+    "description": "A component for working with calendar values in Minima Vue.",
     "props": {
-      "value": {
+      "modelValue": {
         "required": false,
+        "description": "",
         "tsType": {
-          "name": "union",
           "raw": "Date | null",
-          "elements": [
-            {
-              "name": "Date"
-            },
-            {
-              "name": "null"
-            }
-          ]
-        },
-        "description": "The currently selected date."
+          "name": "Date | null"
+        }
       },
       "defaultValue": {
         "required": false,
+        "description": "",
         "tsType": {
-          "name": "union",
           "raw": "Date | null",
-          "elements": [
-            {
-              "name": "Date"
-            },
-            {
-              "name": "null"
-            }
-          ]
-        },
-        "description": "The date that is selected when the calendar first mounts (uncontrolled)."
-      },
-      "onChange": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: Date | null) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "union",
-                  "raw": "Date | null",
-                  "elements": [
-                    {
-                      "name": "Date"
-                    },
-                    {
-                      "name": "null"
-                    }
-                  ]
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": "A function that is triggered when the selected date changes."
-      },
-      "isDateUnavailable": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(date: Date) => boolean",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "Date"
-                },
-                "name": "date"
-              }
-            ],
-            "return": {
-              "name": "boolean"
-            }
-          }
-        },
-        "description": "A function that determines whether a date is unavailable for selection."
+          "name": "Date | null"
+        }
       },
       "minValue": {
         "required": false,
+        "description": "",
         "tsType": {
+          "raw": "Date",
           "name": "Date"
-        },
-        "description": "The minimum date that can be selected."
+        }
       },
       "maxValue": {
         "required": false,
+        "description": "",
         "tsType": {
+          "raw": "Date",
           "name": "Date"
-        },
-        "description": "The maximum date that can be selected."
+        }
+      },
+      "locale": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "string",
+          "name": "string"
+        }
+      },
+      "disabled": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "readonly": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "fixedWeeks": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "weekStartsOn": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+          "name": "0 | 1 | 2 | 3 | 4 | 5 | 6"
+        }
       }
-    },
-    "composes": [
-      "Omit"
-    ]
+    }
   },
   "CalendarButton": {
-    "description": "",
-    "methods": [],
     "displayName": "CalendarButton",
     "props": {}
   },
   "CalendarCell": {
-    "description": "",
-    "methods": [],
     "displayName": "CalendarCell",
-    "props": {
-      "date": {
-        "required": true,
-        "tsType": {
-          "name": "CalendarDate"
-        },
-        "description": ""
-      },
-      "state": {
-        "required": true,
-        "tsType": {
-          "name": "CalendarState"
-        },
-        "description": ""
-      }
-    }
-  },
-  "CalendarGrid": {
-    "description": "",
-    "methods": [],
-    "displayName": "CalendarGrid",
-    "props": {
-      "state": {
-        "required": true,
-        "tsType": {
-          "name": "CalendarState"
-        },
-        "description": ""
-      }
-    },
-    "composes": [
-      "AriaCalendarGridProps"
-    ]
+    "props": {}
   },
   "Checkbox": {
-    "description": "This component is based on the [Radix UI Checkbox](https://www.radix-ui.com/primitives/docs/components/checkbox) primitive.",
-    "methods": [],
     "displayName": "Checkbox",
+    "description": "A component for working with checkbox values in Minima Vue.",
     "props": {}
   },
   "Code": {
-    "description": "This component is based on the `code` element and supports all of its props",
-    "methods": [],
     "displayName": "Code",
+    "description": "A component for working with code values in Minima Vue.",
     "props": {}
-  },
-  "CodeBlock.Body": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "CodeBlock.Body",
-    "props": {}
-  },
-  "CodeBlock.Header.Meta": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "CodeBlock.Header.Meta",
-    "props": {}
-  },
-  "CodeBlock.Header": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "CodeBlock.Header",
-    "props": {
-      "hideLabels": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to hide the code snippets' labels.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      }
-    }
   },
   "CodeBlock": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
     "displayName": "CodeBlock",
-    "props": {
-      "snippets": {
-        "required": true,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "signature",
-              "type": "object",
-              "raw": "{\n  /**\n   * The label of the code snippet's tab.\n   */\n  label: string\n  /**\n   * The language of the code snippet. For example, `tsx`.\n   */\n  language: string\n  /**\n   * The code snippet.\n   */\n  code: string\n  /**\n   * Whether to hide the line numbers shown as the side of the code snippet.\n   */\n  hideLineNumbers?: boolean\n  /**\n   * Whether to hide the copy button.\n   */\n  hideCopy?: boolean\n}",
-              "signature": {
-                "properties": [
-                  {
-                    "key": "label",
-                    "value": {
-                      "name": "string",
-                      "required": true
-                    },
-                    "description": "The label of the code snippet's tab."
-                  },
-                  {
-                    "key": "language",
-                    "value": {
-                      "name": "string",
-                      "required": true
-                    },
-                    "description": "The language of the code snippet. For example, `tsx`."
-                  },
-                  {
-                    "key": "code",
-                    "value": {
-                      "name": "string",
-                      "required": true
-                    },
-                    "description": "The code snippet."
-                  },
-                  {
-                    "key": "hideLineNumbers",
-                    "value": {
-                      "name": "boolean",
-                      "required": false
-                    },
-                    "description": "Whether to hide the line numbers shown as the side of the code snippet."
-                  },
-                  {
-                    "key": "hideCopy",
-                    "value": {
-                      "name": "boolean",
-                      "required": false
-                    },
-                    "description": "Whether to hide the copy button."
-                  }
-                ]
-              }
-            }
-          ],
-          "raw": "CodeSnippet[]"
-        },
-        "description": "The code snippets."
-      }
-    }
+    "description": "A component for working with code block values in Minima Vue.",
+    "props": {}
   },
-  "Command.Copy": {
-    "description": "",
-    "methods": [],
-    "displayName": "Command.Copy",
+  "CodeBlockHeader": {
+    "displayName": "CodeBlockHeader",
+    "props": {}
+  },
+  "CodeBlockMeta": {
+    "displayName": "CodeBlockMeta",
+    "props": {}
+  },
+  "CodeBlockBody": {
+    "displayName": "CodeBlockBody",
     "props": {}
   },
   "Command": {
-    "description": "This component is based on the div element and supports all of its props",
-    "methods": [],
     "displayName": "Command",
+    "description": "A component for working with command values in Minima Vue.",
     "props": {}
   },
-  "CommandBar.Bar": {
-    "description": "The bar component of the command bar. This component is used to display the commands.",
-    "methods": [],
-    "displayName": "CommandBar.Bar",
+  "CommandCopy": {
+    "displayName": "CommandCopy",
+    "props": {
+      "content": {
+        "required": true,
+        "description": "",
+        "tsType": {
+          "raw": "string",
+          "name": "string"
+        }
+      },
+      "asChild": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      }
+    }
+  },
+  "CommandBar": {
+    "displayName": "CommandBar",
+    "description": "A component for working with command bar values in Minima Vue.",
     "props": {}
   },
-  "CommandBar.Command": {
-    "description": "The command component of the command bar. This component is used to display a command, as well as registering the keyboad shortcut.",
-    "methods": [],
-    "displayName": "CommandBar.Command",
+  "CommandBarBar": {
+    "displayName": "CommandBarBar",
+    "props": {}
+  },
+  "CommandBarValue": {
+    "displayName": "CommandBarValue",
+    "props": {}
+  },
+  "CommandBarSeperator": {
+    "displayName": "CommandBarSeperator",
+    "props": {}
+  },
+  "CommandBarCommand": {
+    "displayName": "CommandBarCommand",
     "props": {
       "action": {
         "required": true,
+        "description": "",
         "tsType": {
-          "name": "signature",
-          "type": "function",
           "raw": "() => void | Promise<void>",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "union",
-              "raw": "void | Promise<void>",
-              "elements": [
-                {
-                  "name": "void"
-                },
-                {
-                  "name": "Promise",
-                  "elements": [
-                    {
-                      "name": "void"
-                    }
-                  ],
-                  "raw": "Promise<void>"
-                }
-              ]
-            }
-          }
-        },
-        "description": "The function to execute when the command is triggered."
+          "name": "() => void | Promise<void>"
+        }
       },
       "label": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The command's label."
+        }
       },
       "shortcut": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The command's shortcut"
-      }
-    },
-    "composes": [
-      "Omit"
-    ]
-  },
-  "CommandBar.Seperator": {
-    "description": "The seperator component of the command bar. This component is used to display a seperator between commands.",
-    "methods": [],
-    "displayName": "CommandBar.Seperator",
-    "props": {}
-  },
-  "CommandBar.Value": {
-    "description": "The value component of the command bar. This component is used to display a value,\nsuch as the number of selected items which the commands will act on.",
-    "methods": [],
-    "displayName": "CommandBar.Value",
-    "props": {}
-  },
-  "CommandBar": {
-    "description": "The root component of the command bar. This component manages the state of the command bar.",
-    "methods": [],
-    "displayName": "CommandBar",
-    "props": {
-      "open": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to open (show) the command bar.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
         }
       },
-      "onOpenChange": {
+      "disabled": {
         "required": false,
+        "description": "",
         "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(open: boolean) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "boolean"
-                },
-                "name": "open"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": "Specify a function to handle the change of `open`'s value."
-      },
-      "defaultOpen": {
-        "required": false,
-        "tsType": {
+          "raw": "boolean",
           "name": "boolean"
-        },
-        "description": "Whether the command bar is open by default.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
         }
       },
-      "disableAutoFocus": {
+      "type": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to disable focusing automatically on the command bar when it's opened.",
+        "description": "",
         "defaultValue": {
-          "value": "true",
-          "computed": false
+          "value": "\"button\""
+        },
+        "tsType": {
+          "raw": "\"button\" | \"submit\" | \"reset\"",
+          "name": "\"button\" | \"submit\" | \"reset\""
         }
       }
     }
   },
   "Container": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
     "displayName": "Container",
+    "description": "A component for working with container values in Minima Vue.",
     "props": {}
   },
   "Copy": {
-    "description": "This component is based on the `button` element and supports all of its props",
-    "methods": [],
     "displayName": "Copy",
+    "description": "A component for working with copy values in Minima Vue.",
     "props": {
       "content": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The content to copy."
+        }
       },
       "variant": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"mini\" | \"default\" | null",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"mini\""
-            },
-            {
-              "name": "literal",
-              "value": "\"default\""
-            },
-            {
-              "name": "null"
-            }
-          ]
-        },
-        "description": "The variant of the copy button.",
+        "description": "",
         "defaultValue": {
-          "value": "\"default\"",
-          "computed": false
+          "value": "\"default\""
+        },
+        "tsType": {
+          "raw": "\"mini\" | \"default\" | null",
+          "name": "\"mini\" | \"default\" | null"
         }
       },
       "asChild": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `button` element and use the\npassed child element instead.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       }
     }
   },
   "CurrencyInput": {
-    "description": "This component is based on the input element and supports all of its props",
-    "methods": [],
     "displayName": "CurrencyInput",
+    "description": "A component for working with currency input values in Minima Vue.",
     "props": {
+      "modelValue": {
+        "required": true,
+        "description": "",
+        "tsType": {
+          "raw": "number | null",
+          "name": "number | null"
+        }
+      },
       "symbol": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The symbol to show in the input."
+        }
       },
       "code": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The currency code to show in the input."
+        }
       },
       "size": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "\"base\""
         },
-        "description": "The input's size.",
         "tsType": {
-          "name": "union",
-          "raw": "\"small\" \\| \"base\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "\"base\" | \"small\"",
+          "name": "\"base\" | \"small\""
+        }
       },
       "disabled": {
-        "description": "Whether the input is disabled.\n\n\n",
-        "tsType": {
-          "name": "boolean"
-        },
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "onInvalid": {
-        "description": "A function that is triggered when the input is invalid."
-      }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
-  },
-  "DataTable.ActionCell": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTable.ActionCell",
-    "props": {
-      "ctx": {
-        "required": true,
-        "tsType": {
-          "name": "CellContext",
-          "elements": [
-            {
-              "name": "TData"
-            },
-            {
-              "name": "unknown"
-            }
-          ],
-          "raw": "CellContext<TData, unknown>"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTable.CommandBar": {
-    "description": "This component adds a command bar to the data table, which is used\nto show commands that can be executed on the selected rows.",
-    "methods": [],
-    "displayName": "DataTable.CommandBar",
-    "props": {
-      "selectedLabel": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "((count: number) => string) | string",
-          "elements": [
-            {
-              "name": "unknown"
-            },
-            {
-              "name": "string"
-            }
-          ]
-        },
-        "description": "The label to show when items are selected. If a function is passed, \nit will be called with the count of selected items."
-      }
-    }
-  },
-  "DataTable.Filter": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTable.Filter",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": true,
-        "tsType": {
-          "name": "unknown"
-        },
-        "description": ""
-      },
-      "isNew": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
         "description": "",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "onUpdate": {
-        "required": false,
         "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      },
-      "onRemove": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "() => void",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTable.FilterBar": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTable.FilterBar",
-    "props": {
-      "clearAllFiltersLabel": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "\"Clear all\"",
-          "computed": false
-        }
-      },
-      "alwaysShow": {
-        "required": false,
-        "tsType": {
+          "raw": "boolean",
           "name": "boolean"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
         }
-      },
-      "sortingTooltip": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "columnsTooltip": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "children": {
-        "required": false,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTable.FilterMenu": {
-    "description": "This component adds a filter menu to the data table, allowing users\nto filter the table's data.",
-    "methods": [],
-    "displayName": "DataTable.FilterMenu",
-    "props": {
-      "tooltip": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The tooltip to show when hovering over the filter menu."
-      },
-      "onAddFilter": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(id: string, value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "string"
-                },
-                "name": "id"
-              },
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": "Callback when a filter is added"
-      }
-    }
-  },
-  "DataTable.Pagination": {
-    "description": "This component adds a pagination component and functionality to the data table.",
-    "methods": [],
-    "displayName": "DataTable.Pagination",
-    "props": {
-      "translations": {
-        "required": false,
-        "tsType": {
-          "name": "ReactComponentProps[\"translations\"]",
-          "raw": "React.ComponentProps<typeof Table.Pagination>[\"translations\"]"
-        },
-        "description": "The translations for strings in the pagination component."
-      }
-    }
-  },
-  "DataTable.Search": {
-    "description": "This component adds a search input to the data table, allowing users\nto search through the table's data.",
-    "methods": [],
-    "displayName": "DataTable.Search",
-    "props": {
-      "autoFocus": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "If true, the search input will be focused on mount."
-      },
-      "className": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "Additional classes to pass to the search input."
       },
       "placeholder": {
         "required": false,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The placeholder text to show in the search input."
-      }
-    }
-  },
-  "DataTable.SelectCell": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTable.SelectCell",
-    "props": {
-      "ctx": {
-        "required": true,
-        "tsType": {
-          "name": "DataTableCellContext",
-          "elements": [
-            {
-              "name": "TData"
-            },
-            {
-              "name": "unknown"
-            }
-          ],
-          "raw": "DataTableCellContext<TData, unknown>"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTable.SortingIcon": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTable.SortingIcon",
-    "props": {
-      "direction": {
-        "required": true,
-        "tsType": {
-          "name": "union",
-          "raw": "DataTableSortDirection | false",
-          "elements": [
-            {
-              "name": "DataTableSortDirection"
-            },
-            {
-              "name": "literal",
-              "value": "false"
-            }
-          ]
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTable.SortingMenu": {
-    "description": "This component adds a sorting menu to the data table, allowing users\nto sort the table's data.",
-    "methods": [],
-    "displayName": "DataTable.SortingMenu",
-    "props": {
-      "tooltip": {
+        }
+      },
+      "decimalsLimit": {
         "required": false,
-        "tsType": {
-          "name": "string"
+        "description": "",
+        "defaultValue": {
+          "value": "2"
         },
-        "description": "The tooltip to show when hovering over the sorting menu."
-      }
-    }
-  },
-  "DataTable.Table": {
-    "description": "This component renders the table in a data table, supporting advanced features.",
-    "methods": [],
-    "displayName": "DataTable.Table",
-    "props": {
-      "emptyState": {
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "allowNegativeValue": {
         "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "object",
-          "raw": "{\n  /**\n   * The empty state to display when the table is filtered, but no rows are found.\n   */\n  filtered?: DataTableEmptyStateContent\n  /**\n   * The empty state to display when the table is empty.\n   */\n  empty?: DataTableEmptyStateContent\n}",
-          "signature": {
-            "properties": [
-              {
-                "key": "filtered",
-                "value": {
-                  "name": "signature",
-                  "type": "object",
-                  "raw": "{\n  /**\n   * The heading to display in the empty state.\n   */\n  heading?: string\n  /**\n   * The description to display in the empty state.\n   */\n  description?: string\n  /**\n   * A custom component to display in the empty state, if provided it will override the heading and description.\n   */\n  custom?: React.ReactNode\n}",
-                  "signature": {
-                    "properties": [
-                      {
-                        "key": "heading",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The heading to display in the empty state."
-                      },
-                      {
-                        "key": "description",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The description to display in the empty state."
-                      },
-                      {
-                        "key": "custom",
-                        "value": {
-                          "name": "ReactReactNode",
-                          "raw": "React.ReactNode",
-                          "required": false
-                        },
-                        "description": "A custom component to display in the empty state, if provided it will override the heading and description."
-                      }
-                    ]
-                  },
-                  "required": false
-                },
-                "description": "The empty state to display when the table is filtered, but no rows are found."
-              },
-              {
-                "key": "empty",
-                "value": {
-                  "name": "signature",
-                  "type": "object",
-                  "raw": "{\n  /**\n   * The heading to display in the empty state.\n   */\n  heading?: string\n  /**\n   * The description to display in the empty state.\n   */\n  description?: string\n  /**\n   * A custom component to display in the empty state, if provided it will override the heading and description.\n   */\n  custom?: React.ReactNode\n}",
-                  "signature": {
-                    "properties": [
-                      {
-                        "key": "heading",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The heading to display in the empty state."
-                      },
-                      {
-                        "key": "description",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The description to display in the empty state."
-                      },
-                      {
-                        "key": "custom",
-                        "value": {
-                          "name": "ReactReactNode",
-                          "raw": "React.ReactNode",
-                          "required": false
-                        },
-                        "description": "A custom component to display in the empty state, if provided it will override the heading and description."
-                      }
-                    ]
-                  },
-                  "required": false
-                },
-                "description": "The empty state to display when the table is empty."
-              }
-            ]
-          }
+        "description": "",
+        "defaultValue": {
+          "value": "true"
         },
-        "description": "The empty state to display when the table is empty."
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "min": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "max": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "step": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
       }
     }
   },
   "DataTable": {
-    "description": "This component creates a data table with filters, pagination, sorting, and more.\nIt's built on top of the `Table` component while expanding its functionality.\nThe `DataTable` is useful to create tables similar to those in the Medusa Admin dashboard.",
-    "methods": [],
     "displayName": "DataTable",
-    "props": {
-      "instance": {
-        "required": true,
-        "tsType": {
-          "name": "UseDataTableReturn",
-          "elements": [
-            {
-              "name": "TData"
-            }
-          ],
-          "raw": "UseDataTableReturn<TData>"
-        },
-        "description": "The instance returned by the `useDataTable` hook."
-      },
-      "children": {
-        "required": false,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "The children of the component."
-      },
-      "className": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "Additional classes to pass to the wrapper `div` of the component."
-      }
-    }
-  },
-  "DataTableColumnVisibilityMenu": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableColumnVisibilityMenu",
-    "props": {
-      "className": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "tooltip": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableContextProvider": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableContextProvider",
-    "props": {
-      "instance": {
-        "required": true,
-        "tsType": {
-          "name": "UseDataTableReturn",
-          "elements": [
-            {
-              "name": "TData"
-            }
-          ],
-          "raw": "UseDataTableReturn<TData>"
-        },
-        "description": ""
-      },
-      "children": {
-        "required": true,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableEmptyStateDisplay": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableEmptyStateDisplay",
-    "props": {
-      "state": {
-        "required": true,
-        "tsType": {
-          "name": "DataTableEmptyState"
-        },
-        "description": ""
-      },
-      "props": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "object",
-          "raw": "{\n  /**\n   * The empty state to display when the table is filtered, but no rows are found.\n   */\n  filtered?: DataTableEmptyStateContent\n  /**\n   * The empty state to display when the table is empty.\n   */\n  empty?: DataTableEmptyStateContent\n}",
-          "signature": {
-            "properties": [
-              {
-                "key": "filtered",
-                "value": {
-                  "name": "signature",
-                  "type": "object",
-                  "raw": "{\n  /**\n   * The heading to display in the empty state.\n   */\n  heading?: string\n  /**\n   * The description to display in the empty state.\n   */\n  description?: string\n  /**\n   * A custom component to display in the empty state, if provided it will override the heading and description.\n   */\n  custom?: React.ReactNode\n}",
-                  "signature": {
-                    "properties": [
-                      {
-                        "key": "heading",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The heading to display in the empty state."
-                      },
-                      {
-                        "key": "description",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The description to display in the empty state."
-                      },
-                      {
-                        "key": "custom",
-                        "value": {
-                          "name": "ReactReactNode",
-                          "raw": "React.ReactNode",
-                          "required": false
-                        },
-                        "description": "A custom component to display in the empty state, if provided it will override the heading and description."
-                      }
-                    ]
-                  },
-                  "required": false
-                },
-                "description": "The empty state to display when the table is filtered, but no rows are found."
-              },
-              {
-                "key": "empty",
-                "value": {
-                  "name": "signature",
-                  "type": "object",
-                  "raw": "{\n  /**\n   * The heading to display in the empty state.\n   */\n  heading?: string\n  /**\n   * The description to display in the empty state.\n   */\n  description?: string\n  /**\n   * A custom component to display in the empty state, if provided it will override the heading and description.\n   */\n  custom?: React.ReactNode\n}",
-                  "signature": {
-                    "properties": [
-                      {
-                        "key": "heading",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The heading to display in the empty state."
-                      },
-                      {
-                        "key": "description",
-                        "value": {
-                          "name": "string",
-                          "required": false
-                        },
-                        "description": "The description to display in the empty state."
-                      },
-                      {
-                        "key": "custom",
-                        "value": {
-                          "name": "ReactReactNode",
-                          "raw": "React.ReactNode",
-                          "required": false
-                        },
-                        "description": "A custom component to display in the empty state, if provided it will override the heading and description."
-                      }
-                    ]
-                  },
-                  "required": false
-                },
-                "description": "The empty state to display when the table is empty."
-              }
-            ]
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterBarSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterBarSkeleton",
-    "props": {
-      "filterCount": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterCustomContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterCustomContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": true,
-        "tsType": {
-          "name": "any"
-        },
-        "description": ""
-      },
-      "onRemove": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "() => void",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      },
-      "render": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(props: {\n  value: any\n  onChange: (value: any) => void\n  onRemove: () => void\n}) => React.ReactNode",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "signature",
-                  "type": "object",
-                  "raw": "{\n  value: any\n  onChange: (value: any) => void\n  onRemove: () => void\n}",
-                  "signature": {
-                    "properties": [
-                      {
-                        "key": "value",
-                        "value": {
-                          "name": "any",
-                          "required": true
-                        }
-                      },
-                      {
-                        "key": "onChange",
-                        "value": {
-                          "name": "signature",
-                          "type": "function",
-                          "raw": "(value: any) => void",
-                          "signature": {
-                            "arguments": [
-                              {
-                                "type": {
-                                  "name": "any"
-                                },
-                                "name": "value"
-                              }
-                            ],
-                            "return": {
-                              "name": "void"
-                            }
-                          },
-                          "required": true
-                        }
-                      },
-                      {
-                        "key": "onRemove",
-                        "value": {
-                          "name": "signature",
-                          "type": "function",
-                          "raw": "() => void",
-                          "signature": {
-                            "arguments": [],
-                            "return": {
-                              "name": "void"
-                            }
-                          },
-                          "required": true
-                        }
-                      }
-                    ]
-                  }
-                },
-                "name": "props"
-              }
-            ],
-            "return": {
-              "name": "ReactReactNode",
-              "raw": "React.ReactNode"
-            }
-          }
-        },
-        "description": ""
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterDateContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterDateContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": true,
-        "tsType": {
-          "name": "unknown"
-        },
-        "description": ""
-      },
-      "options": {
-        "required": true,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "DataTableFilterOption",
-              "elements": [
-                {
-                  "name": "DataTableDateComparisonOperator"
-                }
-              ],
-              "raw": "DataTableFilterOption<DataTableDateComparisonOperator>"
-            }
-          ],
-          "raw": "DataTableFilterOption<DataTableDateComparisonOperator>[]"
-        },
-        "description": ""
-      },
-      "isCustomRange": {
-        "required": true,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": ""
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      },
-      "format": {
-        "defaultValue": {
-          "value": "\"date\"",
-          "computed": false
-        },
-        "description": "",
-        "tsType": {
-          "name": "union",
-          "raw": "\"date\" \\| \"date-time\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"date\""
-            },
-            {
-              "name": "literal",
-              "value": "\"date-time\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "rangeOptionLabel": {
-        "defaultValue": {
-          "value": "\"Custom\"",
-          "computed": false
-        },
-        "description": "",
-        "tsType": {
-          "name": "string"
-        },
-        "required": false
-      },
-      "rangeOptionStartLabel": {
-        "defaultValue": {
-          "value": "\"Starting\"",
-          "computed": false
-        },
-        "description": "",
-        "tsType": {
-          "name": "string"
-        },
-        "required": false
-      },
-      "rangeOptionEndLabel": {
-        "defaultValue": {
-          "value": "\"Ending\"",
-          "computed": false
-        },
-        "description": "",
-        "tsType": {
-          "name": "string"
-        },
-        "required": false
-      },
-      "disableRangeOption": {
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        },
-        "description": "",
-        "tsType": {
-          "name": "boolean"
-        },
-        "required": false
-      }
-    }
-  },
-  "DataTableFilterMenuSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterMenuSkeleton",
+    "description": "A component for working with data table values in Minima Vue.",
     "props": {}
-  },
-  "DataTableFilterMultiselectContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterMultiselectContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": false,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "string"
-            }
-          ],
-          "raw": "string[]"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "options": {
-        "required": true,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "DataTableFilterOption",
-              "elements": [
-                {
-                  "name": "string"
-                }
-              ],
-              "raw": "DataTableFilterOption<string>"
-            }
-          ],
-          "raw": "DataTableFilterOption<string>[]"
-        },
-        "description": ""
-      },
-      "searchable": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterNumberContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterNumberContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": true,
-        "tsType": {
-          "name": "any"
-        },
-        "description": ""
-      },
-      "placeholder": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "\"Enter number...\"",
-          "computed": false
-        }
-      },
-      "includeOperators": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterRadioContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterRadioContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": true,
-        "tsType": {
-          "name": "unknown"
-        },
-        "description": ""
-      },
-      "options": {
-        "required": true,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "DataTableFilterOption",
-              "elements": [
-                {
-                  "name": "string"
-                }
-              ],
-              "raw": "DataTableFilterOption<string>"
-            }
-          ],
-          "raw": "DataTableFilterOption<string>[]"
-        },
-        "description": ""
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterSelectContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterSelectContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": false,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "string"
-            }
-          ],
-          "raw": "string[]"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "options": {
-        "required": true,
-        "tsType": {
-          "name": "Array",
-          "elements": [
-            {
-              "name": "DataTableFilterOption",
-              "elements": [
-                {
-                  "name": "string"
-                }
-              ],
-              "raw": "DataTableFilterOption<string>"
-            }
-          ],
-          "raw": "DataTableFilterOption<string>[]"
-        },
-        "description": ""
-      },
-      "isNew": {
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableFilterStringContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableFilterStringContent",
-    "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "filter": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": ""
-      },
-      "placeholder": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "\"Enter value...\"",
-          "computed": false
-        }
-      },
-      "onUpdate": {
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: unknown) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "unknown"
-                },
-                "name": "value"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableNonSortableHeaderCell": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableNonSortableHeaderCell",
-    "props": {}
-  },
-  "DataTablePaginationSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTablePaginationSkeleton",
-    "props": {}
-  },
-  "DataTableSearchSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableSearchSkeleton",
-    "props": {}
-  },
-  "DataTableSelectHeader": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableSelectHeader",
-    "props": {
-      "ctx": {
-        "required": true,
-        "tsType": {
-          "name": "DataTableHeaderContext",
-          "elements": [
-            {
-              "name": "TData"
-            },
-            {
-              "name": "unknown"
-            }
-          ],
-          "raw": "DataTableHeaderContext<TData, unknown>"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DataTableSortableHeaderCell": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableSortableHeaderCell",
-    "props": {}
-  },
-  "DataTableSortingMenuSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableSortingMenuSkeleton",
-    "props": {}
-  },
-  "DataTableTableSkeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DataTableTableSkeleton",
-    "props": {
-      "pageSize": {
-        "required": false,
-        "tsType": {
-          "name": "number"
-        },
-        "description": "",
-        "defaultValue": {
-          "value": "10",
-          "computed": false
-        }
-      }
-    }
   },
   "DataTableToolbar": {
-    "description": "Toolbar shown for the data table.",
-    "methods": [],
     "displayName": "DataTableToolbar",
-    "props": {
-      "className": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "Additional classes to pass to the wrapper `div` of the component."
-      },
-      "children": {
-        "required": false,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "The children to show in the toolbar."
-      },
-      "translations": {
-        "required": false,
-        "tsType": {
-          "name": "DataTableToolbarTranslations"
-        },
-        "description": "The translations of strings in the toolbar."
-      },
-      "filterBarContent": {
-        "required": false,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "Custom content to render in the filter bar"
-      }
-    }
+    "props": {}
+  },
+  "DataTableTable": {
+    "displayName": "DataTableTable",
+    "props": {}
+  },
+  "DataTablePagination": {
+    "displayName": "DataTablePagination",
+    "props": {}
+  },
+  "DataTableSearch": {
+    "displayName": "DataTableSearch",
+    "props": {}
+  },
+  "DataTableFilterMenu": {
+    "displayName": "DataTableFilterMenu",
+    "props": {}
+  },
+  "DataTableSortingMenu": {
+    "displayName": "DataTableSortingMenu",
+    "props": {}
+  },
+  "DataTableCommandBar": {
+    "displayName": "DataTableCommandBar",
+    "props": {}
   },
   "DatePicker": {
-    "description": "",
-    "methods": [],
     "displayName": "DatePicker",
-    "props": {
-      "aria-describedby": {
-        "description": "Identifies the element (or elements) that describes the object.",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "aria-details": {
-        "description": "Identifies the element (or elements) that provide a detailed, extended description for the object.",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "aria-label": {
-        "description": "Defines a string value that labels the current element.",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "aria-labelledby": {
-        "description": "Identifies the element (or elements) that labels the current element.",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "autoComplete": {
-        "description": "Describes the type of autocomplete functionality the input should provide if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete).",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "autoFocus": {
-        "description": "Whether the element should receive focus on render.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "defaultOpen": {
-        "description": "Whether the overlay is open by default (uncontrolled).",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "description": {
-        "description": "A description for the field. Provides a hint such as specific requirements for what to choose.",
-        "required": false,
-        "tsType": {
-          "name": "ReactNode",
-          "elements": [],
-          "raw": "ReactNode"
-        }
-      },
-      "errorMessage": {
-        "description": "An error message for the field.",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "ReactNode \\| (v: ValidationResult) => ReactNode",
-          "elements": [
-            {
-              "name": "ReactNode",
-              "elements": [],
-              "raw": "ReactNode"
-            },
-            {
-              "name": "signature",
-              "type": "function",
-              "raw": "(v: ValidationResult) => ReactNode",
-              "signature": {
-                "arguments": [
-                  {
-                    "name": "v",
-                    "type": {
-                      "name": "ValidationResult"
-                    },
-                    "rest": false
-                  }
-                ],
-                "return": {
-                  "name": "ReactNode"
-                }
-              }
-            }
-          ]
-        }
-      },
-      "firstDayOfWeek": {
-        "description": "The day that starts the week.",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"sun\" \\| \"mon\" \\| \"tue\" \\| \"wed\" \\| \"thu\" \\| \"fri\" \\| \"sat\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"sun\""
-            },
-            {
-              "name": "literal",
-              "value": "\"mon\""
-            },
-            {
-              "name": "literal",
-              "value": "\"tue\""
-            },
-            {
-              "name": "literal",
-              "value": "\"wed\""
-            },
-            {
-              "name": "literal",
-              "value": "\"thu\""
-            },
-            {
-              "name": "literal",
-              "value": "\"fri\""
-            },
-            {
-              "name": "literal",
-              "value": "\"sat\""
-            }
-          ]
-        }
-      },
-      "form": {
-        "description": "The `<form>` element to associate the input with.\nThe value of this attribute must be the id of a `<form>` in the same document.\nSee [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#form).",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "hideTimeZone": {
-        "description": "Whether to hide the time zone abbreviation.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "hourCycle": {
-        "description": "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale.",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "12 \\| 24",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "12"
-            },
-            {
-              "name": "literal",
-              "value": "24"
-            }
-          ]
-        }
-      },
-      "id": {
-        "description": "The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id).",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "isDisabled": {
-        "description": "Whether the input is disabled.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "isInvalid": {
-        "description": "Whether the input value is invalid.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "isOpen": {
-        "description": "Whether the overlay is open by default (controlled).",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "isReadOnly": {
-        "description": "Whether the input can be selected but not changed by the user.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "isRequired": {
-        "description": "Whether user input is required on the input before form submission.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "label": {
-        "description": "The content to display as the label.",
-        "required": false,
-        "tsType": {
-          "name": "ReactNode",
-          "elements": [],
-          "raw": "ReactNode"
-        }
-      },
-      "name": {
-        "description": "The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname).",
-        "required": false,
-        "tsType": {
-          "name": "string"
-        }
-      },
-      "onBlur": {
-        "description": "Handler that is called when the element loses focus.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(e: FocusEvent&#60;Element, Element&#62;) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "e",
-                "type": {
-                  "name": "FocusEvent",
-                  "elements": [
-                    {
-                      "name": "Element"
-                    },
-                    {
-                      "name": "Element"
-                    }
-                  ]
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "onFocus": {
-        "description": "Handler that is called when the element receives focus.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(e: FocusEvent&#60;Element, Element&#62;) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "e",
-                "type": {
-                  "name": "FocusEvent",
-                  "elements": [
-                    {
-                      "name": "Element"
-                    },
-                    {
-                      "name": "Element"
-                    }
-                  ]
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "onFocusChange": {
-        "description": "Handler that is called when the element's focus status changes.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(isFocused: boolean) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "isFocused",
-                "type": {
-                  "name": "boolean"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "onKeyDown": {
-        "description": "Handler that is called when a key is pressed.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(e: KeyboardEvent) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "e",
-                "type": {
-                  "name": "KeyboardEvent",
-                  "raw": "KeyboardEvent",
-                  "elements": []
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "onKeyUp": {
-        "description": "Handler that is called when a key is released.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(e: KeyboardEvent) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "e",
-                "type": {
-                  "name": "KeyboardEvent",
-                  "raw": "KeyboardEvent",
-                  "elements": []
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "onOpenChange": {
-        "description": "Handler that is called when the overlay's open state changes.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(isOpen: boolean) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "isOpen",
-                "type": {
-                  "name": "boolean"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "pageBehavior": {
-        "description": "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.",
-        "required": false,
-        "tsType": {
-          "name": "PageBehavior",
-          "elements": [],
-          "raw": "PageBehavior"
-        }
-      },
-      "placeholderValue": {
-        "description": "A placeholder date that influences the format of the placeholder shown when no value is selected. Defaults to today's date at midnight.",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "null \\| CalendarDate \\| CalendarDateTime",
-          "elements": [
-            {
-              "name": "null"
-            },
-            {
-              "name": "CalendarDate",
-              "elements": [],
-              "raw": "CalendarDate"
-            },
-            {
-              "name": "CalendarDateTime",
-              "elements": [],
-              "raw": "CalendarDateTime"
-            }
-          ]
-        }
-      },
-      "shouldForceLeadingZeros": {
-        "description": "Whether to always show leading zeros in the month, day, and hour fields.\nBy default, this is determined by the user's locale.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "validate": {
-        "description": "A function that returns an error message if a given value is invalid.\nValidation errors are displayed to the user when the form is submitted\nif `validationBehavior=\"native\"`. For realtime validation, use the `isInvalid`\nprop instead.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: CalendarDate \\| CalendarDateTime) => undefined \\| null \\| true \\| ValidationError",
-          "signature": {
-            "arguments": [
-              {
-                "name": "value",
-                "type": {
-                  "name": "union",
-                  "raw": "CalendarDate \\| CalendarDateTime",
-                  "elements": [
-                    {
-                      "name": "CalendarDate"
-                    },
-                    {
-                      "name": "CalendarDateTime"
-                    }
-                  ]
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "union",
-              "raw": "undefined \\| null \\| true \\| ValidationError",
-              "elements": [
-                {
-                  "name": "undefined"
-                },
-                {
-                  "name": "null"
-                },
-                {
-                  "name": "true"
-                },
-                {
-                  "name": "ValidationError"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "validationBehavior": {
-        "description": "Whether to use native HTML form validation to prevent form submission\nwhen the value is missing or invalid, or mark the field as required\nor invalid via ARIA.",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"aria\" \\| \"native\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"aria\""
-            },
-            {
-              "name": "literal",
-              "value": "\"native\""
-            }
-          ]
-        }
-      }
-    }
+    "description": "A component for working with date picker values in Minima Vue.",
+    "props": {}
   },
   "DatePickerButton": {
-    "description": "",
-    "methods": [],
     "displayName": "DatePickerButton",
     "props": {
       "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
+        "required": false,
         "description": "",
-        "required": false
-      }
-    }
-  },
-  "DatePickerClearButton": {
-    "description": "",
-    "methods": [],
-    "displayName": "DatePickerClearButton",
-    "props": {
-      "type": {
-        "defaultValue": {
-          "value": "\"button\"",
-          "computed": false
-        },
-        "description": "",
-        "required": false
+        "tsType": {
+          "raw": "\"base\" | \"small\"",
+          "name": "\"base\" | \"small\""
+        }
       }
     }
   },
   "DatePickerField": {
-    "description": "",
-    "methods": [],
     "displayName": "DatePickerField",
     "props": {
       "size": {
         "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"base\""
+        },
         "tsType": {
-          "name": "union",
           "raw": "\"base\" | \"small\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            }
-          ]
-        },
+          "name": "\"base\" | \"small\""
+        }
+      },
+      "modelValue": {
+        "required": false,
         "description": "",
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+        "tsType": {
+          "raw": "DateValue | null",
+          "name": "DateValue | null"
         }
-      }
-    },
-    "composes": [
-      "AriaDatePickerProps"
-    ]
-  },
-  "DateSegment": {
-    "description": "",
-    "methods": [],
-    "displayName": "DateSegment",
-    "props": {
-      "segment": {
-        "required": true,
-        "tsType": {
-          "name": "Segment"
-        },
-        "description": ""
       },
-      "state": {
-        "required": true,
-        "tsType": {
-          "name": "DateFieldState"
-        },
-        "description": ""
-      }
-    }
-  },
-  "DefaultEmptyStateContent": {
-    "description": "",
-    "methods": [],
-    "displayName": "DefaultEmptyStateContent",
-    "props": {
-      "heading": {
+      "defaultValue": {
         "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The heading to display in the empty state."
-      },
-      "description": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The description to display in the empty state."
-      },
-      "custom": {
-        "required": false,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "A custom component to display in the empty state, if provided it will override the heading and description."
-      }
-    }
-  },
-  "Divider": {
-    "description": "",
-    "methods": [],
-    "displayName": "Divider",
-    "props": {
-      "orientation": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"horizontal\" | \"vertical\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"horizontal\""
-            },
-            {
-              "name": "literal",
-              "value": "\"vertical\""
-            }
-          ]
-        },
         "description": "",
-        "defaultValue": {
-          "value": "\"horizontal\"",
-          "computed": false
+        "tsType": {
+          "raw": "DateValue | null",
+          "name": "DateValue | null"
         }
       },
-      "variant": {
+      "granularity": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"dashed\" | \"solid\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"dashed\""
-            },
-            {
-              "name": "literal",
-              "value": "\"solid\""
-            }
-          ]
-        },
         "description": "",
-        "defaultValue": {
-          "value": "\"solid\"",
-          "computed": false
+        "tsType": {
+          "raw": "\"day\" | \"hour\" | \"minute\" | \"second\"",
+          "name": "\"day\" | \"hour\" | \"minute\" | \"second\""
         }
-      }
-    },
-    "composes": [
-      "Omit"
-    ]
-  },
-  "Drawer.Body": {
-    "description": "This component is used to wrap the body content of the drawer.\nThis component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "Drawer.Body",
-    "props": {}
-  },
-  "Drawer.Close": {
-    "description": "This component is used to create the close button for the drawer.\nIt accepts props from the [Radix UI Dialog Close](https://www.radix-ui.com/primitives/docs/components/dialog#close) component.",
-    "methods": [],
-    "displayName": "Drawer.Close",
-    "props": {}
-  },
-  "Drawer.Content": {
-    "description": "This component wraps the content of the drawer.\nIt accepts props from the [Radix UI Dialog Content](https://www.radix-ui.com/primitives/docs/components/dialog#content) component.",
-    "methods": [],
-    "displayName": "Drawer.Content",
-    "props": {
-      "overlayProps": {
+      },
+      "hourCycle": {
         "required": false,
-        "tsType": {
-          "name": "ReactComponentPropsWithoutRef",
-          "raw": "React.ComponentPropsWithoutRef<typeof DrawerOverlay>",
-          "elements": [
-            {
-              "name": "DrawerOverlay"
-            }
-          ]
-        },
-        "description": "Props for the overlay component.\nIt accepts props from the [Radix UI Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/dialog#overlay) component."
-      },
-      "portalProps": {
-        "required": false,
-        "tsType": {
-          "name": "ReactComponentPropsWithoutRef",
-          "raw": "React.ComponentPropsWithoutRef<typeof DrawerPortal>",
-          "elements": [
-            {
-              "name": "DrawerPortal"
-            }
-          ]
-        },
-        "description": "Props for the portal component that wraps the drawer content.\nIt accepts props from the [Radix UI Dialog Portal](https://www.radix-ui.com/primitives/docs/components/dialog#portal) component."
-      }
-    }
-  },
-  "Drawer.Description": {
-    "description": "This component adds accessible description to the drawer.\nIt accepts props from the [Radix UI Dialog Description](https://www.radix-ui.com/primitives/docs/components/dialog#description) component.",
-    "methods": [],
-    "displayName": "Drawer.Description",
-    "props": {}
-  },
-  "Drawer.Footer": {
-    "description": "This component is used to wrap the footer content of the drawer.\nThis component is based on the `div` element and supports all of its props.",
-    "methods": [],
-    "displayName": "Drawer.Footer",
-    "props": {}
-  },
-  "Drawer.Header": {
-    "description": "This component is used to wrap the header content of the drawer.\nThis component is based on the `div` element and supports all of its props.",
-    "methods": [],
-    "displayName": "Drawer.Header",
-    "props": {}
-  },
-  "Drawer.Overlay": {
-    "description": "This component is used to create the overlay for the drawer.\nIt accepts props from the [Radix UI Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/dialog#overlay) component.",
-    "methods": [],
-    "displayName": "Drawer.Overlay",
-    "props": {}
-  },
-  "Drawer.Portal": {
-    "description": "The `Drawer.Content` component uses this component to wrap the drawer content.\nIt accepts props from the [Radix UI Dialog Portal](https://www.radix-ui.com/primitives/docs/components/dialog#portal) component.",
-    "methods": [],
-    "displayName": "Drawer.Portal",
-    "props": {}
-  },
-  "Drawer.Title": {
-    "description": "This component adds an accessible title to the drawer.\nIt accepts props from the [Radix UI Dialog Title](https://www.radix-ui.com/primitives/docs/components/dialog#title) component.",
-    "methods": [],
-    "displayName": "Drawer.Title",
-    "props": {}
-  },
-  "Drawer.Trigger": {
-    "description": "This component is used to create the trigger button that opens the drawer.\nIt accepts props from the [Radix UI Dialog Trigger](https://www.radix-ui.com/primitives/docs/components/dialog#trigger) component.",
-    "methods": [],
-    "displayName": "Drawer.Trigger",
-    "props": {}
-  },
-  "Drawer": {
-    "description": "This component is based on the [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) primitives.",
-    "methods": [],
-    "displayName": "Drawer",
-    "props": {}
-  },
-  "DropdownMenu.CheckboxItem": {
-    "description": "This component is based on the [Radix UI Dropdown Menu CheckboxItem](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#checkboxitem) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.CheckboxItem",
-    "props": {}
-  },
-  "DropdownMenu.Content": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Content](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Content",
-    "props": {
-      "sideOffset": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
-        "description": "The space in pixels between the dropdown menu and its trigger element.",
-        "required": false
-      },
-      "collisionPadding": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
-        "description": "The distance in pixels from the boundary edges where collision detection should occur.",
-        "required": false
-      },
-      "align": {
-        "defaultValue": {
-          "value": "\"center\"",
-          "computed": false
-        },
-        "description": "The alignment of the dropdown menu relative to its trigger element.\n\n@defaultValue center",
-        "required": false
-      }
-    }
-  },
-  "DropdownMenu.Group": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Group](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#group) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Group",
-    "props": {}
-  },
-  "DropdownMenu.Hint": {
-    "description": "This component is based on the `span` element and supports all of its props",
-    "methods": [],
-    "displayName": "DropdownMenu.Hint",
-    "props": {}
-  },
-  "DropdownMenu.Item": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Item](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#item) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Item",
-    "props": {}
-  },
-  "DropdownMenu.Label": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Label](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#label) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Label",
-    "props": {}
-  },
-  "DropdownMenu.RadioGroup": {
-    "description": "This component is based on the [Radix UI Dropdown Menu RadioGroup](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radiogroup) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.RadioGroup",
-    "props": {}
-  },
-  "DropdownMenu.RadioItem": {
-    "description": "This component is based on the [Radix UI Dropdown Menu RadioItem](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radioitem) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.RadioItem",
-    "props": {}
-  },
-  "DropdownMenu.Separator": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Separator](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#separator) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Separator",
-    "props": {}
-  },
-  "DropdownMenu.Shortcut": {
-    "description": "This component is based on the `span` element and supports all of its props",
-    "methods": [],
-    "displayName": "DropdownMenu.Shortcut",
-    "props": {}
-  },
-  "DropdownMenu.SubMenu": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Sub](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#sub) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.SubMenu",
-    "props": {}
-  },
-  "DropdownMenu.SubMenuContent": {
-    "description": "This component is based on the [Radix UI Dropdown Menu SubContent](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subcontent) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.SubMenuContent",
-    "props": {
-      "collisionPadding": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
         "description": "",
-        "required": false
-      }
-    }
-  },
-  "DropdownMenu.SubMenuTrigger": {
-    "description": "This component is based on the [Radix UI Dropdown Menu SubTrigger](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subtrigger) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.SubMenuTrigger",
-    "props": {}
-  },
-  "DropdownMenu.Trigger": {
-    "description": "This component is based on the [Radix UI Dropdown Menu Trigger](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#trigger) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu.Trigger",
-    "props": {}
-  },
-  "DropdownMenu": {
-    "description": "This component is based on the [Radix UI Dropdown Menu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu) primitive.",
-    "methods": [],
-    "displayName": "DropdownMenu",
-    "props": {}
-  },
-  "FocusModal.Body": {
-    "description": "This component is used to wrap the body content of the modal.\nThis component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "FocusModal.Body",
-    "props": {}
-  },
-  "FocusModal.Close": {
-    "description": "This component is used to create the close button for the modal.\nIt accepts props from the [Radix UI Dialog Close](https://www.radix-ui.com/primitives/docs/components/dialog#close) component.",
-    "methods": [],
-    "displayName": "FocusModal.Close",
-    "props": {}
-  },
-  "FocusModal.Content": {
-    "description": "This component wraps the content of the modal.\nIt accepts props from the [Radix UI Dialog Content](https://www.radix-ui.com/primitives/docs/components/dialog#content) component.",
-    "methods": [],
-    "displayName": "FocusModal.Content",
-    "props": {}
-  },
-  "FocusModal.Description": {
-    "description": "This component adds accessible description to the modal.\nIt accepts props from the [Radix UI Dialog Description](https://www.radix-ui.com/primitives/docs/components/dialog#description) component.",
-    "methods": [],
-    "displayName": "FocusModal.Description",
-    "props": {}
-  },
-  "FocusModal.Footer": {
-    "description": "This component is used to wrap the footer content of the modal.\nThis component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "FocusModal.Footer",
-    "props": {}
-  },
-  "FocusModal.Header": {
-    "description": "This component is used to wrap the header content of the modal.\nThis component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "FocusModal.Header",
-    "props": {}
-  },
-  "FocusModal.Overlay": {
-    "description": "This component is used to create the overlay for the modal.\nIt accepts props from the [Radix UI Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/dialog#overlay) component.",
-    "methods": [],
-    "displayName": "FocusModal.Overlay",
-    "props": {}
-  },
-  "FocusModal.Portal": {
-    "description": "The `FocusModal.Content` component uses this component to wrap the modal content.\nIt accepts props from the [Radix UI Dialog Portal](https://www.radix-ui.com/primitives/docs/components/dialog#portal) component.",
-    "methods": [],
-    "displayName": "FocusModal.Portal",
-    "props": {}
-  },
-  "FocusModal.Title": {
-    "description": "This component adds an accessible title to the modal.\nIt accepts props from the [Radix UI Dialog Title](https://www.radix-ui.com/primitives/docs/components/dialog#title) component.",
-    "methods": [],
-    "displayName": "FocusModal.Title",
-    "props": {}
-  },
-  "FocusModal.Trigger": {
-    "description": "This component is used to create the trigger button that opens the modal.\nIt accepts props from the [Radix UI Dialog Trigger](https://www.radix-ui.com/primitives/docs/components/dialog#trigger) component.",
-    "methods": [],
-    "displayName": "FocusModal.Trigger",
-    "props": {}
-  },
-  "FocusModal": {
-    "description": "This component is based on the [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) primitives.",
-    "methods": [],
-    "displayName": "FocusModal",
-    "props": {
-      "defaultOpen": {
-        "description": "Whether the modal is opened by default.",
-        "required": false,
         "tsType": {
-          "name": "boolean"
-        }
-      },
-      "open": {
-        "description": "Whether the modal is opened.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "onOpenChange": {
-        "description": "A function to handle when the modal is opened or closed.",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(open: boolean) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "open",
-                "type": {
-                  "name": "boolean"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      }
-    }
-  },
-  "Heading": {
-    "description": "This component is based on the heading element (`h1`, `h2`, etc...) depeneding on the specified level\nand supports all of its props",
-    "methods": [],
-    "displayName": "Heading",
-    "props": {
-      "level": {
-        "defaultValue": {
-          "value": "\"h1\"",
-          "computed": false
-        },
-        "description": "The heading level which specifies which heading element is used.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"h1\" \\| \"h2\" \\| \"h3\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"h1\""
-            },
-            {
-              "name": "literal",
-              "value": "\"h2\""
-            },
-            {
-              "name": "literal",
-              "value": "\"h3\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "VariantProps"
-    ]
-  },
-  "Hint": {
-    "description": "",
-    "methods": [],
-    "displayName": "Hint",
-    "props": {
-      "variant": {
-        "defaultValue": {
-          "value": "\"info\"",
-          "computed": false
-        },
-        "description": "The hint's style.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"error\" \\| \"info\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"error\""
-            },
-            {
-              "name": "literal",
-              "value": "\"info\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "VariantProps"
-    ]
-  },
-  "I18nProvider": {
-    "description": "",
-    "methods": [],
-    "displayName": "I18nProvider",
-    "composes": [
-      "Props"
-    ],
-    "props": {
-      "children": {
-        "description": "Contents that should have the locale applied.",
-        "required": true,
-        "tsType": {
-          "name": "ReactNode",
-          "elements": [],
-          "raw": "ReactNode"
+          "raw": "12 | 24",
+          "name": "12 | 24"
         }
       },
       "locale": {
-        "description": "The locale to apply to the children.",
         "required": false,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
+        }
+      },
+      "disabled": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "readonly": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "minValue": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "DateValue",
+          "name": "DateValue"
+        }
+      },
+      "maxValue": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "DateValue",
+          "name": "DateValue"
+        }
+      },
+      "placeholder": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "DateValue",
+          "name": "DateValue"
+        }
+      }
+    }
+  },
+  "DatePickerClearButton": {
+    "displayName": "DatePickerClearButton",
+    "props": {}
+  },
+  "DateSegment": {
+    "displayName": "DateSegment",
+    "description": "A component for working with date segment values in Minima Vue.",
+    "props": {}
+  },
+  "Drawer": {
+    "displayName": "Drawer",
+    "description": "A component for working with drawer values in Minima Vue.",
+    "props": {}
+  },
+  "DrawerTrigger": {
+    "displayName": "DrawerTrigger",
+    "props": {}
+  },
+  "DrawerContent": {
+    "displayName": "DrawerContent",
+    "props": {}
+  },
+  "DrawerHeader": {
+    "displayName": "DrawerHeader",
+    "props": {}
+  },
+  "DrawerTitle": {
+    "displayName": "DrawerTitle",
+    "props": {}
+  },
+  "DrawerDescription": {
+    "displayName": "DrawerDescription",
+    "props": {}
+  },
+  "DrawerBody": {
+    "displayName": "DrawerBody",
+    "props": {}
+  },
+  "DrawerFooter": {
+    "displayName": "DrawerFooter",
+    "props": {}
+  },
+  "DrawerClose": {
+    "displayName": "DrawerClose",
+    "props": {}
+  },
+  "DropdownMenu": {
+    "displayName": "DropdownMenu",
+    "description": "A component for working with dropdown menu values in Minima Vue.",
+    "props": {}
+  },
+  "DropdownMenuTrigger": {
+    "displayName": "DropdownMenuTrigger",
+    "props": {}
+  },
+  "DropdownMenuGroup": {
+    "displayName": "DropdownMenuGroup",
+    "props": {}
+  },
+  "DropdownMenuSubMenu": {
+    "displayName": "DropdownMenuSubMenu",
+    "props": {}
+  },
+  "DropdownMenuRadioGroup": {
+    "displayName": "DropdownMenuRadioGroup",
+    "props": {}
+  },
+  "DropdownMenuSubTrigger": {
+    "displayName": "DropdownMenuSubTrigger",
+    "props": {}
+  },
+  "DropdownMenuSubContent": {
+    "displayName": "DropdownMenuSubContent",
+    "props": {}
+  },
+  "DropdownMenuContent": {
+    "displayName": "DropdownMenuContent",
+    "props": {
+      "sideOffset": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "8"
+        },
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "collisionPadding": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "8"
+        },
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "align": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"center\""
+        },
+        "tsType": {
+          "raw": "\"start\" | \"center\" | \"end\"",
+          "name": "\"start\" | \"center\" | \"end\""
+        }
+      },
+      "side": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"bottom\""
+        },
+        "tsType": {
+          "raw": "\"bottom\" | \"left\" | \"top\" | \"right\"",
+          "name": "\"bottom\" | \"left\" | \"top\" | \"right\""
+        }
+      }
+    }
+  },
+  "DropdownMenuItem": {
+    "displayName": "DropdownMenuItem",
+    "props": {}
+  },
+  "DropdownMenuCheckboxItem": {
+    "displayName": "DropdownMenuCheckboxItem",
+    "props": {}
+  },
+  "DropdownMenuRadioItem": {
+    "displayName": "DropdownMenuRadioItem",
+    "props": {}
+  },
+  "DropdownMenuLabel": {
+    "displayName": "DropdownMenuLabel",
+    "props": {}
+  },
+  "DropdownMenuSeparator": {
+    "displayName": "DropdownMenuSeparator",
+    "props": {}
+  },
+  "DropdownMenuShortcut": {
+    "displayName": "DropdownMenuShortcut",
+    "props": {}
+  },
+  "DropdownMenuHint": {
+    "displayName": "DropdownMenuHint",
+    "props": {}
+  },
+  "FocusModal": {
+    "displayName": "FocusModal",
+    "description": "A component for working with focus modal values in Minima Vue.",
+    "props": {}
+  },
+  "FocusModalTrigger": {
+    "displayName": "FocusModalTrigger",
+    "props": {}
+  },
+  "FocusModalContent": {
+    "displayName": "FocusModalContent",
+    "props": {}
+  },
+  "FocusModalHeader": {
+    "displayName": "FocusModalHeader",
+    "props": {}
+  },
+  "FocusModalTitle": {
+    "displayName": "FocusModalTitle",
+    "props": {}
+  },
+  "FocusModalBody": {
+    "displayName": "FocusModalBody",
+    "props": {}
+  },
+  "FocusModalFooter": {
+    "displayName": "FocusModalFooter",
+    "props": {}
+  },
+  "Heading": {
+    "displayName": "Heading",
+    "description": "A component for working with heading values in Minima Vue.",
+    "props": {}
+  },
+  "Hint": {
+    "displayName": "Hint",
+    "description": "A component for working with hint values in Minima Vue.",
+    "props": {
+      "variant": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"info\""
+        },
+        "tsType": {
+          "raw": "\"info\" | \"error\"",
+          "name": "\"info\" | \"error\""
         }
       }
     }
   },
   "IconBadge": {
-    "description": "This component is based on the `span` element and supports all of its props",
-    "methods": [],
     "displayName": "IconBadge",
+    "description": "A component for working with icon badge values in Minima Vue.",
     "props": {
       "asChild": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `span` element and use the\npassed child element instead.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       },
       "color": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"grey\"",
-          "computed": false
+          "value": "\"grey\""
         },
-        "description": "The badge's color.",
         "tsType": {
-          "name": "union",
-          "raw": "\"green\" \\| \"red\" \\| \"blue\" \\| \"orange\" \\| \"grey\" \\| \"purple\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"green\""
-            },
-            {
-              "name": "literal",
-              "value": "\"red\""
-            },
-            {
-              "name": "literal",
-              "value": "\"blue\""
-            },
-            {
-              "name": "literal",
-              "value": "\"orange\""
-            },
-            {
-              "name": "literal",
-              "value": "\"grey\""
-            },
-            {
-              "name": "literal",
-              "value": "\"purple\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "\"green\" | \"red\" | \"blue\" | \"orange\" | \"grey\" | \"purple\"",
+          "name": "\"green\" | \"red\" | \"blue\" | \"orange\" | \"grey\" | \"purple\""
+        }
       },
       "size": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "\"base\""
         },
-        "description": "The badge's size.",
         "tsType": {
-          "name": "union",
-          "raw": "\"base\" \\| \"large\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "\"base\" | \"large\"",
+          "name": "\"base\" | \"large\""
+        }
       }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
+    }
   },
   "IconButton": {
-    "description": "This component is based on the `button` element and supports all of its props",
-    "methods": [],
     "displayName": "IconButton",
+    "description": "A component for working with icon button values in Minima Vue.",
     "props": {
+      "variant": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"primary\""
+        },
+        "tsType": {
+          "raw": "IconButtonVariants['variant']",
+          "name": "IconButtonVariants['variant']"
+        }
+      },
+      "size": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"base\""
+        },
+        "tsType": {
+          "raw": "IconButtonVariants['size']",
+          "name": "IconButtonVariants['size']"
+        }
+      },
       "asChild": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `button` element and use the\npassed child element instead.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       },
       "isLoading": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to show a loading spinner.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       },
-      "variant": {
+      "disabled": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"primary\"",
-          "computed": false
+          "value": "false"
         },
-        "description": "The button's style.",
         "tsType": {
-          "name": "union",
-          "raw": "\"primary\" \\| \"transparent\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"primary\""
-            },
-            {
-              "name": "literal",
-              "value": "\"transparent\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The button's size.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"2xsmall\" \\| \"xsmall\" \\| \"small\" \\| \"base\" \\| \"large\" \\| \"xlarge\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"2xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xlarge\""
-            }
-          ]
-        },
-        "required": false
+          "raw": "boolean",
+          "name": "boolean"
+        }
       }
-    },
-    "composes": [
-      "VariantProps"
-    ]
+    }
   },
   "InlineTip": {
-    "description": "This component is based on the `div` element and supports all of its props.",
-    "methods": [],
     "displayName": "InlineTip",
+    "description": "A component for working with inline tip values in Minima Vue.",
     "props": {
       "label": {
         "required": true,
+        "description": "",
         "tsType": {
+          "raw": "string",
           "name": "string"
-        },
-        "description": "The label to display in the tip."
+        }
       },
       "variant": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"info\" | \"warning\" | \"error\" | \"success\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"info\""
-            },
-            {
-              "name": "literal",
-              "value": "\"warning\""
-            },
-            {
-              "name": "literal",
-              "value": "\"error\""
-            },
-            {
-              "name": "literal",
-              "value": "\"success\""
-            }
-          ]
-        },
-        "description": "The variant of the tip.",
+        "description": "",
         "defaultValue": {
-          "value": "\"info\"",
-          "computed": false
+          "value": "\"info\""
+        },
+        "tsType": {
+          "raw": "\"info\" | \"warning\" | \"error\" | \"success\"",
+          "name": "\"info\" | \"warning\" | \"error\" | \"success\""
         }
       }
     }
   },
   "Input": {
-    "description": "This component is based on the `input` element and supports all of its props",
-    "methods": [],
     "displayName": "Input",
-    "props": {
-      "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The input's size.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"small\" \\| \"base\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "VariantProps",
-      "Omit"
-    ]
-  },
-  "InternalCalendar": {
-    "description": "InternalCalendar is the internal implementation of the Calendar component.\nIt's not for public use, but only used for other components like DatePicker.",
-    "methods": [],
-    "displayName": "InternalCalendar",
+    "description": "A component for working with input values in Minima Vue.",
     "props": {}
   },
   "Kbd": {
-    "description": "This component is based on the `kbd` element and supports all of its props",
-    "methods": [],
     "displayName": "Kbd",
+    "description": "A component for working with kbd values in Minima Vue.",
     "props": {}
   },
   "Label": {
-    "description": "This component is based on the [Radix UI Label](https://www.radix-ui.com/primitives/docs/components/label) primitive.",
-    "methods": [],
     "displayName": "Label",
+    "description": "A component for working with label values in Minima Vue.",
     "props": {
       "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The label's size.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"xsmall\" \\| \"small\" \\| \"base\" \\| \"large\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "weight": {
-        "defaultValue": {
-          "value": "\"regular\"",
-          "computed": false
-        },
-        "description": "The label's font weight.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"regular\" \\| \"plus\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"regular\""
-            },
-            {
-              "name": "literal",
-              "value": "\"plus\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "VariantProps"
-    ]
-  },
-  "OptionButton": {
-    "description": "",
-    "methods": [],
-    "displayName": "OptionButton",
-    "props": {
-      "index": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": ""
-      },
-      "option": {
-        "required": true,
-        "tsType": {
-          "name": "DataTableFilterOption",
-          "elements": [
-            {
-              "name": "union",
-              "raw": "string | DataTableDateComparisonOperator",
-              "elements": [
-                {
-                  "name": "string"
-                },
-                {
-                  "name": "DataTableDateComparisonOperator"
-                }
-              ]
-            }
-          ],
-          "raw": "DataTableFilterOption<string | DataTableDateComparisonOperator>"
-        },
-        "description": ""
-      },
-      "isSelected": {
-        "required": true,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": ""
-      },
-      "isFocused": {
-        "required": true,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": ""
-      },
-      "onClick": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "() => void",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      },
-      "onMouseEvent": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(idx: number) => void",
-          "signature": {
-            "arguments": [
-              {
-                "type": {
-                  "name": "number"
-                },
-                "name": "idx"
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": ""
-      },
-      "icon": {
-        "required": true,
-        "tsType": {
-          "name": "ReactElementType",
-          "raw": "React.ElementType"
-        },
-        "description": ""
-      }
-    }
-  },
-  "Popover.Anchor": {
-    "description": "",
-    "methods": [],
-    "displayName": "Popover.Anchor",
-    "props": {}
-  },
-  "Popover.Close": {
-    "description": "",
-    "methods": [],
-    "displayName": "Popover.Close",
-    "props": {}
-  },
-  "Popover.Content": {
-    "description": "",
-    "methods": [],
-    "displayName": "Popover.Content",
-    "props": {
-      "sideOffset": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
-        "description": "The distance in pixels from the anchor.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "side": {
-        "defaultValue": {
-          "value": "\"bottom\"",
-          "computed": false
-        },
-        "description": "The preferred side of the anchor to render against when open.\nWill be reversed when collisions occur and `avoidCollisions` is enabled.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"top\" \\| \"right\" \\| \"bottom\" \\| \"left\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"top\""
-            },
-            {
-              "name": "literal",
-              "value": "\"right\""
-            },
-            {
-              "name": "literal",
-              "value": "\"bottom\""
-            },
-            {
-              "name": "literal",
-              "value": "\"left\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "align": {
-        "defaultValue": {
-          "value": "\"start\"",
-          "computed": false
-        },
-        "description": "The preferred alignment against the anchor. May change when collisions occur.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"center\" \\| \"end\" \\| \"start\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"center\""
-            },
-            {
-              "name": "literal",
-              "value": "\"end\""
-            },
-            {
-              "name": "literal",
-              "value": "\"start\""
-            }
-          ]
-        },
-        "required": false
-      }
-    }
-  },
-  "Popover.Seperator": {
-    "description": "",
-    "methods": [],
-    "displayName": "Popover.Seperator",
-    "props": {}
-  },
-  "Popover.Trigger": {
-    "description": "",
-    "methods": [],
-    "displayName": "Popover.Trigger",
-    "props": {}
-  },
-  "Popover": {
-    "description": "This component is based on the [Radix UI Popover](https://www.radix-ui.com/primitives/docs/components/popover) primitves.",
-    "methods": [],
-    "displayName": "Popover",
-    "props": {}
-  },
-  "ProgressAccordion.Content": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressAccordion.Content",
-    "props": {}
-  },
-  "ProgressAccordion.Header": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressAccordion.Header",
-    "props": {
-      "status": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"not-started\" \\| \"in-progress\" \\| \"completed\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"not-started\""
-            },
-            {
-              "name": "literal",
-              "value": "\"in-progress\""
-            },
-            {
-              "name": "literal",
-              "value": "\"completed\""
-            }
-          ]
-        },
-        "description": "The current status.",
-        "defaultValue": {
-          "value": "\"not-started\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "ProgressAccordion.Item": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressAccordion.Item",
-    "props": {}
-  },
-  "ProgressAccordion.ProgressIndicator": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressAccordion.ProgressIndicator",
-    "props": {
-      "status": {
-        "required": true,
-        "tsType": {
-          "name": "union",
-          "raw": "\"not-started\" \\| \"in-progress\" \\| \"completed\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"not-started\""
-            },
-            {
-              "name": "literal",
-              "value": "\"in-progress\""
-            },
-            {
-              "name": "literal",
-              "value": "\"completed\""
-            }
-          ]
-        },
-        "description": "The current status."
-      }
-    }
-  },
-  "ProgressAccordion": {
-    "description": "This component is based on the [Radix UI Accordion](https://radix-ui.com/primitives/docs/components/accordion) primitves.",
-    "methods": [],
-    "displayName": "ProgressAccordion",
-    "props": {}
-  },
-  "ProgressTabs.Content": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressTabs.Content",
-    "props": {}
-  },
-  "ProgressTabs.List": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressTabs.List",
-    "props": {}
-  },
-  "ProgressTabs.ProgressIndicator": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressTabs.ProgressIndicator",
-    "props": {
-      "status": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"not-started\" \\| \"in-progress\" \\| \"completed\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"not-started\""
-            },
-            {
-              "name": "literal",
-              "value": "\"in-progress\""
-            },
-            {
-              "name": "literal",
-              "value": "\"completed\""
-            }
-          ]
-        },
-        "description": "The current status."
-      }
-    },
-    "composes": [
-      "Omit"
-    ]
-  },
-  "ProgressTabs.Trigger": {
-    "description": "",
-    "methods": [],
-    "displayName": "ProgressTabs.Trigger",
-    "props": {
-      "status": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"not-started\" \\| \"in-progress\" \\| \"completed\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"not-started\""
-            },
-            {
-              "name": "literal",
-              "value": "\"in-progress\""
-            },
-            {
-              "name": "literal",
-              "value": "\"completed\""
-            }
-          ]
-        },
         "description": "",
         "defaultValue": {
-          "value": "\"not-started\"",
-          "computed": false
-        }
-      }
-    },
-    "composes": [
-      "Omit"
-    ]
-  },
-  "ProgressTabs": {
-    "description": "This component is based on the [Radix UI Tabs](https://radix-ui.com/primitives/docs/components/tabs) primitves.",
-    "methods": [],
-    "displayName": "ProgressTabs",
-    "props": {
-      "activationMode": {
-        "description": "Whether a tab is activated automatically or manually.",
-        "required": false,
+          "value": "\"base\""
+        },
         "tsType": {
-          "name": "union",
-          "raw": "\"manual\" \\| \"automatic\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"manual\""
-            },
-            {
-              "name": "literal",
-              "value": "\"automatic\""
-            }
-          ]
+          "raw": "\"xsmall\" | \"small\" | \"base\" | \"large\"",
+          "name": "\"xsmall\" | \"small\" | \"base\" | \"large\""
         }
       },
-      "defaultValue": {
-        "description": "The value of the tab to select by default, if uncontrolled",
+      "weight": {
         "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"regular\""
+        },
         "tsType": {
-          "name": "string"
+          "raw": "\"regular\" | \"plus\"",
+          "name": "\"regular\" | \"plus\""
         }
       },
-      "dir": {
-        "description": "The direction of navigation between toolbar items.",
+      "asChild": {
         "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false"
+        },
         "tsType": {
-          "name": "Direction",
-          "elements": [],
-          "raw": "Direction"
-        }
-      },
-      "onValueChange": {
-        "description": "A function called when a new tab is selected",
-        "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: string) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "value",
-                "type": {
-                  "name": "string"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "orientation": {
-        "description": "The orientation the tabs are layed out.\nMainly so arrow navigation is done accordingly (left & right vs. up & down)",
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"horizontal\" \\| \"vertical\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"horizontal\""
-            },
-            {
-              "name": "literal",
-              "value": "\"vertical\""
-            }
-          ]
-        }
-      },
-      "value": {
-        "description": "The value for the selected tab, if controlled",
-        "required": false,
-        "tsType": {
-          "name": "string"
+          "raw": "boolean",
+          "name": "boolean"
         }
       }
     }
   },
-  "Prompt.Action": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Action",
+  "Popover": {
+    "displayName": "Popover",
+    "description": "A component for working with popover values in Minima Vue.",
     "props": {}
   },
-  "Prompt.Cancel": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Cancel",
+  "PopoverTrigger": {
+    "displayName": "PopoverTrigger",
     "props": {}
   },
-  "Prompt.Content": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Content",
+  "PopoverContent": {
+    "displayName": "PopoverContent",
+    "props": {
+      "sideOffset": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "8"
+        },
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "side": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"bottom\""
+        },
+        "tsType": {
+          "raw": "\"bottom\" | \"left\" | \"top\" | \"right\"",
+          "name": "\"bottom\" | \"left\" | \"top\" | \"right\""
+        }
+      },
+      "align": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"start\""
+        },
+        "tsType": {
+          "raw": "\"start\" | \"center\" | \"end\"",
+          "name": "\"start\" | \"center\" | \"end\""
+        }
+      },
+      "collisionPadding": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "asChild": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      }
+    }
+  },
+  "PopoverSeperator": {
+    "displayName": "PopoverSeperator",
     "props": {}
   },
-  "Prompt.Description": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Description",
+  "ProgressAccordion": {
+    "displayName": "ProgressAccordion",
+    "description": "A component for working with progress accordion values in Minima Vue.",
     "props": {}
   },
-  "Prompt.Footer": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "Prompt.Footer",
+  "ProgressAccordionItem": {
+    "displayName": "ProgressAccordionItem",
     "props": {}
   },
-  "Prompt.Header": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "Prompt.Header",
+  "ProgressAccordionHeader": {
+    "displayName": "ProgressAccordionHeader",
     "props": {}
   },
-  "Prompt.Overlay": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Overlay",
+  "ProgressAccordionContent": {
+    "displayName": "ProgressAccordionContent",
     "props": {}
   },
-  "Prompt.Portal": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Portal",
+  "ProgressAccordionProgressIndicator": {
+    "displayName": "ProgressAccordionProgressIndicator",
     "props": {}
   },
-  "Prompt.Title": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Title",
+  "ProgressTabs": {
+    "displayName": "ProgressTabs",
+    "description": "A component for working with progress tabs values in Minima Vue.",
     "props": {}
   },
-  "Prompt.Trigger": {
-    "description": "",
-    "methods": [],
-    "displayName": "Prompt.Trigger",
+  "ProgressTabsList": {
+    "displayName": "ProgressTabsList",
+    "props": {}
+  },
+  "ProgressTabsTrigger": {
+    "displayName": "ProgressTabsTrigger",
+    "props": {}
+  },
+  "ProgressTabsContent": {
+    "displayName": "ProgressTabsContent",
+    "props": {}
+  },
+  "ProgressTabsProgressIndicator": {
+    "displayName": "ProgressTabsProgressIndicator",
     "props": {}
   },
   "Prompt": {
-    "description": "This component is based on the [Radix UI Alert Dialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog) primitives.",
-    "methods": [],
     "displayName": "Prompt",
-    "props": {
-      "variant": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"danger\" | \"confirmation\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"danger\""
-            },
-            {
-              "name": "literal",
-              "value": "\"confirmation\""
-            }
-          ]
-        },
-        "description": "The variant of the prompt.",
-        "defaultValue": {
-          "value": "\"danger\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "PromptProvider": {
-    "description": "",
-    "methods": [],
-    "displayName": "PromptProvider",
+    "description": "A component for working with prompt values in Minima Vue.",
     "props": {}
   },
-  "RadioGroup.ChoiceBox": {
-    "description": "This component is based on the [Radix UI Radio Group Item](https://www.radix-ui.com/primitives/docs/components/radio-group#item) primitives.",
-    "methods": [],
-    "displayName": "RadioGroup.ChoiceBox",
-    "props": {
-      "label": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The label for the radio button."
-      },
-      "description": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The description for the radio button."
-      },
-      "value": {
-        "description": "The value of the radio button.",
-        "tsType": {
-          "name": "string"
-        }
-      }
-    }
-  },
-  "RadioGroup.Indicator": {
-    "description": "",
-    "methods": [],
-    "displayName": "RadioGroup.Indicator",
+  "PromptTrigger": {
+    "displayName": "PromptTrigger",
     "props": {}
   },
-  "RadioGroup.Item": {
-    "description": "",
-    "methods": [],
-    "displayName": "RadioGroup.Item",
+  "PromptPortal": {
+    "displayName": "PromptPortal",
+    "props": {}
+  },
+  "PromptOverlay": {
+    "displayName": "PromptOverlay",
+    "props": {}
+  },
+  "PromptContent": {
+    "displayName": "PromptContent",
+    "props": {}
+  },
+  "PromptHeader": {
+    "displayName": "PromptHeader",
+    "props": {}
+  },
+  "PromptTitle": {
+    "displayName": "PromptTitle",
+    "props": {}
+  },
+  "PromptDescription": {
+    "displayName": "PromptDescription",
+    "props": {}
+  },
+  "PromptFooter": {
+    "displayName": "PromptFooter",
+    "props": {}
+  },
+  "PromptCancel": {
+    "displayName": "PromptCancel",
+    "props": {}
+  },
+  "PromptAction": {
+    "displayName": "PromptAction",
     "props": {}
   },
   "RadioGroup": {
-    "description": "This component is based on the [Radix UI Radio Group](https://www.radix-ui.com/primitives/docs/components/radio-group) primitives.",
-    "methods": [],
     "displayName": "RadioGroup",
+    "description": "A component for working with radio group values in Minima Vue.",
     "props": {}
   },
-  "RenderPrompt": {
-    "description": "",
-    "methods": [],
-    "displayName": "RenderPrompt",
-    "props": {
-      "title": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The prompt's title."
-      },
-      "description": {
-        "required": true,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The prompt's description."
-      },
-      "variant": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"danger\" | \"confirmation\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"danger\""
-            },
-            {
-              "name": "literal",
-              "value": "\"confirmation\""
-            }
-          ]
-        },
-        "description": "The variant of the prompt.",
-        "defaultValue": {
-          "value": "\"danger\"",
-          "computed": false
-        }
-      },
-      "verificationText": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The text the user has to input in order to confirm the action."
-      },
-      "verificationInstruction": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The instruction for the verification text. Useful for passing a translated string to use instead of the default english one.\nShould be in the format: \"Please type {val} to confirm:\"",
-        "defaultValue": {
-          "value": "\"Please type {val} to confirm:\"",
-          "computed": false
-        }
-      },
-      "cancelText": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "The label for the Cancel button.",
-        "defaultValue": {
-          "value": "\"Cancel\"",
-          "computed": false
-        }
-      },
-      "confirmText": {
-        "required": false,
-        "tsType": {
-          "name": "string"
-        },
-        "description": "Label for the Confirm button.",
-        "defaultValue": {
-          "value": "\"Confirm\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "Select.Content": {
-    "description": "The content that appears when the select is open.\nIt's based on [Radix UI Select Content](https://www.radix-ui.com/primitives/docs/components/select#content).",
-    "methods": [],
-    "displayName": "Select.Content",
-    "props": {
-      "position": {
-        "defaultValue": {
-          "value": "\"popper\"",
-          "computed": false
-        },
-        "description": "Whether to show the select items below (`popper`) or over (`item-aligned`) the select input.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"item-aligned\" \\| \"popper\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"item-aligned\""
-            },
-            {
-              "name": "literal",
-              "value": "\"popper\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "sideOffset": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
-        "description": "The distance of the content pop-up in pixels from the select input. Only available when position is set to popper.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "collisionPadding": {
-        "defaultValue": {
-          "value": "24",
-          "computed": false
-        },
-        "description": "The distance in pixels from the boundary edges where collision detection should occur. Only available when position is set to popper.",
-        "tsType": {
-          "name": "union",
-          "raw": "number \\| Partial&#60;Record&#60;\"top\" \\| \"right\" \\| \"bottom\" \\| \"left\", number&#62;&#62;",
-          "elements": [
-            {
-              "name": "number"
-            },
-            {
-              "name": "Partial",
-              "elements": [],
-              "raw": "Partial&#60;Record&#60;\"top\" \\| \"right\" \\| \"bottom\" \\| \"left\", number&#62;&#62;"
-            }
-          ]
-        },
-        "required": false
-      }
-    }
-  },
-  "Select.Group": {
-    "description": "Groups multiple items together.",
-    "methods": [],
-    "displayName": "Select.Group",
+  "RadioGroupItem": {
+    "displayName": "RadioGroupItem",
     "props": {}
   },
-  "Select.Item": {
-    "description": "An item in the select. It's based on [Radix UI Select Item](https://www.radix-ui.com/primitives/docs/components/select#item)\nand accepts its props.",
-    "methods": [],
-    "displayName": "Select.Item",
-    "props": {}
-  },
-  "Select.Label": {
-    "description": "Used to label a group of items.\nIt's based on [Radix UI Select Label](https://www.radix-ui.com/primitives/docs/components/select#label).",
-    "methods": [],
-    "displayName": "Select.Label",
-    "props": {}
-  },
-  "Select.Separator": {
-    "description": "",
-    "methods": [],
-    "displayName": "Select.Separator",
-    "props": {}
-  },
-  "Select.Trigger": {
-    "description": "The trigger that toggles the select.\nIt's based on [Radix UI Select Trigger](https://www.radix-ui.com/primitives/docs/components/select#trigger).",
-    "methods": [],
-    "displayName": "Select.Trigger",
-    "props": {}
-  },
-  "Select.Value": {
-    "description": "Displays the selected value, or a placeholder if no value is selected.\nIt's based on [Radix UI Select Value](https://www.radix-ui.com/primitives/docs/components/select#value).",
-    "methods": [],
-    "displayName": "Select.Value",
+  "RadioGroupChoiceBox": {
+    "displayName": "RadioGroupChoiceBox",
     "props": {}
   },
   "Select": {
-    "description": "This component is based on [Radix UI Select](https://www.radix-ui.com/primitives/docs/components/select).\nIt also accepts all props of the HTML `select` component.",
-    "methods": [],
     "displayName": "Select",
+    "description": "A component for working with select values in Minima Vue.",
+    "props": {}
+  },
+  "SelectTrigger": {
+    "displayName": "SelectTrigger",
+    "props": {}
+  },
+  "SelectGroup": {
+    "displayName": "SelectGroup",
+    "props": {}
+  },
+  "SelectValue": {
+    "displayName": "SelectValue",
+    "props": {}
+  },
+  "SelectContent": {
+    "displayName": "SelectContent",
     "props": {
-      "size": {
+      "sideOffset": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"base\" | \"small\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            }
-          ]
-        },
-        "description": "The select's size.",
+        "description": "",
         "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
+          "value": "8"
+        },
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "collisionPadding": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "24"
+        },
+        "tsType": {
+          "raw": "number",
+          "name": "number"
+        }
+      },
+      "position": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"popper\""
+        },
+        "tsType": {
+          "raw": "\"item-aligned\" | \"popper\"",
+          "name": "\"item-aligned\" | \"popper\""
+        }
+      },
+      "align": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "\"start\" | \"center\" | \"end\"",
+          "name": "\"start\" | \"center\" | \"end\""
+        }
+      },
+      "side": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "\"bottom\" | \"left\" | \"top\" | \"right\"",
+          "name": "\"bottom\" | \"left\" | \"top\" | \"right\""
         }
       }
     }
   },
-  "Skeleton": {
-    "description": "",
-    "methods": [],
-    "displayName": "Skeleton",
+  "SelectLabel": {
+    "displayName": "SelectLabel",
+    "props": {}
+  },
+  "SelectItem": {
+    "displayName": "SelectItem",
+    "props": {}
+  },
+  "SelectSeparator": {
+    "displayName": "SelectSeparator",
     "props": {}
   },
   "StatusBadge": {
-    "description": "This component is based on the span element and supports all of its props",
-    "methods": [],
     "displayName": "StatusBadge",
+    "description": "A component for working with status badge values in Minima Vue.",
     "props": {
       "color": {
-        "defaultValue": {
-          "value": "\"grey\"",
-          "computed": false
-        },
-        "description": "The status's color.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"green\" \\| \"red\" \\| \"blue\" \\| \"orange\" \\| \"grey\" \\| \"purple\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"green\""
-            },
-            {
-              "name": "literal",
-              "value": "\"red\""
-            },
-            {
-              "name": "literal",
-              "value": "\"blue\""
-            },
-            {
-              "name": "literal",
-              "value": "\"orange\""
-            },
-            {
-              "name": "literal",
-              "value": "\"grey\""
-            },
-            {
-              "name": "literal",
-              "value": "\"purple\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
-  },
-  "Switch": {
-    "description": "This component is based on the [Radix UI Switch](https://www.radix-ui.com/primitives/docs/components/switch) primitive.",
-    "methods": [],
-    "displayName": "Switch",
-    "props": {
-      "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The switch's size.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"small\" \\| \"base\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            }
-          ]
-        },
-        "required": false
-      }
-    },
-    "composes": [
-      "Omit",
-      "VariantProps"
-    ]
-  },
-  "Table.Body": {
-    "description": "",
-    "methods": [],
-    "displayName": "Table.Body",
-    "props": {}
-  },
-  "Table.Cell": {
-    "description": "",
-    "methods": [],
-    "displayName": "Table.Cell",
-    "props": {}
-  },
-  "Table.Header": {
-    "description": "",
-    "methods": [],
-    "displayName": "Table.Header",
-    "props": {}
-  },
-  "Table.HeaderCell": {
-    "description": "",
-    "methods": [],
-    "displayName": "Table.HeaderCell",
-    "props": {}
-  },
-  "Table.Pagination": {
-    "description": "This component is based on the `div` element and supports all of its props",
-    "methods": [],
-    "displayName": "Table.Pagination",
-    "props": {
-      "count": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": "The total number of items."
-      },
-      "pageSize": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": "The number of items per page."
-      },
-      "pageIndex": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": "The current page index."
-      },
-      "pageCount": {
-        "required": true,
-        "tsType": {
-          "name": "number"
-        },
-        "description": "The total number of pages."
-      },
-      "canPreviousPage": {
-        "required": true,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether there's a previous page that can be navigated to."
-      },
-      "canNextPage": {
-        "required": true,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether there's a next page that can be navigated to."
-      },
-      "translations": {
         "required": false,
-        "tsType": {
-          "name": "signature",
-          "type": "object",
-          "raw": "{\n  of?: string\n  results?: string\n  pages?: string\n  prev?: string\n  next?: string\n}",
-          "signature": {
-            "properties": [
-              {
-                "key": "of",
-                "value": {
-                  "name": "string",
-                  "required": false
-                }
-              },
-              {
-                "key": "results",
-                "value": {
-                  "name": "string",
-                  "required": false
-                }
-              },
-              {
-                "key": "pages",
-                "value": {
-                  "name": "string",
-                  "required": false
-                }
-              },
-              {
-                "key": "prev",
-                "value": {
-                  "name": "string",
-                  "required": false
-                }
-              },
-              {
-                "key": "next",
-                "value": {
-                  "name": "string",
-                  "required": false
-                }
-              }
-            ]
-          }
-        },
-        "description": "An optional object of words to use in the pagination component.\nUse this to override the default words, or translate them into another language.",
+        "description": "",
         "defaultValue": {
-          "value": "{\n  of: \"of\",\n  results: \"results\",\n  pages: \"pages\",\n  prev: \"Prev\",\n  next: \"Next\",\n}",
-          "computed": false
+          "value": "\"grey\""
+        },
+        "tsType": {
+          "raw": "\"green\" | \"red\" | \"orange\" | \"blue\" | \"purple\" | \"grey\"",
+          "name": "\"green\" | \"red\" | \"orange\" | \"blue\" | \"purple\" | \"grey\""
         }
-      },
-      "previousPage": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "() => void",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": "A function that handles navigating to the previous page.\nThis function should handle retrieving data for the previous page."
-      },
-      "nextPage": {
-        "required": true,
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "() => void",
-          "signature": {
-            "arguments": [],
-            "return": {
-              "name": "void"
-            }
-          }
-        },
-        "description": "A function that handles navigating to the next page.\nThis function should handle retrieving data for the next page."
       }
     }
   },
-  "Table.Row": {
-    "description": "",
-    "methods": [],
-    "displayName": "Table.Row",
+  "Switch": {
+    "displayName": "Switch",
+    "description": "A component for working with switch values in Minima Vue.",
     "props": {}
   },
   "Table": {
-    "description": "This component is based on the table element and its various children:\n\n- `Table`: `table`\n- `Table.Header`: `thead`\n- `Table.Row`: `tr`\n- `Table.HeaderCell`: `th`\n- `Table.Body`: `tbody`\n- `Table.Cell`: `td`\n\nEach component supports the props or attributes of its equivalent HTML element.",
-    "methods": [],
     "displayName": "Table",
+    "description": "A component for working with table values in Minima Vue.",
     "props": {}
   },
-  "Tabs.Content": {
-    "description": "",
-    "methods": [],
-    "displayName": "Tabs.Content",
+  "TableRow": {
+    "displayName": "TableRow",
     "props": {}
   },
-  "Tabs.List": {
-    "description": "",
-    "methods": [],
-    "displayName": "Tabs.List",
+  "TableCell": {
+    "displayName": "TableCell",
     "props": {}
   },
-  "Tabs.Trigger": {
-    "description": "",
-    "methods": [],
-    "displayName": "Tabs.Trigger",
+  "TableHeader": {
+    "displayName": "TableHeader",
     "props": {}
   },
-  "Tabs": {
-    "description": "This component is based on the [Radix UI Tabs](https://radix-ui.com/primitives/docs/components/tabs) primitves",
-    "methods": [],
-    "displayName": "Tabs",
+  "TableHeaderCell": {
+    "displayName": "TableHeaderCell",
+    "props": {}
+  },
+  "TableBody": {
+    "displayName": "TableBody",
+    "props": {}
+  },
+  "TablePagination": {
+    "displayName": "TablePagination",
     "props": {
-      "activationMode": {
-        "description": "Whether a tab is activated automatically or manually.",
-        "required": false,
+      "count": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "union",
-          "raw": "\"manual\" \\| \"automatic\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"manual\""
-            },
-            {
-              "name": "literal",
-              "value": "\"automatic\""
-            }
-          ]
+          "raw": "number",
+          "name": "number"
         }
       },
-      "defaultValue": {
-        "description": "The value of the tab to select by default, if uncontrolled",
-        "required": false,
+      "pageSize": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "string"
+          "raw": "number",
+          "name": "number"
         }
       },
-      "dir": {
-        "description": "The direction of navigation between toolbar items.",
-        "required": false,
+      "pageIndex": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "Direction",
-          "elements": [],
-          "raw": "Direction"
+          "raw": "number",
+          "name": "number"
         }
       },
-      "onValueChange": {
-        "description": "A function called when a new tab is selected",
-        "required": false,
+      "pageCount": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(value: string) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "value",
-                "type": {
-                  "name": "string"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
+          "raw": "number",
+          "name": "number"
         }
       },
-      "orientation": {
-        "description": "The orientation the tabs are layed out.\nMainly so arrow navigation is done accordingly (left & right vs. up & down)",
-        "required": false,
+      "canPreviousPage": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "union",
-          "raw": "\"horizontal\" \\| \"vertical\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"horizontal\""
-            },
-            {
-              "name": "literal",
-              "value": "\"vertical\""
-            }
-          ]
+          "raw": "boolean",
+          "name": "boolean"
         }
       },
-      "value": {
-        "description": "The value for the selected tab, if controlled",
-        "required": false,
+      "canNextPage": {
+        "required": true,
+        "description": "",
         "tsType": {
-          "name": "string"
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "translations": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "() => ({\n        of: \"of\",\n        results: \"results\",\n        pages: \"pages\",\n        prev: \"Prev\",\n        next: \"Next\",\n    })"
+        },
+        "tsType": {
+          "raw": "{ of?: string results?: string pages?: string prev?: string next?: string }",
+          "name": "{ of?: string results?: string pages?: string prev?: string next?: string }"
         }
       }
     }
   },
-  "Text": {
-    "description": "This component is based on the `p` element and supports all of its props",
-    "methods": [],
-    "displayName": "Text",
+  "Tabs": {
+    "displayName": "Tabs",
+    "description": "A component for working with tabs values in Minima Vue.",
     "props": {
+      "modelValue": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "string",
+          "name": "string"
+        }
+      },
+      "defaultValue": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "string",
+          "name": "string"
+        }
+      },
+      "orientation": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"horizontal\""
+        },
+        "tsType": {
+          "raw": "\"horizontal\" | \"vertical\"",
+          "name": "\"horizontal\" | \"vertical\""
+        }
+      }
+    }
+  },
+  "TabsList": {
+    "displayName": "TabsList",
+    "props": {}
+  },
+  "TabsTrigger": {
+    "displayName": "TabsTrigger",
+    "props": {}
+  },
+  "TabsContent": {
+    "displayName": "TabsContent",
+    "props": {}
+  },
+  "Text": {
+    "displayName": "Text",
+    "description": "A component for working with text values in Minima Vue.",
+    "props": {
+      "size": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"base\""
+        },
+        "tsType": {
+          "raw": "\"xsmall\" | \"small\" | \"base\" | \"large\" | \"xlarge\"",
+          "name": "\"xsmall\" | \"small\" | \"base\" | \"large\" | \"xlarge\""
+        }
+      },
+      "weight": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"regular\""
+        },
+        "tsType": {
+          "raw": "\"regular\" | \"plus\"",
+          "name": "\"regular\" | \"plus\""
+        }
+      },
+      "leading": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"normal\""
+        },
+        "tsType": {
+          "raw": "\"normal\" | \"compact\"",
+          "name": "\"normal\" | \"compact\""
+        }
+      },
+      "family": {
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"sans\""
+        },
+        "tsType": {
+          "raw": "\"sans\" | \"mono\"",
+          "name": "\"sans\" | \"mono\""
+        }
+      },
       "asChild": {
         "required": false,
-        "tsType": {
-          "name": "boolean"
-        },
-        "description": "Whether to remove the wrapper `button` element and use the\npassed child element instead.",
+        "description": "",
         "defaultValue": {
-          "value": "false",
-          "computed": false
+          "value": "false"
+        },
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
         }
       },
       "as": {
         "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"p\" | \"span\" | \"div\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"p\""
-            },
-            {
-              "name": "literal",
-              "value": "\"span\""
-            },
-            {
-              "name": "literal",
-              "value": "\"div\""
-            }
-          ]
-        },
-        "description": "The wrapper element to use when `asChild` is disabled.",
+        "description": "",
         "defaultValue": {
-          "value": "\"p\"",
-          "computed": false
+          "value": "\"p\""
+        },
+        "tsType": {
+          "raw": "string",
+          "name": "string"
         }
-      },
-      "size": {
-        "defaultValue": {
-          "value": "\"base\"",
-          "computed": false
-        },
-        "description": "The text's size.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"xsmall\" \\| \"small\" \\| \"base\" \\| \"large\" \\| \"xlarge\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"xsmall\""
-            },
-            {
-              "name": "literal",
-              "value": "\"small\""
-            },
-            {
-              "name": "literal",
-              "value": "\"base\""
-            },
-            {
-              "name": "literal",
-              "value": "\"large\""
-            },
-            {
-              "name": "literal",
-              "value": "\"xlarge\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "weight": {
-        "defaultValue": {
-          "value": "\"regular\"",
-          "computed": false
-        },
-        "description": "The text's font weight.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"regular\" \\| \"plus\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"regular\""
-            },
-            {
-              "name": "literal",
-              "value": "\"plus\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "family": {
-        "defaultValue": {
-          "value": "\"sans\"",
-          "computed": false
-        },
-        "description": "The text's font family.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"sans\" \\| \"mono\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"sans\""
-            },
-            {
-              "name": "literal",
-              "value": "\"mono\""
-            }
-          ]
-        },
-        "required": false
-      },
-      "leading": {
-        "defaultValue": {
-          "value": "\"normal\"",
-          "computed": false
-        },
-        "description": "The text's line height.",
-        "tsType": {
-          "name": "union",
-          "raw": "\"normal\" \\| \"compact\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"normal\""
-            },
-            {
-              "name": "literal",
-              "value": "\"compact\""
-            }
-          ]
-        },
-        "required": false
       }
-    },
-    "composes": [
-      "VariantProps"
-    ]
+    }
   },
   "Textarea": {
-    "description": "This component is based on the `textarea` element and supports all of its props",
-    "methods": [],
     "displayName": "Textarea",
+    "description": "A component for working with textarea values in Minima Vue.",
     "props": {}
   },
   "TimeInput": {
-    "description": "",
-    "methods": [],
     "displayName": "TimeInput",
-    "props": {}
-  },
-  "Toast": {
-    "description": "This component is based on the [Sonner](https://sonner.emilkowal.ski/toast) toast library.",
-    "methods": [],
-    "displayName": "Toast",
+    "description": "A component for working with time input values in Minima Vue.",
     "props": {
-      "id": {
-        "required": true,
-        "tsType": {
-          "name": "union",
-          "raw": "string | number",
-          "elements": [
-            {
-              "name": "string"
-            },
-            {
-              "name": "number"
-            }
-          ]
-        },
-        "description": "Optional ID of the toast."
-      },
-      "description": {
+      "modelValue": {
         "required": false,
+        "description": "",
         "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "The toast's text."
+          "raw": "Time | null",
+          "name": "Time | null"
+        }
       },
-      "action": {
+      "defaultValue": {
         "required": false,
+        "description": "",
         "tsType": {
-          "name": "signature",
-          "type": "object",
-          "raw": "&#123; altText: string ; label: string ; onClick: () => void \\| Promise&#60;void&#62; ; variant?: ToastActionVariant  &#125;",
-          "signature": {
-            "properties": [
-              {
-                "key": "altText",
-                "value": {
-                  "name": "string"
-                },
-                "description": "The button's alt text."
-              },
-              {
-                "key": "label",
-                "value": {
-                  "name": "string"
-                },
-                "description": "The button's text."
-              },
-              {
-                "key": "onClick",
-                "value": {
-                  "name": "signature",
-                  "type": "function",
-                  "raw": "() => void \\| Promise&#60;void&#62;",
-                  "signature": {
-                    "arguments": [],
-                    "return": {
-                      "name": "void \\| Promise&#60;void&#62;"
-                    }
-                  }
-                },
-                "description": "The function to execute when the button is clicked."
-              },
-              {
-                "key": "variant",
-                "value": {
-                  "name": "ToastActionVariant",
-                  "elements": [
-                    {
-                      "name": "union",
-                      "raw": "\"default\" \\| \"destructive\"",
-                      "elements": [
-                        {
-                          "name": "\"default\""
-                        },
-                        {
-                          "name": "\"destructive\""
-                        }
-                      ]
-                    }
-                  ],
-                  "raw": "ToastActionVariant"
-                },
-                "description": "The button's variant."
-              }
-            ]
-          }
-        },
-        "description": "The toast's action buttons."
+          "raw": "Time | null",
+          "name": "Time | null"
+        }
+      },
+      "hourCycle": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "12 | 24",
+          "name": "12 | 24"
+        }
+      },
+      "disabled": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
+      },
+      "readonly": {
+        "required": false,
+        "description": "",
+        "tsType": {
+          "raw": "boolean",
+          "name": "boolean"
+        }
       }
     }
   },
+  "Toast": {
+    "displayName": "Toast",
+    "description": "A component for working with toast values in Minima Vue.",
+    "props": {}
+  },
   "Toaster": {
-    "description": "This component is based on the [Toaster component of the Sonner library](https://sonner.emilkowal.ski/toaster).",
-    "methods": [],
     "displayName": "Toaster",
     "props": {
       "position": {
+        "required": false,
+        "description": "",
         "defaultValue": {
-          "value": "\"bottom-right\"",
-          "computed": false
+          "value": "\"bottom-right\""
         },
-        "description": "The position of the created toasts.",
         "tsType": {
-          "name": "union",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"top-left\""
-            },
-            {
-              "name": "literal",
-              "value": "\"top-center\""
-            },
-            {
-              "name": "literal",
-              "value": "\"top-right\""
-            },
-            {
-              "name": "literal",
-              "value": "\"bottom-left\""
-            },
-            {
-              "name": "literal",
-              "value": "\"bottom-center\""
-            },
-            {
-              "name": "literal",
-              "value": "\"bottom-right\""
-            },
-            {
-              "name": "undefined"
-            }
-          ]
-        },
-        "required": false
-      },
-      "gap": {
-        "defaultValue": {
-          "value": "12",
-          "computed": false
-        },
-        "description": "The gap between the toast components.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "offset": {
-        "defaultValue": {
-          "value": "24",
-          "computed": false
-        },
-        "description": "The space from the edges of the screen.",
-        "tsType": {
-          "name": "union",
-          "elements": [
-            {
-              "name": "string"
-            },
-            {
-              "name": "number"
-            },
-            {
-              "name": "undefined"
-            }
-          ]
-        },
-        "required": false
+          "raw": "ToasterPosition",
+          "name": "ToasterPosition"
+        }
       },
       "duration": {
-        "description": "The time in milliseconds that a toast is shown before it's\nautomatically dismissed.\n\n",
-        "tsType": {
-          "name": "number"
-        },
-        "defaultValue": {
-          "value": "4000",
-          "computed": false
-        }
-      }
-    },
-    "composes": [
-      "Omit"
-    ]
-  },
-  "Tooltip": {
-    "description": "This component is based on the [Radix UI Tooltip](https://www.radix-ui.com/primitives/docs/components/tooltip) primitive.",
-    "methods": [],
-    "displayName": "Tooltip",
-    "props": {
-      "content": {
-        "required": true,
-        "tsType": {
-          "name": "ReactReactNode",
-          "raw": "React.ReactNode"
-        },
-        "description": "The content to display in the tooltip."
-      },
-      "onClick": {
         "required": false,
-        "tsType": {
-          "name": "ReactMouseEventHandler",
-          "raw": "React.MouseEventHandler<HTMLButtonElement>",
-          "elements": [
-            {
-              "name": "HTMLButtonElement"
-            }
-          ]
-        },
-        "description": "A function that is triggered when the tooltip is clicked."
-      },
-      "side": {
-        "required": false,
-        "tsType": {
-          "name": "union",
-          "raw": "\"bottom\" | \"left\" | \"top\" | \"right\"",
-          "elements": [
-            {
-              "name": "literal",
-              "value": "\"bottom\""
-            },
-            {
-              "name": "literal",
-              "value": "\"left\""
-            },
-            {
-              "name": "literal",
-              "value": "\"top\""
-            },
-            {
-              "name": "literal",
-              "value": "\"right\""
-            }
-          ]
-        },
-        "description": "The side to position the tooltip.\n\n",
+        "description": "",
         "defaultValue": {
-          "value": "top",
-          "computed": false
-        }
-      },
-      "maxWidth": {
-        "required": false,
+          "value": "5000"
+        },
         "tsType": {
+          "raw": "number",
           "name": "number"
-        },
-        "description": "The maximum width of the tooltip.",
-        "defaultValue": {
-          "value": "220",
-          "computed": false
-        }
-      },
-      "sideOffset": {
-        "defaultValue": {
-          "value": "8",
-          "computed": false
-        },
-        "description": "The distance in pixels between the tooltip and its trigger.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "children": {
-        "description": "The element to trigger the tooltip."
-      },
-      "open": {
-        "description": "Whether the tooltip is currently open.",
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "defaultOpen": {
-        "description": "Whether the tooltip is open by default.",
-        "tsType": {
-          "name": "boolean"
-        }
-      },
-      "onOpenChange": {
-        "description": "A function that is called when the tooltip's open state changes.",
-        "tsType": {
-          "name": "signature",
-          "type": "function",
-          "raw": "(open: boolean) => void",
-          "signature": {
-            "arguments": [
-              {
-                "name": "open",
-                "type": {
-                  "name": "boolean"
-                },
-                "rest": false
-              }
-            ],
-            "return": {
-              "name": "void"
-            }
-          }
-        }
-      },
-      "delayDuration": {
-        "description": "The time in milliseconds to delay the tooltip's appearance.",
-        "tsType": {
-          "name": "number"
-        }
-      }
-    },
-    "composes": [
-      "Omit",
-      "Pick"
-    ]
-  },
-  "TooltipProvider": {
-    "description": "",
-    "methods": [],
-    "displayName": "TooltipProvider",
-    "props": {
-      "delayDuration": {
-        "defaultValue": {
-          "value": "100",
-          "computed": false
-        },
-        "description": "The duration from when the pointer enters the trigger until the tooltip gets opened.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "skipDelayDuration": {
-        "defaultValue": {
-          "value": "300",
-          "computed": false
-        },
-        "description": "How much time a user has to enter another trigger without incurring a delay again.",
-        "tsType": {
-          "name": "number"
-        },
-        "required": false
-      },
-      "disableHoverableContent": {
-        "description": "When `true`, trying to hover the content will result in the tooltip closing as the pointer leaves the trigger.",
-        "required": false,
-        "tsType": {
-          "name": "boolean"
         }
       }
     }
+  },
+  "Tooltip": {
+    "displayName": "Tooltip",
+    "description": "A component for working with tooltip values in Minima Vue.",
+    "props": {}
+  },
+  "TooltipProvider": {
+    "displayName": "TooltipProvider",
+    "props": {}
   }
 }

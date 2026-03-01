@@ -122,6 +122,29 @@
   @apply mt-docs_0.5;
 }
 
+.docs-flow > ul,
+.docs-flow > ol {
+  @apply mb-docs_1.5 px-docs_1 text-ui-fg-base;
+}
+
+.docs-flow > ul {
+  @apply list-disc;
+}
+
+.docs-flow > ol {
+  @apply list-decimal;
+}
+
+.docs-flow > ul li,
+.docs-flow > ol li {
+  @apply txt-medium text-ui-fg-base;
+}
+
+.docs-flow > ul li:not(:last-child),
+.docs-flow > ol li:not(:last-child) {
+  @apply mb-docs_0.5;
+}
+
 .docs-scroll::-webkit-scrollbar {
   width: 10px;
 }

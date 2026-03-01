@@ -9,6 +9,7 @@ import RichText from "@docs/components/RichText.vue"
 import RightToc from "@docs/components/RightToc.vue"
 import { findComponentDoc } from "@docs/data/component-docs"
 import { findComponent } from "@docs/data/navigation"
+import { siteBrand } from "@docs/data/site"
 
 const route = useRoute()
 const entry = computed(() => findComponent(route.params.slug as string))
@@ -63,7 +64,7 @@ const transformCode = (value: string) =>
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
-        <span>Medusa UI</span>
+        <span>{{ siteBrand.name }}</span>
       </nav>
 
       <div class="docs-flow">

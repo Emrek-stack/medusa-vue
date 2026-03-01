@@ -2,11 +2,12 @@
 import { RouterLink } from "vue-router"
 import { ArrowUpRightOnBox } from "@minima-vue/icons"
 import RightToc from "@docs/components/RightToc.vue"
+import { siteBrand } from "@docs/data/site"
 
 const tocItems = [
   { id: "figma-design-system", title: "Figma Design System", level: 2 },
   { id: "packages", title: "Packages", level: 2 },
-  { id: "how-medusa-ui-is-built", title: "How Medusa UI is Built", level: 2 },
+  { id: "how-minima-vue-is-built", title: "How Minima Vue Is Built", level: 2 },
 ]
 </script>
 
@@ -16,23 +17,22 @@ const tocItems = [
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
-        <span>Medusa UI</span>
+        <span>{{ siteBrand.name }}</span>
       </nav>
 
       <div class="docs-flow">
         <h1 class="docs-page-title">
-          Medusa UI Documentation
+          {{ siteBrand.docsTitle }}
         </h1>
 
         <p class="txt-large text-ui-fg-base">
-          Welcome to Medusa UI, a Vue implementation of the Medusa design system.
+          Welcome to {{ siteBrand.name }}, a Vue component system for admin extensions and standalone applications.
         </p>
 
         <p class="docs-copy max-w-[780px]">
-          Medusa UI is a collection of components, hooks, utility functions, icons, and
+          {{ siteBrand.name }} is a collection of components, hooks, utility functions, icons, and
           <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>
-          classes that can be used to build a consistent user interface across the Medusa Admin
-          and client applications.
+          classes that can be used to build a consistent user interface across admin panels and client applications.
         </p>
 
         <section class="space-y-6">
@@ -41,7 +41,7 @@ const tocItems = [
           </h2>
 
           <p class="docs-copy max-w-[780px]">
-            The Medusa UI design system is also available on
+            The visual system behind {{ siteBrand.name }} is still easiest to inspect through the
             <a
               href="https://www.figma.com/community/file/1278648465968635936/Medusa-UI"
               target="_blank"
@@ -49,12 +49,12 @@ const tocItems = [
             >
               Figma
             </a>.
-            You can explore the components, icons, and design tokens used in Medusa UI.
+            file used as the original reference. It remains a useful source for components, icons, and design tokens.
           </p>
 
           <p class="docs-copy max-w-[780px]">
             This is especially useful if you have the Figma Dev MCP set up, allowing you to easily
-            copy designs from the Figma Medusa UI file to your projects.
+            inspect source patterns and adapt them for {{ siteBrand.name }} projects.
           </p>
 
           <a
@@ -68,8 +68,8 @@ const tocItems = [
                 F
               </div>
               <div>
-                <p class="txt-medium-plus text-ui-fg-base">Medusa UI</p>
-                <p class="txt-medium text-ui-fg-subtle">Colors, type, icons and components</p>
+                <p class="txt-medium-plus text-ui-fg-base">{{ siteBrand.name }}</p>
+                <p class="txt-medium text-ui-fg-subtle">Reference file for colors, type, icons, and components</p>
               </div>
             </div>
             <ArrowUpRightOnBox class="h-4 w-4 text-ui-fg-subtle" />
@@ -84,20 +84,20 @@ const tocItems = [
           </h2>
 
           <p class="docs-copy max-w-[780px]">
-            Medusa UI is split into multiple packages. Each package is published to npm and can be
+            {{ siteBrand.name }} is split into multiple packages. Each package is published to npm and can be
             installed separately.
           </p>
 
           <ul class="list-disc space-y-3 pl-5 txt-large text-ui-fg-base">
-            <li><code>@minima-vue/ui</code> - Vue components, hooks, and utility functions used in Medusa UI.</li>
-            <li><code>@minima-vue/ui-preset</code> - Tailwind CSS preset containing all the classes used in Medusa UI.</li>
-            <li><code>@minima-vue/icons</code> - Icons used in Medusa UI.</li>
+            <li><code>@minima-vue/ui</code> - Vue components, hooks, and utility functions used in {{ siteBrand.name }}.</li>
+            <li><code>@minima-vue/ui-preset</code> - Tailwind CSS preset containing the token and utility layer for {{ siteBrand.name }}.</li>
+            <li><code>@minima-vue/icons</code> - Icons shipped with {{ siteBrand.name }}.</li>
           </ul>
 
           <p class="docs-copy max-w-[780px]">
             Learn how to install and use these packages either for
             <RouterLink to="/installation/medusa-admin-extension" class="underline underline-offset-2">
-              Medusa Admin
+              admin extensions
             </RouterLink>
             customizations or a
             <RouterLink to="/installation/standalone-project" class="underline underline-offset-2">
@@ -109,14 +109,13 @@ const tocItems = [
         <hr class="border-ui-border-base" />
 
         <section class="space-y-6">
-          <h2 id="how-medusa-ui-is-built" class="docs-section-title">
-            How Medusa UI is Built
+          <h2 id="how-minima-vue-is-built" class="docs-section-title">
+            How Minima Vue Is Built
           </h2>
 
           <p class="docs-copy max-w-[780px]">
-            At its core, Medusa UI is a styled and slightly opinionated implementation of Radix
-            Primitives. The original Medusa team also referenced shadcn/ui for inspiration in
-            certain implementations.
+            At its core, {{ siteBrand.name }} is a styled and slightly opinionated implementation of Radix
+            primitives, informed by established admin UI patterns and component composition techniques.
           </p>
 
           <p class="docs-copy max-w-[780px]">

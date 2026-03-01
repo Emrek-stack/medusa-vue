@@ -1,6 +1,6 @@
 # @minima-vue/icons
 
-The Medusa Vue Icon library.
+The Minima Vue icon library.
 
 ## Installation
 

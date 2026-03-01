@@ -134,5 +134,5 @@ reference/
 .DS_Store
 **/node_modules/
 **/dist/
-medusa-vue3/docs/src/generated/*.json
+minima-vue3/docs/src/generated/*.json
  

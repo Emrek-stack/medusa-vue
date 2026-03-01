@@ -1,6 +1,6 @@
 # @minima-vue/ui-preset
 
-The Medusa Vue UI preset for Tailwind CSS.
+The Minima Vue UI preset for Tailwind CSS.
 
 ## Installation
 

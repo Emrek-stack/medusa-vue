@@ -8,6 +8,7 @@ const projectRoot = path.resolve(docsRoot, "..")
 const uiRoot = path.join(projectRoot, "ui/src")
 const componentsRoot = path.join(uiRoot, "components")
 const generatedRoot = path.join(docsRoot, "src/generated")
+const exampleRegistryPath = path.join(docsRoot, "src/data/example-registry.ts")
 
 const toStartCase = (value) =>
   value
@@ -207,9 +208,64 @@ const parseStoryExports = (source) => {
   }))
 }
 
+const parseCustomExampleKeys = (source) => {
+  const blockMatch = source.match(/const customExamples:[\s\S]*?=\s*\{([\s\S]*?)\n\}/)
+
+  if (!blockMatch) {
+    return []
+  }
+
+  const matches = blockMatch[1].matchAll(/"([^"]+)":\s*\{/g)
+  return Array.from(matches, (match) => match[1])
+}
+
+const toExampleLabel = (item, exampleName) => {
+  const suffix = exampleName.replace(new RegExp(`^${item.slug}-`), "")
+
+  const overrides = {
+    [`${item.slug}-dismissable`]: `Dismissible ${item.title}`,
+    [`${item.slug}-dismissible`]: `Dismissible ${item.title}`,
+    [`${item.slug}-success`]: `Success ${item.title}`,
+    [`${item.slug}-warning`]: `Warning ${item.title}`,
+    [`${item.slug}-error`]: `Error ${item.title}`,
+    [`${item.slug}-info`]: `Info ${item.title}`,
+  }
+
+  return overrides[exampleName] ?? toStartCase(suffix)
+}
+
+const buildReferenceSpecs = (manifest) =>
+  Object.fromEntries(
+    manifest.flatMap((item) =>
+      item.exports.map((entry) => [
+        entry.name,
+        {
+          displayName: entry.name,
+          description: entry.isMain ? fallbackDescription(item) : undefined,
+          props: Object.fromEntries(
+            entry.props.map((prop) => [
+              prop.name,
+              {
+                required: prop.required,
+                description: "",
+                defaultValue: prop.default ? { value: prop.default } : undefined,
+                tsType: {
+                  raw: prop.type,
+                  name: prop.type,
+                },
+              },
+            ])
+          ),
+        },
+      ])
+    )
+  )
+
 const buildManifest = async () => {
   const componentDirs = await fs.readdir(componentsRoot, { withFileTypes: true })
   const items = []
+  const exampleRegistrySource = await readFile(exampleRegistryPath)
+  const customExampleKeys = parseCustomExampleKeys(exampleRegistrySource)
 
   for (const directory of componentDirs) {
     if (!directory.isDirectory()) {
@@ -219,7 +275,6 @@ const buildManifest = async () => {
     const slug = directory.name
     const folder = path.join(componentsRoot, slug)
     const indexPath = path.join(folder, "index.ts")
-    const storyPath = path.join(folder, `${toStartCase(slug).replace(/\s/g, "")}.stories.ts`)
     const indexSource = await readFile(indexPath)
 
     if (!indexSource) {
@@ -232,7 +287,9 @@ const buildManifest = async () => {
       continue
     }
 
-    const storySource = await readFile(storyPath)
+    const componentFiles = await walkFiles(folder)
+    const storyPath = componentFiles.find((file) => file.endsWith(".stories.ts")) ?? ""
+    const storySource = storyPath ? await readFile(storyPath) : ""
     const exportsWithProps = []
 
     for (let index = 0; index < exportsList.length; index += 1) {
@@ -253,7 +310,12 @@ const buildManifest = async () => {
       mainExport: exportsWithProps[0].name,
       exports: exportsWithProps,
       stories: parseStoryExports(storySource),
-      hasStories: Boolean(storySource),
+      customExampleNames: customExampleKeys.filter((exampleName) =>
+        exampleName.startsWith(`${slug}-`)
+      ),
+      hasStories:
+        Boolean(storySource) ||
+        customExampleKeys.some((exampleName) => exampleName.startsWith(`${slug}-`)),
     })
   }
 
@@ -282,11 +344,35 @@ const buildFallbackDoc = (item) => {
       content: `In this guide, you'll learn how to use the ${item.title} component.`,
     },
   ]
+  const storyExamples = item.stories.map((story) => ({
+    name: `${item.slug}-${slugify(story.name)}`,
+    label: story.label,
+  }))
+  const customExampleNames = item.customExampleNames ?? []
+  const customExamplesList = customExampleNames.map((name) => ({
+    name,
+    label: toExampleLabel(item, name),
+  }))
+  const allExamples = []
+  const seen = new Set()
 
-  if (item.hasStories) {
+  for (const example of [...customExamplesList, ...storyExamples]) {
+    if (seen.has(example.name)) {
+      continue
+    }
+
+    seen.add(example.name)
+    allExamples.push(example)
+  }
+
+  const demoExample =
+    allExamples.find((example) => example.name === `${item.slug}-demo`) ?? allExamples[0] ?? null
+  const remainingExamples = allExamples.filter((example) => example.name !== demoExample?.name)
+
+  if (demoExample) {
     blocks.push({
       type: "example",
-      name: `${item.slug}-demo`,
+      name: demoExample.name,
     })
   }
 
@@ -301,7 +387,18 @@ const buildFallbackDoc = (item) => {
       type: "code",
       lang: "ts",
       code: `import { ${importNames} } from "@minima-vue/ui"`,
-    },
+    }
+  )
+
+  if (demoExample) {
+    blocks.push({
+      type: "code",
+      lang: "tsx",
+      code: `<${item.mainExport}>Here's a message</${item.mainExport}>`,
+    })
+  }
+
+  blocks.push(
     {
       type: "heading",
       level: 2,
@@ -314,6 +411,31 @@ const buildFallbackDoc = (item) => {
       componentsToShow: item.exports.map((entry) => entry.name),
     }
   )
+
+  if (remainingExamples.length) {
+    blocks.push({
+      type: "heading",
+      level: 2,
+      text: "Examples",
+      id: "examples",
+    })
+
+    for (const example of remainingExamples) {
+      blocks.push(
+        {
+          type: "heading",
+          level: 3,
+          text: example.label,
+          id: slugify(example.label),
+        },
+        {
+          type: "example",
+          name: example.name,
+          hideFeedback: example.name.endsWith("dismissable") || example.name.endsWith("dismissible"),
+        }
+      )
+    }
+  }
 
   return {
     slug: item.slug,
@@ -329,8 +451,7 @@ const buildDocs = async (manifest) => {
     docs.push(buildFallbackDoc(item))
   }
 
-  // Also simulate empty specs for frontend imports that may require them
-  return { docs, specs: {} }
+  return { docs, specs: buildReferenceSpecs(manifest) }
 }
 
 await fs.mkdir(generatedRoot, { recursive: true })

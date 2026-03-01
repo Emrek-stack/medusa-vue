@@ -1,27 +1,27 @@
 {
     "name": "@minima-vue/ui",
     "version": "1.0.0",
-    "description": "Medusa UI components for Vue 3",
+    "description": "Minima Vue components for Vue 3",
     "author": "Emre Karahan <emre.karahan@gmail.com>",
     "license": "MIT",
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "https://github.com/medusa-vue/medusa-vue.git",
-        "directory": "medusa-vue3/ui"
+        "url": "https://github.com/minima-vue/minima-vue.git",
+        "directory": "minima-vue3/ui"
     },
-    "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/ui",
+    "homepage": "https://github.com/minima-vue/minima-vue/tree/main/minima-vue3/ui",
     "bugs": {
-        "url": "https://github.com/medusa-vue/medusa-vue/issues"
+        "url": "https://github.com/minima-vue/minima-vue/issues"
     },
-    "main": "./dist/medusa-vue-ui.umd.js",
-    "module": "./dist/medusa-vue-ui.es.js",
+    "main": "./dist/minima-vue-ui.umd.js",
+    "module": "./dist/minima-vue-ui.es.js",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/medusa-vue-ui.es.js",
-            "require": "./dist/medusa-vue-ui.umd.js"
+            "import": "./dist/minima-vue-ui.es.js",
+            "require": "./dist/minima-vue-ui.umd.js"
         },
         "./style.css": "./dist/style.css",
         "./package.json": "./package.json"

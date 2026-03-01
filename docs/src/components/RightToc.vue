@@ -11,29 +11,30 @@ defineProps<{
 </script>
 
 <template>
-  <aside class="sticky top-24 hidden h-fit xl:block">
-    <div class="border-l-2 border-ui-border-strong pl-3.5">
-      <nav class="space-y-2">
+  <aside class="sticky top-24 hidden h-fit w-full max-w-[221px] lg:block">
+    <div class="flex flex-col gap-docs_2 pb-docs_1.5">
+      <nav class="relative overflow-hidden">
+        <div class="absolute left-0 top-2 h-[calc(100%-8px)] w-[1.5px] bg-ui-border-base" />
         <a
           v-for="item in items"
           :key="item.id"
           :href="`#${item.id}`"
-          class="block txt-xsmall-plus transition hover:text-ui-fg-base"
-          :class="item.level === 3 ? 'pl-3 text-ui-fg-muted' : 'text-ui-fg-base'"
+          class="relative block pt-2 txt-xsmall-plus text-ui-fg-muted transition hover:text-ui-fg-base"
+          :style="{ paddingLeft: `${(item.level - 1) * 12}px` }"
         >
           {{ item.title }}
         </a>
       </nav>
-    </div>
-    <div class="mt-8 space-y-3 pl-3.5 txt-xsmall-plus text-ui-fg-subtle">
-      <button type="button" class="flex items-center gap-2 transition hover:text-ui-fg-base">
-        <MarkdownSolid class="h-4 w-4" />
-        <span>View as Markdown</span>
-      </button>
-      <button type="button" class="flex items-center gap-2 transition hover:text-ui-fg-base">
-        <Sparkles class="h-4 w-4" />
-        <span>Explain this page</span>
-      </button>
+      <div class="flex flex-col gap-2 txt-xsmall-plus text-ui-fg-subtle">
+        <button type="button" class="flex items-center gap-2 transition hover:text-ui-fg-base">
+          <MarkdownSolid class="h-[15px] w-[15px]" />
+          <span>View as Markdown</span>
+        </button>
+        <button type="button" class="flex items-center gap-2 transition hover:text-ui-fg-base">
+          <Sparkles class="h-[15px] w-[15px]" />
+          <span>Explain this page</span>
+        </button>
+      </div>
     </div>
   </aside>
 </template>

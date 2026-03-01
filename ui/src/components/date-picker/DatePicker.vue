@@ -80,7 +80,7 @@ const handleCalendarUpdate = (date: Date | null) => {
     if (innerValue.value && 'hour' in innerValue.value && 'hour' in newVal) {
         // Preserve time from old value if logic dictates, but generally Calendar selection sets date.
         // If we have CalendarDateTime, we might want to keep time?
-        // Medusa UI Reference uses updateCalendarDateFromDate logic.
+        // The reference implementation uses updateCalendarDateFromDate logic.
         // But our Calendar component emits JS Date.
         // Ideally we should pass DateValue to Calendar?
         // My Calendar component accepts `Date` via `modelValue`.

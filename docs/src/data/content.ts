@@ -1,8 +1,10 @@
+import { siteBrand } from "@docs/data/site"
+
 export const homePackages = [
   {
     name: "@minima-vue/ui",
     description:
-      "Vue 3 implementation of the Medusa design system with composable primitives and pre-styled components.",
+      "Core component package for Minima Vue, with composable primitives and pre-styled building blocks.",
     install: "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset",
     route: "/installation/standalone-project",
   },
@@ -16,7 +18,7 @@ export const homePackages = [
   {
     name: "@minima-vue/ui-preset",
     description:
-      "Tailwind preset carrying Medusa color tokens, typography utilities, effects, and component primitives.",
+      "Tailwind preset carrying the token, typography, and utility layer used by Minima Vue.",
     install: "npm install -D @minima-vue/ui-preset tailwindcss",
     route: "/colors/overview",
   },
@@ -33,7 +35,7 @@ export const installationDocs = {
   "standalone-project": {
     title: "Standalone Project",
     description:
-      "Use the full Medusa Vue design system inside a regular Vue 3 and Vite application.",
+      `Use the full ${siteBrand.name} design system inside a regular Vue 3 and Vite application.`,
     installCommand:
       "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset",
     files: [
@@ -52,9 +54,9 @@ export const installationDocs = {
     ],
   },
   "medusa-admin-extension": {
-    title: "Medusa Admin Extension",
+    title: "Admin Extension",
     description:
-      "Wire the Vue packages into an admin-side extension or workspace package and share the same token contract.",
+      `Wire ${siteBrand.name} packages into an admin-side extension or workspace package and share the same token contract.`,
     installCommand:
       "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset && npm install -D @minima-vue/toolbox",
     files: [
@@ -99,12 +101,12 @@ export const utilityDocs = {
 export const componentCopy: Record<string, string> = {
   alert: "A feedback surface for status messages, warnings, and contextual notices.",
   avatar: "Visual identity primitive for users, organizations, and records.",
-  badge: "Small status and metadata label with Medusa token-driven styling.",
-  button: "Action trigger with Medusa sizes, variants, and loading affordances.",
+  badge: "Small status and metadata label with token-driven styling.",
+  button: "Action trigger with system sizes, variants, and loading affordances.",
   calendar: "Date grid primitive for range and single-date experiences.",
   "code-block": "Framed code presentation block for documentation and examples.",
   "command-bar": "Inline command summary pattern for selected actions and shortcuts.",
-  "currency-input": "Localized currency input that stays aligned with Medusa field styling.",
+  "currency-input": "Localized currency input that stays aligned with the shared field styling.",
   "date-picker": "Higher-level date selection field built on top of calendar primitives.",
   drawer: "Slide-over panel for secondary workflows and forms.",
   "dropdown-menu": "Context and overflow menu primitives backed by Radix Vue behavior.",
@@ -112,7 +114,7 @@ export const componentCopy: Record<string, string> = {
   heading: "Type scale primitive for information hierarchy.",
   hint: "Inline guidance element for contextual help and subtle messaging.",
   "icon-button": "Compact action button with an icon-first layout.",
-  input: "Default text field matching Medusa form tokens and spacing.",
+  input: "Default text field matching the shared form tokens and spacing.",
   label: "Form label primitive that pairs with inputs and grouped controls.",
   select: "Tokenized select menu with grouped options and portal-based content.",
   switch: "Boolean toggle component with explicit state visuals.",
@@ -124,4 +126,4 @@ export const componentCopy: Record<string, string> = {
 
 export const getComponentDescription = (slug: string, title: string) =>
   componentCopy[slug] ??
-  `${title} is part of the Medusa Vue UI package and follows the same tokenized styling and composition patterns as the reference design system.`
+  `${title} is part of the ${siteBrand.name} package set and follows the same tokenized styling and composition patterns as the design system.`

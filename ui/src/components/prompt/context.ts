@@ -2,7 +2,7 @@ import { inject, provide, toRef, type Ref } from "vue"
 
 export type PromptVariant = "danger" | "confirmation"
 
-const promptVariantKey = "medusa-vue-prompt-variant"
+const promptVariantKey = "minima-vue-prompt-variant"
 
 export const providePromptVariant = (variant: Ref<PromptVariant>) => {
   provide(promptVariantKey, variant)

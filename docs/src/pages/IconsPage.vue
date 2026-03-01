@@ -4,6 +4,7 @@ import IconSearch from "@docs/components/IconSearch.vue"
 import DocsCodeBlock from "@docs/components/DocsCodeBlock.vue"
 import RichText from "@docs/components/RichText.vue"
 import RightToc from "@docs/components/RightToc.vue"
+import { siteBrand } from "@docs/data/site"
 
 const tocItems = [
   { id: "installation", title: "Installation", level: 2 },
@@ -29,26 +30,26 @@ export default {
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
-        <span>Medusa UI</span>
+        <span>{{ siteBrand.name }}</span>
       </nav>
 
       <div class="docs-flow">
         <h1 class="docs-page-title">Icons</h1>
 
         <RichText
-          content="In this guide, you'll learn how to install and use Medusa UI icons."
+          :content="`In this guide, you'll learn how to install and use ${siteBrand.name} icons.`"
           :lead="true"
         />
 
         <RichText
-          content="The Medusa UI icons package is a collection of Vue icon components from Medusa's design system. You can use these icons either in your Medusa Admin customizations, or in your standalone Vue projects."
+          :content="`The ${siteBrand.name} icons package is a collection of Vue icon components for the design system. You can use these icons either in admin extensions or in standalone Vue projects.`"
           :lead="true"
         />
 
         <h2 id="installation" class="docs-section-title">Installation</h2>
 
         <RichText
-          content="The Medusa UI icons package is available by default in your Medusa application, so you can use them in your Medusa Admin customizations without any additional installation steps."
+          :content="`The ${siteBrand.name} icons package is available inside this workspace and can also be used directly in admin extensions without extra installation steps.`"
         />
 
         <h3 id="installation-in-standalone-projects" class="docs-subsection-title">
@@ -62,7 +63,7 @@ export default {
         </div>
 
         <RichText
-          content="To install the Medusa UI icons package in your Vue-based project, run the following command:"
+          :content="`To install the ${siteBrand.name} icons package in your Vue-based project, run the following command:`"
         />
 
         <DocsCodeBlock :code="installCode" lang="bash" label="bash" />
@@ -82,7 +83,7 @@ export default {
         <h2 id="icons-list" class="docs-section-title">Icons List</h2>
 
         <RichText
-          content="Below is a list of all the icons available in the Medusa UI design system. Click on any icon to copy its component name."
+          :content="`Below is a list of all the icons available in the ${siteBrand.name} design system. Click on any icon to copy its component name.`"
         />
 
         <IconSearch />

@@ -1,6 +1,6 @@
 # @minima-vue/ui
 
-Vue 3 implementation of Medusa UI components.
+Vue 3 implementation of Minima Vue components.
 
 ## Installation
 

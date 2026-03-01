@@ -1,17 +1,17 @@
 {
     "name": "@minima-vue/icons",
     "version": "1.0.0",
-    "description": "Medusa Vue icon library",
+    "description": "Minima Vue icon library",
     "author": "Emre Karahan<emre.karahan@gmail.com>",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/medusa-vue/medusa-vue.git",
-        "directory": "medusa-vue3/icons"
+        "url": "https://github.com/minima-vue/minima-vue.git",
+        "directory": "icons"
     },
-    "homepage": "https://github.com/medusa-vue/medusa-vue/tree/main/medusa-vue3/icons",
+    "homepage": "https://github.com/minima-vue/minima-vue/tree/main/minima-vue3/icons",
     "bugs": {
-        "url": "https://github.com/medusa-vue/medusa-vue/issues"
+        "url": "https://github.com/minima-vue/minima-vue/issues"
     },
     "main": "dist/index.js",
     "module": "dist/index.mjs",

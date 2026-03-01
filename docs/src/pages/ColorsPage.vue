@@ -4,10 +4,11 @@ import DocsCodeBlock from "@docs/components/DocsCodeBlock.vue"
 import RichText from "@docs/components/RichText.vue"
 import RightToc from "@docs/components/RightToc.vue"
 import { colorSections } from "@docs/data/colors"
+import { siteBrand } from "@docs/data/site"
 
 const tocItems = [
   { id: "overview", title: "Overview", level: 2 },
-  { id: "how-to-use-the-medusa-ui-colors", title: "How to Use the Medusa UI Colors", level: 3 },
+  { id: "how-to-use-the-minima-vue-colors", title: "How to Use the Minima Vue Colors", level: 3 },
   ...colorSections.map((section) => ({
     id: section.id,
     title: section.title,
@@ -26,21 +27,21 @@ const usageCode = `<body class="bg-ui-bg-base">
       <nav class="docs-breadcrumb">
         <span>Documentation</span>
         <span>›</span>
-        <span>Medusa UI</span>
+        <span>{{ siteBrand.name }}</span>
       </nav>
 
       <div class="docs-flow">
-        <h1 class="docs-page-title">Medusa UI Colors</h1>
+        <h1 class="docs-page-title">{{ siteBrand.name }} Colors</h1>
 
         <RichText
-          content="In this guide, you'll learn about the color classes available in Medusa UI and how to use them."
+          :content="`In this guide, you'll learn about the color classes available in ${siteBrand.name} and how to use them.`"
           :lead="true"
         />
 
         <h2 id="overview" class="docs-section-title">Overview</h2>
 
         <RichText
-          content="Medusa UI provides Tailwind CSS classes for colors from the Medusa design system. These classes can be used to style components and elements consistently across your Medusa and standalone applications."
+          :content="`${siteBrand.name} provides Tailwind CSS classes for the tokens used across the design system. These classes can be used to style components and elements consistently across your admin extensions and standalone applications.`"
         />
 
         <RichText
@@ -51,12 +52,12 @@ const usageCode = `<body class="bg-ui-bg-base">
           content="To copy a color's Tailwind CSS class from the list below, click on it."
         />
 
-        <h3 id="how-to-use-the-medusa-ui-colors" class="docs-subsection-title">
-          How to Use the Medusa UI Colors
+        <h3 id="how-to-use-the-minima-vue-colors" class="docs-subsection-title">
+          How to Use the Minima Vue Colors
         </h3>
 
         <RichText
-          content="You can use the color classes in your Medusa Admin customizations or standalone projects that have the `@minima-vue/ui` package installed."
+          content="You can use the color classes in your admin extensions or standalone projects that have the `@minima-vue/ui` package installed."
         />
 
         <RichText
