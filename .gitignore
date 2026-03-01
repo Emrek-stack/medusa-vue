@@ -135,3 +135,4 @@ reference/
 **/node_modules/
 **/dist/
 medusa-vue3/docs/src/generated/*.json
+ 
