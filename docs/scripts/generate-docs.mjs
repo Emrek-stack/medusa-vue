@@ -8,7 +8,7 @@ const projectRoot = path.resolve(docsRoot, "..")
 const uiRoot = path.join(projectRoot, "ui/src")
 const componentsRoot = path.join(uiRoot, "components")
 const generatedRoot = path.join(docsRoot, "src/generated")
-const referenceRoot = path.resolve(projectRoot, "../reference/medusa-2.13.1/www/apps/ui")
+const referenceRoot = path.resolve(projectRoot, "reference/medusa-2.13.1/www/apps/ui")
 const referencePagesRoot = path.join(referenceRoot, "app/components")
 const referenceSpecsRoot = path.join(referenceRoot, "specs/components")
 
@@ -35,7 +35,13 @@ const readFile = async (filePath) => {
 }
 
 const walkFiles = async (dirPath) => {
-  const entries = await fs.readdir(dirPath, { withFileTypes: true })
+  let entries
+  try {
+    entries = await fs.readdir(dirPath, { withFileTypes: true })
+  } catch (err) {
+    if (err.code === "ENOENT") return []
+    throw err
+  }
   const files = []
 
   for (const entry of entries) {
@@ -269,9 +275,9 @@ const parseReferenceTag = (tagSource) => {
   const componentsMatch = tagSource.match(/componentsToShow=\{\[([\s\S]*?)\]\}/)
   const componentsToShow = componentsMatch
     ? componentsMatch[1]
-        .split(",")
-        .map((item) => item.replace(/['"\n\r]/g, "").trim())
-        .filter(Boolean)
+      .split(",")
+      .map((item) => item.replace(/['"\n\r]/g, "").trim())
+      .filter(Boolean)
     : [mainComponent]
 
   return {
