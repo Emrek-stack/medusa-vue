@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AccordionHeader as RadixAccordionHeader, AccordionTrigger as RadixAccordionTrigger } from "radix-vue"
-import { PlusMini } from "@medusa-vue/icons"
+import { PlusMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { IconButton } from "@/components/icon-button"
 import ProgressAccordionProgressIndicator from "./ProgressAccordionProgressIndicator.vue"

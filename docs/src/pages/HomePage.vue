@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router"
-import { ArrowUpRightOnBox } from "@medusa-vue/icons"
+import { ArrowUpRightOnBox } from "@minima-vue/icons"
 import RightToc from "@docs/components/RightToc.vue"
 
 const tocItems = [
@@ -89,9 +89,9 @@ const tocItems = [
           </p>
 
           <ul class="list-disc space-y-3 pl-5 txt-large text-ui-fg-base">
-            <li><code>@medusa-vue/ui</code> - Vue components, hooks, and utility functions used in Medusa UI.</li>
-            <li><code>@medusa-vue/ui-preset</code> - Tailwind CSS preset containing all the classes used in Medusa UI.</li>
-            <li><code>@medusa-vue/icons</code> - Icons used in Medusa UI.</li>
+            <li><code>@minima-vue/ui</code> - Vue components, hooks, and utility functions used in Medusa UI.</li>
+            <li><code>@minima-vue/ui-preset</code> - Tailwind CSS preset containing all the classes used in Medusa UI.</li>
+            <li><code>@minima-vue/icons</code> - Icons used in Medusa UI.</li>
           </ul>
 
           <p class="docs-copy max-w-[780px]">

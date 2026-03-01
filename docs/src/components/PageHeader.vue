@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Badge } from "@medusa-vue/ui"
+import { Badge } from "@minima-vue/ui"
 
 defineProps<{
   eyebrow?: string

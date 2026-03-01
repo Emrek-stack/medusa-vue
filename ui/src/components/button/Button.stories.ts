@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Button from './Button.vue'
-import { PlusMini } from "@medusa-vue/icons"
+import { PlusMini } from "@minima-vue/icons"
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Button',

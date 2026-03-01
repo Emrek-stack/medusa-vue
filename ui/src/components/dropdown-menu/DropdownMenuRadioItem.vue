@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DropdownMenuRadioItem as RadixDropdownMenuRadioItem, DropdownMenuItemIndicator as RadixDropdownMenuItemIndicator } from "radix-vue"
-import { EllipseMiniSolid } from "@medusa-vue/icons"
+import { EllipseMiniSolid } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 
 const props = defineProps<{

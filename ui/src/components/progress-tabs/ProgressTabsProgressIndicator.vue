@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue"
-import { CheckCircleSolid, CircleDottedLine, CircleHalfSolid } from "@medusa-vue/icons"
+import { CheckCircleSolid, CircleDottedLine, CircleHalfSolid } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 
 const props = withDefaults(

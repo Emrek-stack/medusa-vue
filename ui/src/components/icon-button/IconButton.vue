@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Slot } from "radix-vue"
-import { Spinner } from "@medusa-vue/icons"
+import { Spinner } from "@minima-vue/icons"
 import { cva, type VariantProps } from "class-variance-authority"
 import { clx } from "@/utils/clx"
 import { computed } from "vue"

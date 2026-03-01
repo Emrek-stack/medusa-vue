@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cva } from "class-variance-authority"
-import { ExclamationCircleSolid } from "@medusa-vue/icons"
+import { ExclamationCircleSolid } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { computed } from "vue"
 

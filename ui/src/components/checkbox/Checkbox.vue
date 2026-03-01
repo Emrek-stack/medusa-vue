@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CheckboxRoot as RadixCheckbox, CheckboxIndicator } from "radix-vue"
-import { CheckMini, MinusMini } from "@medusa-vue/icons"
+import { CheckMini, MinusMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { computed, type PropType } from "vue"
 

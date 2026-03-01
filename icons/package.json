@@ -1,5 +1,5 @@
 {
-    "name": "@medusa-vue/icons",
+    "name": "@minima-vue/icons",
     "version": "1.0.0",
     "description": "Medusa Vue icon library",
     "author": "Emre Karahan<emre.karahan@gmail.com>",
@@ -39,7 +39,7 @@
         "vue": "^3.0.0"
     },
     "devDependencies": {
-        "@medusa-vue/toolbox": "file:../toolbox",
+        "@minima-vue/toolbox": "file:../toolbox",
         "esbuild-plugin-vue": "^0.2.4",
         "fs-extra": "^11.2.0",
         "glob": "^10.3.10",

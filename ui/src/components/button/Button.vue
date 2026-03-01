@@ -2,7 +2,7 @@
 import { Primitive } from "radix-vue"
 import { cva } from "class-variance-authority"
 import { clx } from "@/utils/clx"
-import { Spinner } from "@medusa-vue/icons"
+import { Spinner } from "@minima-vue/icons"
 import { computed } from "vue"
 
 const buttonVariants = cva(

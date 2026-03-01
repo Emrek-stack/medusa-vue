@@ -23,7 +23,7 @@ export default defineConfig({
             fileName: (format) => `medusa-vue-ui.${format}.js`
         },
         rollupOptions: {
-            external: ['vue', '@medusa-vue/icons', '@medusa-vue/ui-preset'],
+            external: ['vue', '@minima-vue/icons', '@minima-vue/ui-preset'],
             output: {
                 globals: {
                     vue: 'Vue'

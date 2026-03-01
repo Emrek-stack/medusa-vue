@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import { Tooltip } from "@medusa-vue/ui"
+import { Tooltip } from "@minima-vue/ui"
 import RichText from "@docs/components/RichText.vue"
 import { colorSections, type ColorEntry } from "@docs/data/colors"
 

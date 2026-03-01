@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { nextTick, reactive, watch } from "vue"
 import { RouterLink, useRoute } from "vue-router"
-import { TriangleDownMini, TriangleUpMini } from "@medusa-vue/icons"
+import { TriangleDownMini, TriangleUpMini } from "@minima-vue/icons"
 import type { SidebarItem } from "@docs/data/navigation"
 
 const props = defineProps<{

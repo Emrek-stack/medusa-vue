@@ -1,5 +1,5 @@
 {
-  "name": "@medusa-vue/docs",
+  "name": "@minima-vue/docs",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.10.0",
-    "@medusa-vue/icons": "file:../icons",
-    "@medusa-vue/ui": "file:../ui",
-    "@medusa-vue/ui-preset": "file:../ui-preset",
+    "@minima-vue/icons": "file:../icons",
+    "@minima-vue/ui": "file:../ui",
+    "@minima-vue/ui-preset": "file:../ui-preset",
     "vue": "^3.4.19",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@medusa-vue/toolbox": "file:../toolbox",
+    "@minima-vue/toolbox": "file:../toolbox",
     "@vitejs/plugin-vue": "^5.2.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",

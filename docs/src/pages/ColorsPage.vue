@@ -56,7 +56,7 @@ const usageCode = `<body class="bg-ui-bg-base">
         </h3>
 
         <RichText
-          content="You can use the color classes in your Medusa Admin customizations or standalone projects that have the `@medusa-vue/ui` package installed."
+          content="You can use the color classes in your Medusa Admin customizations or standalone projects that have the `@minima-vue/ui` package installed."
         />
 
         <RichText

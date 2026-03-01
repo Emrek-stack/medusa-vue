@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
 import { RouterLink, RouterView, useRoute } from "vue-router"
-import { Toaster, TooltipProvider } from "@medusa-vue/ui"
+import { Toaster, TooltipProvider } from "@minima-vue/ui"
 import {
   BarsThree,
   ChevronDownMini,
@@ -10,7 +10,7 @@ import {
   SidebarLeft,
   SparklesMiniSolid,
   XMarkMini,
-} from "@medusa-vue/icons"
+} from "@minima-vue/icons"
 import SidebarNav from "@docs/components/SidebarNav.vue"
 import { navigationItems } from "@docs/data/navigation"
 

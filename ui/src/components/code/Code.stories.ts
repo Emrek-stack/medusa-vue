@@ -16,6 +16,6 @@ export const Default: Story = {
         setup() {
             return { args }
         },
-        template: '<Code v-bind="args">yarn add -D @medusa-vue/ui-preset</Code>',
+        template: '<Code v-bind="args">yarn add -D @minima-vue/ui-preset</Code>',
     }),
 }

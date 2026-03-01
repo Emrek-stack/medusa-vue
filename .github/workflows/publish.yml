@@ -29,10 +29,10 @@ jobs:
 
       - name: Bump Versions
         run: |
-          npm version patch --workspace @medusa-vue/toolbox --no-git-tag-version --no-commit-hooks
-          npm version patch --workspace @medusa-vue/icons --no-git-tag-version --no-commit-hooks
-          npm version patch --workspace @medusa-vue/ui-preset --no-git-tag-version --no-commit-hooks
-          npm version patch --workspace @medusa-vue/ui --no-git-tag-version --no-commit-hooks
+          npm version patch --workspace @minima-vue/toolbox --no-git-tag-version --no-commit-hooks
+          npm version patch --workspace @minima-vue/icons --no-git-tag-version --no-commit-hooks
+          npm version patch --workspace @minima-vue/ui-preset --no-git-tag-version --no-commit-hooks
+          npm version patch --workspace @minima-vue/ui --no-git-tag-version --no-commit-hooks
 
       - name: Build Packages
         run: npm run build:packages

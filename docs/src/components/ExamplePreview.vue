@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
-import { Alert } from "@medusa-vue/ui"
+import { Alert } from "@minima-vue/ui"
 import DocsCodeBlock from "@docs/components/DocsCodeBlock.vue"
 import FeedbackRow from "@docs/components/FeedbackRow.vue"
 import { resolveExample } from "@docs/data/example-registry"

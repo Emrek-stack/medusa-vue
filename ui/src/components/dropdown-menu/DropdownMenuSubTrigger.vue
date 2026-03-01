@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DropdownMenuSubTrigger as RadixDropdownMenuSubTrigger } from "radix-vue"
-import { ChevronRightMini } from "@medusa-vue/icons"
+import { ChevronRightMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 
 const props = defineProps<{

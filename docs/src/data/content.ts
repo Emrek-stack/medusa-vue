@@ -1,30 +1,30 @@
 export const homePackages = [
   {
-    name: "@medusa-vue/ui",
+    name: "@minima-vue/ui",
     description:
       "Vue 3 implementation of the Medusa design system with composable primitives and pre-styled components.",
-    install: "npm install @medusa-vue/ui @medusa-vue/icons @medusa-vue/ui-preset",
+    install: "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset",
     route: "/installation/standalone-project",
   },
   {
-    name: "@medusa-vue/icons",
+    name: "@minima-vue/icons",
     description:
       "SVG icon components generated for Vue so design tokens and component examples stay consistent.",
-    install: "npm install @medusa-vue/icons",
+    install: "npm install @minima-vue/icons",
     route: "/icons/overview",
   },
   {
-    name: "@medusa-vue/ui-preset",
+    name: "@minima-vue/ui-preset",
     description:
       "Tailwind preset carrying Medusa color tokens, typography utilities, effects, and component primitives.",
-    install: "npm install -D @medusa-vue/ui-preset tailwindcss",
+    install: "npm install -D @minima-vue/ui-preset tailwindcss",
     route: "/colors/overview",
   },
   {
-    name: "@medusa-vue/toolbox",
+    name: "@minima-vue/toolbox",
     description:
       "Workspace utility package used for token and icon generation, and now for docs-side metadata workflows.",
-    install: "npm install -D @medusa-vue/toolbox",
+    install: "npm install -D @minima-vue/toolbox",
     route: "/installation/medusa-admin-extension",
   },
 ] as const
@@ -35,19 +35,19 @@ export const installationDocs = {
     description:
       "Use the full Medusa Vue design system inside a regular Vue 3 and Vite application.",
     installCommand:
-      "npm install @medusa-vue/ui @medusa-vue/icons @medusa-vue/ui-preset",
+      "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset",
     files: [
       {
         label: "tailwind.config.ts",
-        code: `import type { Config } from "tailwindcss"\nimport preset from "@medusa-vue/ui-preset"\n\nexport default {\n  presets: [preset as Config],\n  content: ["./index.html", "./src/**/*.{ts,vue}"],\n} satisfies Config`,
+        code: `import type { Config } from "tailwindcss"\nimport preset from "@minima-vue/ui-preset"\n\nexport default {\n  presets: [preset as Config],\n  content: ["./index.html", "./src/**/*.{ts,vue}"],\n} satisfies Config`,
       },
       {
         label: "main.ts",
-        code: `import { createApp } from "vue"\nimport App from "./App.vue"\nimport "@medusa-vue/ui/style.css"\n\ncreateApp(App).mount("#app")`,
+        code: `import { createApp } from "vue"\nimport App from "./App.vue"\nimport "@minima-vue/ui/style.css"\n\ncreateApp(App).mount("#app")`,
       },
       {
         label: "App.vue",
-        code: `<script setup lang="ts">\nimport { Button } from "@medusa-vue/ui"\n</script>\n\n<template>\n  <Button>Launch</Button>\n</template>`,
+        code: `<script setup lang="ts">\nimport { Button } from "@minima-vue/ui"\n</script>\n\n<template>\n  <Button>Launch</Button>\n</template>`,
       },
     ],
   },
@@ -56,7 +56,7 @@ export const installationDocs = {
     description:
       "Wire the Vue packages into an admin-side extension or workspace package and share the same token contract.",
     installCommand:
-      "npm install @medusa-vue/ui @medusa-vue/icons @medusa-vue/ui-preset && npm install -D @medusa-vue/toolbox",
+      "npm install @minima-vue/ui @minima-vue/icons @minima-vue/ui-preset && npm install -D @minima-vue/toolbox",
     files: [
       {
         label: "workspace package.json",
@@ -64,7 +64,7 @@ export const installationDocs = {
       },
       {
         label: "entrypoint",
-        code: `import "@medusa-vue/ui/style.css"\nimport { Alert, Button } from "@medusa-vue/ui"\n\nexport default {\n  components: { Alert, Button },\n}`,
+        code: `import "@minima-vue/ui/style.css"\nimport { Alert, Button } from "@minima-vue/ui"\n\nexport default {\n  components: { Alert, Button },\n}`,
       },
     ],
   },
@@ -75,14 +75,14 @@ export const hookDocs = {
     title: "useToggleState",
     description:
       "Small utility composable for open and close state handling with an immutable state ref and explicit helpers.",
-    usage: `import { useToggleState } from "@medusa-vue/ui"\n\nconst { state, open, close, toggle } = useToggleState(false)`,
-    example: `<script setup lang="ts">\nimport { computed } from "vue"\nimport { Button } from "@medusa-vue/ui"\nimport { useToggleState } from "@medusa-vue/ui"\n\nconst { state, open, close, toggle } = useToggleState()\nconst label = computed(() => (state.value ? "Open" : "Closed"))\n</script>\n\n<template>\n  <div class="flex items-center gap-3">\n    <Button @click="toggle">Toggle</Button>\n    <Button variant="secondary" @click="open">Open</Button>\n    <Button variant="transparent" @click="close">Close</Button>\n    <span>{{ label }}</span>\n  </div>\n</template>`,
+    usage: `import { useToggleState } from "@minima-vue/ui"\n\nconst { state, open, close, toggle } = useToggleState(false)`,
+    example: `<script setup lang="ts">\nimport { computed } from "vue"\nimport { Button } from "@minima-vue/ui"\nimport { useToggleState } from "@minima-vue/ui"\n\nconst { state, open, close, toggle } = useToggleState()\nconst label = computed(() => (state.value ? "Open" : "Closed"))\n</script>\n\n<template>\n  <div class="flex items-center gap-3">\n    <Button @click="toggle">Toggle</Button>\n    <Button variant="secondary" @click="open">Open</Button>\n    <Button variant="transparent" @click="close">Close</Button>\n    <span>{{ label }}</span>\n  </div>\n</template>`,
   },
   "use-prompt": {
     title: "usePrompt",
     description:
       "Reserved for the future Prompt implementation in the Vue port. The composable currently throws to make the missing behavior explicit.",
-    usage: `import { usePrompt } from "@medusa-vue/ui"\n\nconst prompt = usePrompt()`,
+    usage: `import { usePrompt } from "@minima-vue/ui"\n\nconst prompt = usePrompt()`,
     example: `// Current state\nexport const usePrompt = () => {\n  throw new Error("usePrompt is not yet implemented in Vue version.")\n}`,
   },
 } as const
@@ -92,7 +92,7 @@ export const utilityDocs = {
     title: "clx",
     description:
       "Thin utility around clsx and tailwind-merge so component class composition stays compact while avoiding Tailwind conflicts.",
-    usage: `import { clx } from "@medusa-vue/ui"\n\nconst classes = clx("px-4", isActive && "bg-ui-bg-highlight")`,
+    usage: `import { clx } from "@minima-vue/ui"\n\nconst classes = clx("px-4", isActive && "bg-ui-bg-highlight")`,
   },
 } as const
 

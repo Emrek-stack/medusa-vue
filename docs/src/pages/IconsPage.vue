@@ -15,8 +15,8 @@ const tocItems = [
   { id: "icon-size", title: "Icon Size", level: 3 },
 ]
 
-const installCode = `npm install @medusa-vue/icons`
-const usageCode = `import { Sun } from "@medusa-vue/icons"
+const installCode = `npm install @minima-vue/icons`
+const usageCode = `import { Sun } from "@minima-vue/icons"
 
 export default {
   components: { Sun },

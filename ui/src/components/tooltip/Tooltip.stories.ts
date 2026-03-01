@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Tooltip from './Tooltip.vue'
 import { TooltipProvider } from 'radix-vue'
-import { InformationCircleSolid } from '@medusa-vue/icons'
+import { InformationCircleSolid } from '@minima-vue/icons'
 
 const meta: Meta<typeof Tooltip> = {
     title: 'Components/Tooltip',

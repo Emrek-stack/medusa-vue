@@ -7,7 +7,7 @@ import {
   InformationCircleSolid,
   XCircleSolid,
   XMarkMini,
-} from "@medusa-vue/icons"
+} from "@minima-vue/icons"
 import { IconButton } from "@/components/icon-button"
 
 export interface AlertProps {

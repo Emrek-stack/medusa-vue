@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-import preset from "@medusa-vue/ui-preset"
+import preset from "@minima-vue/ui-preset"
 
 const docsSpacing = {
   "docs_0.125": "2px",

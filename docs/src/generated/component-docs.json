@@ -664,7 +664,7 @@
       {
         "type": "code",
         "lang": "ts",
-        "code": "import { Code } from \"@medusa-vue/ui\""
+        "code": "import { Code } from \"@minima-vue/ui\""
       },
       {
         "type": "heading",
@@ -2249,7 +2249,7 @@
       {
         "type": "code",
         "lang": "ts",
-        "code": "import { DateSegment } from \"@medusa-vue/ui\""
+        "code": "import { DateSegment } from \"@minima-vue/ui\""
       },
       {
         "type": "heading",
@@ -2673,7 +2673,7 @@
       {
         "type": "code",
         "lang": "ts",
-        "code": "import { Hint } from \"@medusa-vue/ui\""
+        "code": "import { Hint } from \"@minima-vue/ui\""
       },
       {
         "type": "heading",
@@ -3289,7 +3289,7 @@
       {
         "type": "code",
         "lang": "ts",
-        "code": "import { Popover, PopoverTrigger, PopoverContent, PopoverSeperator } from \"@medusa-vue/ui\""
+        "code": "import { Popover, PopoverTrigger, PopoverContent, PopoverSeperator } from \"@minima-vue/ui\""
       },
       {
         "type": "heading",
@@ -4467,7 +4467,7 @@
       {
         "type": "code",
         "lang": "ts",
-        "code": "import { TimeInput } from \"@medusa-vue/ui\""
+        "code": "import { TimeInput } from \"@minima-vue/ui\""
       },
       {
         "type": "heading",

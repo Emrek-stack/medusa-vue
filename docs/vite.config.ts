@@ -15,11 +15,11 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "./src"),
       },
       {
-        find: /^@medusa-vue\/ui$/,
+        find: /^@minima-vue\/ui$/,
         replacement: path.resolve(__dirname, "../ui/src/index.ts"),
       },
       {
-        find: "@medusa-vue/ui/style.css",
+        find: "@minima-vue/ui/style.css",
         replacement: path.resolve(__dirname, "../ui/src/style.css"),
       },
       {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import IconButton from './IconButton.vue'
-import { Plus } from '@medusa-vue/icons'
+import { Plus } from '@minima-vue/icons'
 
 const meta: Meta<typeof IconButton> = {
     title: 'Components/IconButton',

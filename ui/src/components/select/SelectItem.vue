@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SelectItem as RadixSelectItem, SelectItemIndicator as RadixSelectItemIndicator, SelectItemText as RadixSelectItemText } from "radix-vue"
-import { Check } from "@medusa-vue/icons"
+import { Check } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 
 const props = defineProps<{

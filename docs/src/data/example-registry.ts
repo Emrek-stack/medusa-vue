@@ -71,7 +71,7 @@ import {
   Text,
   toast,
   TooltipProvider,
-} from "@medusa-vue/ui"
+} from "@minima-vue/ui"
 import {
   BoltSolid,
   BuildingTax,
@@ -81,7 +81,7 @@ import {
   PlusMini,
   Sun,
   XCircleSolid,
-} from "@medusa-vue/icons"
+} from "@minima-vue/icons"
 import { getStoriesForComponent } from "@docs/utils/storybook"
 
 type ExampleEntry = {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Hint from './Hint.vue'
-import { ExclamationCircleSolid } from '@medusa-vue/icons'
+import { ExclamationCircleSolid } from '@minima-vue/icons'
 
 const meta: Meta<typeof Hint> = {
     title: 'Components/Hint',

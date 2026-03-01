@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useRoute } from "vue-router"
-import { Alert } from "@medusa-vue/ui"
+import { Alert } from "@minima-vue/ui"
 import CodeExample from "@docs/components/CodeExample.vue"
 import PageHeader from "@docs/components/PageHeader.vue"
 import { installationDocs } from "@docs/data/content"
@@ -15,7 +15,7 @@ const page = computed(() => installationDocs[route.params.slug as keyof typeof i
   <div v-if="page" class="space-y-8">
     <PageHeader eyebrow="Installation" :title="page.title" :description="page.description" />
     <Alert variant="info">
-      Import <code>@medusa-vue/ui/style.css</code> once, then apply the <code>@medusa-vue/ui-preset</code>
+      Import <code>@minima-vue/ui/style.css</code> once, then apply the <code>@minima-vue/ui-preset</code>
       Tailwind preset so the CSS variables and utility classes align with component expectations.
     </Alert>
     <CodeExample label="Install Command" :code="page.installCommand" />

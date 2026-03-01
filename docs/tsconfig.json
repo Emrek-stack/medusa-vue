@@ -20,7 +20,7 @@
       "@docs/*": [
         "src/*"
       ],
-      "@medusa-vue/ui": [
+      "@minima-vue/ui": [
         "../ui/src/index.ts"
       ],
       "@/*": [

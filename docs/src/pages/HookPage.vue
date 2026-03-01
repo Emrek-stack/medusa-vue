@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useRoute } from "vue-router"
-import { Alert } from "@medusa-vue/ui"
+import { Alert } from "@minima-vue/ui"
 import CodeExample from "@docs/components/CodeExample.vue"
 import PageHeader from "@docs/components/PageHeader.vue"
 import { hookDocs } from "@docs/data/content"

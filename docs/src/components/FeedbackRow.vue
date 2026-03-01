@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@medusa-vue/ui"
-import { FlagMini, ThumbDown, ThumbUp } from "@medusa-vue/icons"
+import { Button } from "@minima-vue/ui"
+import { FlagMini, ThumbDown, ThumbUp } from "@minima-vue/icons"
 
 withDefaults(
   defineProps<{

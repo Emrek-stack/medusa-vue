@@ -4,7 +4,7 @@ import {
   CodeBlockBody,
   CodeBlockHeader,
   TooltipProvider,
-} from "@medusa-vue/ui"
+} from "@minima-vue/ui"
 
 withDefaults(
   defineProps<{

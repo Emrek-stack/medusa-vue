@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-import preset from "@medusa-vue/ui-preset"
+import preset from "@minima-vue/ui-preset"
 
 const config: Config = {
     presets: [preset as Config],

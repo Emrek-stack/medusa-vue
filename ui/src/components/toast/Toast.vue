@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ToastRoot, ToastClose } from "radix-vue"
 import { IconButton } from "@/components/icon-button"
-import { CheckCircleSolid, ExclamationCircleSolid, InformationCircleSolid, XCircleSolid, Spinner, XMark } from "@medusa-vue/icons"
+import { CheckCircleSolid, ExclamationCircleSolid, InformationCircleSolid, XCircleSolid, Spinner, XMark } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { computed, type PropType } from "vue"
 import type { ToastVariant, ToastAction } from "@/types"

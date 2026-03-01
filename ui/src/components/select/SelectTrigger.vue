@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SelectTrigger as RadixSelectTrigger, SelectIcon as RadixSelectIcon } from "radix-vue"
-import { TrianglesMini } from "@medusa-vue/icons"
+import { TrianglesMini } from "@minima-vue/icons"
 import { cva } from "class-variance-authority"
 import { clx } from "@/utils/clx"
 import { inject, computed, type Ref } from "vue"

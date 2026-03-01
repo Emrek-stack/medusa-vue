@@ -1,18 +1,18 @@
-# @medusa-vue/icons
+# @minima-vue/icons
 
 The Medusa Vue Icon library.
 
 ## Installation
 
 ```bash
-npm install @medusa-vue/icons
+npm install @minima-vue/icons
 ```
 
 ## Usage
 
 ```vue
 <script setup>
-import { AcademicCap } from "@medusa-vue/icons"
+import { AcademicCap } from "@minima-vue/icons"
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DropdownMenuCheckboxItem as RadixDropdownMenuCheckboxItem, DropdownMenuItemIndicator as RadixDropdownMenuItemIndicator } from "radix-vue"
-import { CheckMini } from "@medusa-vue/icons"
+import { CheckMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 
 const props = defineProps<{

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
-import * as icons from "@medusa-vue/icons"
+import * as icons from "@minima-vue/icons"
 
 const query = ref("")
 

@@ -470,7 +470,7 @@ const buildFallbackDoc = (item, spec) => {
     {
       type: "code",
       lang: "ts",
-      code: `import { ${importNames} } from "@medusa-vue/ui"`,
+      code: `import { ${importNames} } from "@minima-vue/ui"`,
     },
     {
       type: "heading",

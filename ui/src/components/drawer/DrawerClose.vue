@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DialogClose } from "radix-vue"
 import { clx } from "@/utils/clx"
-import { XMark } from "@medusa-vue/icons"
+import { XMark } from "@minima-vue/icons"
 
 defineProps<{
   asChild?: boolean

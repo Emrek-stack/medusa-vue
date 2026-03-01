@@ -2,7 +2,7 @@
 import { computed } from "vue"
 import { clx } from "@/utils/clx"
 import { Button } from "@/components/button"
-import { Minus } from "@medusa-vue/icons"
+import { Minus } from "@minima-vue/icons"
 
 interface TablePaginationProps {
     count: number

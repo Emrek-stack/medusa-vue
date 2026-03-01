@@ -1,11 +1,11 @@
-# @medusa-vue/ui-preset
+# @minima-vue/ui-preset
 
 The Medusa Vue UI preset for Tailwind CSS.
 
 ## Installation
 
 ```bash
-npm install -D @medusa-vue/ui-preset
+npm install -D @minima-vue/ui-preset
 ```
 
 ## Usage
@@ -14,9 +14,9 @@ Add the preset to your `tailwind.config.js` file:
 
 ```js
 module.exports = {
-  presets: [require("@medusa-vue/ui-preset")],
+  presets: [require("@minima-vue/ui-preset")],
   content: [
-    "./node_modules/@medusa-vue/ui-preset/**/*.js",
+    "./node_modules/@minima-vue/ui-preset/**/*.js",
     // ...
   ],
   // ...

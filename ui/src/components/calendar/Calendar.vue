@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CalendarRoot, CalendarHeader, CalendarHeading, CalendarGrid, CalendarGridHead, CalendarGridBody, CalendarGridRow, CalendarHeadCell, CalendarPrev, CalendarNext } from "radix-vue"
-import { TriangleLeftMini, TriangleRightMini } from "@medusa-vue/icons"
+import { TriangleLeftMini, TriangleRightMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { CalendarButton } from "."
 import CalendarCell from "./CalendarCell.vue"

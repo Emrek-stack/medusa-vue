@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
-import { Container, Input, Text, Tooltip } from "@medusa-vue/ui"
-import * as Icons from "@medusa-vue/icons"
+import { Container, Input, Text, Tooltip } from "@minima-vue/ui"
+import * as Icons from "@minima-vue/icons"
 
 const query = ref("")
 const copiedName = ref<string | null>(null)

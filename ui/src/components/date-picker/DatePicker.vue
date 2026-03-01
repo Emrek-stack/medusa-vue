@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover" /
 import { Calendar } from "@/components/calendar"
 import { TimeInput } from "@/components/time-input"
 import { DatePickerField, DatePickerButton, DatePickerClearButton } from "."
-import { CalendarMini, Clock, XMarkMini } from "@medusa-vue/icons"
+import { CalendarMini, Clock, XMarkMini } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 import { cva } from "class-variance-authority"
 import { 

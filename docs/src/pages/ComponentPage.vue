@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useRoute } from "vue-router"
-import { Alert } from "@medusa-vue/ui"
+import { Alert } from "@minima-vue/ui"
 import ApiReferenceSection from "@docs/components/ApiReferenceSection.vue"
 import DocsCodeBlock from "@docs/components/DocsCodeBlock.vue"
 import ExamplePreview from "@docs/components/ExamplePreview.vue"
@@ -51,7 +51,7 @@ const firstSectionIndex = computed(
 
 const transformCode = (value: string) =>
   value
-    .replace(/@medusajs\//g, "@medusa-vue/")
+    .replace(/@medusajs\//g, "@minima-vue/")
     .replace(/CodeBlock\.Header\.Meta/g, "CodeBlockMeta")
     .replace(/CodeBlock\.Header/g, "CodeBlockHeader")
     .replace(/CodeBlock\.Body/g, "CodeBlockBody")

@@ -1,5 +1,5 @@
 {
-  "name": "@medusa-vue/toolbox",
+  "name": "@minima-vue/toolbox",
   "version": "1.0.0",
   "description": "CLI tool for importing Figma designs for Medusa UI",
   "license": "MIT",

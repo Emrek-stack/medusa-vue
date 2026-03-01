@@ -8,7 +8,7 @@ import {
     CheckCircleSolid, 
     SquareTwoStack, 
     SquareTwoStackMini 
-} from "@medusa-vue/icons"
+} from "@minima-vue/icons"
 import { Primitive } from "radix-vue"
 
 interface CopyProps {

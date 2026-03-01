@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MarkdownSolid, Sparkles } from "@medusa-vue/icons"
+import { MarkdownSolid, Sparkles } from "@minima-vue/icons"
 
 defineProps<{
   items: Array<{

@@ -13,7 +13,7 @@ import DropdownMenuHint from './DropdownMenuHint.vue'
 // import DropdownMenuSubTrigger from './DropdownMenuSubTrigger.vue'
 // import DropdownMenuSubContent from './DropdownMenuSubContent.vue'
 import { IconButton } from '../icon-button'
-import { EllipsisHorizontal, PencilSquare, Plus, Trash } from '@medusa-vue/icons'
+import { EllipsisHorizontal, PencilSquare, Plus, Trash } from '@minima-vue/icons'
 import { ref } from 'vue'
 
 const meta: Meta<typeof DropdownMenu> = {

@@ -2,7 +2,7 @@
 import { DialogClose as RadixDialogClose } from "radix-vue"
 import { IconButton } from "@/components/icon-button"
 import { Kbd } from "@/components/kbd"
-import { XMark } from "@medusa-vue/icons"
+import { XMark } from "@minima-vue/icons"
 import { clx } from "@/utils/clx"
 </script>
 

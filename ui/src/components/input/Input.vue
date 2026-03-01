@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { Eye, EyeSlash, MagnifyingGlassMini } from "@medusa-vue/icons"
+import { Eye, EyeSlash, MagnifyingGlassMini } from "@minima-vue/icons"
 import { cva } from "class-variance-authority"
 import { clx } from "@/utils/clx"
 
