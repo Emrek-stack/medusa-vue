@@ -3,7 +3,7 @@ import { ref, computed, watch } from "vue"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover" // Using my wrapper which uses Radix
 import { Calendar } from "@/components/calendar"
 import { TimeInput } from "@/components/time-input"
-import { DatePickerField, DatePickerButton, DatePickerClearButton } from "./"
+import { DatePickerField, DatePickerButton, DatePickerClearButton } from "."
 import { CalendarMini, Clock, XMarkMini } from "@medusa-vue/icons"
 import { clx } from "@/utils/clx"
 import { cva } from "class-variance-authority"

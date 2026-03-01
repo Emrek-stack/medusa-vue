@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ToastProvider, ToastViewport } from "radix-vue"
 import { useToast } from "@/composables/use-toast"
-import { Toast } from "./"
+import { Toast } from "."
 import { ToasterPosition } from "@/types"
 import { clx } from "@/utils/clx"
 import { computed } from "vue"

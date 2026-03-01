@@ -1,0 +1,4795 @@
+[
+  {
+    "slug": "alert",
+    "title": "Alert",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Alert",
+        "id": "alert"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying important messages."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Alert component."
+      },
+      {
+        "type": "example",
+        "name": "alert-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Alert } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Alert>Here's a message</Alert>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Alert",
+        "componentsToShow": [
+          "Alert"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Success Alert",
+        "id": "success-alert"
+      },
+      {
+        "type": "example",
+        "name": "alert-success",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Warning Alert",
+        "id": "warning-alert"
+      },
+      {
+        "type": "example",
+        "name": "alert-warning",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Error Alert",
+        "id": "error-alert"
+      },
+      {
+        "type": "example",
+        "name": "alert-error",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Dismissible Alert",
+        "id": "dismissible-alert"
+      },
+      {
+        "type": "example",
+        "name": "alert-dismissable",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "avatar",
+    "title": "Avatar",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Avatar",
+        "id": "avatar"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying user avatars with a fallback option."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Avatar component."
+      },
+      {
+        "type": "example",
+        "name": "avatar-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Avatar } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Avatar\n  src=\"https://avatars.githubusercontent.com/u/10656202?v=4\"\n  fallback=\"M\"\n/>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Avatar",
+        "componentsToShow": [
+          "Avatar"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Avatar Variants",
+        "id": "avatar-variants"
+      },
+      {
+        "type": "example",
+        "name": "avatar-variants",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Avatar Sizes",
+        "id": "avatar-sizes"
+      },
+      {
+        "type": "example",
+        "name": "avatar-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Avatar Fallback Only",
+        "id": "avatar-fallback-only"
+      },
+      {
+        "type": "example",
+        "name": "avatar-fallback",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Avatar Custom Styling",
+        "id": "avatar-custom-styling"
+      },
+      {
+        "type": "example",
+        "name": "avatar-custom-style",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Avatar Accessibility",
+        "id": "avatar-accessibility"
+      },
+      {
+        "type": "paragraph",
+        "content": "You can add the `aria-label` prop to the Avatar component for better accessibility."
+      },
+      {
+        "type": "example",
+        "name": "avatar-accessible",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "badge",
+    "title": "Badge",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Badge",
+        "id": "badge"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying labels or indicators in a badge style."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Badge component."
+      },
+      {
+        "type": "example",
+        "name": "badge-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Badge } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Badge>Badge</Badge>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Badge",
+        "componentsToShow": [
+          "Badge"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Badge Colors",
+        "id": "badge-colors"
+      },
+      {
+        "type": "example",
+        "name": "badge-all-colors",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Badge Sizes",
+        "id": "badge-sizes"
+      },
+      {
+        "type": "example",
+        "name": "badge-all-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Badge Rounded Variants",
+        "id": "badge-rounded-variants"
+      },
+      {
+        "type": "example",
+        "name": "badge-all-rounded",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "button",
+    "title": "Button",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Button",
+        "id": "button"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering buttons using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Button component."
+      },
+      {
+        "type": "example",
+        "name": "button-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Button } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Button>Button</Button>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Button",
+        "componentsToShow": [
+          "Button"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Button Variants",
+        "id": "button-variants"
+      },
+      {
+        "type": "example",
+        "name": "button-all-variants",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Button Sizes",
+        "id": "button-sizes"
+      },
+      {
+        "type": "example",
+        "name": "button-all-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Button Loading State",
+        "id": "button-loading-state"
+      },
+      {
+        "type": "example",
+        "name": "button-loading",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Button with Icon",
+        "id": "button-with-icon"
+      },
+      {
+        "type": "example",
+        "name": "button-with-icon",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Button as Link",
+        "id": "button-as-link"
+      },
+      {
+        "type": "example",
+        "name": "button-as-link",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "calendar",
+    "title": "Calendar",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Calendar",
+        "id": "calendar"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying a calendar interface with date selection capability."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Calendar component."
+      },
+      {
+        "type": "example",
+        "name": "calendar-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Calendar } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Calendar />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Calendar",
+        "componentsToShow": [
+          "Calendar"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled",
+        "id": "controlled"
+      },
+      {
+        "type": "example",
+        "name": "calendar-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Min/Max Dates",
+        "id": "min-max-dates"
+      },
+      {
+        "type": "example",
+        "name": "calendar-min-max",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Unavailable Dates",
+        "id": "unavailable-dates"
+      },
+      {
+        "type": "example",
+        "name": "calendar-unavailable",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "checkbox",
+    "title": "Checkbox",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Checkbox",
+        "id": "checkbox"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering checkbox inputs using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Checkbox component."
+      },
+      {
+        "type": "example",
+        "name": "checkbox-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Checkbox } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Checkbox />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Checkbox",
+        "componentsToShow": [
+          "Checkbox"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Checkbox All States",
+        "id": "checkbox-all-states"
+      },
+      {
+        "type": "example",
+        "name": "checkbox-all-states",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Checkbox",
+        "id": "controlled-checkbox"
+      },
+      {
+        "type": "example",
+        "name": "checkbox-controlled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "code",
+    "title": "Code",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Code",
+        "id": "code"
+      },
+      {
+        "type": "paragraph",
+        "content": "This component is based on the `code` element and supports all of its props"
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Code component."
+      },
+      {
+        "type": "example",
+        "name": "code-demo"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "ts",
+        "code": "import { Code } from \"@medusa-vue/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Code",
+        "componentsToShow": [
+          "Code"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "code-block",
+    "title": "Code Block",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Code Block",
+        "id": "code-block"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying code snippets with syntax highlighting and copy functionality."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Code Block component."
+      },
+      {
+        "type": "example",
+        "name": "code-block-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { CodeBlock } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<CodeBlock \n  snippets={[\n    { \n      language: \"tsx\", \n      label: \"Label\", \n      code: \"import { useProduct } from \\\"medusa-react\\\"\",\n    },\n  ]}\n>\n  <CodeBlock.Header />\n  <CodeBlock.Body />\n</CodeBlock>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "CodeBlock",
+        "componentsToShow": [
+          "CodeBlock",
+          "CodeBlock.Header",
+          "CodeBlock.Header.Meta",
+          "CodeBlock.Body"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage Outside Medusa Admin",
+        "id": "usage-outside-medusa-admin"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you're using the `CodeBlock` component in a project other than the Medusa Admin, make sure to include the `TooltipProvider` somewhere up in your component tree, as the `CodeBlock.Header` component uses a [Tooltip](../tooltip/page.mdx#usage-outside-medusa-admin):"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<TooltipProvider>\n  <CodeBlock \n    snippets={[\n      { \n        language: \"tsx\", \n        label: \"Label\", \n        code: \"import { useProduct } from \\\"medusa-react\\\"\",\n      },\n    ]}\n  >\n    <CodeBlock.Header />\n    <CodeBlock.Body />\n  </CodeBlock>\n</TooltipProvider>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Single Snippet",
+        "id": "single-snippet"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you want to only show a code sample for one language or API, you can choose to hide the snippet labels:"
+      },
+      {
+        "type": "example",
+        "name": "code-block-single",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "No Header",
+        "id": "no-header"
+      },
+      {
+        "type": "paragraph",
+        "content": "You can also omit the header entirely:"
+      },
+      {
+        "type": "example",
+        "name": "code-block-no-header",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "No Line Numbers",
+        "id": "no-line-numbers"
+      },
+      {
+        "type": "example",
+        "name": "code-block-no-lines",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "No Copy Button",
+        "id": "no-copy-button"
+      },
+      {
+        "type": "example",
+        "name": "code-block-no-copy",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "command",
+    "title": "Command",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Command",
+        "id": "command"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders an unhighlighted code block, useful for one-liners or API routes."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Command component."
+      },
+      {
+        "type": "example",
+        "name": "command-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Command } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Command>\n  <code>yarn add @medusajs/ui</code>\n</Command>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Command",
+        "componentsToShow": [
+          "Command"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage Outside Medusa Admin",
+        "id": "usage-outside-medusa-admin"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you're using the `Command` component in a project other than the Medusa Admin, make sure to include the `TooltipProvider` somewhere up in your component tree, as the `Command.Copy` component uses a [Tooltip](../tooltip/page.mdx#usage-outside-medusa-admin):"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<TooltipProvider>\n  <Command>\n    <code>yarn add @medusajs/ui</code>\n    <Command.Copy\n      content=\"yarn add @medusajs/ui\"\n      className=\"ml-auto\"\n    />\n  </Command>\n</TooltipProvider>"
+      }
+    ]
+  },
+  {
+    "slug": "command-bar",
+    "title": "Command Bar",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Command Bar",
+        "id": "command-bar"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays a command bar with a list of commands to perform on a bulk selection of items."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Command Bar component."
+      },
+      {
+        "type": "example",
+        "name": "command-bar-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { CommandBar } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<CommandBar open={open}>\n  <CommandBar.Bar>\n    <CommandBar.Value>{count} selected</CommandBar.Value>\n    <CommandBar.Seperator />\n    <CommandBar.Command\n      action={onDelete}\n      label=\"Delete\"\n      shortcut=\"d\"\n    />\n    <CommandBar.Seperator />\n    <CommandBar.Command\n      action={onEdit}\n      label=\"Edit\"\n      shortcut=\"e\"\n    />\n  </CommandBar.Bar>\n</CommandBar>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "CommandBar",
+        "componentsToShow": [
+          "CommandBar",
+          "CommandBar.Bar",
+          "CommandBar.Value",
+          "CommandBar.Seperator",
+          "CommandBar.Command"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "container",
+    "title": "Container",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Container",
+        "id": "container"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that wraps content in a card-like container. The container is useful to create sections in the Medusa Admin dashboard."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Container component."
+      },
+      {
+        "type": "example",
+        "name": "container-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Container } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Container>Container</Container>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Container",
+        "componentsToShow": [
+          "Container"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "In a Layout",
+        "id": "in-a-layout"
+      },
+      {
+        "type": "example",
+        "name": "container-layout",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "copy",
+    "title": "Copy",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Copy",
+        "id": "copy"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that wraps content in a button with copy functionality. It is useful for quickly copying text to the clipboard, such as code snippets or configuration commands."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Copy component."
+      },
+      {
+        "type": "example",
+        "name": "copy-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Copy } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Copy content=\"yarn add @medusajs/ui\" />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Copy",
+        "componentsToShow": [
+          "Copy"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage Outside Medusa Admin",
+        "id": "usage-outside-medusa-admin"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you're using the `Copy` component in a project other than the Medusa Admin, make sure to include the `TooltipProvider` somewhere up in your component tree, as the `Copy` component uses a [Tooltip](../tooltip/page.mdx#usage-outside-medusa-admin):"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<TooltipProvider>\n  <Copy content=\"yarn add @medusajs/ui\" />\n</TooltipProvider>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Copy with Custom Display",
+        "id": "copy-with-custom-display"
+      },
+      {
+        "type": "example",
+        "name": "copy-custom-display",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Copy Display As Child",
+        "id": "copy-display-as-child"
+      },
+      {
+        "type": "paragraph",
+        "content": "Using the `asChild` prop, you can render the `<Copy/>` as its child. This is useful if you want to render a custom button, to prevent rendering a button inside a button."
+      },
+      {
+        "type": "example",
+        "name": "copy-as-child",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "currency-input",
+    "title": "Currency Input",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Currency Input",
+        "id": "currency-input"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering form inputs for money amounts, showing the currency in the input."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Currency Input component."
+      },
+      {
+        "type": "example",
+        "name": "currency-input-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { CurrencyInput } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<CurrencyInput symbol=\"$\" code=\"usd\" />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "CurrencyInput",
+        "componentsToShow": [
+          "CurrencyInput"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Currency Input",
+        "id": "controlled-currency-input"
+      },
+      {
+        "type": "example",
+        "name": "currency-input-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Currency Input",
+        "id": "disabled-currency-input"
+      },
+      {
+        "type": "example",
+        "name": "currency-input-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Currency Input with Error State",
+        "id": "currency-input-with-error-state"
+      },
+      {
+        "type": "example",
+        "name": "currency-input-error",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Currency Input Sizes",
+        "id": "currency-input-sizes"
+      },
+      {
+        "type": "paragraph",
+        "content": "#### Base"
+      },
+      {
+        "type": "example",
+        "name": "currency-input-base",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "paragraph",
+        "content": "#### Small"
+      },
+      {
+        "type": "example",
+        "name": "currency-input-small",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "data-table",
+    "title": "Data Table",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Data Table",
+        "id": "data-table"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component to display a table of data with advanced functionalities like pagination, filtering, and more."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the DataTable component."
+      },
+      {
+        "type": "paragraph",
+        "content": "The `DataTable` component is useful if you're displaying large data with functionalities like pagination, filtering, sorting, and searching. It's also the recommended table component to use when creating customizations in the Medusa Admin."
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "This component is available after Medusa UI v4.0.4 (or Medusa v2.4.0). It is built on top of the [Table](../table/page.mdx) component. If you want a table with more control over its styling and functionality, use that component instead."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "example",
+        "name": "data-table-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "paragraph",
+        "content": "You import the `DataTable` component from `@medusajs/ui`."
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { \n  DataTable,\n} from \"@medusajs/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Data Table Columns Preparation",
+        "id": "data-table-columns-preparation"
+      },
+      {
+        "type": "paragraph",
+        "content": "Before using the `DataTable` component, you need to prepare its columns using the `createDataTableColumnHelper` utility:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  createDataTableColumnHelper,\n} from \"@medusajs/ui\"\n\nconst data = [\n  {\n    id: \"1\",\n    title: \"Shirt\",\n    price: 10,\n  },\n  // other data...\n]\n\nconst columnHelper = createDataTableColumnHelper<typeof data[0]>()\n\nconst columns = [\n  columnHelper.accessor(\"title\", {\n    header: \"Title\",\n    enableSorting: true,\n  }),\n  columnHelper.accessor(\"price\", {\n    header: \"Price\",\n  }),\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `createDataTableColumnHelper` utility is a function that returns a helper used to generate column configurations for the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "For each column in the table, use the `accessor` method of the column helper to specify configurations for a specific column. The `accessor` method accepts the column's key in the table's data as the first parameter, and an object with the following properties as the second parameter:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `header`: The table header text for the column. - `enableSorting`: (optional) A boolean that indicates whether data in the table can be sorted by this column. More on sorting in [this section](#configure-sorting-in-datatable)."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Create Data Table Instance",
+        "id": "create-data-table-instance"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `DataTable` component expects a table instance created using the `useDataTable` hook. Import that hook from `@medusajs/ui`:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  useDataTable,\n} from \"@medusajs/ui\""
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, inside the component that will render `DataTable`, create a table instance using the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "export default function ProductTable() {\n  const table = useDataTable({\n    columns,\n    data,\n    getRowId: (product) => product.id,\n    rowCount: data.length,\n    isLoading: false,\n  })\n}"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `useDataTable` hook accepts an object with the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `columns`: An array of column configurations generated using the `createDataTableColumnHelper` utility. - `data`: The data to be displayed in the table. - `getRowId`: A function that returns the unique identifier of a row. The identifier must be a string. - `rowCount`: The total number of rows in the table. If you're fetching data from the Medusa application with pagination or filters, this will be the total count, not the count of the data returned in the current page. - `isLoading`: A boolean that indicates whether the table is loading data. This is useful when loading data from the Medusa application for the first time or in between pages."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Render DataTable",
+        "id": "render-datatable"
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, render the `DataTable` component with the table instance created using the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "export default function ProductTable() {\n  // ...\n  return (\n    <DataTable instance={table}>\n      <DataTable.Toolbar className=\"flex flex-col items-start justify-between gap-2 md:flex-row md:items-center\">\n        <Heading>Products</Heading>\n      </DataTable.Toolbar>\n      <DataTable.Table />\n    </DataTable>\n  )\n}"
+      },
+      {
+        "type": "paragraph",
+        "content": "In the `DataTable` component, you pass the following child components:"
+      },
+      {
+        "type": "paragraph",
+        "content": "1. `DataTable.Toolbar`: The toolbar component shown at the top of the table. You can also add buttons for custom actions. 2. `DataTable.Table`: The table component that renders the data."
+      },
+      {
+        "type": "paragraph",
+        "content": "Refer to the examples later on this page to learn how to add pagination, filtering, and other functionalities using the `DataTable` component."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "DataTable",
+        "componentsToShow": [
+          "DataTable",
+          "DataTable.Table",
+          "DataTable.Pagination",
+          "DataTable.FilterMenu",
+          "DataTable.Search",
+          "DataTable.CommandBar",
+          "DataTable.SortingMenu"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Example with Data Fetching",
+        "id": "example-with-data-fetching"
+      },
+      {
+        "type": "paragraph",
+        "content": "Refer to [this Admin Components guide](https://docs.medusajs.com/resources/admin-components/components/data-table) for an example on using the `DataTable` component with data fetching from the Medusa application."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Handle Row Click",
+        "id": "handle-row-click"
+      },
+      {
+        "type": "example",
+        "name": "data-table-row-click",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "In many cases, you want to perform an action when a row is clicked. Most commonly, you may want to open the details page of the row when it's clicked."
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "For bulk actions, such as deleting multiple rows, use the [Command Bar](#perform-bulk-actions-on-datatable-rows) instead."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `useDataTable` hook accepts an `onRowClick` property that you can use to handle row clicks:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const navigate = useNavigate()\n\nconst table = useDataTable({\n  // ...\n  onRowClick(event, row) {\n    navigate(`/author/${row.id}`)\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "The value of `onRowClick` is a function that accepts two parameters:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `event`: An instance of the [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) object. - `row`: The data of the row that was clicked."
+      },
+      {
+        "type": "paragraph",
+        "content": "In the above example, you use a `navigate` function, retrieved through the `useNavigate` hook from `react-router-dom`, to navigate to the details page of the row that was clicked."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Configure Cell Rendering",
+        "id": "configure-cell-rendering"
+      },
+      {
+        "type": "example",
+        "name": "data-table-custom-cell",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The `accessor` method of the `createDataTableColumnHelper` utility accepts a `cell` property that you can use to customize the rendering of the cell content."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const products = [\n  {\n    id: \"1\",\n    title: \"Shirt\",\n    price: 10,\n    is_active: true,\n  },\n  {\n    id: \"2\",\n    title: \"Pants\",\n    price: 20,\n    is_active: true,\n  },\n]\n\nconst columnHelper = createDataTableColumnHelper<typeof products[0]>()\n\nconst columns = [\n  columnHelper.accessor(\"is_active\", {\n    header: \"Status\",\n    cell: ({ getValue }) => {\n      const isActive = getValue()\n      return (\n        <Badge color={isActive ? \"green\" : \"grey\"}>\n          {isActive ? \"Active\" : \"Inactive\"}\n        </Badge>\n      )\n    },\n  }),\n  // ...\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `cell` property's value is a function that returns a string or a React node to be rendered in the cell. The function receives as a parameter an object having a `getValue` property to get the raw value of the cell."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Configure Search in DataTable",
+        "id": "configure-search-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-search",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The object passed to the `useDataTable` hook accepts a `search` property that you can use to enable and configure the search functionality in the `DataTable` component:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "// `useState` imported from `React`\nconst [search, setSearch] = useState(\"\")\n\nconst table = useDataTable({\n  // ...\n  search: {\n    state: search,\n    onSearchChange: setSearch,\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "`search` accepts the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `state`: The search query string. This must be a React state variable, as its value will be used for the table's search input. - `onSearchChange`: A function that updates the search query string. Typically, this would be the setter function of the state variable, but you can also perform custom actions if necessary."
+      },
+      {
+        "type": "paragraph",
+        "content": "Next, you must implement the search filtering. For example, if you're retrieving data from the Medusa application, you pass the search query to the API to filter the data."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example, when using a simple array as in the example above, this is how you filter the data by the search query:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [search, setSearch] = useState<string>(\"\")\n\nconst shownProducts = useMemo(() => {\n  return products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))\n}, [search]) \n\nconst table = useDataTable({\n  columns,\n  data: shownProducts,\n  getRowId: (product) => product.id,\n  rowCount: products.length,\n  isLoading: false,\n  // Pass the state and onSearchChange to the table instance.\n  search: {\n    state: search,\n    onSearchChange: setSearch,\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, render the `DataTable.Search` component as part of the `DataTable`'s children:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "return (\n  <DataTable instance={table}>\n    <DataTable.Toolbar className=\"flex flex-col items-start justify-between gap-2 md:flex-row md:items-center\">\n      <Heading>Products</Heading>\n      {/* This component renders the search bar */}\n      <DataTable.Search placeholder=\"Search...\" />\n    </DataTable.Toolbar>\n    <DataTable.Table />\n  </DataTable>\n)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This will show a search input at the top of the table, in the data table's toolbar."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Configure Pagination in DataTable",
+        "id": "configure-pagination-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-pagination",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The object passed to the `useDataTable` hook accepts a `pagination` property that you can use to enable and configure the pagination functionality in the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "First, import the `DataTablePaginationState` type from `@medusajs/ui`:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  DataTablePaginationState,\n} from \"@medusajs/ui\""
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, create a state variable to manage the pagination:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [pagination, setPagination] = useState<DataTablePaginationState>({\n  pageSize: 15,\n  pageIndex: 0,\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "The pagination state variable of type `DataTablePaginationState` is an object with the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `pageSize`: The number of rows to display per page. - `pageIndex`: The current page index. It's zero-based, meaning the first page would be `0`."
+      },
+      {
+        "type": "paragraph",
+        "content": "Next, pass the pagination object to the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const table = useDataTable({\n  // ...\n  pagination: {\n    state: pagination,\n    onPaginationChange: setPagination,\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "`pagination` accepts the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `state`: The pagination state object. This must be a React state variable of type `DataTablePaginationState`. - `onPaginationChange`: A function that updates the pagination state object. Typically, this would be the setter function of the state variable, but you can also perform custom actions if necessary."
+      },
+      {
+        "type": "paragraph",
+        "content": "You must also implement the pagination logic, such as fetching data from the Medusa application with the pagination parameters."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example, when using a simple array as in the example above, this is how you paginate the data:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [pagination, setPagination] = useState<DataTablePaginationState>({\n  pageSize: PAGE_SIZE,\n  pageIndex: 0,\n})\n\nconst shownProducts = useMemo(() => {\n  return products.slice(\n    pagination.pageIndex * pagination.pageSize,\n    (pagination.pageIndex + 1) * pagination.pageSize\n  )\n}, [pagination])\n\nconst table = useDataTable({\n  data: shownProducts,\n  columns,\n  rowCount: products.length,\n  getRowId: (product) => product.id,\n  pagination: {\n    // Pass the pagination state and updater to the table instance\n    state: pagination,\n    onPaginationChange: setPagination,\n  },\n  isLoading: false,\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, render the `DataTable.Pagination` component as part of the `DataTable`'s children:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "return (\n  <DataTable instance={table}>\n    <DataTable.Toolbar>\n      <Heading>Products</Heading>\n    </DataTable.Toolbar>\n    <DataTable.Table />\n    {/** This component will render the pagination controls **/}\n    <DataTable.Pagination />\n  </DataTable>\n)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This will show the pagination controls at the end of the table."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Configure Filters in DataTable",
+        "id": "configure-filters-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-filters",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The object passed to the `useDataTable` hook accepts a `filters` property that you can use to enable and configure the filtering functionality in the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "First, add the following imports from the `@medusajs/ui` package:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  createDataTableFilterHelper,\n  DataTableFilteringState,\n} from \"@medusajs/ui\""
+      },
+      {
+        "type": "paragraph",
+        "content": "The `createDataTableFilterHelper` utility is a function that returns a helper function to generate filter configurations for the `DataTable` component. The `DataTableFilteringState` type is an object that represents the filtering state of the table."
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, create the filters using the `createDataTableFilterHelper` utility:"
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note title=\"Tip\">"
+      },
+      {
+        "type": "paragraph",
+        "content": "Create the filters outside the component rendering the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const filterHelper = createDataTableFilterHelper<typeof products[0]>()\n\nconst filters = [\n  filterHelper.accessor(\"title\", {\n    type: \"select\",\n    label: \"Title\",\n    options: products.map((product) => ({\n      label: product.title,\n      value: product.title.toLowerCase(),\n    })),\n  }),\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "The filter helper returned by `createDataTableFilterHelper` has an `accessor` method that accepts the column's key in the data as the first parameter, and an object with the following properties as the second parameter:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `type`: The type of filter. It can be either: - `select`: A select dropdown filter. - `radio`: A radio button filter. - `date`: A date filter. - `label`: The label text for the filter. - `options`: If the filter type is `select` or `radio`, an array of dropdown options. Each option has a `label` and `value` property."
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Refer to [this section](#filtering-date-values) to learn how to use date filters."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Next, in the component rendering the `DataTable` component, create a state variable to manage the filtering, and pass the filters to the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [filtering, setFiltering] = useState<DataTableFilteringState>({})\n\nconst table = useDataTable({\n  // ...\n  filters,\n  filtering: {\n    state: filtering,\n    onFilteringChange: setFiltering,\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "You create a `filtering` state variable of type `DataTableFilteringState` to manage the filtering state. You can also set initial filters as explained in [this section](#initial-filter-values)."
+      },
+      {
+        "type": "paragraph",
+        "content": "The `useDataTable` hook accepts the following properties for filtering:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `filters`: An array of filter configurations generated using the `createDataTableFilterHelper` utility. - `filtering`: An object with the following properties: - `state`: The filtering state object. This must be a React state variable of type `DataTableFilteringState`. - `onFilteringChange`: A function that updates the filtering state object. Typically, this would be the setter function of the state variable, but you can also perform custom actions if necessary."
+      },
+      {
+        "type": "paragraph",
+        "content": "You must also implement the logic of filtering the data based on the filter conditions, such as sending the filter conditions to the Medusa application when fetching data."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example, when using a simple array as in the example above, this is how you filter the data based on the filter conditions:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [filtering, setFiltering] = useState<DataTableFilteringState>({})\n\nconst shownProducts = useMemo(() => {\n  return products.filter((product) => {\n    return Object.entries(filtering).every(([key, value]) => {\n      if (!value) {\n        return true\n      }\n      if (typeof value === \"string\") {\n        // @ts-ignore\n        return product[key].toString().toLowerCase().includes(value.toString().toLowerCase())\n      }\n      if (Array.isArray(value)) {\n        // @ts-ignore\n        return value.includes(product[key].toLowerCase())\n      }\n      if (typeof value === \"object\") {\n        // @ts-ignore\n        const date = new Date(product[key])\n        let matching = false\n        if (\"$gte\" in value && value.$gte) {\n          matching = date >= new Date(value.$gte as number)\n        }\n        if (\"$lte\" in value && value.$lte) {\n          matching = date <= new Date(value.$lte as number)\n        }\n        if (\"$lt\" in value && value.$lt) {\n          matching = date < new Date(value.$lt as number)\n        }\n        if (\"$gt\" in value && value.$gt) {\n          matching = date > new Date(value.$gt as number)\n        }\n        return matching\n      }\n    })\n  })\n}, [filtering])\n\nconst table = useDataTable({\n  data: shownProducts,\n  columns,\n  getRowId: (product) => product.id,\n  rowCount: products.length,\n  isLoading: false,\n  filtering: {\n    state: filtering,\n    onFilteringChange: setFiltering,\n  },\n  filters,\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "When filters are selected, the `filtering` state object will contain the filter conditions, where the key is the column key and the value can be:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `undefined` if the user is still selecting the value. - A string if the filter type is `radio`, as the user can choose only one value. - An array of strings if the filter type is `select`, as the user can choose multiple values. - An object with the filter conditions if the filter type is `date`. The filter conditions for dates are explained more in [this section](#filtering-date-values)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, render the `DataTable.FilterMenu` component as part of the `DataTable`'s children:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "return (\n  <DataTable instance={table}>\n    <DataTable.Toolbar className=\"flex justify-between items-center\">\n      <Heading>Products</Heading>\n      {/** This component will render a menu that allows the user to choose which filters to apply to the table data. **/}\n      <DataTable.FilterMenu tooltip=\"Filter\" />\n    </DataTable.Toolbar>\n    <DataTable.Table />\n  </DataTable>\n)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This will show a filter menu at the top of the table, in the data table's toolbar."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Filtering Date Values in DataTable",
+        "id": "filtering-date-values-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-filters-date",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Consider your data has a `created_at` field that contains date values. To filter the data based on date values, you can add a `date` filter using the filter helper:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const filters = [\n  // ...\n  filterHelper.accessor(\"created_at\", {\n    type: \"date\",\n    label: \"Created At\",\n    format: \"date\",\n    formatDateValue: (date) => date.toLocaleString(),\n    rangeOptionStartLabel: \"From\",\n    rangeOptionEndLabel: \"To\",\n    rangeOptionLabel: \"Between\",\n    options: [\n      {\n        label: \"Today\",\n        value: {\n          $gte: new Date(new Date().setHours(0, 0, 0, 0)).toString(),\n          $lte: new Date(new Date().setHours(23, 59, 59, 999)).toString(),\n        },\n      },\n      {\n        label: \"Yesterday\",\n        value: {\n          $gte: new Date(new Date().setHours(0, 0, 0, 0) - 24 * 60 * 60 * 1000).toString(),\n          $lte: new Date(new Date().setHours(0, 0, 0, 0)).toString(),\n        },\n      },\n      {\n        label: \"Last Week\",\n        value: {\n          $gte: new Date(new Date().setHours(0, 0, 0, 0) - 7 * 24 * 60 * 60 * 1000).toString(),\n          $lte: new Date(new Date().setHours(0, 0, 0, 0)).toString(),\n        },\n      },\n    ],\n  }),\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "When the filter type is `date`, the filter configuration object passed as a second parameter to the `accessor` method accepts the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `format`: The format of the date value. It can be either `date` to filter by dates, or `datetime` to filter by dates and times. - `formatDateValue`: A function that formats the date value when displaying it in the filter options. - `rangeOptionStartLabel`: (optional) The label for the start date input in the range filter. - `rangeOptionEndLabel`: (optional) The label for the end date input in the range filter. - `rangeOptionLabel`: (optional) The label for the range filter option. - `options`: By default, the filter will allow the user to filter between two dates. You can also set this property to an array of filter options to quickly choose from. Each option has a `label` and `value` property. The `value` property is an object that represents the filter condition. In this example, the filter condition is an object with a `$gte` property that specifies the date that the data should be greater than or equal to. Allowed properties are: - `$gt`: Greater than. - `$lt`: Less than. - `$lte`: Less than or equal to. - `$gte`: Greater than or equal to."
+      },
+      {
+        "type": "paragraph",
+        "content": "When the user selects a date filter option, the `filtering` state object will contain the filter conditions, where the key is the column key and the value is an object with the filter conditions. You must handle the filter logic as explained earlier."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example, when using a simple array as in the example above, this is how you filter the data based on the date filter conditions:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const shownProducts = useMemo(() => {\n  return products.filter((product) => {\n    return Object.entries(filtering).every(([key, value]) => {\n      if (!value) {\n        return true\n      }\n      // other types checks...\n      if (typeof value === \"object\") {\n        // @ts-ignore\n        const date = new Date(product[key])\n        let matching = false\n        if (\"$gte\" in value && value.$gte) {\n          matching = date >= new Date(value.$gte as number)\n        }\n        if (\"$lte\" in value && value.$lte) {\n          matching = date <= new Date(value.$lte as number)\n        }\n        if (\"$lt\" in value && value.$lt) {\n          matching = date < new Date(value.$lt as number)\n        }\n        if (\"$gt\" in value && value.$gt) {\n          matching = date > new Date(value.$gt as number)\n        }\n        return matching\n      }\n    })\n  })\n}, [filtering])"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Initial Filter Values in DataTable",
+        "id": "initial-filter-values-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-filters-initial",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "If you want to set initial filter values, you can set the initial state of the `filtering` state variable:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [filtering, setFiltering] = useState<DataTableFilteringState>({\n  title: [\"shirt\"],\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "The user can still change the filter values, but the initial values will be applied when the table is first rendered."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Configure Sorting in DataTable",
+        "id": "configure-sorting-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-sorting",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The object passed to the `useDataTable` hook accepts a `sorting` property that you can use to enable and configure the sorting functionality in the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "First, in the `columns` array created by the columns helper, specify for the sortable columns the following properties:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const columns = [\n  columnHelper.accessor(\"title\", {\n    header: \"Title\",\n    // Enables sorting for the column.\n    enableSorting: true,\n    // If omitted, the header will be used instead if it's a string, \n    // otherwise the accessor key (id) will be used.\n    sortLabel: \"Title\",\n    // If omitted the default value will be \"A-Z\"\n    sortAscLabel: \"A-Z\",\n    // If omitted the default value will be \"Z-A\"\n    sortDescLabel: \"Z-A\",\n  }),\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `accessor` method of the helper function accepts the following properties for sorting:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `enableSorting`: A boolean that indicates whether data in the table can be sorted by this column. - `sortLabel`: The label text for the sort button in the column header. If omitted, the `header` will be used instead if it's a string, otherwise the accessor key (id) will be used. - `sortAscLabel`: The label text for the ascending sort button. If omitted, the default value will be `A-Z`. - `sortDescLabel`: The label text for the descending sort button. If omitted, the default value will be `Z-A`."
+      },
+      {
+        "type": "paragraph",
+        "content": "Next, in the component rendering the `DataTable` component, create a state variable to manage the sorting, and pass the sorting object to the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  DataTableSortingState,\n} from \"@medusajs/ui\"\n\nexport default function ProductTable() {\n  const [sorting, setSorting] = useState<DataTableSortingState | null>(null)\n\n  const table = useDataTable({\n    // ...\n    sorting: {\n      state: sorting,\n      onSortingChange: setSorting,\n    },\n  })\n\n  // ...\n}"
+      },
+      {
+        "type": "paragraph",
+        "content": "You create a state variable of type `DataTableSortingState` to manage the sorting state. You can also set initial sorting values as explained in [this section](#initial-sort-values)."
+      },
+      {
+        "type": "paragraph",
+        "content": "The `sorting` object passed to the `useDataTable` hook accepts the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `state`: The sorting state object. This must be a React state variable of type `DataTableSortingState`. - `onSortingChange`: A function that updates the sorting state object. Typically, this would be the setter function of the state variable, but you can also perform custom actions if necessary."
+      },
+      {
+        "type": "paragraph",
+        "content": "You must also implement the sorting logic, such as sending the sorting conditions to the Medusa application when fetching data."
+      },
+      {
+        "type": "paragraph",
+        "content": "For example, when using a simple array as in the example above, this is how you sort the data based on the sorting conditions:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [sorting, setSorting] = useState<DataTableSortingState | null>(null)\n\nconst shownProducts = useMemo(() => {\n  if (!sorting) {\n    return products\n  }\n  return products.slice().sort((a, b) => {\n    // @ts-ignore\n    const aVal = a[sorting.id]\n    // @ts-ignore\n    const bVal = b[sorting.id]\n    if (aVal < bVal) {\n      return sorting.desc ? 1 : -1\n    }\n    if (aVal > bVal) {\n      return sorting.desc ? -1 : 1\n    }\n    return 0\n  })\n}, [sorting])\n\nconst table = useDataTable({\n  data: shownProducts,\n  columns,\n  getRowId: (product) => product.id,\n  rowCount: products.length,\n  sorting: {\n    // Pass the pagination state and updater to the table instance\n    state: sorting,\n    onSortingChange: setSorting,\n  },\n  isLoading: false,\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `sorting` state object has the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `id`: The column key to sort by. - `desc`: A boolean that indicates whether to sort in descending order."
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, render the `DataTable.SortingMenu` component as part of the `DataTable`'s children:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "return (\n  <DataTable instance={table}>\n    <DataTable.Toolbar className=\"flex justify-between items-center\">\n      <Heading>Products</Heading>\n      {/** This component will render a menu that allows the user to choose which column to sort by and in what direction. **/}\n      <DataTable.SortingMenu tooltip=\"Sort\" />\n    </DataTable.Toolbar>\n    <DataTable.Table />\n  </DataTable>\n)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This will show a sorting menu at the top of the table, in the data table's toolbar."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Initial Sort Values in DataTable",
+        "id": "initial-sort-values-in-datatable"
+      },
+      {
+        "type": "example",
+        "name": "data-table-sorting-initial",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "If you want to set initial sort values, you can set the initial state of the `sorting` state variable:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [sorting, setSorting] = useState<DataTableSortingState | null>({\n  id: \"title\",\n  desc: false,\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "The user can still change the sort values, but the initial values will be applied when the table is first rendered."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Perform Bulk Actions on DataTable Rows",
+        "id": "perform-bulk-actions-on-datatable-rows"
+      },
+      {
+        "type": "example",
+        "name": "data-table-commands",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The object passed to the `useDataTable` hook accepts a `commands` object property that you can use to add custom actions to the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "First, add the following imports from `@medusajs/ui`:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import {\n  // ...\n  createDataTableCommandHelper,\n  DataTableRowSelectionState,\n} from \"@medusajs/ui\""
+      },
+      {
+        "type": "paragraph",
+        "content": "The `createDataTableCommandHelper` utility is a function that returns a helper function to generate command configurations for the `DataTable` component. The `DataTableRowSelectionState` type is an object that represents the row selection state of the table."
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, in the `columns` array created by the columns helper, add a `select` column:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const columns = [\n  // Commands requires a select column.\n  columnHelper.select(),\n  // ...\n]"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `select` method of the helper function adds a select column to the table. This column will render checkboxes in each row to allow the user to select rows."
+      },
+      {
+        "type": "paragraph",
+        "content": "Next, create the commands using the `createDataTableCommandHelper` utility:"
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note title=\"Tip\">"
+      },
+      {
+        "type": "paragraph",
+        "content": "Create the commands outside the component rendering the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const commandHelper = createDataTableCommandHelper()\n\nconst useCommands = () => {\n  return [\n    commandHelper.command({\n      label: \"Delete\",\n      shortcut: \"D\",\n      action: async (selection) => {\n        const productsToDeleteIds = Object.keys(selection)\n\n        // TODO remove products from the server\n      },\n    }),\n  ]\n}"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `createDataTableCommandHelper` utility is a function that returns a helper function to generate command configurations for the `DataTable` component."
+      },
+      {
+        "type": "paragraph",
+        "content": "You create a function that returns an array of command configurations. This is useful if the command's action requires initializing other functions or hooks."
+      },
+      {
+        "type": "paragraph",
+        "content": "The `command` method of the helper function accepts the following properties:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `label`: The label text for the command. - `shortcut`: The keyboard shortcut for the command. This shortcut only works when rows are selected in the table. - `action`: A function that performs the action when the command is executed. The function receives the selected rows as an object, where the key is the row's `id` field and the value is a boolean indicating that the row is selected. You can send a request to the server within this function to perform the action."
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, in the component rendering the `DataTable` component, create a state variable to manage the selected rows, and pass the commands to the `useDataTable` hook:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "const [rowSelection, setRowSelection] = useState<DataTableRowSelectionState>({})\n\nconst commands = useCommands()\n\nconst instance = useDataTable({\n  data: products,\n  columns,\n  getRowId: (product) => product.id,\n  rowCount: products.length,\n  isLoading: false,\n  commands,\n  rowSelection: {\n    state: rowSelection,\n    onRowSelectionChange: setRowSelection,\n  },\n})"
+      },
+      {
+        "type": "paragraph",
+        "content": "You create a state variable of type `DataTableRowSelectionState` to manage the selected rows. You also retrieve the commands by calling the `useCommand` function."
+      },
+      {
+        "type": "paragraph",
+        "content": "The `useDataTable` hook accepts the following properties for commands:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `commands`: An array of command configurations generated using the `createDataTableCommandHelper` utility. - `rowSelection`: An object that enables selecting rows in the table. It accepts the following properties: - `state`: The row selection state object. This must be a React state variable of type `DataTableRowSelectionState`. - `onRowSelectionChange`: A function that updates the row selection state object. Typically, this would be the setter function of the state variable, but you can also perform custom actions if necessary."
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, render the `DataTable.CommandBar` component as part of the `DataTable`'s children:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "return (\n  <DataTable instance={instance}>\n    <DataTable.Toolbar className=\"flex justify-between items-center\">\n      <Heading>Products</Heading>\n    </DataTable.Toolbar>\n    <DataTable.Table />\n    {/** This component will the command bar when the user has selected at least one row. **/}\n    <DataTable.CommandBar selectedLabel={(count) => `${count} selected`} />\n  </DataTable>\n)"
+      },
+      {
+        "type": "paragraph",
+        "content": "This will show a command bar when the user has selected at least one row in the table."
+      }
+    ]
+  },
+  {
+    "slug": "date-picker",
+    "title": "Date Picker",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Date Picker",
+        "id": "date-picker"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering date picker inputs with range and presets."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Date Picker component."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { DatePicker } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<DatePicker />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "DatePicker",
+        "componentsToShow": [
+          "DatePicker"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Date Picker",
+        "id": "controlled-date-picker"
+      },
+      {
+        "type": "paragraph",
+        "content": "Manage and store the value of the date picker in a state variable for controlled behavior. This is also useful for form integration."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Date Picker With Time",
+        "id": "date-picker-with-time"
+      },
+      {
+        "type": "paragraph",
+        "content": "Enable time selection with different granularity levels for precise scheduling."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-with-time",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Date Picker Min/Max Values",
+        "id": "date-picker-min-max-values"
+      },
+      {
+        "type": "paragraph",
+        "content": "Restrict date selection to a specific range by setting minimum and maximum values."
+      },
+      {
+        "type": "paragraph",
+        "content": "In the example below, you can only select dates within the next 30 days. Dates outside the range are disabled."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-min-max",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Date Picker Disabled Dates",
+        "id": "date-picker-disabled-dates"
+      },
+      {
+        "type": "paragraph",
+        "content": "Disable specific dates like weekends and holidays to prevent selection of unavailable dates."
+      },
+      {
+        "type": "paragraph",
+        "content": "The example below disables weekends and holidays like Christmas."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-business-hours",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Date Picker Granularity Options",
+        "id": "date-picker-granularity-options"
+      },
+      {
+        "type": "paragraph",
+        "content": "Different levels of time precision from date-only to second-precision selection."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-granularity",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Date Picker Form Integration",
+        "id": "date-picker-form-integration"
+      },
+      {
+        "type": "paragraph",
+        "content": "The following example shows how to use the date picker in a form, with simulated form submission."
+      },
+      {
+        "type": "example",
+        "name": "date-picker-form",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "date-segment",
+    "title": "Date Segment",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Date Segment",
+        "id": "date-segment"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for working with date segment values in Medusa UI."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Date Segment component."
+      },
+      {
+        "type": "example",
+        "name": "date-segment-demo"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "ts",
+        "code": "import { DateSegment } from \"@medusa-vue/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "DateSegment",
+        "componentsToShow": [
+          "DateSegment"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "drawer",
+    "title": "Drawer",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Drawer",
+        "id": "drawer"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering a sliding panel that overlays the main content."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Drawer component."
+      },
+      {
+        "type": "example",
+        "name": "drawer-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Drawer } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Drawer>\n  <Drawer.Trigger>Trigger</Drawer.Trigger>\n  <Drawer.Content>\n    <Drawer.Header>\n      <Drawer.Title>Drawer Title</Drawer.Title>\n    </Drawer.Header>\n    <Drawer.Body>Body</Drawer.Body>\n    <Drawer.Footer>Footer</Drawer.Footer>\n  </Drawer.Content>\n</Drawer>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Drawer",
+        "componentsToShow": [
+          "Drawer",
+          "Drawer.Trigger",
+          "Drawer.Content",
+          "Drawer.Header",
+          "Drawer.Title",
+          "Drawer.Body",
+          "Drawer.Footer"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Drawer with Form",
+        "id": "drawer-with-form"
+      },
+      {
+        "type": "paragraph",
+        "content": "This example shows a simple form inside a Drawer, demonstrating how to use form elements and handle submission."
+      },
+      {
+        "type": "example",
+        "name": "drawer-form",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "dropdown-menu",
+    "title": "Dropdown Menu",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "content": "export const osShortcut = getOsShortcut()"
+      },
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Dropdown Menu",
+        "id": "dropdown-menu"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering dropdown menus that display a set of actions or options to users."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Dropdown Menu component."
+      },
+      {
+        "type": "example",
+        "name": "dropdown-menu-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { DropdownMenu } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<DropdownMenu>\n  <DropdownMenu.Trigger>Trigger</DropdownMenu.Trigger>\n  <DropdownMenu.Content>\n    <DropdownMenu.Item>Edit</DropdownMenu.Item>\n    <DropdownMenu.Item>Add</DropdownMenu.Item>\n    <DropdownMenu.Item>Delete</DropdownMenu.Item>\n  </DropdownMenu.Content>\n</DropdownMenu>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "DropdownMenu",
+        "componentsToShow": [
+          "DropdownMenu",
+          "DropdownMenu.Trigger",
+          "DropdownMenu.Content",
+          "DropdownMenu.Item",
+          "DropdownMenu.Shortcut",
+          "DropdownMenu.Hint",
+          "DropdownMenu.RadioGroup",
+          "DropdownMenu.RadioItem"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Sorting",
+        "id": "sorting"
+      },
+      {
+        "type": "paragraph",
+        "content": "This example shows how to display collection sorting choices using a Dropdown Menu."
+      },
+      {
+        "type": "example",
+        "name": "dropdown-menu-sorting",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Dropdown with Submenu",
+        "id": "dropdown-with-submenu"
+      },
+      {
+        "type": "example",
+        "name": "dropdown-menu-submenu",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Items and Using Icons",
+        "id": "disabled-items-and-using-icons"
+      },
+      {
+        "type": "example",
+        "name": "dropdown-menu-disabled-icons",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Keyboard Shortcuts (with handling)",
+        "id": "keyboard-shortcuts-with-handling"
+      },
+      {
+        "type": "paragraph",
+        "content": "This example shows how to visually display keyboard shortcuts in the menu and handle them in your application logic."
+      },
+      {
+        "type": "paragraph",
+        "content": "You can use the <Kbd>{osShortcut}E</Kbd> and <Kbd>{osShortcut}D</Kbd> shortcuts to trigger the actions of the dropdown items."
+      },
+      {
+        "type": "example",
+        "name": "dropdown-menu-shortcuts",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "focus-modal",
+    "title": "Focus Modal",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Focus Modal",
+        "id": "focus-modal"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for rendering a modal dialog shown over the main content."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Focus Modal component."
+      },
+      {
+        "type": "example",
+        "name": "focus-modal-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { FocusModal } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<FocusModal>\n  <FocusModal.Trigger>Trigger</FocusModal.Trigger>\n  <FocusModal.Content>\n    <FocusModal.Header>Title</FocusModal.Header>\n    <FocusModal.Body>Content</FocusModal.Body>\n  </FocusModal.Content>\n</FocusModal>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "FocusModal",
+        "componentsToShow": [
+          "FocusModal",
+          "FocusModal.Trigger",
+          "FocusModal.Content",
+          "FocusModal.Header",
+          "FocusModal.Body",
+          "FocusModal.Footer"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Control Focus Modal Open State",
+        "id": "control-focus-modal-open-state"
+      },
+      {
+        "type": "example",
+        "name": "focus-modal-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Using Form in Focus Modal",
+        "id": "using-form-in-focus-modal"
+      },
+      {
+        "type": "example",
+        "name": "focus-modal-form",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Nested Focus Modals",
+        "id": "nested-focus-modals"
+      },
+      {
+        "type": "paragraph",
+        "content": "A focus modal can open another focus modal. These focus modals will be stacked on top of each other. You can nest as many focus modals as you want."
+      },
+      {
+        "type": "example",
+        "name": "focus-modal-nested",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "heading",
+    "title": "Heading",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Heading",
+        "id": "heading"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component used for page titles and other headers."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Heading component."
+      },
+      {
+        "type": "example",
+        "name": "heading-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Heading } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Heading>A Title</Heading>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Heading",
+        "componentsToShow": [
+          "Heading"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "hint",
+    "title": "Hint",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Hint",
+        "id": "hint"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for working with hint values in Medusa UI."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Hint component."
+      },
+      {
+        "type": "example",
+        "name": "hint-demo"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "ts",
+        "code": "import { Hint } from \"@medusa-vue/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Hint",
+        "componentsToShow": [
+          "Hint"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "icon-badge",
+    "title": "Icon Badge",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Icon Badge",
+        "id": "icon-badge"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays an icon in a badge."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Icon Badge component."
+      },
+      {
+        "type": "example",
+        "name": "icon-badge-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { IconBadge } from \"@medusajs/ui\"\nimport { BuildingTax } from \"@medusajs/icons\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<IconBadge>\n  <BuildingTax />\n</IconBadge>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "IconBadge",
+        "componentsToShow": [
+          "IconBadge"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Colors",
+        "id": "colors"
+      },
+      {
+        "type": "example",
+        "name": "icon-badge-all-colors",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Sizes",
+        "id": "sizes"
+      },
+      {
+        "type": "example",
+        "name": "icon-badge-all-sizes",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "icon-button",
+    "title": "Icon Button",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Icon Button",
+        "id": "icon-button"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays an icon in a button."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Icon Button component."
+      },
+      {
+        "type": "example",
+        "name": "icon-button-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { IconButton } from \"@medusajs/ui\"\nimport { Plus } from \"@medusajs/icons\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<IconButton>\n  <Plus />\n</IconButton>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "IconButton",
+        "componentsToShow": [
+          "IconButton"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Icon Button Variants",
+        "id": "icon-button-variants"
+      },
+      {
+        "type": "example",
+        "name": "icon-button-all-variants",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Icon Button Sizes",
+        "id": "icon-button-sizes"
+      },
+      {
+        "type": "example",
+        "name": "icon-button-all-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Icon Button Loading State",
+        "id": "icon-button-loading-state"
+      },
+      {
+        "type": "example",
+        "name": "icon-button-loading",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Icon Button",
+        "id": "disabled-icon-button"
+      },
+      {
+        "type": "example",
+        "name": "icon-button-disabled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "inline-tip",
+    "title": "Inline Tip",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Inline Tip",
+        "id": "inline-tip"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for displaying a note or tip inline."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Inline Tip component."
+      },
+      {
+        "type": "example",
+        "name": "inline-tip-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { InlineTip } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<InlineTip\n  label=\"This is a tip\"\n>\n  <button>Hover me</button>\n</InlineTip>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "InlineTip",
+        "componentsToShow": [
+          "InlineTip"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Success Inline Tip",
+        "id": "success-inline-tip"
+      },
+      {
+        "type": "example",
+        "name": "inline-tip-success",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Warning Inline Tip",
+        "id": "warning-inline-tip"
+      },
+      {
+        "type": "example",
+        "name": "inline-tip-warning",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Error Inline Tip",
+        "id": "error-inline-tip"
+      },
+      {
+        "type": "example",
+        "name": "inline-tip-error",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "input",
+    "title": "Input",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Input",
+        "id": "input"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders a form input field using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Input component."
+      },
+      {
+        "type": "example",
+        "name": "input-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Input } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Input placeholder=\"Placeholder\" id=\"input-id\" />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Input",
+        "componentsToShow": [
+          "Input"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Password",
+        "id": "password"
+      },
+      {
+        "type": "example",
+        "name": "input-password",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Search",
+        "id": "search"
+      },
+      {
+        "type": "example",
+        "name": "input-search",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled",
+        "id": "disabled"
+      },
+      {
+        "type": "example",
+        "name": "input-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Small Size",
+        "id": "small-size"
+      },
+      {
+        "type": "example",
+        "name": "input-small",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled",
+        "id": "controlled"
+      },
+      {
+        "type": "example",
+        "name": "input-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Error State",
+        "id": "error-state"
+      },
+      {
+        "type": "paragraph",
+        "content": "You can leverage the native `aria-invalid` property to show an error state on your input:"
+      },
+      {
+        "type": "example",
+        "name": "input-error",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "kbd",
+    "title": "Kbd",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Kbd",
+        "id": "kbd"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders a badge-styled keyboard (`kbd`) element."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Kbd component."
+      },
+      {
+        "type": "example",
+        "name": "kbd-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Kbd } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Kbd>Ctrl + Shift + A</Kbd>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Kbd",
+        "componentsToShow": [
+          "Kbd"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "label",
+    "title": "Label",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Label",
+        "id": "label"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders an accessible label associated with input fields."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Label component."
+      },
+      {
+        "type": "example",
+        "name": "label-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Label } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Label>Label</Label>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Label",
+        "componentsToShow": [
+          "Label"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Label Sizes",
+        "id": "label-sizes"
+      },
+      {
+        "type": "example",
+        "name": "label-all-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Label with Form Inputs",
+        "id": "label-with-form-inputs"
+      },
+      {
+        "type": "example",
+        "name": "label-with-inputs",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "popover",
+    "title": "Popover",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Popover",
+        "id": "popover"
+      },
+      {
+        "type": "paragraph",
+        "content": "This component is based on the [Radix UI Popover](https://www.radix-ui.com/primitives/docs/components/popover) primitves."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Popover component."
+      },
+      {
+        "type": "example",
+        "name": "popover-demo"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "ts",
+        "code": "import { Popover, PopoverTrigger, PopoverContent, PopoverSeperator } from \"@medusa-vue/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Popover",
+        "componentsToShow": [
+          "Popover",
+          "PopoverTrigger",
+          "PopoverContent",
+          "PopoverSeperator"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "progress-accordion",
+    "title": "Progress Accordion",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Progress Accordion",
+        "id": "progress-accordion"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders a set of expandable content, specifically designed for implementing multi-step tasks."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Progress Accordion component."
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { ProgressAccordion } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<ProgressAccordion type=\"single\">\n  <ProgressAccordion.Item value=\"general\">\n    <ProgressAccordion.Header>\n      General\n    </ProgressAccordion.Header>\n    <ProgressAccordion.Content>\n       {/* Content */}\n    </ProgressAccordion.Content>\n  </ProgressAccordion.Item>\n  <ProgressAccordion.Item value=\"shipping\">\n    <ProgressAccordion.Header>\n      Shipping\n    </ProgressAccordion.Header>\n    <ProgressAccordion.Content>\n        {/* Content */}\n    </ProgressAccordion.Content>\n  </ProgressAccordion.Item>\n</ProgressAccordion>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "ProgressAccordion",
+        "componentsToShow": [
+          "ProgressAccordion",
+          "ProgressAccordion.Header"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Only One Accordion Open",
+        "id": "only-one-accordion-open"
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-single",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Allow Multiple Accordions to Open",
+        "id": "allow-multiple-accordions-to-open"
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-multiple",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Set Status Indicator",
+        "id": "set-status-indicator"
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-status",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Accordion Open State",
+        "id": "controlled-accordion-open-state"
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Accordion Item",
+        "id": "disabled-accordion-item"
+      },
+      {
+        "type": "example",
+        "name": "progress-accordion-disabled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "progress-tabs",
+    "title": "Progress Tabs",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Progress Tabs",
+        "id": "progress-tabs"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders tabbed content, specifically designed for implementing multi-step tasks."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Progress Tabs component."
+      },
+      {
+        "type": "example",
+        "name": "progress-tabs-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { ProgressTabs } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<ProgressTabs defaultValue=\"general\">\n  <ProgressTabs.List>\n    <ProgressTabs.Trigger value=\"general\">\n      General\n    </ProgressTabs.Trigger>\n    <ProgressTabs.Trigger value=\"shipping\">\n      Shipping\n    </ProgressTabs.Trigger>\n    <ProgressTabs.Trigger value=\"payment\">\n      Payment\n    </ProgressTabs.Trigger>\n  </ProgressTabs.List>\n  <ProgressTabs.Content value=\"general\">\n    {/* Content */}\n  </ProgressTabs.Content>\n  <ProgressTabs.Content value=\"shipping\">\n    {/* Content */}\n  </ProgressTabs.Content>\n  <ProgressTabs.Content value=\"payment\">\n    {/* Content */}\n  </ProgressTabs.Content>\n</ProgressTabs>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "ProgressTabs",
+        "componentsToShow": [
+          "ProgressTabs",
+          "ProgressTabs.Trigger"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Set Status Indicator",
+        "id": "set-status-indicator"
+      },
+      {
+        "type": "example",
+        "name": "progress-tabs-status",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Active Tab",
+        "id": "controlled-active-tab"
+      },
+      {
+        "type": "example",
+        "name": "progress-tabs-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Tab",
+        "id": "disabled-tab"
+      },
+      {
+        "type": "example",
+        "name": "progress-tabs-disabled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "prompt",
+    "title": "Prompt",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Prompt",
+        "id": "prompt"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays a dialog prompting the user for their approval. It's useful when confirming destructive actions."
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "This component is useful if you want to control the prompt's content, format, and design. For a simpler approach that follows Medusa's prompt format, refer to the [usePrompt hook](../../hooks/use-prompt/page.mdx)."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Prompt component."
+      },
+      {
+        "type": "example",
+        "name": "prompt-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Prompt } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Prompt>\n  <Prompt.Trigger>Trigger</Prompt.Trigger>\n  <Prompt.Content>\n    <Prompt.Header>\n      <Prompt.Title>Title</Prompt.Title>\n      <Prompt.Description>Description</Prompt.Description>\n    </Prompt.Header>\n    <Prompt.Footer>\n      <Prompt.Cancel>Cancel</Prompt.Cancel>\n      <Prompt.Action>Delete</Prompt.Action>\n    </Prompt.Footer>\n  </Prompt.Content>\n</Prompt>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Prompt",
+        "componentsToShow": [
+          "Prompt",
+          "Prompt.Header",
+          "Prompt.Footer"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Confirmation Prompt Variant",
+        "id": "confirmation-prompt-variant"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `confirmation` variant is useful when confirming an operation that isn't destructive, such as deleting an item."
+      },
+      {
+        "type": "example",
+        "name": "prompt-confirmation",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "radio-group",
+    "title": "Radio Group",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Radio Group",
+        "id": "radio-group"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that renders a group of radio buttons using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Radio Group component."
+      },
+      {
+        "type": "example",
+        "name": "radio-group-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { RadioGroup } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<RadioGroup>\n  <RadioGroup.Item value=\"1\" id=\"radio_1\" />\n  <RadioGroup.Item value=\"2\" id=\"radio_2\" />\n  <RadioGroup.Item value=\"3\" id=\"radio_3\" />\n</RadioGroup>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "RadioGroup",
+        "componentsToShow": [
+          "RadioGroup"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Radio Group with Descriptions",
+        "id": "radio-group-with-descriptions"
+      },
+      {
+        "type": "example",
+        "name": "radio-group-descriptions",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Radio Group",
+        "id": "controlled-radio-group"
+      },
+      {
+        "type": "example",
+        "name": "radio-group-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Radio Group with a Disabled Item",
+        "id": "radio-group-with-a-disabled-item"
+      },
+      {
+        "type": "example",
+        "name": "radio-group-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Radio Choice Box",
+        "id": "radio-choice-box"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `RadioGroup.ChoiceBox` component allows you to show a group of radio buttons, each in a box with a label and description."
+      },
+      {
+        "type": "example",
+        "name": "radio-group-choicebox",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Choice Box API Reference",
+        "id": "choice-box-api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "RadioGroup",
+        "componentsToShow": [
+          "RadioGroup.ChoiceBox"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "select",
+    "title": "Select",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Select",
+        "id": "select"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays a select form input using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Select component."
+      },
+      {
+        "type": "example",
+        "name": "select-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Select } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Select>\n  <Select.Trigger>\n    <Select.Value placeholder=\"Placeholder\" />\n  </Select.Trigger>\n  <Select.Content>\n    {items.map((item) => (\n      <Select.Item key={item.value} value={item.value}>\n        {item.label}\n      </Select.Item>\n    ))}\n  </Select.Content>\n</Select>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Select",
+        "componentsToShow": [
+          "Select",
+          "Select.Trigger",
+          "Select.Value",
+          "Select.Group",
+          "Select.Label",
+          "Select.Item",
+          "Select.Content"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Small Select",
+        "id": "small-select"
+      },
+      {
+        "type": "example",
+        "name": "select-small",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Select Item-Aligned Position",
+        "id": "select-item-aligned-position"
+      },
+      {
+        "type": "example",
+        "name": "select-item-aligned",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Select",
+        "id": "disabled-select"
+      },
+      {
+        "type": "example",
+        "name": "select-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Select with Grouped Items",
+        "id": "select-with-grouped-items"
+      },
+      {
+        "type": "example",
+        "name": "select-grouped-items",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Select",
+        "id": "controlled-select"
+      },
+      {
+        "type": "example",
+        "name": "select-controlled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "status-badge",
+    "title": "Status Badge",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Status Badge",
+        "id": "status-badge"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays the status of an item in a badge style. It's useful to indicate states like \"Active\", \"Published\", or \"Draft\"."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Status Badge component."
+      },
+      {
+        "type": "example",
+        "name": "status-badge-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { StatusBadge } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<StatusBadge color=\"green\">Active</StatusBadge>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "StatusBadge",
+        "componentsToShow": [
+          "StatusBadge"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Status Badge Colors",
+        "id": "status-badge-colors"
+      },
+      {
+        "type": "example",
+        "name": "status-badge-all-colors",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "switch",
+    "title": "Switch",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Switch",
+        "id": "switch"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for toggling between two states, typically on and off. It's essentially a checkbox in the form of a switch."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Switch component."
+      },
+      {
+        "type": "example",
+        "name": "switch-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Switch } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Switch />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Switch",
+        "componentsToShow": [
+          "Switch"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Switch Sizes",
+        "id": "switch-sizes"
+      },
+      {
+        "type": "example",
+        "name": "switch-all-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Switch",
+        "id": "controlled-switch"
+      },
+      {
+        "type": "example",
+        "name": "switch-controlled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Switch",
+        "id": "disabled-switch"
+      },
+      {
+        "type": "example",
+        "name": "switch-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "table",
+    "title": "Table",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Table",
+        "id": "table"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays data in a structured table format."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Table component."
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you're looking to add a table to your Medusa Admin customizations with advanced features like filters, search, sorting, and bulk actions, refer to the [DataTable](../data-table/page.mdx) component instead."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "example",
+        "name": "table-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Table } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Table>\n  <Table.Header>\n    <Table.Row>\n      <Table.HeaderCell>#</Table.HeaderCell>\n      <Table.HeaderCell>Customer</Table.HeaderCell>\n      <Table.HeaderCell>Email</Table.HeaderCell>\n    </Table.Row>\n  </Table.Header>\n  <Table.Body>\n    <Table.Row>\n      <Table.Cell>1</Table.Cell>\n      <Table.Cell>Emil Larsson</Table.Cell>\n      <Table.Cell>emil2738@gmail.com</Table.Cell>\n    </Table.Row>\n  </Table.Body>\n</Table>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Table",
+        "componentsToShow": [
+          "Table",
+          "Table.Pagination"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Table with Pagination",
+        "id": "table-with-pagination"
+      },
+      {
+        "type": "example",
+        "name": "table-pagination",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "tabs",
+    "title": "Tabs",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Tabs",
+        "id": "tabs"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays tabbed content."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Tabs component."
+      },
+      {
+        "type": "example",
+        "name": "tabs-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Tabs } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Tabs>\n  <Tabs.List>\n    <Tabs.Trigger value=\"1\">Tab 1</Tabs.Trigger>\n    <Tabs.Trigger value=\"2\">Tab 2</Tabs.Trigger>\n    <Tabs.Trigger value=\"3\">Tab 3</Tabs.Trigger>\n  </Tabs.List>\n  <Tabs.Content value=\"1\">Panel 1</Tabs.Content>\n  <Tabs.Content value=\"2\">Panel 2</Tabs.Content>\n  <Tabs.Content value=\"3\">Panel 3</Tabs.Content>\n</Tabs>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Tabs",
+        "componentsToShow": [
+          "Tabs"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Tabs",
+        "id": "controlled-tabs"
+      },
+      {
+        "type": "example",
+        "name": "tabs-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Tabs with a Disabled Tab",
+        "id": "tabs-with-a-disabled-tab"
+      },
+      {
+        "type": "example",
+        "name": "tabs-disabled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Tabs with Icons",
+        "id": "tabs-with-icons"
+      },
+      {
+        "type": "example",
+        "name": "tabs-icons",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Vertical Tabs",
+        "id": "vertical-tabs"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `orientation` prop doesn't change the layout of the tabs, but it allows you to navigate between the tabs using the up and down arrow keys. You'll need to manually style the tabs vertically."
+      },
+      {
+        "type": "example",
+        "name": "tabs-vertical",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "text",
+    "title": "Text",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Text",
+        "id": "text"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays text using the typography styles from Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Text component."
+      },
+      {
+        "type": "example",
+        "name": "text-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Text } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Text>Text</Text>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Text",
+        "componentsToShow": [
+          "Text"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Text Sizes",
+        "id": "text-sizes"
+      },
+      {
+        "type": "example",
+        "name": "text-sizes",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Text Weights",
+        "id": "text-weights"
+      },
+      {
+        "type": "example",
+        "name": "text-weights",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Text Fonts",
+        "id": "text-fonts"
+      },
+      {
+        "type": "example",
+        "name": "text-fonts",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Text Leading",
+        "id": "text-leading"
+      },
+      {
+        "type": "example",
+        "name": "text-leading",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "textarea",
+    "title": "Textarea",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Textarea",
+        "id": "textarea"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays a textarea field using Medusa's design system."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Textarea component."
+      },
+      {
+        "type": "example",
+        "name": "textarea-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Textarea } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Textarea />"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Textarea",
+        "componentsToShow": [
+          "Textarea"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Controlled Textarea",
+        "id": "controlled-textarea"
+      },
+      {
+        "type": "example",
+        "name": "textarea-controlled",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Disabled Textarea",
+        "id": "disabled-textarea"
+      },
+      {
+        "type": "example",
+        "name": "textarea-disabled",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "time-input",
+    "title": "Time Input",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Time Input",
+        "id": "time-input"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component for working with time input values in Medusa UI."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Time Input component."
+      },
+      {
+        "type": "example",
+        "name": "time-input-demo"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "ts",
+        "code": "import { TimeInput } from \"@medusa-vue/ui\""
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "TimeInput",
+        "componentsToShow": [
+          "TimeInput"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "toast",
+    "title": "Toaster and Toast Messages",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Toaster and Toast Messages",
+        "id": "toaster-and-toast-messages"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component and utility for displaying brief messages to users, typically used for notifications or alerts. Toast messages appear momentarily on top of the application UI."
+      },
+      {
+        "type": "paragraph",
+        "content": "You can display multiple toast messages at once, and they will be stacked neatly."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Toaster component."
+      },
+      {
+        "type": "example",
+        "name": "toaster-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "paragraph",
+        "content": "First, import the `toast` utility and `Toaster` component from `@medusajs/ui`:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Toaster, toast } from \"@medusajs/ui\""
+      },
+      {
+        "type": "paragraph",
+        "content": "Then, add the `Toaster` component somewhere in your tree hierarchy. For example, in your main application layout:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx highlights={[[\"6\"]]}",
+        "code": "export default function AppLayout({ children }) {\n  return (\n    <html>\n      <body>\n        {children}\n        <Toaster />\n      </body>\n    </html>\n  )\n}"
+      },
+      {
+        "type": "paragraph",
+        "content": "Finally, use the `toast` utility in your components to display a toast message:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx highlights={[[\"5\", \"info\", \"Display an informational message\"]]}",
+        "code": "export default function MyComponent() {\n  return (\n    <Button \n      onClick={() => \n        toast.info(\"Toast title\", {\n          description: \"Toast body\",\n        })\n      }\n    >\n      Trigger\n    </Button>\n  )\n}"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Toast Utility Functions",
+        "id": "toast-utility-functions"
+      },
+      {
+        "type": "paragraph",
+        "content": "The `toast` utility has the following functions to display different variants of toast messages:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- `info`: Display a toast message with an informational style. - `error`: Display a toast message with an error style. - `success`: Display a toast message with a success style. - `warning`: Display a toast message with a warning style. - `loading`: Display a toast message with a loading style."
+      },
+      {
+        "type": "paragraph",
+        "content": "Each of these functions accept two parameters:"
+      },
+      {
+        "type": "paragraph",
+        "content": "1. A string indicating the title of the toast. 2. An object of [Toast component props](#toast-props)."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Toast Props",
+        "id": "toast-props"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Toast",
+        "componentsToShow": [
+          "Toast"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Toaster Props",
+        "id": "toaster-props"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Toaster",
+        "componentsToShow": [
+          "Toaster"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Toast Variants",
+        "id": "toast-variants"
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "The following example assumes you already have the `Toaster` component in [your application's tree](#usage)."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "example",
+        "name": "toaster-all-variants",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Dismissable Toast",
+        "id": "dismissable-toast"
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "The following example assumes you already have the `Toaster` component in [your application's tree](#usage)."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "example",
+        "name": "toaster-dismiss",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Toast with Action",
+        "id": "toast-with-action"
+      },
+      {
+        "type": "paragraph",
+        "content": "<Note>"
+      },
+      {
+        "type": "paragraph",
+        "content": "The following example assumes you already have the `Toaster` component in [your application's tree](#usage)."
+      },
+      {
+        "type": "paragraph",
+        "content": "</Note>"
+      },
+      {
+        "type": "example",
+        "name": "toaster-with-action",
+        "hideFeedback": true,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  },
+  {
+    "slug": "tooltip",
+    "title": "Tooltip",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Tooltip",
+        "id": "tooltip"
+      },
+      {
+        "type": "paragraph",
+        "content": "A component that displays a pop-up with additional information when hovering over or focusing on an element."
+      },
+      {
+        "type": "paragraph",
+        "content": "In this guide, you'll learn how to use the Tooltip component."
+      },
+      {
+        "type": "example",
+        "name": "tooltip-demo",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage",
+        "id": "usage"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "import { Tooltip } from \"@medusajs/ui\""
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<Tooltip content=\"Tooltip content\">Trigger</Tooltip>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "API Reference",
+        "id": "api-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "Tooltip",
+        "componentsToShow": [
+          "Tooltip"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Usage Outside Medusa Admin with TooltipProvider",
+        "id": "usage-outside-medusa-admin-with-tooltipprovider"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you're using the `Tooltip` component in a project other than the Medusa Admin, make sure to include the `TooltipProvider` somewhere up in your component tree:"
+      },
+      {
+        "type": "code",
+        "lang": "tsx",
+        "code": "<TooltipProvider>\n  <Tooltip content=\"Tooltip content\">Trigger</Tooltip>\n</TooltipProvider>"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "TooltipProvider Reference",
+        "id": "tooltipprovider-reference"
+      },
+      {
+        "type": "api-reference",
+        "mainComponent": "TooltipProvider",
+        "componentsToShow": [
+          "TooltipProvider"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Examples",
+        "id": "examples"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Changing Tooltip Side",
+        "id": "changing-tooltip-side"
+      },
+      {
+        "type": "example",
+        "name": "tooltip-sides",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Set Tooltip Max Width",
+        "id": "set-tooltip-max-width"
+      },
+      {
+        "type": "example",
+        "name": "tooltip-maxwidth",
+        "hideFeedback": false,
+        "disableCenterAlignPreview": false
+      }
+    ]
+  }
+]

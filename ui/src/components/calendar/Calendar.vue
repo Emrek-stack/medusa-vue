@@ -2,7 +2,7 @@
 import { CalendarRoot, CalendarHeader, CalendarHeading, CalendarGrid, CalendarGridHead, CalendarGridBody, CalendarGridRow, CalendarHeadCell, CalendarPrev, CalendarNext } from "radix-vue"
 import { TriangleLeftMini, TriangleRightMini } from "@medusa-vue/icons"
 import { clx } from "@/utils/clx"
-import { CalendarButton } from "./"
+import { CalendarButton } from "."
 import CalendarCell from "./CalendarCell.vue"
 import { createCalendarDate, createCalendarDateFromDate } from "@/utils/calendar"
 import { getLocalTimeZone } from "@internationalized/date"
