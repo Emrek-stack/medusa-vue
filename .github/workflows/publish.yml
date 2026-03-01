@@ -12,7 +12,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./medusa-vue3
+        working-directory: .
 
     steps:
       - name: Checkout Repository
