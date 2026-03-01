@@ -43,7 +43,7 @@ const emit = defineEmits<{
     (e: 'update:checked', value: boolean | "indeterminate"): void
 }>()
 
-const rootProps = computed(() => ({
+const rootProps = computed<Record<string, any>>(() => ({
   ...(props.checked !== undefined ? { checked: props.checked } : {}),
   ...(props.defaultChecked !== undefined ? { defaultChecked: props.defaultChecked } : {}),
   ...(props.disabled !== undefined ? { disabled: props.disabled } : {}),

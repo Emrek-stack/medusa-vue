@@ -4,9 +4,7 @@ import vue from "esbuild-plugin-vue"
 export default defineConfig({
     entry: ["src/index.ts"],
     format: ["cjs", "esm"],
-    format: ["cjs", "esm"],
     dts: false,
-    clean: true,
     clean: true,
     external: ["vue"],
     esbuildPlugins: [vue({

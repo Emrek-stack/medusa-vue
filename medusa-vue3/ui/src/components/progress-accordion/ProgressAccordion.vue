@@ -36,7 +36,7 @@ const rootProps = computed(() => ({
 <template>
   <RadixAccordionRoot
     v-bind="rootProps"
-    @update:model-value="emit('update:modelValue', $event)"
+    @update:model-value="emit('update:modelValue', $event as string | string[])"
   >
     <slot />
   </RadixAccordionRoot>
