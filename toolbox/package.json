@@ -1,6 +1,6 @@
 {
   "name": "@minima-vue/toolbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool for importing Figma designs for Minima Vue",
   "license": "MIT",
   "author": "Emre Karahan <emre.karahan@gmail.com>",
