@@ -15,7 +15,7 @@ export const Default: Story = {
         components: { Command },
         template: `
             <Command>
-                 <code>npm install @medusajs/medusa</code>
+                 <code>npm install @minima-vue/medusa</code>
             </Command>
         `,
     }),

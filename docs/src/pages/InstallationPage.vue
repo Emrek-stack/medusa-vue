@@ -36,9 +36,9 @@ const tocItems = computed(() => {
   return []
 })
 
-const medusaAdminExampleCode = `import { defineRouteConfig } from "@medusajs/admin-sdk"
-import { ChatBubbleLeftRight } from "@medusajs/icons"
-import { Container, Heading } from "@medusajs/ui"
+const medusaAdminExampleCode = `import { defineRouteConfig } from "@minima-vue/admin-sdk"
+import { ChatBubbleLeftRight } from "@minima-vue/icons"
+import { Container, Heading } from "@minima-vue/ui"
 
 const CustomPage = () => {
   return (
@@ -312,8 +312,8 @@ const standalonePackageJsonCode = `{
         </h2>
 
         <p class="max-w-[780px]">
-          The <code>@medusajs/ui</code> and <code>@medusajs/icons</code> packages are already
-          installed as dependencies of the <code>@medusajs/admin-sdk</code> package in your
+          The <code>@minima-vue/ui</code> and <code>@minima-vue/icons</code> packages are already
+          installed as dependencies of the <code>@minima-vue/admin-sdk</code> package in your
           admin project. They're installed by default in compatible plugins as well.
         </p>
 

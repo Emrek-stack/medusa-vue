@@ -88,7 +88,7 @@ const focusModalOverride: ComponentDoc = {
     {
       type: "code",
       lang: "tsx",
-      code: `import { FocusModal } from "@medusajs/ui"`,
+      code: `import { FocusModal } from "@minima-vue/ui"`,
     },
     {
       type: "code",
@@ -195,8 +195,8 @@ const iconButtonOverride: ComponentDoc = {
     {
       type: "code",
       lang: "tsx",
-      code: `import { IconButton } from "@medusajs/ui"
-import { Plus } from "@medusajs/icons"`,
+      code: `import { IconButton } from "@minima-vue/ui"
+import { Plus } from "@minima-vue/icons"`,
     },
     {
       type: "code",
@@ -298,7 +298,7 @@ const progressTabsOverride: ComponentDoc = {
     {
       type: "code",
       lang: "tsx",
-      code: `import { ProgressTabs } from "@medusajs/ui"`,
+      code: `import { ProgressTabs } from "@minima-vue/ui"`,
     },
     {
       type: "code",
@@ -412,12 +412,12 @@ const toastOverride: ComponentDoc = {
     },
     {
       type: "paragraph",
-      content: "First, import the `toast` utility and `Toaster` component from `@medusajs/ui`:",
+      content: "First, import the `toast` utility and `Toaster` component from `@minima-vue/ui`:",
     },
     {
       type: "code",
       lang: "tsx",
-      code: `import { Toaster, toast } from "@medusajs/ui"`,
+      code: `import { Toaster, toast } from "@minima-vue/ui"`,
     },
     {
       type: "paragraph",

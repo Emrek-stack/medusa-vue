@@ -1,4 +1,4 @@
-# @medusajs/toolbox
+# @minima-vue/toolbox
 
 ## 2.13.1
 
