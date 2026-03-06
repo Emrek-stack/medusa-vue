@@ -1,0 +1,233 @@
+export type MainNavMenuLinkItem = {
+  type: "link"
+  title: string
+  link: string
+  openInNewTab?: boolean
+}
+
+export type MainNavMenuDividerItem = {
+  type: "divider"
+}
+
+export type MainNavMenuSubMenuItem = {
+  type: "sub-menu"
+  title: string
+  link?: string
+  items: MainNavMenuItem[]
+}
+
+export type MainNavMenuItem =
+  | MainNavMenuLinkItem
+  | MainNavMenuDividerItem
+  | MainNavMenuSubMenuItem
+
+export type MainNavLinkItem = {
+  type: "link"
+  title: string
+  link: string
+}
+
+export type MainNavDropdownItem = {
+  type: "dropdown"
+  title: string
+  link?: string
+  children: MainNavMenuItem[]
+}
+
+export type MainNavItem = MainNavLinkItem | MainNavDropdownItem
+
+const MEDUSA_DOCS_BASE_URL = "https://docs.medusajs.com"
+const LOCAL_BASE_URL = "http://localhost:3005"
+
+const LOCAL_LINK_OVERRIDES: Record<string, string> = {
+  "/learn": "/",
+  "/ui": "/",
+  "/user-guide": "/components/button",
+}
+
+const normalizeLink = (link: string) => {
+  if (LOCAL_LINK_OVERRIDES[link]) {
+    return LOCAL_LINK_OVERRIDES[link]
+  }
+
+  if (link.startsWith(MEDUSA_DOCS_BASE_URL) || link.startsWith(LOCAL_BASE_URL)) {
+    return link
+  }
+
+  if (link.startsWith("http://") || link.startsWith("https://")) {
+    return link
+  }
+
+  return `${MEDUSA_DOCS_BASE_URL}${link}`
+}
+
+const normalizeMenuItems = (items: MainNavMenuItem[]): MainNavMenuItem[] => {
+  return items.map((item) => {
+    if (item.type === "divider") {
+      return item
+    }
+
+    if (item.type === "link") {
+      return {
+        ...item,
+        link: normalizeLink(item.link),
+      }
+    }
+
+    return {
+      ...item,
+      link: item.link ? normalizeLink(item.link) : undefined,
+      items: normalizeMenuItems(item.items),
+    }
+  })
+}
+
+const rawMainNavItems: MainNavItem[] = [
+  {
+    type: "link",
+    title: "Get Started",
+    link: "/learn",
+  },
+  {
+    type: "dropdown",
+    title: "Product",
+    children: [
+      {
+        type: "sub-menu",
+        title: "Framework",
+        link: "/learn/fundamentals/framework",
+        items: [
+          { type: "link", title: "API Routes", link: "/learn/fundamentals/api-routes" },
+          { type: "link", title: "Data Models", link: "/learn/fundamentals/data-models" },
+          { type: "link", title: "Events and Subscribers", link: "/learn/fundamentals/events-and-subscribers" },
+          { type: "link", title: "Index Module", link: "/learn/fundamentals/module-links/index-module" },
+          { type: "link", title: "Medusa Container", link: "/learn/fundamentals/medusa-container" },
+          { type: "link", title: "Modules", link: "/learn/fundamentals/modules" },
+          { type: "link", title: "Module Links", link: "/learn/fundamentals/module-links" },
+          { type: "link", title: "Plugins", link: "/learn/fundamentals/plugins" },
+          { type: "link", title: "Query", link: "/learn/fundamentals/module-links/query" },
+          { type: "link", title: "Scheduled Jobs", link: "/learn/fundamentals/scheduled-jobs" },
+          { type: "link", title: "Workflows", link: "/learn/fundamentals/workflows" },
+        ],
+      },
+      {
+        type: "link",
+        title: "Admin Extensions",
+        link: "/learn/fundamentals/admin",
+      },
+      {
+        type: "sub-menu",
+        title: "Commerce Modules",
+        link: "/resources/commerce-modules",
+        items: [
+          { type: "link", title: "API Key", link: "/resources/commerce-modules/api-key" },
+          { type: "link", title: "Auth", link: "/resources/commerce-modules/auth" },
+          { type: "link", title: "Cart", link: "/resources/commerce-modules/cart" },
+          { type: "link", title: "Currency", link: "/resources/commerce-modules/currency" },
+          { type: "link", title: "Customer", link: "/resources/commerce-modules/customer" },
+          { type: "link", title: "Fulfillment", link: "/resources/commerce-modules/fulfillment" },
+          { type: "link", title: "Inventory", link: "/resources/commerce-modules/inventory" },
+          { type: "link", title: "Order", link: "/resources/commerce-modules/order" },
+          { type: "link", title: "Payment", link: "/resources/commerce-modules/payment" },
+          { type: "link", title: "Pricing", link: "/resources/commerce-modules/pricing" },
+          { type: "link", title: "Product", link: "/resources/commerce-modules/product" },
+          { type: "link", title: "Promotion", link: "/resources/commerce-modules/promotion" },
+          { type: "link", title: "Region", link: "/resources/commerce-modules/region" },
+          { type: "link", title: "Sales Channel", link: "/resources/commerce-modules/sales-channel" },
+          { type: "link", title: "Stock Location", link: "/resources/commerce-modules/stock-location" },
+          { type: "link", title: "Store", link: "/resources/commerce-modules/store" },
+          { type: "link", title: "Tax", link: "/resources/commerce-modules/tax" },
+          { type: "link", title: "Translation", link: "/resources/commerce-modules/translation" },
+          { type: "link", title: "User", link: "/resources/commerce-modules/user" },
+        ],
+      },
+      {
+        type: "sub-menu",
+        title: "Infrastructure Modules",
+        link: "/resources/infrastructure-modules",
+        items: [
+          { type: "link", title: "Analytics", link: "/resources/infrastructure-modules/analytics" },
+          { type: "link", title: "Caching", link: "/resources/infrastructure-modules/caching" },
+          { type: "link", title: "Event", link: "/resources/infrastructure-modules/event" },
+          { type: "link", title: "File", link: "/resources/infrastructure-modules/file" },
+          { type: "link", title: "Locking", link: "/resources/infrastructure-modules/locking" },
+          { type: "link", title: "Notification", link: "/resources/infrastructure-modules/notification" },
+          { type: "link", title: "Workflow Engine", link: "/resources/infrastructure-modules/workflow-engine" },
+        ],
+      },
+    ],
+  },
+  {
+    type: "dropdown",
+    title: "Build",
+    children: [
+      { type: "link", title: "Recipes", link: "/resources/recipes" },
+      { type: "link", title: "How-to & Tutorials", link: "/resources/how-to-tutorials" },
+      { type: "link", title: "Integrations", link: "/resources/integrations" },
+      { type: "link", title: "Storefront", link: "/resources/storefront-development" },
+    ],
+  },
+  {
+    type: "dropdown",
+    title: "Tools",
+    link: "/resources/tools",
+    children: [
+      {
+        type: "sub-menu",
+        title: "CLI Tools",
+        items: [
+          { type: "link", title: "create-medusa-app", link: "/resources/create-medusa-app" },
+          { type: "link", title: "Medusa CLI", link: "/resources/medusa-cli" },
+        ],
+      },
+      { type: "link", title: "JS SDK", link: "/resources/js-sdk" },
+      { type: "link", title: "Next.js Starter", link: "/resources/nextjs-starter" },
+      { type: "link", title: "Medusa UI", link: "/ui" },
+    ],
+  },
+  {
+    type: "dropdown",
+    title: "Reference",
+    link: "/resources/references-overview",
+    children: [
+      { type: "link", title: "Admin API", link: "/api/admin" },
+      { type: "link", title: "Store API", link: "/api/store" },
+      { type: "divider" },
+      { type: "link", title: "Admin Injection Zones", link: "/resources/admin-widget-injection-zones" },
+      { type: "link", title: "Container Resources", link: "/resources/medusa-container-resources" },
+      { type: "link", title: "Core Workflows", link: "/resources/medusa-workflows-reference" },
+      { type: "link", title: "Data Model Language", link: "/resources/references/data-model" },
+      { type: "link", title: "Data Model Repository", link: "/resources/data-model-repository-reference" },
+      { type: "link", title: "Events Reference", link: "/resources/references/events" },
+      { type: "link", title: "Helper Steps", link: "/resources/references/helper-steps" },
+      { type: "link", title: "Service Factory", link: "/resources/service-factory-reference" },
+      { type: "link", title: "Testing Framework", link: "/resources/test-tools-reference" },
+      { type: "link", title: "Workflows SDK", link: "/resources/references/workflows" },
+    ],
+  },
+  {
+    type: "link",
+    title: "User Guide",
+    link: "/user-guide",
+  },
+  {
+    type: "link",
+    title: "Cloud",
+    link: "/cloud",
+  },
+]
+
+export const mainNavItems: MainNavItem[] = rawMainNavItems.map((item) => {
+  if (item.type === "link") {
+    return {
+      ...item,
+      link: normalizeLink(item.link),
+    }
+  }
+
+  return {
+    ...item,
+    link: item.link ? normalizeLink(item.link) : undefined,
+    children: normalizeMenuItems(item.children),
+  }
+})

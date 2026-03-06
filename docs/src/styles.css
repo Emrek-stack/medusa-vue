@@ -51,6 +51,19 @@
   aside * {
     scrollbar-color: var(--border-base) var(--bg-subtle);
   }
+
+  body[data-modal="opened"] {
+    @apply !overflow-hidden;
+  }
+
+  .text-wrap {
+    text-wrap: wrap;
+  }
+
+  body[data-scroll-locked] .z-20,
+  body[data-scroll-locked] .z-10 {
+    z-index: 0 !important;
+  }
 }
 
 .docs-card {

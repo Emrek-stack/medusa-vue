@@ -765,11 +765,17 @@ const createFocusModalExample = (
                 </FocusModalFooter>
               </FocusModalContent>
             </FocusModal>`,
-    () => ({
-      open: false,
-      value: "",
-      submitted: "",
-    })
+    () => {
+      const open = ref(false)
+      const value = ref("")
+      const submitted = ref("")
+
+      return {
+        open,
+        value,
+        submitted,
+      }
+    }
   )
 
 const createToastExample = (

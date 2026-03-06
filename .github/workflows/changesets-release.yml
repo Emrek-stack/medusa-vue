@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_release: ${{ steps.detect.outputs.should_release }}
+      reason: ${{ steps.detect.outputs.reason }}
+      changed_packages: ${{ steps.detect.outputs.changed_packages }}
 
     steps:
       - name: Checkout repository
@@ -28,6 +30,8 @@ jobs:
 
           if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             echo "should_release=false" >> "$GITHUB_OUTPUT"
+            echo "reason=Initial push to main. Release publish is skipped." >> "$GITHUB_OUTPUT"
+            echo "changed_packages=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -35,15 +39,19 @@ jobs:
 
           if [ ${#changed_files[@]} -eq 0 ]; then
             echo "should_release=false" >> "$GITHUB_OUTPUT"
+            echo "reason=No changed files detected between commits. Release publish is skipped." >> "$GITHUB_OUTPUT"
+            echo "changed_packages=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           release_file_changed=false
           only_release_files=true
+          changed_packages=()
 
           for file in "${changed_files[@]}"; do
             if [[ "$file" =~ ^(icons|toolbox|ui|ui-preset)/package\.json$ ]] || [[ "$file" =~ ^(icons|toolbox|ui|ui-preset)/CHANGELOG\.md$ ]]; then
               release_file_changed=true
+              changed_packages+=("${file%%/*}")
               continue
             fi
 
@@ -54,12 +62,35 @@ jobs:
             only_release_files=false
           done
 
+          if [ ${#changed_packages[@]} -gt 0 ]; then
+            mapfile -t unique_packages < <(printf "%s\n" "${changed_packages[@]}" | sort -u)
+          else
+            unique_packages=()
+          fi
+
+          changed_packages_json=$(printf "%s\n" "${unique_packages[@]}" | node -e 'const fs=require("fs"); const values=fs.readFileSync(0,"utf8").trim().split(/\n+/).filter(Boolean); process.stdout.write(JSON.stringify(values));')
+
           if [[ "$release_file_changed" == "true" && "$only_release_files" == "true" ]]; then
             echo "should_release=true" >> "$GITHUB_OUTPUT"
+            echo "reason=Release commit detected from Version Packages merge. Tag, GitHub Release, and npm publish will run." >> "$GITHUB_OUTPUT"
+            echo "changed_packages=${changed_packages_json}" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           echo "should_release=false" >> "$GITHUB_OUTPUT"
+          echo "reason=Main received a non-release commit. This run only evaluates release commits created by the Version Packages PR." >> "$GITHUB_OUTPUT"
+          echo "changed_packages=${changed_packages_json}" >> "$GITHUB_OUTPUT"
+
+      - name: Write decision summary
+        shell: bash
+        run: |
+          {
+            echo "## Changesets Release Decision"
+            echo
+            echo "- should_release: \`${{ steps.detect.outputs.should_release }}\`"
+            echo "- reason: ${{ steps.detect.outputs.reason }}"
+            echo "- changed_packages: \`${{ steps.detect.outputs.changed_packages }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   publish:
     needs: detect-release-commit
@@ -85,10 +116,76 @@ jobs:
       - name: Build packages and docs
         run: npm run build
 
-      - name: Publish packages with Changesets
+      - name: Prepare release metadata
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run release
+          CHANGED_PACKAGES: ${{ needs.detect-release-commit.outputs.changed_packages }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE' > /tmp/release-packages.tsv
+          const changed = JSON.parse(process.env.CHANGED_PACKAGES || "[]")
+          for (const dir of changed) {
+            const pkg = require(`${process.cwd()}/${dir}/package.json`)
+            if (pkg.private) continue
+            console.log([dir, pkg.name, pkg.version].join("\t"))
+          }
+          NODE
+
+          if [ ! -s /tmp/release-packages.tsv ]; then
+            echo "No publishable packages detected for release."
+            exit 1
+          fi
+
+          {
+            echo "## Packages To Release"
+            echo
+            while IFS=$'\t' read -r dir name version; do
+              echo "- \`${name}@${version}\` from \`${dir}\`"
+            done < /tmp/release-packages.tsv
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create git tags
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r dir name version; do
+            tag="${name}@${version}"
+            if git rev-parse "$tag" >/dev/null 2>&1; then
+              echo "Tag already exists: $tag"
+              continue
+            fi
+            git tag "$tag"
+            echo "Created tag: $tag"
+          done < /tmp/release-packages.tsv
 
       - name: Push git tags
         run: git push --follow-tags
+
+      - name: Create GitHub releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r dir name version; do
+            tag="${name}@${version}"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "GitHub release already exists: $tag"
+              continue
+            fi
+            gh release create "$tag" \
+              --title "$tag" \
+              --notes "Automated release for $tag." \
+              --verify-tag
+          done < /tmp/release-packages.tsv
+
+      - name: Publish packages to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r dir name version; do
+            echo "Publishing ${name}@${version}"
+            npm publish --workspace "$name"
+          done < /tmp/release-packages.tsv

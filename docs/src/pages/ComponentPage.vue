@@ -10,6 +10,7 @@ import RightToc from "@docs/components/RightToc.vue"
 import { findComponentDoc } from "@docs/data/component-docs"
 import { findComponent } from "@docs/data/navigation"
 import { siteBrand } from "@docs/data/site"
+import { renderInlineMarkdown } from "@docs/utils/markdown"
 
 const route = useRoute()
 const entry = computed(() => findComponent(route.params.slug as string))
@@ -98,6 +99,35 @@ const transformCode = (value: string) =>
             :content="block.content"
             :lead="index < firstSectionIndex && index < 2"
           />
+
+          <hr
+            v-else-if="block.type === 'divider'"
+            class="my-docs_2 h-px w-full border-0 bg-ui-border-base"
+          />
+
+          <ul
+            v-else-if="block.type === 'list' && !block.ordered"
+            class="mb-docs_1.5 list-disc px-docs_1 text-ui-fg-base"
+          >
+            <li
+              v-for="(item, itemIndex) in block.items"
+              :key="`list-${index}-${itemIndex}`"
+              class="txt-medium text-ui-fg-base"
+              v-html="renderInlineMarkdown(item)"
+            />
+          </ul>
+
+          <ol
+            v-else-if="block.type === 'list' && block.ordered"
+            class="mb-docs_1.5 list-decimal px-docs_1 text-ui-fg-base"
+          >
+            <li
+              v-for="(item, itemIndex) in block.items"
+              :key="`list-${index}-${itemIndex}`"
+              class="txt-medium text-ui-fg-base"
+              v-html="renderInlineMarkdown(item)"
+            />
+          </ol>
 
           <DocsCodeBlock
             v-else-if="block.type === 'code'"

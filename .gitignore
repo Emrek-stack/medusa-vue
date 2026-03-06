@@ -135,4 +135,3 @@ reference/
 **/node_modules/
 **/dist/
 minima-vue3/docs/src/generated/*.json
- 

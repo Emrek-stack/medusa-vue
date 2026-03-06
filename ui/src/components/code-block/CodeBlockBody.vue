@@ -137,7 +137,7 @@ watch(() => [active.value.code, active.value.language], ([newCode, newLang]) => 
 <template>
   <div>
     <div v-if="$slots.default || !active.hideCopy" class="border-ui-contrast-border-bot flex min-h-10 items-center gap-x-3 border-t px-4 py-2">
-      <div class="code-body text-ui-contrast-fg-secondary flex-1">
+      <div class="code-paragraph text-ui-contrast-fg-secondary flex-1">
         <slot />
       </div>
       <Copy
@@ -157,7 +157,7 @@ watch(() => [active.value.code, active.value.language], ([newCode, newLang]) => 
         <div class="max-w-[90%]">
              <pre
                 :class="clx(
-                  'code-body whitespace-pre-wrap bg-transparent m-0 p-0',
+                  'code-paragraph whitespace-pre-wrap bg-transparent m-0 p-0',
                   {
                     'grid grid-cols-[auto,1fr] gap-x-4': !active.hideLineNumbers,
                   }
