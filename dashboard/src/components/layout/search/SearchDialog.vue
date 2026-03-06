@@ -139,14 +139,14 @@ const onGlobalKeydown = (event: KeyboardEvent) => {
     return
   }
 
-  if (event.key === "Escape" && uiState.searchOpen.value) {
+  if (event.key === "Escape" && uiState.searchOpen) {
     event.preventDefault()
     close()
   }
 }
 
 watch(
-  () => uiState.searchOpen.value,
+  () => uiState.searchOpen,
   async (open) => {
     if (!open) {
       query.value = ""
@@ -162,14 +162,14 @@ watch(
 watch(
   () => route.fullPath,
   () => {
-    if (uiState.searchOpen.value) {
+    if (uiState.searchOpen) {
       close()
     }
   }
 )
 
 watch(
-  () => uiState.searchOpen.value,
+  () => uiState.searchOpen,
   (_, __, onCleanup) => {
     window.addEventListener("keydown", onGlobalKeydown)
 
@@ -192,7 +192,7 @@ watch(
       leave-to-class="opacity-0"
     >
       <div
-        v-if="uiState.searchOpen.value"
+        v-if="uiState.searchOpen"
         class="bg-ui-bg-overlay fixed inset-0 z-[80] flex items-start justify-center p-2 pt-10 sm:p-4 sm:pt-16"
         @mousedown="onOverlayClick"
       >

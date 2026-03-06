@@ -312,17 +312,17 @@ const handleLogout = async () => {
 
                 <DropdownMenuSubMenu>
                   <DropdownMenuSubTrigger class="rounded-md">
-                    <component :is="uiState.isDark.value ? SunSolid : MoonSolid" class="text-ui-fg-subtle mr-2 h-4 w-4" />
+                    <component :is="uiState.isDark ? SunSolid : MoonSolid" class="text-ui-fg-subtle mr-2 h-4 w-4" />
                     Tema
                   </DropdownMenuSubTrigger>
                   <DropdownMenuSubContent>
                     <DropdownMenuItem @click="uiState.setDark(false)">
                       Açık
-                      <span v-if="!uiState.isDark.value" class="ml-auto text-ui-fg-muted">Aktif</span>
+                      <span v-if="!uiState.isDark" class="ml-auto text-ui-fg-muted">Aktif</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem @click="uiState.setDark(true)">
                       Koyu
-                      <span v-if="uiState.isDark.value" class="ml-auto text-ui-fg-muted">Aktif</span>
+                      <span v-if="uiState.isDark" class="ml-auto text-ui-fg-muted">Aktif</span>
                     </DropdownMenuItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuSubMenu>

@@ -2,6 +2,7 @@
   "extends": "../docs/tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

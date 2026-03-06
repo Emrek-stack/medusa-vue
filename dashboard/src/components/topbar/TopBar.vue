@@ -6,7 +6,7 @@ import Notifications from "@/components/layout/notifications/index.vue"
 import { useUiState } from "@/stores/ui-state"
 
 const uiState = useUiState()
-const isDark = computed(() => uiState.isDark.value)
+const isDark = computed(() => uiState.isDark)
 const onToggleDark = () => uiState.toggleDark()
 </script>
 

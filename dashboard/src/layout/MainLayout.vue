@@ -22,7 +22,7 @@ watch(
 <template>
   <div class="bg-ui-bg-subtle text-ui-fg-base relative flex h-screen flex-col items-start overflow-hidden lg:flex-row">
     <div
-      v-if="uiState.sidebarDesktop.value"
+      v-if="uiState.sidebarDesktop"
       class="hidden h-screen w-[220px] border-r border-ui-border-base lg:flex"
     >
       <SidebarNav />
@@ -37,7 +37,7 @@ watch(
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <div v-if="uiState.sidebarMobile.value" class="fixed inset-0 z-50 lg:hidden">
+        <div v-if="uiState.sidebarMobile" class="fixed inset-0 z-50 lg:hidden">
           <div class="bg-ui-bg-overlay absolute inset-0" @click="uiState.toggleSidebar('mobile')" />
 
           <aside

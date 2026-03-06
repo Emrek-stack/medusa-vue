@@ -1,7 +1,5 @@
-import { createApp } from "vue"
-import App from "./App.vue"
-import { router } from "./router"
 import "@minima-vue/ui/style.css"
 import "./styles.css"
+import { bootstrapApp } from "@/app/bootstrap"
 
-createApp(App).use(router).mount("#app")
+bootstrapApp()

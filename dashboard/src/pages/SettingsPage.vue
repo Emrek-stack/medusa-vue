@@ -17,7 +17,13 @@ const labels: Record<string, string> = {
   preferences: "Tercihler",
 }
 
-const title = computed(() => labels[route.params.section as string] || "Settings")
+const section = computed(() => {
+  const params = route.params as Record<string, string | string[] | undefined>
+  const value = params.section
+  return Array.isArray(value) ? value[0] : value
+})
+
+const title = computed(() => (section.value ? labels[section.value] || "Settings" : "Settings"))
 
 const emailNotifications = ref(true)
 const slackNotifications = ref(false)
