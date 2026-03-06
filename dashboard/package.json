@@ -1,0 +1,27 @@
+{
+  "name": "@minima-vue/dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@minima-vue/icons": "*",
+    "@minima-vue/ui": "*",
+    "@minima-vue/ui-preset": "*",
+    "vue": "^3.4.19",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.14",
+    "vue-tsc": "^3.2.4"
+  }
+}

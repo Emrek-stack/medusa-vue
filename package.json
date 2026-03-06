@@ -6,11 +6,13 @@
     "toolbox",
     "ui-preset",
     "ui",
-    "docs"
+    "docs",
+    "dashboard"
   ],
   "scripts": {
     "dev": "npm run dev --workspace @minima-vue/docs",
     "dev:docs": "npm run dev --workspace @minima-vue/docs",
+    "dev:dashboard": "npm run dev --workspace @minima-vue/dashboard",
     "generate:docs": "npm run generate --workspace @minima-vue/docs",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -19,7 +21,8 @@
     "pack:packages": "npm pack --workspace @minima-vue/toolbox && npm pack --workspace @minima-vue/icons && npm pack --workspace @minima-vue/ui-preset && npm pack --workspace @minima-vue/ui",
     "publish:packages": "npm publish --workspace @minima-vue/toolbox && npm publish --workspace @minima-vue/icons && npm publish --workspace @minima-vue/ui-preset && npm publish --workspace @minima-vue/ui",
     "build:docs": "npm run build --workspace @minima-vue/docs",
-    "build": "npm run build:packages && npm run build:docs"
+    "build:dashboard": "npm run build --workspace @minima-vue/dashboard",
+    "build": "npm run build:packages && npm run build:docs && npm run build:dashboard"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7"

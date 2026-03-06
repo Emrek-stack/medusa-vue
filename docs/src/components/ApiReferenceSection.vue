@@ -155,6 +155,85 @@ const fallbackSpecMap: Record<string, ReferenceSpec> = {
       },
     },
   },
+  Toast: {
+    displayName: "Toast",
+    description: "This component is based on the [Sonner](https://sonner.emilkowal.ski/toast) toast library.",
+    props: {
+      id: {
+        description: "Optional ID of the toast.",
+        required: true,
+        tsType: {
+          raw: "string | number",
+          name: "union",
+        },
+      },
+      description: {
+        description: "The toast's text.",
+        required: false,
+        tsType: {
+          raw: "React.ReactNode",
+          name: "ReactReactNode",
+        },
+      },
+      action: {
+        description: "The toast's action buttons.",
+        required: false,
+        tsType: {
+          raw: "{ altText: string; label: string; onClick: () => void | Promise<void>; variant?: \"default\" | \"destructive\" }",
+          name: "signature",
+        },
+      },
+    },
+  },
+  Toaster: {
+    displayName: "Toaster",
+    description:
+      "This component is based on the [Toaster component of the Sonner library](https://sonner.emilkowal.ski/toaster).",
+    props: {
+      position: {
+        description: "The position of the created toasts.",
+        required: false,
+        defaultValue: {
+          value: "\"bottom-right\"",
+        },
+        tsType: {
+          raw: "\"top-left\" | \"top-center\" | \"top-right\" | \"bottom-left\" | \"bottom-center\" | \"bottom-right\"",
+          name: "union",
+        },
+      },
+      gap: {
+        description: "The gap between the toast components.",
+        required: false,
+        defaultValue: {
+          value: "12",
+        },
+        tsType: {
+          name: "number",
+        },
+      },
+      offset: {
+        description: "The space from the edges of the screen.",
+        required: false,
+        defaultValue: {
+          value: "24",
+        },
+        tsType: {
+          raw: "string | number",
+          name: "union",
+        },
+      },
+      duration: {
+        description: "The time in milliseconds that a toast is shown before it's automatically dismissed.",
+        required: false,
+        defaultValue: {
+          value: "4000",
+        },
+        tsType: {
+          name: "number",
+        },
+      },
+    },
+  },
 }
 
 const hasProps = (spec?: ReferenceSpec) =>
