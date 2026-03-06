@@ -59,8 +59,8 @@ const createProduct = () => {
   <section class="space-y-3">
     <div class="dashboard-panel flex items-start justify-between p-4">
       <div>
-        <Heading level="h1" class="dashboard-heading">Products</Heading>
-        <Text size="small" leading="compact" class="text-ui-fg-subtle">Browse, create and maintain your product catalog.</Text>
+        <Heading level="h1" class="dashboard-heading">Tenant Yönetimi</Heading>
+        <Text size="small" leading="compact" class="text-ui-fg-subtle">Tenant oluşturma, düzenleme ve durum takibini yapın.</Text>
       </div>
       <FocusModal v-model:open="createOpen">
         <FocusModalTrigger as-child>
@@ -108,8 +108,8 @@ const createProduct = () => {
 
     <div class="dashboard-panel overflow-hidden">
       <div class="flex items-center justify-between border-b border-ui-border-base px-4 py-3">
-        <Text size="small" leading="compact" weight="plus">All Products</Text>
-        <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">{{ products.length }} items</Text>
+        <Text size="small" leading="compact" weight="plus">Tüm Tenantlar</Text>
+        <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">{{ products.length }} kayıt</Text>
       </div>
       <Table>
         <TableHeader>

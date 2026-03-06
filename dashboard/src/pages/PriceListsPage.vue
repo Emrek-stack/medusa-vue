@@ -13,8 +13,8 @@ const rows = [
   <section class="space-y-3">
     <div class="dashboard-panel flex items-start justify-between p-4">
       <div>
-        <Heading level="h1" class="dashboard-heading">Price Lists</Heading>
-        <Text size="small" leading="compact" class="text-ui-fg-subtle">Configure regional or channel-based pricing strategies.</Text>
+        <Heading level="h1" class="dashboard-heading">UI Demo</Heading>
+        <Text size="small" leading="compact" class="text-ui-fg-subtle">Bileşenlerin canlı örneklerini ve davranışlarını inceleyin.</Text>
       </div>
       <Button size="small" @click="toast.success('Price list created', { description: 'A new draft price list has been created.' })">
         <Plus />

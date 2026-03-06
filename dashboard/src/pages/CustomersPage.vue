@@ -53,21 +53,21 @@ const applyFilters = () => {
   <section class="space-y-3">
     <div class="dashboard-panel flex items-start justify-between p-4">
       <div>
-        <Heading level="h1" class="dashboard-heading">Customers</Heading>
-        <Text size="small" leading="compact" class="text-ui-fg-subtle">Analyze customer behavior and segment your audience.</Text>
+        <Heading level="h1" class="dashboard-heading">Kullanıcı Yönetimi</Heading>
+        <Text size="small" leading="compact" class="text-ui-fg-subtle">Kullanıcı listesi, segmentleri ve erişim kapsamlarını yönetin.</Text>
       </div>
 
       <Drawer v-model:open="drawerOpen">
         <DrawerTrigger as-child>
           <Button variant="secondary" size="small">
             <Funnel />
-            Filter
+            Filtrele
           </Button>
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>Filter Customers</DrawerTitle>
-            <Text size="small" leading="compact" class="text-ui-fg-subtle">Refine customer list by metadata and behavior.</Text>
+            <DrawerTitle>Kullanıcıları Filtrele</DrawerTitle>
+            <Text size="small" leading="compact" class="text-ui-fg-subtle">Listeyi meta veri ve davranışa göre daraltın.</Text>
           </DrawerHeader>
           <DrawerBody>
             <div class="grid gap-4">

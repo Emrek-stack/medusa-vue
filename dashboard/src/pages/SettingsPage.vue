@@ -6,11 +6,15 @@ import { Button, Heading, Input, Switch, Text, Textarea, toast } from "@minima-v
 const route = useRoute()
 
 const labels: Record<string, string> = {
-  store: "Store",
-  users: "Users",
-  regions: "Regions",
+  general: "Genel",
+  tenants: "Tenantlar",
+  roles: "Roller",
+  permissions: "İzinler",
   "api-keys": "API Keys",
-  workflows: "Workflows",
+  integrations: "Entegrasyonlar",
+  updates: "Güncellemeler",
+  profile: "Profil",
+  preferences: "Tercihler",
 }
 
 const title = computed(() => labels[route.params.section as string] || "Settings")
@@ -31,7 +35,7 @@ const save = () => {
     <div class="dashboard-panel p-4">
       <Heading level="h1" class="dashboard-heading">{{ title }}</Heading>
       <Text size="small" leading="compact" class="text-ui-fg-subtle">
-        Configure {{ title.toLowerCase() }} behavior and operational preferences.
+        {{ title }} alanı için sistem ayarlarını yönetin.
       </Text>
     </div>
 

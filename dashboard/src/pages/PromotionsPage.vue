@@ -25,8 +25,8 @@ const campaigns = [
   <section class="space-y-3">
     <div class="dashboard-panel flex items-start justify-between p-4">
       <div>
-        <Heading level="h1" class="dashboard-heading">Promotions</Heading>
-        <Text size="small" leading="compact" class="text-ui-fg-subtle">Run campaign experiments and track conversion impact.</Text>
+        <Heading level="h1" class="dashboard-heading">Yetki Yönetimi</Heading>
+        <Text size="small" leading="compact" class="text-ui-fg-subtle">Yetki kurallarını tanımlayın ve etki analizini takip edin.</Text>
       </div>
       <div class="flex items-center gap-x-2">
         <Button variant="secondary" size="small" @click="toast.info('Preview generated', { description: 'Campaign impact report is ready.' })">

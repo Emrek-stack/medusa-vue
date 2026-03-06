@@ -173,9 +173,9 @@ const createOrder = () => {
   <section class="space-y-3">
     <div class="dashboard-panel flex items-start justify-between p-4">
       <div>
-        <Heading level="h1" class="dashboard-heading">Orders</Heading>
+        <Heading level="h1" class="dashboard-heading">Kontrol Paneli</Heading>
         <Text size="small" leading="compact" class="text-ui-fg-subtle">
-          Manage and fulfill incoming orders in one place.
+          Sistemin genel durumunu ve operasyon metriklerini izleyin.
         </Text>
       </div>
       <div class="flex items-center gap-x-2">
@@ -226,7 +226,7 @@ const createOrder = () => {
         <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">+8.4% from last month</Text>
       </article>
       <article class="dashboard-panel p-4">
-        <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">Orders</Text>
+        <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">Aktif Kayıtlar</Text>
         <Text size="large" leading="compact" weight="plus">2,481</Text>
         <Text size="xsmall" leading="compact" class="text-ui-fg-subtle">142 need review</Text>
       </article>
@@ -246,10 +246,10 @@ const createOrder = () => {
       <div class="border-b border-ui-border-base p-3">
         <Tabs v-model:model-value="activeTab" default-value="all" @update:model-value="resetPage">
           <TabsList>
-            <TabsTrigger value="all">All Orders</TabsTrigger>
-            <TabsTrigger value="pending">Pending</TabsTrigger>
-            <TabsTrigger value="completed">Completed</TabsTrigger>
-            <TabsTrigger value="returned">Returned</TabsTrigger>
+            <TabsTrigger value="all">Tüm Kayıtlar</TabsTrigger>
+            <TabsTrigger value="pending">Bekleyen</TabsTrigger>
+            <TabsTrigger value="completed">Tamamlanan</TabsTrigger>
+            <TabsTrigger value="returned">Çekilen</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" class="mt-3 border-0 bg-transparent p-0" />

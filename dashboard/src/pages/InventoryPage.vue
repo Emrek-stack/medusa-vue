@@ -38,8 +38,8 @@ const locations = [
 <template>
   <section class="space-y-3">
     <div class="dashboard-panel p-4">
-      <Heading level="h1" class="dashboard-heading">Inventory</Heading>
-      <Text size="small" leading="compact" class="text-ui-fg-subtle">Track stock across locations and monitor reservations.</Text>
+      <Heading level="h1" class="dashboard-heading">Rol Yönetimi</Heading>
+      <Text size="small" leading="compact" class="text-ui-fg-subtle">Rol kapsamlarını, atamaları ve durumlarını yönetin.</Text>
     </div>
 
     <div class="dashboard-panel overflow-hidden">
