@@ -1,64 +1,118 @@
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { computed, ref, watch } from "vue"
 import { RouterLink, RouterView, useRoute } from "vue-router"
 import { Toaster, TooltipProvider } from "@minima-vue/ui"
 import {
   BarsThree,
-  ChevronDownMini,
   MagnifyingGlassMini,
   SidebarLeft,
   SparklesMiniSolid,
   XMarkMini,
 } from "@minima-vue/icons"
 import SidebarNav from "@docs/components/SidebarNav.vue"
+import MainNavDropdown from "@docs/components/main-nav/MainNavDropdown.vue"
+import type { MainNavDropdownItem, MainNavItem, MainNavMenuItem } from "@docs/data/main-nav"
+import { mainNavItems } from "@docs/data/main-nav"
 import { navigationItems } from "@docs/data/navigation"
 
 const route = useRoute()
 const sidebarOpen = ref(false)
+const desktopSidebarOpen = ref(true)
 
-const mainNavItems = [
-  { type: "link", title: "Get Started", to: "/" },
-  { type: "dropdown", title: "Product" },
-  { type: "dropdown", title: "Build" },
-  { type: "dropdown", title: "Tools" },
-  { type: "dropdown", title: "Reference" },
-  { type: "link", title: "User Guide", to: null },
-  { type: "button", title: "Cloud" },
-] as const
+const helpMenuItem: MainNavDropdownItem = {
+  type: "dropdown",
+  title: "Help",
+  children: [
+    {
+      type: "link",
+      title: "Troubleshooting",
+      link: "https://docs.medusajs.com/resources/troubleshooting",
+    },
+    {
+      type: "link",
+      title: "Report Issue",
+      link: "https://github.com/medusajs/medusa/issues/new/choose",
+    },
+    {
+      type: "link",
+      title: "Discord Community",
+      link: "https://discord.gg/medusajs",
+    },
+    {
+      type: "divider",
+    },
+    {
+      type: "link",
+      title: "Contact Sales",
+      link: "https://medusajs.com/contact/",
+    },
+  ],
+}
 
-const docsSection = computed(() => {
-  if (route.path.startsWith("/components")) {
-    return "/components/button"
-  }
+const isExternalLink = (link: string) => /^https?:\/\//.test(link)
 
-  if (route.path.startsWith("/icons")) {
-    return "/icons/overview"
-  }
-
-  if (route.path.startsWith("/colors")) {
-    return "/colors/overview"
-  }
-
-  return "/"
+const isUserGuidePath = computed(() => {
+  return (
+    route.path.startsWith("/components") ||
+    route.path.startsWith("/hooks") ||
+    route.path.startsWith("/utils") ||
+    route.path.startsWith("/installation") ||
+    route.path.startsWith("/icons") ||
+    route.path.startsWith("/colors")
+  )
 })
 
-const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
-  if (item.type !== "link") {
-    return "/"
-  }
+const hasActiveMenuLink = (items: MainNavMenuItem[]) => {
+  return items.some((item) => {
+    if (item.type === "divider") {
+      return false
+    }
 
-  if (item.title === "User Guide") {
-    return docsSection.value
-  }
+    if (item.type === "link") {
+      return !isExternalLink(item.link) && route.path === item.link
+    }
 
-  return item.to || "/"
+    if (item.link && !isExternalLink(item.link) && route.path === item.link) {
+      return true
+    }
+
+    return hasActiveMenuLink(item.items)
+  })
 }
+
+const isMainNavItemActive = (item: MainNavItem) => {
+  if (item.type === "link") {
+    if (item.title === "User Guide") {
+      return isUserGuidePath.value
+    }
+
+    if (isExternalLink(item.link)) {
+      return false
+    }
+
+    return route.path === item.link
+  }
+
+  if (item.link && !isExternalLink(item.link) && route.path === item.link) {
+    return true
+  }
+
+  return hasActiveMenuLink(item.children)
+}
+
+watch(
+  () => route.path,
+  () => {
+    sidebarOpen.value = false
+  }
+)
 </script>
 
 <template>
   <div
     id="root-layout"
-    class="docs-shell grid h-full w-full grid-cols-1 overflow-hidden bg-ui-bg-subtle font-base txt-medium text-ui-fg-base lg:mx-auto lg:grid-cols-[221px_1fr]"
+    class="docs-shell bg-ui-bg-subtle font-base w-full text-ui-fg-base h-full overflow-hidden grid grid-cols-1 lg:mx-auto"
+    :class="desktopSidebarOpen ? 'lg:grid-cols-[221px_1fr]' : 'lg:grid-cols-1'"
   >
     <div
       v-if="sidebarOpen"
@@ -69,9 +123,12 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
     <aside
       class="fixed -left-full top-0 block h-[calc(100%-16px)] w-sidebar-xs max-w-sidebar-xs bg-ui-bg-base transition-[left] sm:max-w-sidebar-sm md:max-w-sidebar-md lg:relative lg:h-auto lg:w-auto lg:max-w-sidebar-lg lg:bg-transparent xl:max-w-sidebar-xl xxl:max-w-sidebar-xxl xxxl:max-w-sidebar-xxxl"
       :class="
-        sidebarOpen
-          ? '!left-docs_0.5 !top-docs_0.5 z-50 rounded shadow-elevation-modal lg:!left-0 lg:!top-0 lg:rounded-none lg:shadow-none'
-          : 'lg:left-0'
+        [
+          sidebarOpen
+            ? '!left-docs_0.5 !top-docs_0.5 z-50 rounded shadow-elevation-modal lg:!left-0 lg:!top-0 lg:rounded-none lg:shadow-none'
+            : '',
+          desktopSidebarOpen ? 'lg:left-0' : 'lg:!absolute lg:!-left-full',
+        ]
       "
       style="animation-fill-mode: forwards"
     >
@@ -98,7 +155,10 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
     </aside>
 
     <div class="relative flex h-screen">
-      <div class="relative flex h-full max-w-full flex-1 flex-col gap-docs_0.5 scroll-m-docs_0.25 lg:mr-docs_0.25 lg:py-docs_0.25">
+      <div
+        class="relative flex h-full max-w-full flex-1 flex-col gap-docs_0.5 scroll-m-docs_0.25 lg:mr-docs_0.25 lg:py-docs_0.25"
+        :class="desktopSidebarOpen ? '' : 'lg:ml-docs_0.25'"
+      >
         <div
           id="main"
           class="docs-scroll flex h-full w-full flex-col items-center overflow-y-scroll overflow-x-hidden bg-ui-bg-base shadow-elevation-card-rest md:rounded-docs_DEFAULT"
@@ -123,7 +183,11 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
                     class="my-[14px] inline-flex items-center justify-center rounded-docs_sm bg-ui-bg-base p-docs_0.125 shadow-borders-base"
                   >
                     <span class="h-[20px] w-[20px] rounded-docs_xs">
-                      <SparklesMiniSolid class="bordered-icon h-5 w-5 rounded-docs_xs text-ui-fg-subtle" />
+                      <img
+                        src="/images/logo-icon.png"
+                        alt="Medusa UI logo"
+                        class="bordered-icon h-5 w-5 rounded-docs_xs"
+                      >
                     </span>
                   </span>
                 </RouterLink>
@@ -136,47 +200,46 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
                     :key="item.title"
                     class="group flex items-center"
                   >
-                    <RouterLink
-                      v-if="item.type === 'link'"
-                      :to="resolveNavLink(item)"
+                    <a
+                      v-if="item.type === 'link' && isExternalLink(item.link)"
+                      :href="item.link"
                       class="inline-flex items-center justify-center gap-docs_0.25 rounded-docs_xs txt-compact-small-plus no-underline transition focus:shadow-borders-focus"
                       :class="
-                        route.path === resolveNavLink(item)
+                        isMainNavItemActive(item)
+                          ? 'text-ui-fg-base'
+                          : 'text-ui-fg-muted hover:text-ui-fg-subtle'
+                      "
+                    >
+                      {{ item.title }}
+                    </a>
+                    <RouterLink
+                      v-else-if="item.type === 'link'"
+                      :to="item.link"
+                      class="inline-flex items-center justify-center gap-docs_0.25 rounded-docs_xs txt-compact-small-plus no-underline transition focus:shadow-borders-focus"
+                      :class="
+                        isMainNavItemActive(item)
                           ? 'text-ui-fg-base'
                           : 'text-ui-fg-muted hover:text-ui-fg-subtle'
                       "
                     >
                       {{ item.title }}
                     </RouterLink>
-                    <button
-                      v-else-if="item.type === 'dropdown'"
-                      type="button"
-                      class="inline-flex cursor-pointer items-center gap-docs_0.25 py-docs_0.25 txt-compact-small-plus text-ui-fg-muted transition hover:text-ui-fg-subtle focus:shadow-borders-focus"
-                      data-testid="dropdown-title-wrapper"
-                    >
-                      <span data-testid="dropdown-title">{{ item.title }}</span>
-                      <ChevronDownMini class="h-4 w-4" data-testid="triangle-icon" />
-                    </button>
-                    <button
+                    <MainNavDropdown
                       v-else
-                      type="button"
-                      class="inline-flex items-center justify-center gap-docs_0.25 rounded-docs_xs txt-compact-small-plus text-ui-fg-muted transition hover:text-ui-fg-subtle focus:shadow-borders-focus"
-                    >
-                      {{ item.title }}
-                    </button>
+                      :item="item"
+                      :active="isMainNavItemActive(item)"
+                    />
                   </li>
                 </ul>
               </nav>
 
               <div class="my-docs_0.75 hidden items-center lg:flex" data-testid="main-nav-actions">
                 <div class="hidden items-center gap-[6px] text-ui-fg-subtle lg:flex">
-                  <button
-                    type="button"
-                    class="inline-flex items-center justify-center gap-docs_0.25 rounded-docs_sm px-docs_0.5 py-docs_0.25 txt-compact-small-plus text-ui-fg-subtle transition hover:bg-ui-button-transparent-hover"
-                  >
-                    <span>Help</span>
-                    <ChevronDownMini class="h-4 w-4" />
-                  </button>
+                  <MainNavDropdown
+                    :item="helpMenuItem"
+                    class-name="text-ui-fg-subtle hover:bg-ui-button-transparent-hover rounded-docs_sm px-docs_0.5"
+                    wrapper-class-name="z-10"
+                  />
                 </div>
 
                 <div class="flex items-center">
@@ -197,7 +260,8 @@ const resolveNavLink = (item: (typeof mainNavItems)[number]) => {
                   <button
                     type="button"
                     class="hidden items-center justify-center gap-[6px] rounded-docs_sm bg-transparent !p-[6.5px] font-base txt-compact-small-plus text-ui-fg-base transition hover:bg-ui-button-transparent-hover lg:inline-flex"
-                    aria-label="Open menu"
+                    aria-label="Toggle sidebar"
+                    @click="desktopSidebarOpen = !desktopSidebarOpen"
                   >
                     <BarsThree class="h-5 w-5 text-ui-fg-subtle" />
                   </button>

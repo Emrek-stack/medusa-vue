@@ -67,7 +67,7 @@ watch(
           <span class="block px-docs_0.75">
             <RouterLink
               :to="item.to"
-              class="block w-full rounded-docs_sm px-docs_0.5 py-docs_0.25 txt-compact-small-plus transition"
+              class="block w-full rounded-docs_sm px-docs_0.5 py-docs_0.25 txt-compact-small-plus transition flex items-center justify-between gap-[6px]"
               :data-sidebar-active="isActive(item.to)"
               :class="
                 isActive(item.to)
@@ -121,7 +121,7 @@ watch(
               <span class="block px-docs_0.75">
                 <RouterLink
                   :to="link.to"
-                  class="block w-full rounded-docs_sm px-docs_0.5 py-docs_0.25 txt-compact-small-plus transition"
+                  class="block w-full rounded-docs_sm px-docs_0.5 py-docs_0.25 txt-compact-small-plus transition flex items-center justify-between gap-[6px]"
                   :data-sidebar-active="isActive(link.to)"
                   :class="
                     isActive(link.to)
