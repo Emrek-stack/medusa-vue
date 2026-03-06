@@ -35,7 +35,10 @@ jobs:
           commit: Version Packages
           title: Version Packages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Fallback order:
+          # 1) CHANGESETS_GH_PAT (classic/fine-grained PAT with PR write access)
+          # 2) Default GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_GH_PAT || secrets.GITHUB_TOKEN }}
 
       # Alternative direct-main flow:
       # Add `publish: npm run release` above and remove the separate release workflow
