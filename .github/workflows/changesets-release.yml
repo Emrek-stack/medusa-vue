@@ -154,12 +154,18 @@ jobs:
               echo "Tag already exists: $tag"
               continue
             fi
-            git tag "$tag"
+            git tag -a "$tag" -m "Release $tag"
             echo "Created tag: $tag"
           done < /tmp/release-packages.tsv
 
       - name: Push git tags
-        run: git push --follow-tags
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r dir name version; do
+            tag="${name}@${version}"
+            git push origin "$tag"
+          done < /tmp/release-packages.tsv
 
       - name: Create GitHub releases
         env:
