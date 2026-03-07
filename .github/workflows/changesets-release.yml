@@ -113,8 +113,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build packages and docs
-        run: npm run build
+      - name: Build publishable packages
+        run: npm run build:packages
 
       - name: Prepare release metadata
         env:
@@ -163,7 +163,7 @@ jobs:
 
       - name: Create GitHub releases
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_GH_PAT || secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
@@ -179,6 +179,37 @@ jobs:
               --verify-tag
           done < /tmp/release-packages.tsv
 
+      - name: Dry-run publish validation
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r dir name version; do
+            echo "Dry-run publishing ${name}@${version}"
+            npm publish --workspace "$name" --dry-run
+          done < /tmp/release-packages.tsv
+
+      - name: Smoke test tarball install
+        shell: bash
+        run: |
+          set -euo pipefail
+          temp_root="$(mktemp -d)"
+          trap 'rm -rf "$temp_root"' EXIT
+
+          while IFS=$'\t' read -r dir name version; do
+            echo "Smoke testing ${name}@${version}"
+            pack_output="$(npm pack --workspace "$name")"
+            tarball="$(echo "$pack_output" | tail -n1)"
+
+            smoke_dir="${temp_root}/${dir}-smoke"
+            mkdir -p "$smoke_dir"
+            npm init -y --prefix "$smoke_dir" >/dev/null 2>&1
+            npm install --prefix "$smoke_dir" "./${tarball}" >/dev/null 2>&1
+
+            rm -f "$tarball"
+          done < /tmp/release-packages.tsv
+
       - name: Publish packages to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -189,3 +220,16 @@ jobs:
             echo "Publishing ${name}@${version}"
             npm publish --workspace "$name"
           done < /tmp/release-packages.tsv
+
+      - name: Slack release notification
+        if: always() && secrets.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          STATUS: ${{ job.status }}
+          CHANGED_PACKAGES: ${{ needs.detect-release-commit.outputs.changed_packages }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          text="Minima Vue release workflow finished with status: ${STATUS}. Packages: ${CHANGED_PACKAGES}"
+          payload="$(printf '{"text":"%s"}' "$(echo "$text" | sed 's/"/\\"/g')")"
+          curl -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL"

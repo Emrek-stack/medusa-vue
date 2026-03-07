@@ -21,7 +21,7 @@ interface CodeBlockContext {
 const { active } = inject<CodeBlockContext>("code-block")!
 
 /**
- * Color map matching the reference palenight theme from @medusajs/ui code-block.tsx
+ * Color map matching the reference palenight theme from @minima-vue/ui code-block.tsx
  * These inline styles replicate the exact token colors used in prism-react-renderer's palenight theme
  * with the custom overrides defined in the reference.
  */

@@ -53,7 +53,7 @@ const firstSectionIndex = computed(
 
 const transformCode = (value: string) =>
   value
-    .replace(/@medusajs\//g, "@minima-vue/")
+    .replace(/@minima-vue\//g, "@minima-vue/")
     .replace(/CodeBlock\.Header\.Meta/g, "CodeBlockMeta")
     .replace(/CodeBlock\.Header/g, "CodeBlockHeader")
     .replace(/CodeBlock\.Body/g, "CodeBlockBody")

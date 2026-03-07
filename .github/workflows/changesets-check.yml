@@ -47,7 +47,7 @@ jobs:
             fi
 
             case "$file" in
-              docs/*|reference/*|.github/*|README.md|CONTRIBUTING.md|.changeset/README.md)
+              docs/*|dashboard/*|reference/*|.github/*|README.md|CONTRIBUTING.md|.changeset/README.md)
                 continue
                 ;;
             esac
