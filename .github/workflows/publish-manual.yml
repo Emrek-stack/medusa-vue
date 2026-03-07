@@ -1,0 +1,87 @@
+name: Publish Packages (Manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build publishable packages
+        run: npm run build:packages
+
+      - name: Dry-run publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          npm publish --workspace @minima-vue/toolbox --dry-run
+          npm publish --workspace @minima-vue/icons --dry-run
+          npm publish --workspace @minima-vue/ui-preset --dry-run
+          npm publish --workspace @minima-vue/ui --dry-run
+
+      - name: Publish packages to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          npm publish --workspace @minima-vue/toolbox
+          npm publish --workspace @minima-vue/icons
+          npm publish --workspace @minima-vue/ui-preset
+          npm publish --workspace @minima-vue/ui
+
+      - name: Configure git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create and push git tags
+        run: |
+          set -euo pipefail
+          for pkg in toolbox icons ui-preset ui; do
+            name=$(node -p "require('./${pkg}/package.json').name")
+            version=$(node -p "require('./${pkg}/package.json').version")
+            tag="${name}@${version}"
+            if git rev-parse "$tag" >/dev/null 2>&1; then
+              echo "Tag already exists: ${tag}"
+              continue
+            fi
+            git tag -a "$tag" -m "Release ${tag}"
+            git push origin "refs/tags/${tag}:refs/tags/${tag}"
+          done
+
+      - name: Create GitHub releases
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for pkg in toolbox icons ui-preset ui; do
+            name=$(node -p "require('./${pkg}/package.json').name")
+            version=$(node -p "require('./${pkg}/package.json').version")
+            tag="${name}@${version}"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "Release already exists: ${tag}"
+              continue
+            fi
+            gh release create "$tag" --title "$tag" --notes "Manual release for ${tag}."
+          done

@@ -144,6 +144,12 @@ jobs:
             done < /tmp/release-packages.tsv
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Configure git identity
+        shell: bash
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Create git tags
         shell: bash
         run: |
