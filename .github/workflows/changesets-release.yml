@@ -168,6 +168,7 @@ jobs:
           done < /tmp/release-packages.tsv
 
       - name: Create GitHub releases
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_GH_PAT || secrets.GITHUB_TOKEN }}
         shell: bash
