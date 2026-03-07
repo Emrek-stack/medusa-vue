@@ -173,16 +173,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          git fetch --tags origin
           while IFS=$'\t' read -r dir name version; do
             tag="${name}@${version}"
+
+            if ! git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
+              echo "Remote tag missing, creating and pushing: ${tag}"
+              if ! git rev-parse "$tag" >/dev/null 2>&1; then
+                git tag -a "$tag" -m "Release $tag"
+              fi
+              git push origin "refs/tags/${tag}:refs/tags/${tag}"
+            fi
+
             if gh release view "$tag" >/dev/null 2>&1; then
               echo "GitHub release already exists: $tag"
               continue
             fi
             gh release create "$tag" \
               --title "$tag" \
-              --notes "Automated release for $tag." \
-              --verify-tag
+              --notes "Automated release for $tag."
           done < /tmp/release-packages.tsv
 
       - name: Dry-run publish validation
