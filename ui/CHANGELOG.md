@@ -1,5 +1,14 @@
 # @minima-vue/ui
 
+## 1.0.6
+
+### Patch Changes
+
+- Patch release retry after smoke-test workflow fix.
+- Updated dependencies
+  - @minima-vue/icons@1.0.6
+  - @minima-vue/ui-preset@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes
