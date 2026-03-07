@@ -1,5 +1,11 @@
 # @minima-vue/ui-preset
 
+## 1.0.5
+
+### Patch Changes
+
+- Patch release trigger for automated publish.
+
 ## 1.0.4
 
 ### Patch Changes
