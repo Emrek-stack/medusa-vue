@@ -220,16 +220,3 @@ jobs:
             echo "Publishing ${name}@${version}"
             npm publish --workspace "$name"
           done < /tmp/release-packages.tsv
-
-      - name: Slack release notification
-        if: always() && secrets.SLACK_WEBHOOK_URL != ''
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          STATUS: ${{ job.status }}
-          CHANGED_PACKAGES: ${{ needs.detect-release-commit.outputs.changed_packages }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          text="Minima Vue release workflow finished with status: ${STATUS}. Packages: ${CHANGED_PACKAGES}"
-          payload="$(printf '{"text":"%s"}' "$(echo "$text" | sed 's/"/\\"/g')")"
-          curl -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL"
