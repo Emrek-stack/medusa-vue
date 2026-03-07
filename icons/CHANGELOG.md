@@ -1,5 +1,11 @@
 # @minima-vue/icons
 
+## 1.0.2
+
+### Patch Changes
+
+- 44ec131: Patch release to publish the latest package updates with the hardened release pipeline.
+
 ## 1.0.1
 
 ### Patch Changes

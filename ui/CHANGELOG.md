@@ -1,5 +1,14 @@
 # @minima-vue/ui
 
+## 1.0.2
+
+### Patch Changes
+
+- 44ec131: Patch release to publish the latest package updates with the hardened release pipeline.
+- Updated dependencies [44ec131]
+  - @minima-vue/icons@1.0.2
+  - @minima-vue/ui-preset@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
