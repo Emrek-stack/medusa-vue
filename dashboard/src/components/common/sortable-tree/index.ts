@@ -1,0 +1,5 @@
+export { default as SortableTree } from "./sortable-tree.vue"
+export { default as TreeItem } from "./tree-item.vue"
+export { default as SortableTreeItem } from "./sortable-tree-item.vue"
+export * from "./types"
+export * from "./utils"
