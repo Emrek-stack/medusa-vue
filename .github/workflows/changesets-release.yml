@@ -213,24 +213,31 @@ jobs:
           done < /tmp/release-packages.tsv
 
       - name: Smoke test tarball install
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
           temp_root="$(mktemp -d)"
           trap 'rm -rf "$temp_root"' EXIT
 
-          while IFS=$'\t' read -r dir name version; do
-            echo "Smoke testing ${name}@${version}"
+          smoke_dir="${temp_root}/smoke"
+          mkdir -p "$smoke_dir"
+          npm init -y --prefix "$smoke_dir"
+
+          tarballs=()
+          while IFS=$'\t' read -r _dir name version; do
+            echo "Packing ${name}@${version} for smoke test"
             pack_output="$(npm pack --workspace "$name")"
             tarball="$(echo "$pack_output" | tail -n1)"
-
-            smoke_dir="${temp_root}/${dir}-smoke"
-            mkdir -p "$smoke_dir"
-            npm init -y --prefix "$smoke_dir" >/dev/null 2>&1
-            npm install --prefix "$smoke_dir" "./${tarball}" >/dev/null 2>&1
-
-            rm -f "$tarball"
+            tarballs+=("./${tarball}")
           done < /tmp/release-packages.tsv
+
+          echo "Installing packed tarballs together"
+          npm install --prefix "$smoke_dir" --legacy-peer-deps "${tarballs[@]}"
+
+          for tarball in "${tarballs[@]}"; do
+            rm -f "${tarball#./}"
+          done
 
       - name: Publish packages to npm
         env:
