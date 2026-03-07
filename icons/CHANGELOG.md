@@ -1,5 +1,11 @@
 # @minima-vue/icons
 
+## 1.0.3
+
+### Patch Changes
+
+- Patch release to retry automated publish pipeline.
+
 ## 1.0.2
 
 ### Patch Changes

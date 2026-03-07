@@ -1,5 +1,14 @@
 # @minima-vue/ui
 
+## 1.0.3
+
+### Patch Changes
+
+- Patch release to retry automated publish pipeline.
+- Updated dependencies
+  - @minima-vue/icons@1.0.3
+  - @minima-vue/ui-preset@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes
