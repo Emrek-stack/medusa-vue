@@ -245,6 +245,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "Validating npm token"
+          npm whoami
           while IFS=$'\t' read -r dir name version; do
             echo "Publishing ${name}@${version}"
             npm publish --workspace "$name"
