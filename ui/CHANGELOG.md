@@ -1,5 +1,14 @@
 # @minima-vue/ui
 
+## 1.0.4
+
+### Patch Changes
+
+- Patch release to complete automated npm publish after workflow hardening.
+- Updated dependencies
+  - @minima-vue/icons@1.0.4
+  - @minima-vue/ui-preset@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

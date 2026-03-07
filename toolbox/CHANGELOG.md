@@ -1,5 +1,11 @@
 # @minima-vue/toolbox
 
+## 1.0.4
+
+### Patch Changes
+
+- Patch release to complete automated npm publish after workflow hardening.
+
 ## 1.0.3
 
 ### Patch Changes

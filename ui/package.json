@@ -1,6 +1,6 @@
 {
     "name": "@minima-vue/ui",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Minima Vue components for Vue 3",
     "author": "Emre Karahan <emre.karahan@gmail.com>",
     "license": "MIT",
@@ -42,8 +42,8 @@
         "prepack": "npm run build"
     },
     "peerDependencies": {
-        "@minima-vue/icons": "^1.0.3",
-        "@minima-vue/ui-preset": "^1.0.3",
+        "@minima-vue/icons": "^1.0.4",
+        "@minima-vue/ui-preset": "^1.0.4",
         "vue": "^3.4.0"
     },
     "dependencies": {
