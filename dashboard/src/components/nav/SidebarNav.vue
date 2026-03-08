@@ -9,12 +9,9 @@ import {
   Key,
   MagnifyingGlass,
   MinusMini,
-  MoonSolid,
   OpenRectArrowOut,
   ShieldCheck,
   SquaresPlus,
-  SunSolid,
-  User,
   Users,
 } from "@minima-vue/icons"
 import { computed } from "vue"
@@ -26,15 +23,12 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuSubContent,
-  DropdownMenuSubMenu,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-  Kbd,
   Text,
 } from "@minima-vue/ui"
 import { cn } from "@/shared/utils/cn"
 import { useUiState } from "@/stores/ui-state"
+import UserMenu from "@/components/UserMenu.vue"
 
 import SidebarNavItem from "./SidebarNavItem.vue"
 import type { SidebarNavItemNode, SidebarSection } from "./types"
@@ -45,10 +39,6 @@ const uiState = useUiState()
 
 const currentPath = computed(() => route.path)
 const isSettingsRoute = computed(() => currentPath.value.startsWith("/settings"))
-const isMacLike = computed(() =>
-  typeof navigator !== "undefined" ? /Mac|iPhone|iPad|iPod/.test(navigator.platform) : true
-)
-const shortcutHint = computed(() => (isMacLike.value ? "⌘K" : "Ctrl K"))
 
 const fromQuery = computed(() => {
   const from = route.query.from
@@ -65,10 +55,6 @@ const backTarget = computed(() => {
 
 const storeName = "Platform"
 const storeFallback = "P"
-
-const userName = "Admin User"
-const userEmail = "admin@example.com"
-const userFallback = "AU"
 
 const coreRoutes = computed<SidebarNavItemNode[]>(() => [
   {
@@ -184,7 +170,7 @@ const handleLogout = async () => {
                 <EllipsisHorizontal class="text-ui-fg-muted h-4 w-4" />
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent class="w-[220px] min-w-0">
+              <DropdownMenuContent class="w-[var(--radix-dropdown-menu-trigger-width)] min-w-0">
                 <div class="flex items-center gap-x-3 px-2 py-1">
                   <Avatar variant="squared" size="small" :fallback="storeFallback" />
                   <div class="flex flex-col overflow-hidden">
@@ -207,7 +193,7 @@ const handleLogout = async () => {
           </div>
 
           <div class="px-3">
-            <hr class="h-px border-0 bg-ui-border-base" />
+            <hr class="m-0 border-0 border-t border-dashed border-ui-border-base" />
           </div>
         </div>
 
@@ -229,7 +215,7 @@ const handleLogout = async () => {
                   <div class="flex-1 text-left">
                     <Text size="small" leading="compact" weight="plus">Search</Text>
                   </div>
-                  <Kbd class="bg-ui-bg-component text-ui-fg-muted border-ui-border-base">{{ shortcutHint }}</Kbd>
+                  <Text size="small" leading="compact" class="text-ui-fg-muted">⌘K</Text>
                 </button>
               </div>
 
@@ -266,75 +252,9 @@ const handleLogout = async () => {
 
         <div class="bg-ui-bg-subtle sticky bottom-0">
           <div class="px-3">
-            <hr class="h-px border-0 bg-ui-border-base" />
+            <hr class="m-0 border-0 border-t border-dashed border-ui-border-base" />
           </div>
-          <div class="p-3">
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                :class="
-                  cn(
-                    'bg-ui-bg-subtle grid w-full cursor-pointer grid-cols-[24px_1fr_15px] items-center gap-2 rounded-md py-1 pl-0.5 pr-2 outline-none',
-                    'hover:bg-ui-bg-subtle-hover data-[state=open]:bg-ui-bg-subtle-hover focus-visible:shadow-borders-focus'
-                  )
-                "
-              >
-                <div class="flex size-6 items-center justify-center">
-                  <Avatar size="xsmall" :fallback="userFallback" />
-                </div>
-                <div class="flex min-w-0 items-center overflow-hidden">
-                  <Text size="xsmall" weight="plus" leading="compact" class="truncate">{{ userName }}</Text>
-                </div>
-                <EllipsisHorizontal class="text-ui-fg-muted h-4 w-4" />
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent class="min-w-[220px]">
-                <div class="flex items-center gap-x-3 overflow-hidden px-2 py-1">
-                  <Avatar size="small" variant="rounded" :fallback="userFallback" />
-                  <div class="block w-full min-w-0 overflow-hidden whitespace-nowrap">
-                    <Text size="small" weight="plus" leading="compact" class="overflow-hidden text-ellipsis whitespace-nowrap">
-                      {{ userName }}
-                    </Text>
-                    <Text size="xsmall" leading="compact" class="text-ui-fg-subtle overflow-hidden text-ellipsis whitespace-nowrap">
-                      {{ userEmail }}
-                    </Text>
-                  </div>
-                </div>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem @click="navigate('/settings/profile', true)">
-                  <User class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                  Profil Ayarları
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem @click="navigate('/ui-demo')">
-                  <BookOpen class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                  Dokümantasyon
-                </DropdownMenuItem>
-
-                <DropdownMenuSubMenu>
-                  <DropdownMenuSubTrigger class="rounded-md">
-                    <component :is="uiState.isDark ? SunSolid : MoonSolid" class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                    Tema
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
-                    <DropdownMenuItem @click="uiState.setDark(false)">
-                      Açık
-                      <span v-if="!uiState.isDark" class="ml-auto text-ui-fg-muted">Aktif</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem @click="uiState.setDark(true)">
-                      Koyu
-                      <span v-if="uiState.isDark" class="ml-auto text-ui-fg-muted">Aktif</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuSubContent>
-                </DropdownMenuSubMenu>
-
-                <DropdownMenuSeparator />
-                <DropdownMenuItem @click="handleLogout">
-                  <OpenRectArrowOut class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                  Çıkış Yap
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+          <UserMenu />
         </div>
       </div>
     </template>
@@ -361,7 +281,7 @@ const handleLogout = async () => {
             </button>
           </div>
           <div class="px-3">
-            <hr class="h-px border-0 bg-ui-border-base" />
+            <hr class="m-0 border-0 border-t border-dashed border-ui-border-base" />
           </div>
         </div>
 
@@ -393,47 +313,16 @@ const handleLogout = async () => {
               </details>
 
               <div v-if="sectionIndex !== settingsSections.length - 1" class="px-3">
-                <hr class="h-px border-0 bg-ui-border-base" />
+                <hr class="m-0 border-0 border-t border-dashed border-ui-border-base" />
               </div>
             </template>
           </div>
 
           <div class="bg-ui-bg-subtle sticky bottom-0">
             <div class="px-3">
-              <hr class="h-px border-0 bg-ui-border-base" />
+              <hr class="m-0 border-0 border-t border-dashed border-ui-border-base" />
             </div>
-            <div class="p-3">
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  :class="
-                    cn(
-                      'bg-ui-bg-subtle grid w-full cursor-pointer grid-cols-[24px_1fr_15px] items-center gap-2 rounded-md py-1 pl-0.5 pr-2 outline-none',
-                      'hover:bg-ui-bg-subtle-hover data-[state=open]:bg-ui-bg-subtle-hover focus-visible:shadow-borders-focus'
-                    )
-                  "
-                >
-                  <div class="flex size-6 items-center justify-center">
-                    <Avatar size="xsmall" :fallback="userFallback" />
-                  </div>
-                  <div class="flex min-w-0 items-center overflow-hidden">
-                    <Text size="xsmall" weight="plus" leading="compact" class="truncate">{{ userName }}</Text>
-                  </div>
-                  <EllipsisHorizontal class="text-ui-fg-muted h-4 w-4" />
-                </DropdownMenuTrigger>
-
-                <DropdownMenuContent class="min-w-[220px]">
-                  <DropdownMenuItem @click="navigate('/settings/profile', true)">
-                    <User class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                    Profil Ayarları
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem @click="handleLogout">
-                    <OpenRectArrowOut class="text-ui-fg-subtle mr-2 h-4 w-4" />
-                    Çıkış Yap
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+            <UserMenu />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, watch } from "vue"
-import { RouterLink } from "vue-router"
+import { computed } from "vue"
+import { useRoute, useRouter } from "vue-router"
 import {
   Avatar,
   DropdownMenu,
@@ -9,86 +9,116 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
+  DropdownMenuSubContent,
+  DropdownMenuSubMenu,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   Text,
 } from "@minima-vue/ui"
-import { BookOpen, CircleHalfSolid, OpenRectArrowOut, TimelineVertical, User } from "@minima-vue/icons"
+import {
+  BookOpen,
+  CircleHalfSolid,
+  EllipsisHorizontal,
+  OpenRectArrowOut,
+  TimelineVertical,
+  User as UserIcon,
+} from "@minima-vue/icons"
+import { useUiState } from "@/stores/ui-state"
 
-const theme = ref<"system" | "light" | "dark">("system")
+const route = useRoute()
+const router = useRouter()
+const uiState = useUiState()
 
-watch(theme, (value) => {
-  if (typeof window === "undefined") {
-    return
-  }
+const userName = "Admin User"
+const userEmail = "admin@example.com"
+const userFallback = "AU"
 
-  const root = document.documentElement
-
-  if (value === "system") {
-    root.removeAttribute("data-theme")
-    return
-  }
-
-  root.setAttribute("data-theme", value)
+const themeMode = computed<"light" | "dark">({
+  get: () => (uiState.isDark ? "dark" : "light"),
+  set: (value) => uiState.setDark(value === "dark"),
 })
+
+const navigate = async (path: string, withFrom = false) => {
+  await router.push(
+    withFrom
+      ? {
+          path,
+          query: { from: route.path },
+        }
+      : { path }
+  )
+}
+
+const handleLogout = async () => {
+  await router.push("/dashboard")
+}
 </script>
 
 <template>
-  <DropdownMenu>
-    <DropdownMenuTrigger as-child>
-      <button
-        class="bg-ui-bg-subtle hover:bg-ui-bg-subtle-hover grid w-full grid-cols-[24px_1fr_15px] items-center gap-x-2 rounded-md py-1 pl-0.5 pr-2 outline-none focus-visible:shadow-borders-focus"
+  <div class="p-3">
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        class="bg-ui-bg-subtle grid w-full cursor-pointer grid-cols-[24px_1fr_15px] items-center gap-2 rounded-md py-1 ps-0.5 pe-2 outline-none hover:bg-ui-bg-subtle-hover data-[state=open]:bg-ui-bg-subtle-hover focus-visible:shadow-borders-focus"
       >
-        <Avatar fallback="EK" size="xsmall" />
-        <div class="truncate text-left">
-          <Text size="xsmall" leading="compact" weight="plus" class="truncate">Emre Karahan</Text>
+        <div class="flex size-6 items-center justify-center">
+          <Avatar size="xsmall" :fallback="userFallback" />
         </div>
-        <span class="text-ui-fg-muted">•••</span>
-      </button>
-    </DropdownMenuTrigger>
-
-    <DropdownMenuContent class="min-w-[var(--radix-dropdown-menu-trigger-width)]">
-      <div class="flex items-center gap-x-3 overflow-hidden px-2 py-1">
-        <Avatar size="small" fallback="EK" />
-        <div class="flex min-w-0 flex-col">
-          <Text size="small" leading="compact" weight="plus" class="truncate">Emre Karahan</Text>
-          <Text size="xsmall" leading="compact" class="text-ui-fg-subtle truncate">emre@example.com</Text>
+        <div class="flex min-w-0 items-center overflow-hidden">
+          <Text size="xsmall" weight="plus" leading="compact" class="truncate">{{ userName }}</Text>
         </div>
-      </div>
+        <EllipsisHorizontal class="text-ui-fg-muted h-4 w-4" />
+      </DropdownMenuTrigger>
 
-      <DropdownMenuSeparator />
-      <DropdownMenuItem as-child>
-        <RouterLink to="/settings/users" class="gap-x-2">
-          <User class="text-ui-fg-subtle" />
-          Profile Settings
-        </RouterLink>
-      </DropdownMenuItem>
-      <DropdownMenuItem as-child>
-        <a href="https://docs.medusajs.com" target="_blank" class="flex items-center gap-x-2">
-          <BookOpen class="text-ui-fg-subtle" />
-          Documentation
-        </a>
-      </DropdownMenuItem>
-      <DropdownMenuItem as-child>
-        <a href="https://medusajs.com/changelog/" target="_blank" class="flex items-center gap-x-2">
-          <TimelineVertical class="text-ui-fg-subtle" />
-          Changelog
-        </a>
-      </DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem class="gap-x-2">
-        <CircleHalfSolid class="text-ui-fg-subtle" />
-        Theme
-      </DropdownMenuItem>
-      <DropdownMenuRadioGroup v-model="theme">
-        <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-      </DropdownMenuRadioGroup>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem class="gap-x-2">
-        <OpenRectArrowOut class="text-ui-fg-subtle" />
-        Logout
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
+      <DropdownMenuContent class="min-w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)]">
+        <div class="flex items-center gap-x-3 overflow-hidden px-2 py-1">
+          <Avatar size="small" variant="rounded" :fallback="userFallback" />
+          <div class="block w-full min-w-0 overflow-hidden whitespace-nowrap">
+            <Text size="small" weight="plus" leading="compact" class="overflow-hidden text-ellipsis whitespace-nowrap">
+              {{ userName }}
+            </Text>
+            <Text size="xsmall" leading="compact" class="text-ui-fg-subtle overflow-hidden text-ellipsis whitespace-nowrap">
+              {{ userEmail }}
+            </Text>
+          </div>
+        </div>
+
+        <DropdownMenuSeparator />
+        <DropdownMenuItem @click="navigate('/settings/profile', true)">
+          <UserIcon class="text-ui-fg-subtle me-2 h-4 w-4" />
+          Profil Ayarları
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem @click="navigate('/ui-demo')">
+          <BookOpen class="text-ui-fg-subtle me-2 h-4 w-4" />
+          Dokümantasyon
+        </DropdownMenuItem>
+        <DropdownMenuItem as-child>
+          <a href="https://medusajs.com/changelog/" target="_blank" rel="noreferrer noopener">
+            <TimelineVertical class="text-ui-fg-subtle me-2 h-4 w-4" />
+            Changelog
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuSubMenu>
+          <DropdownMenuSubTrigger class="rounded-md">
+            <CircleHalfSolid class="text-ui-fg-subtle me-2 h-4 w-4" />
+            Tema
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent>
+            <DropdownMenuRadioGroup v-model="themeMode">
+              <DropdownMenuRadioItem value="light">Açık</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="dark">Koyu</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuSubContent>
+        </DropdownMenuSubMenu>
+
+        <DropdownMenuSeparator />
+        <DropdownMenuItem @click="handleLogout">
+          <OpenRectArrowOut class="text-ui-fg-subtle me-2 h-4 w-4" />
+          Çıkış Yap
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </div>
 </template>

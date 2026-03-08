@@ -25,7 +25,13 @@ const DISABLED_NAV_LINK_CLASSES = "pointer-events-none cursor-not-allowed opacit
 
 const hasChildren = computed(() => Boolean(props.item.items?.length))
 
-const isPathActive = (path: string): boolean => props.currentPath === path
+const isPathActive = (path: string): boolean => {
+  if (props.type === "core" || props.type === "setting") {
+    return props.currentPath.startsWith(path)
+  }
+
+  return props.currentPath === path
+}
 
 const includesPath = (items: SidebarNavItemNode[] | undefined, path: string): boolean => {
   if (!items?.length) {
