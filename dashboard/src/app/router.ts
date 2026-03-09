@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
 import OrdersPage from "@/pages/OrdersPage.vue"
-import ProductsPage from "@/pages/ProductsPage.vue"
+import TenantsPage from "@/pages/TenantsPage.vue"
+import TenantCreatePage from "@/pages/TenantCreatePage.vue"
+import TenantEditPage from "@/pages/TenantEditPage.vue"
 import CustomersPage from "@/pages/CustomersPage.vue"
 import InventoryPage from "@/pages/InventoryPage.vue"
 import PromotionsPage from "@/pages/PromotionsPage.vue"
@@ -12,8 +14,10 @@ export const router = createRouter({
   routes: [
     { path: "/", redirect: "/dashboard" },
     { path: "/dashboard", component: OrdersPage },
-    { path: "/tenants", component: ProductsPage },
-    { path: "/tenants/create", component: ProductsPage },
+    { path: "/tenants", component: TenantsPage },
+    { path: "/tenants/create", component: TenantCreatePage },
+    { path: "/tenants/:id/edit", component: TenantEditPage },
+    { path: "/tenants/:id", component: TenantEditPage },
     { path: "/users", component: CustomersPage },
     { path: "/users/create", component: CustomersPage },
     { path: "/roles", component: InventoryPage },
