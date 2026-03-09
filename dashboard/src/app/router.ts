@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"
 import OrdersPage from "@/pages/OrdersPage.vue"
+import LoginPage from "@/pages/LoginPage.vue"
 import TenantsPage from "@/pages/TenantsPage.vue"
 import TenantCreatePage from "@/pages/TenantCreatePage.vue"
 import TenantEditPage from "@/pages/TenantEditPage.vue"
@@ -13,6 +14,7 @@ export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: "/", redirect: "/dashboard" },
+    { path: "/login", component: LoginPage },
     { path: "/dashboard", component: OrdersPage },
     { path: "/tenants", component: TenantsPage },
     { path: "/tenants/create", component: TenantCreatePage },

@@ -442,7 +442,7 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
         </TableRow>
       </TableHeader>
 
-      <TableBody>
+      <TableBody class="border-b-0">
         <TableRow v-if="isLoading">
           <TableCell :colspan="columns.length" class="py-8 text-center">
             <Text size="small" class="text-ui-fg-subtle">Loading...</Text>
@@ -486,6 +486,7 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
 
     <TablePagination
       v-if="enablePagination"
+      class="!border-t-0"
       :count="rowCount"
       :page-size="pageSize"
       :page-index="pageIndex"
