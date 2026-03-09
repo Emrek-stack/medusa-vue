@@ -148,7 +148,7 @@ const tenantActions = (tenant: TenantRecord): ActionGroup[] => [
 
 <template>
   <section>
-    <div class="dashboard-panel overflow-hidden">
+    <div class="overflow-hidden">
       <DataTable
         :data="tenants"
         :columns="columns"

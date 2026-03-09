@@ -1,0 +1,127 @@
+# Minima Vue
+
+Minima Vue is a Vue 3 component system for admin extensions and standalone applications.
+
+This file is the concise LLM context index for this repository. For detailed API and component internals, use `llms-full.txt`.
+
+## Repository Identity
+
+- Monorepo root package: `minima-vue3`
+- Workspaces: icons, toolbox, ui-preset, ui, docs, dashboard
+- Docs brand: `Minima Vue` (see `docs/src/data/site.ts`)
+
+## Workspace Packages
+
+- `@minima-vue/ui` (path: `ui`) - Minima Vue components for Vue 3
+- `@minima-vue/icons` (path: `icons`) - Minima Vue icon library
+- `@minima-vue/ui-preset` (path: `ui-preset`) - Minima Vue UI preset
+- `@minima-vue/toolbox` (path: `toolbox`) - CLI tool for importing Figma designs for Minima Vue
+- `@minima-vue/docs` (path: `docs`) - Documentation app
+- `@minima-vue/dashboard` (path: `dashboard`) - Dashboard app
+
+## Core Installation Patterns
+
+### Standalone Vue Project
+
+1. Install:
+- `npm install @minima-vue/ui @minima-vue/icons`
+- `npm install -D @minima-vue/ui-preset`
+
+2. Tailwind v3 config essentials:
+- Add `@minima-vue/ui-preset` to `presets`
+- Include `./node_modules/@minima-vue/ui/dist/**/*.{js,mjs}` in `content`
+
+3. Runtime style import:
+- `import "@minima-vue/ui/style.css"`
+
+### Admin Extension
+
+- Use `@minima-vue/ui` and `@minima-vue/icons` in extension packages.
+- For token/icon generation workflows, use `@minima-vue/toolbox`.
+
+## Main UI Surface
+
+- Components: 42 documented components
+- Composables: `useToggleState`, `usePrompt` (currently throws), `useToast` + `toast`
+- Utilities: `clx`, `calendar`, `isBrowserLocaleHourCycle24h`, `isInputElement`
+
+### Component Catalog
+
+- Alert (slug: `alert`, main export: `Alert`)
+- Avatar (slug: `avatar`, main export: `Avatar`)
+- Badge (slug: `badge`, main export: `Badge`)
+- Button (slug: `button`, main export: `Button`)
+- Calendar (slug: `calendar`, main export: `Calendar`)
+- Checkbox (slug: `checkbox`, main export: `Checkbox`)
+- Code (slug: `code`, main export: `Code`)
+- Code Block (slug: `code-block`, main export: `CodeBlock`)
+- Command (slug: `command`, main export: `Command`)
+- Command Bar (slug: `command-bar`, main export: `CommandBar`)
+- Container (slug: `container`, main export: `Container`)
+- Copy (slug: `copy`, main export: `Copy`)
+- Currency Input (slug: `currency-input`, main export: `CurrencyInput`)
+- Data Table (slug: `data-table`, main export: `DataTable`)
+- Date Picker (slug: `date-picker`, main export: `DatePicker`)
+- Date Segment (slug: `date-segment`, main export: `DateSegment`)
+- Drawer (slug: `drawer`, main export: `Drawer`)
+- Dropdown Menu (slug: `dropdown-menu`, main export: `DropdownMenu`)
+- Focus Modal (slug: `focus-modal`, main export: `FocusModal`)
+- Heading (slug: `heading`, main export: `Heading`)
+- Hint (slug: `hint`, main export: `Hint`)
+- Icon Badge (slug: `icon-badge`, main export: `IconBadge`)
+- Icon Button (slug: `icon-button`, main export: `IconButton`)
+- Inline Tip (slug: `inline-tip`, main export: `InlineTip`)
+- Input (slug: `input`, main export: `Input`)
+- Kbd (slug: `kbd`, main export: `Kbd`)
+- Label (slug: `label`, main export: `Label`)
+- Popover (slug: `popover`, main export: `Popover`)
+- Progress Accordion (slug: `progress-accordion`, main export: `ProgressAccordion`)
+- Progress Tabs (slug: `progress-tabs`, main export: `ProgressTabs`)
+- Prompt (slug: `prompt`, main export: `Prompt`)
+- Radio Group (slug: `radio-group`, main export: `RadioGroup`)
+- Select (slug: `select`, main export: `Select`)
+- Status Badge (slug: `status-badge`, main export: `StatusBadge`)
+- Switch (slug: `switch`, main export: `Switch`)
+- Table (slug: `table`, main export: `Table`)
+- Tabs (slug: `tabs`, main export: `Tabs`)
+- Text (slug: `text`, main export: `Text`)
+- Textarea (slug: `textarea`, main export: `Textarea`)
+- Time Input (slug: `time-input`, main export: `TimeInput`)
+- Toast (slug: `toast`, main export: `Toast`)
+- Tooltip (slug: `tooltip`, main export: `Tooltip`)
+
+## Docs Route Groups
+
+- Introduction: `/`
+- Installation: `/installation/medusa-admin-extension`, `/installation/standalone-project`
+- Icons: `/icons/overview`
+- Colors: `/colors/overview`
+- Components: `/components/<slug>`
+- Hooks: `/hooks/use-prompt`, `/hooks/use-toggle-state`
+- Utils: `/utils/clx`
+
+## Common Commands
+
+- `dev`: `npm run dev --workspace @minima-vue/docs`
+- `dev:docs`: `npm run dev --workspace @minima-vue/docs`
+- `dev:dashboard`: `npm run dev --workspace @minima-vue/dashboard`
+- `generate:docs`: `npm run generate --workspace @minima-vue/docs`
+- `changeset`: `changeset`
+- `version-packages`: `changeset version`
+- `release`: `changeset publish`
+- `build:packages`: `npm run build --workspace @minima-vue/toolbox && npm run build --workspace @minima-vue/icons && npm run build --workspace @minima-vue/ui-preset && npm run build --workspace @minima-vue/ui`
+- `pack:packages`: `npm pack --workspace @minima-vue/toolbox && npm pack --workspace @minima-vue/icons && npm pack --workspace @minima-vue/ui-preset && npm pack --workspace @minima-vue/ui`
+- `publish:packages`: `npm publish --workspace @minima-vue/toolbox && npm publish --workspace @minima-vue/icons && npm publish --workspace @minima-vue/ui-preset && npm publish --workspace @minima-vue/ui`
+- `build:docs`: `npm run build --workspace @minima-vue/docs`
+- `build:dashboard`: `npm run build --workspace @minima-vue/dashboard`
+- `build`: `npm run build:packages && npm run build:docs && npm run build:dashboard`
+
+## Authoritative Sources
+
+- Workspace scripts and package topology: `package.json`
+- UI exports: `ui/src/index.ts`
+- Component metadata: `docs/src/generated/component-manifest.json`
+- API reference specs: `docs/src/generated/reference-specs.json`
+- Component docs blocks: `docs/src/generated/component-docs.json`
+- Install guides and snippets: `docs/src/data/content.ts`
+- Docs navigation: `docs/src/data/navigation.ts`

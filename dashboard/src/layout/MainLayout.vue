@@ -23,7 +23,7 @@ watch(
   <div class="relative flex h-screen flex-col items-start overflow-hidden lg:flex-row">
     <div
       v-if="uiState.sidebarDesktop"
-      class="hidden h-screen w-[220px] border-e lg:flex"
+      class="hidden h-screen w-[220px] border-e border-ui-border-base lg:flex"
     >
       <SidebarNav />
     </div>
@@ -41,7 +41,7 @@ watch(
           <div class="bg-ui-bg-overlay absolute inset-0" @click="uiState.toggleSidebar('mobile')" />
 
           <aside
-            class="bg-ui-bg-subtle shadow-elevation-modal fixed inset-y-2 left-2 flex w-full max-w-[304px] flex-col overflow-hidden rounded-lg border-r"
+            class="bg-ui-bg-subtle shadow-elevation-modal fixed inset-y-2 left-2 flex w-full max-w-[304px] flex-col overflow-hidden rounded-lg border-r border-ui-border-base"
           >
             <div class="p-3">
               <button

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue"
 import { useRoute, useRouter } from "vue-router"
-import { ArrowUpDown } from "@minima-vue/icons"
+import { DescendingSorting } from "@minima-vue/icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -116,8 +116,8 @@ const formatKey = (key: string) => {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <IconButton size="small" variant="transparent" aria-label="Order by">
-        <ArrowUpDown />
+      <IconButton size="small" aria-label="Order by">
+        <DescendingSorting />
       </IconButton>
     </DropdownMenuTrigger>
 
