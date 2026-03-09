@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="TResponse extends { count: number; offset: number; limit: number }, TEntity extends { id: string }, TParams extends { offset?: number; limit?: number }">
-import { computed, onMounted, onUnmounted, ref } from "vue"
+import { computed, onMounted, onUnmounted, ref, watch } from "vue"
 import { Spinner } from "@minima-vue/icons"
 import { toast } from "@minima-vue/ui"
 
@@ -7,10 +7,12 @@ interface InfiniteListProps {
   queryFn: (params: TParams) => Promise<TResponse>
   responseKey: keyof TResponse
   pageSize?: number
+  enabled?: boolean
 }
 
 const props = withDefaults(defineProps<InfiniteListProps>(), {
   pageSize: 20,
+  enabled: true,
 })
 
 const items = ref<TEntity[]>([])
@@ -19,6 +21,7 @@ const hasMore = ref(true)
 const isPending = ref(true)
 const isFetching = ref(false)
 const containerRef = ref<HTMLDivElement | null>(null)
+const initialized = ref(false)
 
 const load = async () => {
   if (!hasMore.value || isFetching.value) {
@@ -45,6 +48,15 @@ const load = async () => {
   }
 }
 
+const initialize = async () => {
+  if (!props.enabled || initialized.value) {
+    return
+  }
+
+  initialized.value = true
+  await load()
+}
+
 const onScroll = () => {
   if (!containerRef.value) {
     return
@@ -58,9 +70,13 @@ const onScroll = () => {
   }
 }
 
-onMounted(async () => {
-  await load()
+watch(() => props.enabled, () => {
+  void initialize()
+})
+
+onMounted(() => {
   containerRef.value?.addEventListener("scroll", onScroll)
+  void initialize()
 })
 
 onUnmounted(() => {

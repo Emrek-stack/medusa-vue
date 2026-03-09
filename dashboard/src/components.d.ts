@@ -11,7 +11,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    NavItem: typeof import('./components/layout/nav-item/nav-item.vue')['default']
+    NotificationItem: typeof import('./components/layout/notifications/notification-item.vue')['default']
     Notifications: typeof import('./components/layout/notifications/index.vue')['default']
+    NotificationsEmptyState: typeof import('./components/layout/notifications/notifications-empty-state.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchDialog: typeof import('./components/layout/search/SearchDialog.vue')['default']

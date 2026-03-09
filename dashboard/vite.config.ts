@@ -6,6 +6,8 @@ import Components from "unplugin-vue-components/vite"
 import VueDevTools from "vite-plugin-vue-devtools"
 import { fileURLToPath, URL } from "node:url"
 
+const backendUrl = process.env.VITE_MEDUSA_BACKEND_URL || "http://localhost:9000"
+
 export default defineConfig({
   plugins: [
     VueRouter({
@@ -41,5 +43,15 @@ export default defineConfig({
   },
   server: {
     port: 3010,
+    proxy: {
+      "/admin": {
+        target: backendUrl,
+        changeOrigin: true,
+      },
+      "/auth": {
+        target: backendUrl,
+        changeOrigin: true,
+      },
+    },
   },
 })
