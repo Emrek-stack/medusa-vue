@@ -42,7 +42,7 @@
         "prepack": "npm run build"
     },
     "peerDependencies": {
-        "@minima-vue/icons": "^1.0.6",
+        "@minima-vue/icons": "^1.0.7",
         "@minima-vue/ui-preset": "^1.0.6",
         "vue": "^3.4.0"
     },
