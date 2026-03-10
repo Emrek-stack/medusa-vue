@@ -1,5 +1,11 @@
 # @minima-vue/toolbox
 
+## 1.0.7
+
+### Patch Changes
+
+- caa2714: Release all public Minima Vue packages with a patch version bump.
+
 ## 1.0.6
 
 ### Patch Changes
