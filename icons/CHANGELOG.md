@@ -1,5 +1,11 @@
 # @minima-vue/icons
 
+## 1.0.7
+
+### Patch Changes
+
+- Add `Gitlab` and `Settings` icons to the export list.
+
 ## 1.0.6
 
 ### Patch Changes

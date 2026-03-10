@@ -33,7 +33,7 @@ const breadcrumbs = computed(() => {
 </script>
 
 <template>
-  <header class="grid w-full grid-cols-2 border-b p-3">
+  <header class="grid w-full grid-cols-2 border-b border-ui-border-base p-3">
     <div class="flex items-center gap-x-1.5">
       <IconButton
         variant="transparent"

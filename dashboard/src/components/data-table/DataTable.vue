@@ -363,7 +363,14 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
 </script>
 
 <template>
-  <UiDataTable :class="props.layout === 'fill' ? 'h-full [&_tr]:last-of-type:!border-b' : undefined">
+  <UiDataTable
+    :class="
+      cn(
+        'divide-y',
+        props.layout === 'fill' ? 'h-full [&_tr]:last-of-type:!border-b' : undefined
+      )
+    "
+  >
     <div v-if="heading || subHeading || allActions.length" class="flex items-center justify-between px-6 py-4">
       <div v-if="heading || subHeading">
         <Heading v-if="heading" :level="headingLevel">{{ heading }}</Heading>
@@ -423,7 +430,7 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
     </DataTableToolbar>
 
     <DataTableTable>
-      <TableHeader>
+      <TableHeader class="border-t-0 [&_tr]:bg-ui-bg-base [&_tr]:hover:bg-ui-bg-base">
         <TableRow>
           <TableHeaderCell
             v-for="column in columns"
@@ -435,7 +442,7 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
         </TableRow>
       </TableHeader>
 
-      <TableBody>
+      <TableBody class="border-b-0">
         <TableRow v-if="isLoading">
           <TableCell :colspan="columns.length" class="py-8 text-center">
             <Text size="small" class="text-ui-fg-subtle">Loading...</Text>
@@ -479,6 +486,7 @@ const allActions = computed(() => (props.actions.length ? props.actions : props.
 
     <TablePagination
       v-if="enablePagination"
+      class="!border-t-0"
       :count="rowCount"
       :page-size="pageSize"
       :page-index="pageIndex"

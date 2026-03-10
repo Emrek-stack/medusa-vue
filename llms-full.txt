@@ -1,0 +1,2481 @@
+# Minima Vue - Full LLM Context
+
+This file replaces the prior Medusa-specific corpus with Minima Vue repository context.
+
+## 1) Project Overview
+
+- Repository: `minima-vue3`
+- Type: npm workspaces monorepo
+- Workspaces: `icons`, `toolbox`, `ui-preset`, `ui`, `docs`, `dashboard`
+- Documentation brand: Minima Vue
+- Primary goal: Vue-first component system for admin extensions and standalone apps.
+
+## 2) Root Scripts
+
+- `dev`: `npm run dev --workspace @minima-vue/docs`
+- `dev:docs`: `npm run dev --workspace @minima-vue/docs`
+- `dev:dashboard`: `npm run dev --workspace @minima-vue/dashboard`
+- `generate:docs`: `npm run generate --workspace @minima-vue/docs`
+- `changeset`: `changeset`
+- `version-packages`: `changeset version`
+- `release`: `changeset publish`
+- `build:packages`: `npm run build --workspace @minima-vue/toolbox && npm run build --workspace @minima-vue/icons && npm run build --workspace @minima-vue/ui-preset && npm run build --workspace @minima-vue/ui`
+- `pack:packages`: `npm pack --workspace @minima-vue/toolbox && npm pack --workspace @minima-vue/icons && npm pack --workspace @minima-vue/ui-preset && npm pack --workspace @minima-vue/ui`
+- `publish:packages`: `npm publish --workspace @minima-vue/toolbox && npm publish --workspace @minima-vue/icons && npm publish --workspace @minima-vue/ui-preset && npm publish --workspace @minima-vue/ui`
+- `build:docs`: `npm run build --workspace @minima-vue/docs`
+- `build:dashboard`: `npm run build --workspace @minima-vue/dashboard`
+- `build`: `npm run build:packages && npm run build:docs && npm run build:dashboard`
+
+## 3) Workspace Package Metadata
+
+### @minima-vue/ui
+- Path: `ui`
+- Version: `1.0.6`
+- Description: Minima Vue components for Vue 3
+- Peer dependencies: `@minima-vue/icons`, `@minima-vue/ui-preset`, `vue`
+- Key scripts:
+- `dev`: `vite`
+- `build`: `vue-tsc && vite build`
+- `preview`: `vite preview`
+- `storybook`: `storybook dev -p 6006`
+- `build-storybook`: `storybook build`
+- `prepack`: `npm run build`
+
+### @minima-vue/icons
+- Path: `icons`
+- Version: `1.0.6`
+- Description: Minima Vue icon library
+- Peer dependencies: `vue`
+- Key scripts:
+- `build`: `tsup && npm run build:types`
+- `build:types`: `vue-tsc --declaration --emitDeclarationOnly --outDir dist`
+- `dev`: `tsup --watch`
+- `generate`: `toolbox icons -o './src/components'`
+- `prepack`: `npm run build`
+
+### @minima-vue/ui-preset
+- Path: `ui-preset`
+- Version: `1.0.6`
+- Description: Minima Vue UI preset
+- Peer dependencies: `tailwindcss`
+- Key scripts:
+- `build`: `tsup`
+- `generate`: `toolbox tokens -o './src/theme'`
+- `dev`: `tsup --watch`
+- `prepack`: `npm run build`
+
+### @minima-vue/toolbox
+- Path: `toolbox`
+- Version: `1.0.6`
+- Description: CLI tool for importing Figma designs for Minima Vue
+- Key scripts:
+- `build`: `tsup`
+- `prepack`: `npm run build`
+
+### @minima-vue/docs
+- Path: `docs`
+- Version: `1.0.0`
+- Key scripts:
+- `generate`: `node ./scripts/generate-docs.mjs`
+- `dev`: `npm run generate && vite`
+- `build`: `npm run generate && vite build`
+- `preview`: `vite preview`
+
+### @minima-vue/dashboard
+- Path: `dashboard`
+- Version: `1.0.0`
+- Key scripts:
+- `dev`: `vite`
+- `build`: `vue-tsc && vite build`
+- `preview`: `vite preview`
+
+## 4) Installation Guidance (Authoritative Snippets)
+
+### Standalone Project
+- Install runtime packages:
+  - `npm install @minima-vue/ui @minima-vue/icons`
+- Install preset:
+  - `npm install -D @minima-vue/ui-preset`
+- Import styles in app entry:
+  - `import "@minima-vue/ui/style.css"`
+- Tailwind v3 essentials:
+  - Add preset: `presets: [preset]`
+  - Include UI dist in content scanning.
+- Tailwind v4 essentials:
+  - `@source "../node_modules/@minima-vue/ui";`
+  - `@config "@minima-vue/ui-preset";`
+
+### Admin Extension
+- Use `@minima-vue/ui` and `@minima-vue/icons` directly in admin extension packages.
+- Use `@minima-vue/toolbox` for token/icon generation where needed.
+
+## 5) Docs Navigation Model
+
+- Introduction: `/`
+- Installation:
+  - `/installation/medusa-admin-extension`
+  - `/installation/standalone-project`
+- Icons: `/icons/overview`
+- Colors: `/colors/overview`
+- Components: `/components/<slug>`
+- Hooks:
+  - `/hooks/use-prompt`
+  - `/hooks/use-toggle-state`
+- Utils:
+  - `/utils/clx`
+
+## 6) UI Public Surface Summary
+
+- Components documented: 42
+- Reference exports (components + subcomponents): 131
+- Composables:
+  - `useToggleState(initial?: boolean)`
+  - `usePrompt()` (currently throws "not yet implemented")
+  - `useToast()` and `toast` helper (info/success/warning/error/loading)
+- Utils:
+  - `clx`
+  - `calendar`
+  - `isBrowserLocaleHourCycle24h`
+  - `isInputElement`
+
+## 7) Component Catalog (Detailed)
+
+### Alert (slug: `alert`)
+- Description: A component for working with alert values in Minima Vue.
+- Main export: `Alert`
+- Has stories: yes
+- Examples: `alert-demo`, `alert-success`, `alert-warning`, `alert-error`, `alert-dismissable`
+- Usage snippets:
+```ts
+import { Alert } from "@minima-vue/ui"
+```
+
+```tsx
+<Alert>Here's a message</Alert>
+```
+- Export details:
+- Export `Alert` from `Alert.vue` (main)
+- Props:
+  - `variant` (optional) type: `"info" | "error" | "success" | "warning"`, default: `"info"`
+  - `dismissible` (optional) type: `boolean`, default: `false`
+
+### Avatar (slug: `avatar`)
+- Description: A component for working with avatar values in Minima Vue.
+- Main export: `Avatar`
+- Has stories: yes
+- Examples: `avatar-withimage`, `avatar-withfallback`, `avatar-squared`, `avatar-twoxsmall`, `avatar-xsmall`, `avatar-small`, `avatar-base`, `avatar-large`, `avatar-xlarge`, `With Image`, `With Fallback`, `Squared`, `Two XSmall`, `XSmall`, `Small`, `Base`, `Large`, `XLarge`
+- Usage snippets:
+```ts
+import { Avatar } from "@minima-vue/ui"
+```
+
+```tsx
+<Avatar>Here's a message</Avatar>
+```
+- Export details:
+- Export `Avatar` from `Avatar.vue` (main)
+- Props:
+  - `variant` (optional) type: `"squared" | "rounded"`, default: `"rounded"`
+  - `size` (optional) type: `"2xsmall" | "xsmall" | "small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `src` (optional) type: `string`, default: `none`
+  - `fallback` (required) type: `string`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Badge (slug: `badge`)
+- Description: A component for working with badge values in Minima Vue.
+- Main export: `Badge`
+- Has stories: yes
+- Examples: `badge-grey`, `badge-green`, `badge-red`, `badge-blue`, `badge-orange`, `badge-purple`, `badge-default`, `badge-rounded`, `badge-xxsmall`, `badge-xsmall`, `badge-small`, `badge-base`, `badge-large`, `Grey`, `Green`, `Red`, `Blue`, `Orange`, `Purple`, `Default`, `Rounded`, `XXSmall`, `XSmall`, `Small`, `Base`, `Large`
+- Usage snippets:
+```ts
+import { Badge } from "@minima-vue/ui"
+```
+
+```tsx
+<Badge>Here's a message</Badge>
+```
+- Export details:
+- Export `Badge` from `Badge.vue` (main)
+- Props:
+  - `size` (optional) type: `"2xsmall" | "xsmall" | "small" | "base" | "large"`, default: `"base"`
+  - `rounded` (optional) type: `"base" | "full"`, default: `"base"`
+  - `color` (optional) type: `"green" | "red" | "blue" | "orange" | "grey" | "purple"`, default: `"grey"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Button (slug: `button`)
+- Description: A component for working with button values in Minima Vue.
+- Main export: `Button`
+- Has stories: yes
+- Examples: `button-demo`, `button-all-variants`, `button-all-sizes`, `button-loading`, `button-with-icon`, `button-as-link`, `button-primary`, `button-secondary`, `button-transparent`, `button-danger`, `button-disabled`, `button-withicon`, `button-large`, `button-xlarge`, `Primary`, `Secondary`, `Transparent`, `Danger`, `Disabled`, `With Icon`, `Loading`, `Large`, `XLarge`
+- Usage snippets:
+```ts
+import { Button } from "@minima-vue/ui"
+```
+
+```tsx
+<Button>Here's a message</Button>
+```
+- Export details:
+- Export `Button` from `Button.vue` (main)
+- Props:
+  - `variant` (optional) type: `"primary" | "secondary" | "transparent" | "danger"`, default: `"primary"`
+  - `size` (optional) type: `"small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `isLoading` (optional) type: `boolean`, default: `false`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `disabled` (optional) type: `boolean`, default: `false`
+
+### Calendar (slug: `calendar`)
+- Description: A component for working with calendar values in Minima Vue.
+- Main export: `Calendar`
+- Has stories: yes
+- Examples: `calendar-default`, `calendar-controlled`, `calendar-minvalue`, `calendar-maxvalue`, `Default`, `Controlled`, `Min Value`, `Max Value`
+- Usage snippets:
+```ts
+import { Calendar, CalendarButton, CalendarCell } from "@minima-vue/ui"
+```
+
+```tsx
+<Calendar>Here's a message</Calendar>
+```
+- Export details:
+- Export `Calendar` from `Calendar.vue` (main)
+- Props:
+  - `modelValue` (optional) type: `Date | null`, default: `none`
+  - `defaultValue` (optional) type: `Date | null`, default: `none`
+  - `minValue` (optional) type: `Date`, default: `none`
+  - `maxValue` (optional) type: `Date`, default: `none`
+  - `locale` (optional) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+  - `fixedWeeks` (optional) type: `boolean`, default: `none`
+  - `weekStartsOn` (optional) type: `0 | 1 | 2 | 3 | 4 | 5 | 6`, default: `none`
+- Export `CalendarButton` from `CalendarButton.vue`
+- Props: none
+- Export `CalendarCell` from `CalendarCell.vue`
+- Props: none
+
+### Checkbox (slug: `checkbox`)
+- Description: A component for working with checkbox values in Minima Vue.
+- Main export: `Checkbox`
+- Has stories: yes
+- Examples: `checkbox-default`, `checkbox-checked`, `checkbox-indeterminate`, `checkbox-disabled`, `checkbox-disabledchecked`, `checkbox-disabledindeterminate`, `Default`, `Checked`, `Indeterminate`, `Disabled`, `Disabled Checked`, `Disabled Indeterminate`
+- Usage snippets:
+```ts
+import { Checkbox } from "@minima-vue/ui"
+```
+
+```tsx
+<Checkbox>Here's a message</Checkbox>
+```
+- Export details:
+- Export `Checkbox` from `Checkbox.vue` (main)
+- Props: none
+
+### Code (slug: `code`)
+- Description: A component for working with code values in Minima Vue.
+- Main export: `Code`
+- Has stories: yes
+- Examples: `code-block-demo`, `code-block-single`, `code-block-no-header`, `code-block-no-lines`, `code-block-no-copy`, `code-default`, `Default`
+- Usage snippets:
+```ts
+import { Code } from "@minima-vue/ui"
+```
+
+```tsx
+<Code>Here's a message</Code>
+```
+- Export details:
+- Export `Code` from `Code.vue` (main)
+- Props: none
+
+### Code Block (slug: `code-block`)
+- Description: A component for working with code block values in Minima Vue.
+- Main export: `CodeBlock`
+- Has stories: yes
+- Examples: `code-block-demo`, `code-block-single`, `code-block-no-header`, `code-block-no-lines`, `code-block-no-copy`, `code-block-default`, `code-block-singlesnippet`, `code-block-noheader`, `Default`, `Single Snippet`, `No Header`
+- Usage snippets:
+```ts
+import { CodeBlock, CodeBlockHeader, CodeBlockMeta, CodeBlockBody } from "@minima-vue/ui"
+```
+
+```tsx
+<CodeBlock>Here's a message</CodeBlock>
+```
+- Export details:
+- Export `CodeBlock` from `CodeBlock.vue` (main)
+- Props: none
+- Export `CodeBlockHeader` from `CodeBlockHeader.vue`
+- Props: none
+- Export `CodeBlockMeta` from `CodeBlockMeta.vue`
+- Props: none
+- Export `CodeBlockBody` from `CodeBlockBody.vue`
+- Props: none
+
+### Command (slug: `command`)
+- Description: A component for working with command values in Minima Vue.
+- Main export: `Command`
+- Has stories: yes
+- Examples: `command-bar-demo`, `command-default`, `Default`
+- Usage snippets:
+```ts
+import { Command, CommandCopy } from "@minima-vue/ui"
+```
+
+```tsx
+<Command>Here's a message</Command>
+```
+- Export details:
+- Export `Command` from `Command.vue` (main)
+- Props: none
+- Export `CommandCopy` from `CommandCopy.vue`
+- Props:
+  - `content` (required) type: `string`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `none`
+
+### Command Bar (slug: `command-bar`)
+- Description: A component for working with command bar values in Minima Vue.
+- Main export: `CommandBar`
+- Has stories: yes
+- Examples: `command-bar-demo`, `command-bar-default`, `Default`
+- Usage snippets:
+```ts
+import { CommandBar, CommandBarBar, CommandBarValue, CommandBarSeperator, CommandBarCommand } from "@minima-vue/ui"
+```
+
+```tsx
+<CommandBar>Here's a message</CommandBar>
+```
+- Export details:
+- Export `CommandBar` from `CommandBar.vue` (main)
+- Props: none
+- Export `CommandBarBar` from `CommandBarBar.vue`
+- Props: none
+- Export `CommandBarValue` from `CommandBarValue.vue`
+- Props: none
+- Export `CommandBarSeperator` from `CommandBarSeperator.vue`
+- Props: none
+- Export `CommandBarCommand` from `CommandBarCommand.vue`
+- Props:
+  - `action` (required) type: `() => void | Promise<void>`, default: `none`
+  - `label` (required) type: `string`, default: `none`
+  - `shortcut` (required) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `type` (optional) type: `"button" | "submit" | "reset"`, default: `"button"`
+
+### Container (slug: `container`)
+- Description: A component for working with container values in Minima Vue.
+- Main export: `Container`
+- Has stories: yes
+- Examples: `container-default`, `container-inlayout`, `Default`, `In Layout`
+- Usage snippets:
+```ts
+import { Container } from "@minima-vue/ui"
+```
+
+```tsx
+<Container>Here's a message</Container>
+```
+- Export details:
+- Export `Container` from `Container.vue` (main)
+- Props: none
+
+### Copy (slug: `copy`)
+- Description: A component for working with copy values in Minima Vue.
+- Main export: `Copy`
+- Has stories: yes
+- Examples: `copy-default`, `copy-customcontent`, `Default`, `Custom Content`
+- Usage snippets:
+```ts
+import { Copy } from "@minima-vue/ui"
+```
+
+```tsx
+<Copy>Here's a message</Copy>
+```
+- Export details:
+- Export `Copy` from `Copy.vue` (main)
+- Props:
+  - `content` (required) type: `string`, default: `none`
+  - `variant` (optional) type: `"mini" | "default" | null`, default: `"default"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Currency Input (slug: `currency-input`)
+- Description: A component for working with currency input values in Minima Vue.
+- Main export: `CurrencyInput`
+- Has stories: yes
+- Examples: `currency-input-default`, `currency-input-controlled`, `Default`, `Controlled`
+- Usage snippets:
+```ts
+import { CurrencyInput } from "@minima-vue/ui"
+```
+
+```tsx
+<CurrencyInput>Here's a message</CurrencyInput>
+```
+- Export details:
+- Export `CurrencyInput` from `CurrencyInput.vue` (main)
+- Props:
+  - `modelValue` (required) type: `number | null`, default: `none`
+  - `symbol` (required) type: `string`, default: `none`
+  - `code` (required) type: `string`, default: `none`
+  - `size` (optional) type: `"base" | "small"`, default: `"base"`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `placeholder` (optional) type: `string`, default: `none`
+  - `decimalsLimit` (optional) type: `number`, default: `2`
+  - `allowNegativeValue` (optional) type: `boolean`, default: `true`
+  - `min` (optional) type: `number`, default: `none`
+  - `max` (optional) type: `number`, default: `none`
+  - `step` (optional) type: `number`, default: `none`
+
+### Data Table (slug: `data-table`)
+- Description: A component for working with data table values in Minima Vue.
+- Main export: `DataTable`
+- Has stories: yes
+- Examples: `data-table-demo`, `data-table-row-click`, `data-table-custom-cell`, `data-table-search`, `data-table-pagination`, `data-table-filters`, `data-table-filters-date`, `data-table-filters-initial`, `data-table-sorting`, `data-table-sorting-initial`, `data-table-commands`
+- Usage snippets:
+```ts
+import { DataTable, DataTableToolbar, DataTableTable, DataTablePagination, DataTableSearch, DataTableFilterMenu, DataTableSortingMenu, DataTableCommandBar } from "@minima-vue/ui"
+```
+
+```tsx
+<DataTable>Here's a message</DataTable>
+```
+- Export details:
+- Export `DataTable` from `DataTable.vue` (main)
+- Props: none
+- Export `DataTableToolbar` from `DataTableToolbar.vue`
+- Props: none
+- Export `DataTableTable` from `DataTableTable.vue`
+- Props: none
+- Export `DataTablePagination` from `DataTablePagination.vue`
+- Props: none
+- Export `DataTableSearch` from `DataTableSearch.vue`
+- Props: none
+- Export `DataTableFilterMenu` from `DataTableFilterMenu.vue`
+- Props: none
+- Export `DataTableSortingMenu` from `DataTableSortingMenu.vue`
+- Props: none
+- Export `DataTableCommandBar` from `DataTableCommandBar.vue`
+- Props: none
+
+### Date Picker (slug: `date-picker`)
+- Description: A component for working with date picker values in Minima Vue.
+- Main export: `DatePicker`
+- Has stories: yes
+- Examples: `date-picker-default`, `date-picker-controlled`, `date-picker-minvalue`, `date-picker-maxvalue`, `date-picker-withtime`, `date-picker-small`, `Default`, `Controlled`, `Min Value`, `Max Value`, `With Time`, `Small`
+- Usage snippets:
+```ts
+import { DatePicker, DatePickerButton, DatePickerField, DatePickerClearButton } from "@minima-vue/ui"
+```
+
+```tsx
+<DatePicker>Here's a message</DatePicker>
+```
+- Export details:
+- Export `DatePicker` from `DatePicker.vue` (main)
+- Props: none
+- Export `DatePickerButton` from `DatePickerButton.vue`
+- Props:
+  - `size` (optional) type: `"base" | "small"`, default: `none`
+- Export `DatePickerField` from `DatePickerField.vue`
+- Props:
+  - `size` (optional) type: `"base" | "small"`, default: `"base"`
+  - `modelValue` (optional) type: `DateValue | null`, default: `none`
+  - `defaultValue` (optional) type: `DateValue | null`, default: `none`
+  - `granularity` (optional) type: `"day" | "hour" | "minute" | "second"`, default: `none`
+  - `hourCycle` (optional) type: `12 | 24`, default: `none`
+  - `locale` (optional) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+  - `minValue` (optional) type: `DateValue`, default: `none`
+  - `maxValue` (optional) type: `DateValue`, default: `none`
+  - `placeholder` (optional) type: `DateValue`, default: `none`
+- Export `DatePickerClearButton` from `DatePickerClearButton.vue`
+- Props: none
+
+### Date Segment (slug: `date-segment`)
+- Description: A component for working with date segment values in Minima Vue.
+- Main export: `DateSegment`
+- Has stories: yes
+- Examples: `date-segment-default`, `Default`
+- Usage snippets:
+```ts
+import { DateSegment } from "@minima-vue/ui"
+```
+
+```tsx
+<DateSegment>Here's a message</DateSegment>
+```
+- Export details:
+- Export `DateSegment` from `DateSegment.vue` (main)
+- Props: none
+
+### Drawer (slug: `drawer`)
+- Description: A component for working with drawer values in Minima Vue.
+- Main export: `Drawer`
+- Has stories: yes
+- Examples: `drawer-demo`, `drawer-form`, `drawer-default`, `Default`
+- Usage snippets:
+```ts
+import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerBody, DrawerFooter, DrawerClose } from "@minima-vue/ui"
+```
+
+```tsx
+<Drawer>Here's a message</Drawer>
+```
+- Export details:
+- Export `Drawer` from `Drawer.vue` (main)
+- Props: none
+- Export `DrawerTrigger` from `DrawerTrigger.vue`
+- Props: none
+- Export `DrawerContent` from `DrawerContent.vue`
+- Props: none
+- Export `DrawerHeader` from `DrawerHeader.vue`
+- Props: none
+- Export `DrawerTitle` from `DrawerTitle.vue`
+- Props: none
+- Export `DrawerDescription` from `DrawerDescription.vue`
+- Props: none
+- Export `DrawerBody` from `DrawerBody.vue`
+- Props: none
+- Export `DrawerFooter` from `DrawerFooter.vue`
+- Props: none
+- Export `DrawerClose` from `DrawerClose.vue`
+- Props: none
+
+### Dropdown Menu (slug: `dropdown-menu`)
+- Description: A component for working with dropdown menu values in Minima Vue.
+- Main export: `DropdownMenu`
+- Has stories: yes
+- Examples: `dropdown-menu-simple`, `dropdown-menu-sorting`, `dropdown-menu-checkboxes`, `Simple`, `Sorting`, `Checkboxes`
+- Usage snippets:
+```ts
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuGroup, DropdownMenuSubMenu, DropdownMenuRadioGroup, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuHint } from "@minima-vue/ui"
+```
+
+```tsx
+<DropdownMenu>Here's a message</DropdownMenu>
+```
+- Export details:
+- Export `DropdownMenu` from `DropdownMenu.vue` (main)
+- Props: none
+- Export `DropdownMenuTrigger` from `DropdownMenuTrigger.vue`
+- Props: none
+- Export `DropdownMenuGroup` from `DropdownMenuGroup.vue`
+- Props: none
+- Export `DropdownMenuSubMenu` from `DropdownMenuSubMenu.vue`
+- Props: none
+- Export `DropdownMenuRadioGroup` from `DropdownMenuRadioGroup.vue`
+- Props: none
+- Export `DropdownMenuSubTrigger` from `DropdownMenuSubTrigger.vue`
+- Props: none
+- Export `DropdownMenuSubContent` from `DropdownMenuSubContent.vue`
+- Props: none
+- Export `DropdownMenuContent` from `DropdownMenuContent.vue`
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `collisionPadding` (optional) type: `number`, default: `8`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `"center"`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `"bottom"`
+- Export `DropdownMenuItem` from `DropdownMenuItem.vue`
+- Props: none
+- Export `DropdownMenuCheckboxItem` from `DropdownMenuCheckboxItem.vue`
+- Props: none
+- Export `DropdownMenuRadioItem` from `DropdownMenuRadioItem.vue`
+- Props: none
+- Export `DropdownMenuLabel` from `DropdownMenuLabel.vue`
+- Props: none
+- Export `DropdownMenuSeparator` from `DropdownMenuSeparator.vue`
+- Props: none
+- Export `DropdownMenuShortcut` from `DropdownMenuShortcut.vue`
+- Props: none
+- Export `DropdownMenuHint` from `DropdownMenuHint.vue`
+- Props: none
+
+### Focus Modal (slug: `focus-modal`)
+- Description: A component for working with focus modal values in Minima Vue.
+- Main export: `FocusModal`
+- Has stories: yes
+- Examples: `focus-modal-demo`, `focus-modal-controlled`, `focus-modal-form`, `focus-modal-nested`, `focus-modal-default`, `Default`
+- Usage snippets:
+```ts
+import { FocusModal, FocusModalTrigger, FocusModalContent, FocusModalHeader, FocusModalTitle, FocusModalBody, FocusModalFooter } from "@minima-vue/ui"
+```
+
+```tsx
+<FocusModal>Here's a message</FocusModal>
+```
+- Export details:
+- Export `FocusModal` from `FocusModal.vue` (main)
+- Props: none
+- Export `FocusModalTrigger` from `FocusModalTrigger.vue`
+- Props: none
+- Export `FocusModalContent` from `FocusModalContent.vue`
+- Props: none
+- Export `FocusModalHeader` from `FocusModalHeader.vue`
+- Props: none
+- Export `FocusModalTitle` from `FocusModalTitle.vue`
+- Props: none
+- Export `FocusModalBody` from `FocusModalBody.vue`
+- Props: none
+- Export `FocusModalFooter` from `FocusModalFooter.vue`
+- Props: none
+
+### Heading (slug: `heading`)
+- Description: A component for working with heading values in Minima Vue.
+- Main export: `Heading`
+- Has stories: yes
+- Examples: `heading-h1`, `heading-h2`, `heading-h3`, `H1`, `H2`, `H3`
+- Usage snippets:
+```ts
+import { Heading } from "@minima-vue/ui"
+```
+
+```tsx
+<Heading>Here's a message</Heading>
+```
+- Export details:
+- Export `Heading` from `Heading.vue` (main)
+- Props: none
+
+### Hint (slug: `hint`)
+- Description: A component for working with hint values in Minima Vue.
+- Main export: `Hint`
+- Has stories: yes
+- Examples: `hint-info`, `hint-error`, `hint-withicon`, `Info`, `Error`, `With Icon`
+- Usage snippets:
+```ts
+import { Hint } from "@minima-vue/ui"
+```
+
+```tsx
+<Hint>Here's a message</Hint>
+```
+- Export details:
+- Export `Hint` from `Hint.vue` (main)
+- Props:
+  - `variant` (optional) type: `"info" | "error"`, default: `"info"`
+
+### Icon Badge (slug: `icon-badge`)
+- Description: A component for working with icon badge values in Minima Vue.
+- Main export: `IconBadge`
+- Has stories: yes
+- Examples: `icon-badge-demo`, `icon-badge-all-colors`, `icon-badge-all-sizes`
+- Usage snippets:
+```ts
+import { IconBadge } from "@minima-vue/ui"
+```
+
+```tsx
+<IconBadge>Here's a message</IconBadge>
+```
+- Export details:
+- Export `IconBadge` from `IconBadge.vue` (main)
+- Props:
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `color` (optional) type: `"green" | "red" | "blue" | "orange" | "grey" | "purple"`, default: `"grey"`
+  - `size` (optional) type: `"base" | "large"`, default: `"base"`
+
+### Icon Button (slug: `icon-button`)
+- Description: A component for working with icon button values in Minima Vue.
+- Main export: `IconButton`
+- Has stories: yes
+- Examples: `icon-button-demo`, `icon-button-all-variants`, `icon-button-all-sizes`, `icon-button-loading`, `icon-button-disabled`, `icon-button-baseprimary`, `icon-button-basetransparent`, `icon-button-largeprimary`, `icon-button-largetransparent`, `icon-button-xlargeprimary`, `icon-button-xlargetransparent`, `icon-button-isloading`, `Base Primary`, `Base Transparent`, `Large Primary`, `Large Transparent`, `XLarge Primary`, `XLarge Transparent`, `Disabled`, `Is Loading`
+- Usage snippets:
+```ts
+import { IconButton } from "@minima-vue/ui"
+```
+
+```tsx
+<IconButton>Here's a message</IconButton>
+```
+- Export details:
+- Export `IconButton` from `IconButton.vue` (main)
+- Props:
+  - `variant` (optional) type: `IconButtonVariants['variant']`, default: `"primary"`
+  - `size` (optional) type: `IconButtonVariants['size']`, default: `"base"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `isLoading` (optional) type: `boolean`, default: `false`
+  - `disabled` (optional) type: `boolean`, default: `false`
+
+### Inline Tip (slug: `inline-tip`)
+- Description: A component for working with inline tip values in Minima Vue.
+- Main export: `InlineTip`
+- Has stories: yes
+- Examples: `inline-tip-demo`, `inline-tip-success`, `inline-tip-warning`, `inline-tip-error`
+- Usage snippets:
+```ts
+import { InlineTip } from "@minima-vue/ui"
+```
+
+```tsx
+<InlineTip>Here's a message</InlineTip>
+```
+- Export details:
+- Export `InlineTip` from `InlineTip.vue` (main)
+- Props:
+  - `label` (required) type: `string`, default: `none`
+  - `variant` (optional) type: `"info" | "warning" | "error" | "success"`, default: `"info"`
+
+### Input (slug: `input`)
+- Description: A component for working with input values in Minima Vue.
+- Main export: `Input`
+- Has stories: yes
+- Examples: `input-default`, `input-disabled`, `input-invalid`, `input-password`, `input-search`, `input-small`, `Default`, `Disabled`, `Invalid`, `Password`, `Search`, `Small`
+- Usage snippets:
+```ts
+import { Input } from "@minima-vue/ui"
+```
+
+```tsx
+<Input>Here's a message</Input>
+```
+- Export details:
+- Export `Input` from `Input.vue` (main)
+- Props: none
+
+### Kbd (slug: `kbd`)
+- Description: A component for working with kbd values in Minima Vue.
+- Main export: `Kbd`
+- Has stories: yes
+- Examples: `kbd-default`, `Default`
+- Usage snippets:
+```ts
+import { Kbd } from "@minima-vue/ui"
+```
+
+```tsx
+<Kbd>Here's a message</Kbd>
+```
+- Export details:
+- Export `Kbd` from `Kbd.vue` (main)
+- Props: none
+
+### Label (slug: `label`)
+- Description: A component for working with label values in Minima Vue.
+- Main export: `Label`
+- Has stories: yes
+- Examples: `label-baseregular`, `label-baseplus`, `label-largeregular`, `label-smallregular`, `Base Regular`, `Base Plus`, `Large Regular`, `Small Regular`
+- Usage snippets:
+```ts
+import { Label } from "@minima-vue/ui"
+```
+
+```tsx
+<Label>Here's a message</Label>
+```
+- Export details:
+- Export `Label` from `Label.vue` (main)
+- Props:
+  - `size` (optional) type: `"xsmall" | "small" | "base" | "large"`, default: `"base"`
+  - `weight` (optional) type: `"regular" | "plus"`, default: `"regular"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Popover (slug: `popover`)
+- Description: A component for working with popover values in Minima Vue.
+- Main export: `Popover`
+- Has stories: yes
+- Examples: `popover-default`, `Default`
+- Usage snippets:
+```ts
+import { Popover, PopoverTrigger, PopoverContent, PopoverSeperator } from "@minima-vue/ui"
+```
+
+```tsx
+<Popover>Here's a message</Popover>
+```
+- Export details:
+- Export `Popover` from `Popover.vue` (main)
+- Props: none
+- Export `PopoverTrigger` from `PopoverTrigger.vue`
+- Props: none
+- Export `PopoverContent` from `PopoverContent.vue`
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `"bottom"`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `"start"`
+  - `collisionPadding` (optional) type: `number`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `false`
+- Export `PopoverSeperator` from `PopoverSeperator.vue`
+- Props: none
+
+### Progress Accordion (slug: `progress-accordion`)
+- Description: A component for working with progress accordion values in Minima Vue.
+- Main export: `ProgressAccordion`
+- Has stories: yes
+- Examples: `progress-accordion-demo`, `progress-accordion-single`, `progress-accordion-multiple`, `progress-accordion-status`, `progress-accordion-controlled`, `progress-accordion-disabled`
+- Usage snippets:
+```ts
+import { ProgressAccordion, ProgressAccordionItem, ProgressAccordionHeader, ProgressAccordionContent, ProgressAccordionProgressIndicator } from "@minima-vue/ui"
+```
+
+```tsx
+<ProgressAccordion>Here's a message</ProgressAccordion>
+```
+- Export details:
+- Export `ProgressAccordion` from `ProgressAccordion.vue` (main)
+- Props: none
+- Export `ProgressAccordionItem` from `ProgressAccordionItem.vue`
+- Props: none
+- Export `ProgressAccordionHeader` from `ProgressAccordionHeader.vue`
+- Props: none
+- Export `ProgressAccordionContent` from `ProgressAccordionContent.vue`
+- Props: none
+- Export `ProgressAccordionProgressIndicator` from `ProgressAccordionProgressIndicator.vue`
+- Props: none
+
+### Progress Tabs (slug: `progress-tabs`)
+- Description: A component for working with progress tabs values in Minima Vue.
+- Main export: `ProgressTabs`
+- Has stories: yes
+- Examples: `progress-tabs-demo`, `progress-tabs-status`, `progress-tabs-controlled`, `progress-tabs-disabled`
+- Usage snippets:
+```ts
+import { ProgressTabs, ProgressTabsList, ProgressTabsTrigger, ProgressTabsContent, ProgressTabsProgressIndicator } from "@minima-vue/ui"
+```
+
+```tsx
+<ProgressTabs>Here's a message</ProgressTabs>
+```
+- Export details:
+- Export `ProgressTabs` from `ProgressTabs.vue` (main)
+- Props: none
+- Export `ProgressTabsList` from `ProgressTabsList.vue`
+- Props: none
+- Export `ProgressTabsTrigger` from `ProgressTabsTrigger.vue`
+- Props: none
+- Export `ProgressTabsContent` from `ProgressTabsContent.vue`
+- Props: none
+- Export `ProgressTabsProgressIndicator` from `ProgressTabsProgressIndicator.vue`
+- Props: none
+
+### Prompt (slug: `prompt`)
+- Description: A component for working with prompt values in Minima Vue.
+- Main export: `Prompt`
+- Has stories: yes
+- Examples: `prompt-demo`, `prompt-confirmation`, `prompt-default`, `Default`, `Confirmation`
+- Usage snippets:
+```ts
+import { Prompt, PromptTrigger, PromptPortal, PromptOverlay, PromptContent, PromptHeader, PromptTitle, PromptDescription, PromptFooter, PromptCancel, PromptAction } from "@minima-vue/ui"
+```
+
+```tsx
+<Prompt>Here's a message</Prompt>
+```
+- Export details:
+- Export `Prompt` from `Prompt.vue` (main)
+- Props: none
+- Export `PromptTrigger` from `PromptTrigger.vue`
+- Props: none
+- Export `PromptPortal` from `PromptPortal.vue`
+- Props: none
+- Export `PromptOverlay` from `PromptOverlay.vue`
+- Props: none
+- Export `PromptContent` from `PromptContent.vue`
+- Props: none
+- Export `PromptHeader` from `PromptHeader.vue`
+- Props: none
+- Export `PromptTitle` from `PromptTitle.vue`
+- Props: none
+- Export `PromptDescription` from `PromptDescription.vue`
+- Props: none
+- Export `PromptFooter` from `PromptFooter.vue`
+- Props: none
+- Export `PromptCancel` from `PromptCancel.vue`
+- Props: none
+- Export `PromptAction` from `PromptAction.vue`
+- Props: none
+
+### Radio Group (slug: `radio-group`)
+- Description: A component for working with radio group values in Minima Vue.
+- Main export: `RadioGroup`
+- Has stories: yes
+- Examples: `radio-group-default`, `radio-group-disabled`, `Default`, `Disabled`
+- Usage snippets:
+```ts
+import { RadioGroup, RadioGroupItem, RadioGroupChoiceBox } from "@minima-vue/ui"
+```
+
+```tsx
+<RadioGroup>Here's a message</RadioGroup>
+```
+- Export details:
+- Export `RadioGroup` from `RadioGroup.vue` (main)
+- Props: none
+- Export `RadioGroupItem` from `RadioGroupItem.vue`
+- Props: none
+- Export `RadioGroupChoiceBox` from `RadioGroupChoiceBox.vue`
+- Props: none
+
+### Select (slug: `select`)
+- Description: A component for working with select values in Minima Vue.
+- Main export: `Select`
+- Has stories: yes
+- Examples: `select-default`, `select-small`, `select-disabled`, `Default`, `Small`, `Disabled`
+- Usage snippets:
+```ts
+import { Select, SelectTrigger, SelectGroup, SelectValue, SelectContent, SelectLabel, SelectItem, SelectSeparator } from "@minima-vue/ui"
+```
+
+```tsx
+<Select>Here's a message</Select>
+```
+- Export details:
+- Export `Select` from `Select.vue` (main)
+- Props: none
+- Export `SelectTrigger` from `SelectTrigger.vue`
+- Props: none
+- Export `SelectGroup` from `SelectGroup.vue`
+- Props: none
+- Export `SelectValue` from `SelectValue.vue`
+- Props: none
+- Export `SelectContent` from `SelectContent.vue`
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `collisionPadding` (optional) type: `number`, default: `24`
+  - `position` (optional) type: `"item-aligned" | "popper"`, default: `"popper"`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `none`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `none`
+- Export `SelectLabel` from `SelectLabel.vue`
+- Props: none
+- Export `SelectItem` from `SelectItem.vue`
+- Props: none
+- Export `SelectSeparator` from `SelectSeparator.vue`
+- Props: none
+
+### Status Badge (slug: `status-badge`)
+- Description: A component for working with status badge values in Minima Vue.
+- Main export: `StatusBadge`
+- Has stories: yes
+- Examples: `status-badge-demo`, `status-badge-all-colors`, `status-badge-default`, `status-badge-grey`, `status-badge-green`, `status-badge-red`, `status-badge-blue`, `status-badge-orange`, `status-badge-purple`, `Default`, `Grey`, `Green`, `Red`, `Blue`, `Orange`, `Purple`
+- Usage snippets:
+```ts
+import { StatusBadge } from "@minima-vue/ui"
+```
+
+```tsx
+<StatusBadge>Here's a message</StatusBadge>
+```
+- Export details:
+- Export `StatusBadge` from `StatusBadge.vue` (main)
+- Props:
+  - `color` (optional) type: `"green" | "red" | "orange" | "blue" | "purple" | "grey"`, default: `"grey"`
+
+### Switch (slug: `switch`)
+- Description: A component for working with switch values in Minima Vue.
+- Main export: `Switch`
+- Has stories: yes
+- Examples: `switch-default`, `switch-small`, `switch-checked`, `switch-disabled`, `switch-checkeddisabled`, `Default`, `Small`, `Checked`, `Disabled`, `Checked Disabled`
+- Usage snippets:
+```ts
+import { Switch } from "@minima-vue/ui"
+```
+
+```tsx
+<Switch>Here's a message</Switch>
+```
+- Export details:
+- Export `Switch` from `Switch.vue` (main)
+- Props: none
+
+### Table (slug: `table`)
+- Description: A component for working with table values in Minima Vue.
+- Main export: `Table`
+- Has stories: yes
+- Examples: `table-default`, `table-paginated`, `Default`, `Paginated`
+- Usage snippets:
+```ts
+import { Table, TableRow, TableCell, TableHeader, TableHeaderCell, TableBody, TablePagination } from "@minima-vue/ui"
+```
+
+```tsx
+<Table>Here's a message</Table>
+```
+- Export details:
+- Export `Table` from `Table.vue` (main)
+- Props: none
+- Export `TableRow` from `TableRow.vue`
+- Props: none
+- Export `TableCell` from `TableCell.vue`
+- Props: none
+- Export `TableHeader` from `TableHeader.vue`
+- Props: none
+- Export `TableHeaderCell` from `TableHeaderCell.vue`
+- Props: none
+- Export `TableBody` from `TableBody.vue`
+- Props: none
+- Export `TablePagination` from `TablePagination.vue`
+- Props:
+  - `count` (required) type: `number`, default: `none`
+  - `pageSize` (required) type: `number`, default: `none`
+  - `pageIndex` (required) type: `number`, default: `none`
+  - `pageCount` (required) type: `number`, default: `none`
+  - `canPreviousPage` (required) type: `boolean`, default: `none`
+  - `canNextPage` (required) type: `boolean`, default: `none`
+  - `translations` (optional) type: `{ of?: string results?: string pages?: string prev?: string next?: string }`, default: `() => ({
+        of: "of",
+        results: "results",
+        pages: "pages",
+        prev: "Prev",
+        next: "Next",
+    })`
+
+### Tabs (slug: `tabs`)
+- Description: A component for working with tabs values in Minima Vue.
+- Main export: `Tabs`
+- Has stories: yes
+- Examples: `tabs-demo`, `tabs-controlled`, `tabs-disabled`, `tabs-icons`, `tabs-vertical`
+- Usage snippets:
+```ts
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@minima-vue/ui"
+```
+
+```tsx
+<Tabs>Here's a message</Tabs>
+```
+- Export details:
+- Export `Tabs` from `Tabs.vue` (main)
+- Props:
+  - `modelValue` (optional) type: `string`, default: `none`
+  - `defaultValue` (optional) type: `string`, default: `none`
+  - `orientation` (optional) type: `"horizontal" | "vertical"`, default: `"horizontal"`
+- Export `TabsList` from `TabsList.vue`
+- Props: none
+- Export `TabsTrigger` from `TabsTrigger.vue`
+- Props: none
+- Export `TabsContent` from `TabsContent.vue`
+- Props: none
+
+### Text (slug: `text`)
+- Description: A component for working with text values in Minima Vue.
+- Main export: `Text`
+- Has stories: yes
+- Examples: `text-baseregularsans`, `text-baseplussans`, `text-largeregularsans`, `text-largeplussans`, `text-xlargeregularsans`, `text-baseregularmono`, `Base Regular Sans`, `Base Plus Sans`, `Large Regular Sans`, `Large Plus Sans`, `XLarge Regular Sans`, `Base Regular Mono`
+- Usage snippets:
+```ts
+import { Text } from "@minima-vue/ui"
+```
+
+```tsx
+<Text>Here's a message</Text>
+```
+- Export details:
+- Export `Text` from `Text.vue` (main)
+- Props:
+  - `size` (optional) type: `"xsmall" | "small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `weight` (optional) type: `"regular" | "plus"`, default: `"regular"`
+  - `leading` (optional) type: `"normal" | "compact"`, default: `"normal"`
+  - `family` (optional) type: `"sans" | "mono"`, default: `"sans"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `as` (optional) type: `string`, default: `"p"`
+
+### Textarea (slug: `textarea`)
+- Description: A component for working with textarea values in Minima Vue.
+- Main export: `Textarea`
+- Has stories: yes
+- Examples: `textarea-default`, `Default`
+- Usage snippets:
+```ts
+import { Textarea } from "@minima-vue/ui"
+```
+
+```tsx
+<Textarea>Here's a message</Textarea>
+```
+- Export details:
+- Export `Textarea` from `Textarea.vue` (main)
+- Props: none
+
+### Time Input (slug: `time-input`)
+- Description: A component for working with time input values in Minima Vue.
+- Main export: `TimeInput`
+- Has stories: yes
+- Examples: `time-input-default`, `time-input-controlled`, `Default`, `Controlled`
+- Usage snippets:
+```ts
+import { TimeInput } from "@minima-vue/ui"
+```
+
+```tsx
+<TimeInput>Here's a message</TimeInput>
+```
+- Export details:
+- Export `TimeInput` from `TimeInput.vue` (main)
+- Props:
+  - `modelValue` (optional) type: `Time | null`, default: `none`
+  - `defaultValue` (optional) type: `Time | null`, default: `none`
+  - `hourCycle` (optional) type: `12 | 24`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+
+### Toast (slug: `toast`)
+- Description: A component for working with toast values in Minima Vue.
+- Main export: `Toast`
+- Has stories: yes
+- Examples: `toast-information`, `toast-warning`, `toast-error`, `toast-success`, `toast-loading`, `toast-withaction`, `Information`, `Warning`, `Error`, `Success`, `Loading`, `With Action`
+- Usage snippets:
+```ts
+import { Toast, Toaster } from "@minima-vue/ui"
+```
+
+```tsx
+<Toast>Here's a message</Toast>
+```
+- Export details:
+- Export `Toast` from `Toast.vue` (main)
+- Props: none
+- Export `Toaster` from `Toaster.vue`
+- Props:
+  - `position` (optional) type: `ToasterPosition`, default: `"bottom-right"`
+  - `duration` (optional) type: `number`, default: `5000`
+
+### Tooltip (slug: `tooltip`)
+- Description: A component for working with tooltip values in Minima Vue.
+- Main export: `Tooltip`
+- Has stories: yes
+- Examples: `tooltip-default`, `Default`
+- Usage snippets:
+```ts
+import { Tooltip, TooltipProvider } from "@minima-vue/ui"
+```
+
+```tsx
+<Tooltip>Here's a message</Tooltip>
+```
+- Export details:
+- Export `Tooltip` from `Tooltip.vue` (main)
+- Props: none
+- Export `TooltipProvider` from `TooltipProvider.vue`
+- Props: none
+
+## 8) API Reference Specs by Export
+
+### Alert
+- Description: A component for working with alert values in Minima Vue.
+- Props:
+  - `variant` (optional) type: `"info" | "error" | "success" | "warning"`, default: `"info"`
+  - `dismissible` (optional) type: `boolean`, default: `false`
+
+### Avatar
+- Description: A component for working with avatar values in Minima Vue.
+- Props:
+  - `variant` (optional) type: `"squared" | "rounded"`, default: `"rounded"`
+  - `size` (optional) type: `"2xsmall" | "xsmall" | "small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `src` (optional) type: `string`, default: `none`
+  - `fallback` (required) type: `string`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Badge
+- Description: A component for working with badge values in Minima Vue.
+- Props:
+  - `size` (optional) type: `"2xsmall" | "xsmall" | "small" | "base" | "large"`, default: `"base"`
+  - `rounded` (optional) type: `"base" | "full"`, default: `"base"`
+  - `color` (optional) type: `"green" | "red" | "blue" | "orange" | "grey" | "purple"`, default: `"grey"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Button
+- Description: A component for working with button values in Minima Vue.
+- Props:
+  - `variant` (optional) type: `"primary" | "secondary" | "transparent" | "danger"`, default: `"primary"`
+  - `size` (optional) type: `"small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `isLoading` (optional) type: `boolean`, default: `false`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `disabled` (optional) type: `boolean`, default: `false`
+
+### Calendar
+- Description: A component for working with calendar values in Minima Vue.
+- Props:
+  - `modelValue` (optional) type: `Date | null`, default: `none`
+  - `defaultValue` (optional) type: `Date | null`, default: `none`
+  - `minValue` (optional) type: `Date`, default: `none`
+  - `maxValue` (optional) type: `Date`, default: `none`
+  - `locale` (optional) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+  - `fixedWeeks` (optional) type: `boolean`, default: `none`
+  - `weekStartsOn` (optional) type: `0 | 1 | 2 | 3 | 4 | 5 | 6`, default: `none`
+
+### CalendarButton
+- Description: n/a
+- Props:
+  - none
+
+### CalendarCell
+- Description: n/a
+- Props:
+  - none
+
+### Checkbox
+- Description: A component for working with checkbox values in Minima Vue.
+- Props:
+  - none
+
+### Code
+- Description: A component for working with code values in Minima Vue.
+- Props:
+  - none
+
+### CodeBlock
+- Description: A component for working with code block values in Minima Vue.
+- Props:
+  - none
+
+### CodeBlockBody
+- Description: n/a
+- Props:
+  - none
+
+### CodeBlockHeader
+- Description: n/a
+- Props:
+  - none
+
+### CodeBlockMeta
+- Description: n/a
+- Props:
+  - none
+
+### Command
+- Description: A component for working with command values in Minima Vue.
+- Props:
+  - none
+
+### CommandBar
+- Description: A component for working with command bar values in Minima Vue.
+- Props:
+  - none
+
+### CommandBarBar
+- Description: n/a
+- Props:
+  - none
+
+### CommandBarCommand
+- Description: n/a
+- Props:
+  - `action` (required) type: `() => void | Promise<void>`, default: `none`
+  - `label` (required) type: `string`, default: `none`
+  - `shortcut` (required) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `type` (optional) type: `"button" | "submit" | "reset"`, default: `"button"`
+
+### CommandBarSeperator
+- Description: n/a
+- Props:
+  - none
+
+### CommandBarValue
+- Description: n/a
+- Props:
+  - none
+
+### CommandCopy
+- Description: n/a
+- Props:
+  - `content` (required) type: `string`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `none`
+
+### Container
+- Description: A component for working with container values in Minima Vue.
+- Props:
+  - none
+
+### Copy
+- Description: A component for working with copy values in Minima Vue.
+- Props:
+  - `content` (required) type: `string`, default: `none`
+  - `variant` (optional) type: `"mini" | "default" | null`, default: `"default"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### CurrencyInput
+- Description: A component for working with currency input values in Minima Vue.
+- Props:
+  - `modelValue` (required) type: `number | null`, default: `none`
+  - `symbol` (required) type: `string`, default: `none`
+  - `code` (required) type: `string`, default: `none`
+  - `size` (optional) type: `"base" | "small"`, default: `"base"`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `placeholder` (optional) type: `string`, default: `none`
+  - `decimalsLimit` (optional) type: `number`, default: `2`
+  - `allowNegativeValue` (optional) type: `boolean`, default: `true`
+  - `min` (optional) type: `number`, default: `none`
+  - `max` (optional) type: `number`, default: `none`
+  - `step` (optional) type: `number`, default: `none`
+
+### DataTable
+- Description: A component for working with data table values in Minima Vue.
+- Props:
+  - none
+
+### DataTableCommandBar
+- Description: n/a
+- Props:
+  - none
+
+### DataTableFilterMenu
+- Description: n/a
+- Props:
+  - none
+
+### DataTablePagination
+- Description: n/a
+- Props:
+  - none
+
+### DataTableSearch
+- Description: n/a
+- Props:
+  - none
+
+### DataTableSortingMenu
+- Description: n/a
+- Props:
+  - none
+
+### DataTableTable
+- Description: n/a
+- Props:
+  - none
+
+### DataTableToolbar
+- Description: n/a
+- Props:
+  - none
+
+### DatePicker
+- Description: A component for working with date picker values in Minima Vue.
+- Props:
+  - none
+
+### DatePickerButton
+- Description: n/a
+- Props:
+  - `size` (optional) type: `"base" | "small"`, default: `none`
+
+### DatePickerClearButton
+- Description: n/a
+- Props:
+  - none
+
+### DatePickerField
+- Description: n/a
+- Props:
+  - `size` (optional) type: `"base" | "small"`, default: `"base"`
+  - `modelValue` (optional) type: `DateValue | null`, default: `none`
+  - `defaultValue` (optional) type: `DateValue | null`, default: `none`
+  - `granularity` (optional) type: `"day" | "hour" | "minute" | "second"`, default: `none`
+  - `hourCycle` (optional) type: `12 | 24`, default: `none`
+  - `locale` (optional) type: `string`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+  - `minValue` (optional) type: `DateValue`, default: `none`
+  - `maxValue` (optional) type: `DateValue`, default: `none`
+  - `placeholder` (optional) type: `DateValue`, default: `none`
+
+### DateSegment
+- Description: A component for working with date segment values in Minima Vue.
+- Props:
+  - none
+
+### Drawer
+- Description: A component for working with drawer values in Minima Vue.
+- Props:
+  - none
+
+### DrawerBody
+- Description: n/a
+- Props:
+  - none
+
+### DrawerClose
+- Description: n/a
+- Props:
+  - none
+
+### DrawerContent
+- Description: n/a
+- Props:
+  - none
+
+### DrawerDescription
+- Description: n/a
+- Props:
+  - none
+
+### DrawerFooter
+- Description: n/a
+- Props:
+  - none
+
+### DrawerHeader
+- Description: n/a
+- Props:
+  - none
+
+### DrawerTitle
+- Description: n/a
+- Props:
+  - none
+
+### DrawerTrigger
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenu
+- Description: A component for working with dropdown menu values in Minima Vue.
+- Props:
+  - none
+
+### DropdownMenuCheckboxItem
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuContent
+- Description: n/a
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `collisionPadding` (optional) type: `number`, default: `8`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `"center"`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `"bottom"`
+
+### DropdownMenuGroup
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuHint
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuItem
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuLabel
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuRadioGroup
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuRadioItem
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuSeparator
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuShortcut
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuSubContent
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuSubMenu
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuSubTrigger
+- Description: n/a
+- Props:
+  - none
+
+### DropdownMenuTrigger
+- Description: n/a
+- Props:
+  - none
+
+### FocusModal
+- Description: A component for working with focus modal values in Minima Vue.
+- Props:
+  - none
+
+### FocusModalBody
+- Description: n/a
+- Props:
+  - none
+
+### FocusModalContent
+- Description: n/a
+- Props:
+  - none
+
+### FocusModalFooter
+- Description: n/a
+- Props:
+  - none
+
+### FocusModalHeader
+- Description: n/a
+- Props:
+  - none
+
+### FocusModalTitle
+- Description: n/a
+- Props:
+  - none
+
+### FocusModalTrigger
+- Description: n/a
+- Props:
+  - none
+
+### Heading
+- Description: A component for working with heading values in Minima Vue.
+- Props:
+  - none
+
+### Hint
+- Description: A component for working with hint values in Minima Vue.
+- Props:
+  - `variant` (optional) type: `"info" | "error"`, default: `"info"`
+
+### IconBadge
+- Description: A component for working with icon badge values in Minima Vue.
+- Props:
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `color` (optional) type: `"green" | "red" | "blue" | "orange" | "grey" | "purple"`, default: `"grey"`
+  - `size` (optional) type: `"base" | "large"`, default: `"base"`
+
+### IconButton
+- Description: A component for working with icon button values in Minima Vue.
+- Props:
+  - `variant` (optional) type: `IconButtonVariants['variant']`, default: `"primary"`
+  - `size` (optional) type: `IconButtonVariants['size']`, default: `"base"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `isLoading` (optional) type: `boolean`, default: `false`
+  - `disabled` (optional) type: `boolean`, default: `false`
+
+### InlineTip
+- Description: A component for working with inline tip values in Minima Vue.
+- Props:
+  - `label` (required) type: `string`, default: `none`
+  - `variant` (optional) type: `"info" | "warning" | "error" | "success"`, default: `"info"`
+
+### Input
+- Description: A component for working with input values in Minima Vue.
+- Props:
+  - none
+
+### Kbd
+- Description: A component for working with kbd values in Minima Vue.
+- Props:
+  - none
+
+### Label
+- Description: A component for working with label values in Minima Vue.
+- Props:
+  - `size` (optional) type: `"xsmall" | "small" | "base" | "large"`, default: `"base"`
+  - `weight` (optional) type: `"regular" | "plus"`, default: `"regular"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### Popover
+- Description: A component for working with popover values in Minima Vue.
+- Props:
+  - none
+
+### PopoverContent
+- Description: n/a
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `"bottom"`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `"start"`
+  - `collisionPadding` (optional) type: `number`, default: `none`
+  - `asChild` (optional) type: `boolean`, default: `false`
+
+### PopoverSeperator
+- Description: n/a
+- Props:
+  - none
+
+### PopoverTrigger
+- Description: n/a
+- Props:
+  - none
+
+### ProgressAccordion
+- Description: A component for working with progress accordion values in Minima Vue.
+- Props:
+  - none
+
+### ProgressAccordionContent
+- Description: n/a
+- Props:
+  - none
+
+### ProgressAccordionHeader
+- Description: n/a
+- Props:
+  - none
+
+### ProgressAccordionItem
+- Description: n/a
+- Props:
+  - none
+
+### ProgressAccordionProgressIndicator
+- Description: n/a
+- Props:
+  - none
+
+### ProgressTabs
+- Description: A component for working with progress tabs values in Minima Vue.
+- Props:
+  - none
+
+### ProgressTabsContent
+- Description: n/a
+- Props:
+  - none
+
+### ProgressTabsList
+- Description: n/a
+- Props:
+  - none
+
+### ProgressTabsProgressIndicator
+- Description: n/a
+- Props:
+  - none
+
+### ProgressTabsTrigger
+- Description: n/a
+- Props:
+  - none
+
+### Prompt
+- Description: A component for working with prompt values in Minima Vue.
+- Props:
+  - none
+
+### PromptAction
+- Description: n/a
+- Props:
+  - none
+
+### PromptCancel
+- Description: n/a
+- Props:
+  - none
+
+### PromptContent
+- Description: n/a
+- Props:
+  - none
+
+### PromptDescription
+- Description: n/a
+- Props:
+  - none
+
+### PromptFooter
+- Description: n/a
+- Props:
+  - none
+
+### PromptHeader
+- Description: n/a
+- Props:
+  - none
+
+### PromptOverlay
+- Description: n/a
+- Props:
+  - none
+
+### PromptPortal
+- Description: n/a
+- Props:
+  - none
+
+### PromptTitle
+- Description: n/a
+- Props:
+  - none
+
+### PromptTrigger
+- Description: n/a
+- Props:
+  - none
+
+### RadioGroup
+- Description: A component for working with radio group values in Minima Vue.
+- Props:
+  - none
+
+### RadioGroupChoiceBox
+- Description: n/a
+- Props:
+  - none
+
+### RadioGroupItem
+- Description: n/a
+- Props:
+  - none
+
+### Select
+- Description: A component for working with select values in Minima Vue.
+- Props:
+  - none
+
+### SelectContent
+- Description: n/a
+- Props:
+  - `sideOffset` (optional) type: `number`, default: `8`
+  - `collisionPadding` (optional) type: `number`, default: `24`
+  - `position` (optional) type: `"item-aligned" | "popper"`, default: `"popper"`
+  - `align` (optional) type: `"start" | "center" | "end"`, default: `none`
+  - `side` (optional) type: `"bottom" | "left" | "top" | "right"`, default: `none`
+
+### SelectGroup
+- Description: n/a
+- Props:
+  - none
+
+### SelectItem
+- Description: n/a
+- Props:
+  - none
+
+### SelectLabel
+- Description: n/a
+- Props:
+  - none
+
+### SelectSeparator
+- Description: n/a
+- Props:
+  - none
+
+### SelectTrigger
+- Description: n/a
+- Props:
+  - none
+
+### SelectValue
+- Description: n/a
+- Props:
+  - none
+
+### StatusBadge
+- Description: A component for working with status badge values in Minima Vue.
+- Props:
+  - `color` (optional) type: `"green" | "red" | "orange" | "blue" | "purple" | "grey"`, default: `"grey"`
+
+### Switch
+- Description: A component for working with switch values in Minima Vue.
+- Props:
+  - none
+
+### Table
+- Description: A component for working with table values in Minima Vue.
+- Props:
+  - none
+
+### TableBody
+- Description: n/a
+- Props:
+  - none
+
+### TableCell
+- Description: n/a
+- Props:
+  - none
+
+### TableHeader
+- Description: n/a
+- Props:
+  - none
+
+### TableHeaderCell
+- Description: n/a
+- Props:
+  - none
+
+### TablePagination
+- Description: n/a
+- Props:
+  - `count` (required) type: `number`, default: `none`
+  - `pageSize` (required) type: `number`, default: `none`
+  - `pageIndex` (required) type: `number`, default: `none`
+  - `pageCount` (required) type: `number`, default: `none`
+  - `canPreviousPage` (required) type: `boolean`, default: `none`
+  - `canNextPage` (required) type: `boolean`, default: `none`
+  - `translations` (optional) type: `{ of?: string results?: string pages?: string prev?: string next?: string }`, default: `() => ({
+        of: "of",
+        results: "results",
+        pages: "pages",
+        prev: "Prev",
+        next: "Next",
+    })`
+
+### TableRow
+- Description: n/a
+- Props:
+  - none
+
+### Tabs
+- Description: A component for working with tabs values in Minima Vue.
+- Props:
+  - `modelValue` (optional) type: `string`, default: `none`
+  - `defaultValue` (optional) type: `string`, default: `none`
+  - `orientation` (optional) type: `"horizontal" | "vertical"`, default: `"horizontal"`
+
+### TabsContent
+- Description: n/a
+- Props:
+  - none
+
+### TabsList
+- Description: n/a
+- Props:
+  - none
+
+### TabsTrigger
+- Description: n/a
+- Props:
+  - none
+
+### Text
+- Description: A component for working with text values in Minima Vue.
+- Props:
+  - `size` (optional) type: `"xsmall" | "small" | "base" | "large" | "xlarge"`, default: `"base"`
+  - `weight` (optional) type: `"regular" | "plus"`, default: `"regular"`
+  - `leading` (optional) type: `"normal" | "compact"`, default: `"normal"`
+  - `family` (optional) type: `"sans" | "mono"`, default: `"sans"`
+  - `asChild` (optional) type: `boolean`, default: `false`
+  - `as` (optional) type: `string`, default: `"p"`
+
+### Textarea
+- Description: A component for working with textarea values in Minima Vue.
+- Props:
+  - none
+
+### TimeInput
+- Description: A component for working with time input values in Minima Vue.
+- Props:
+  - `modelValue` (optional) type: `Time | null`, default: `none`
+  - `defaultValue` (optional) type: `Time | null`, default: `none`
+  - `hourCycle` (optional) type: `12 | 24`, default: `none`
+  - `disabled` (optional) type: `boolean`, default: `none`
+  - `readonly` (optional) type: `boolean`, default: `none`
+
+### Toast
+- Description: A component for working with toast values in Minima Vue.
+- Props:
+  - none
+
+### Toaster
+- Description: n/a
+- Props:
+  - `position` (optional) type: `ToasterPosition`, default: `"bottom-right"`
+  - `duration` (optional) type: `number`, default: `5000`
+
+### Tooltip
+- Description: A component for working with tooltip values in Minima Vue.
+- Props:
+  - none
+
+### TooltipProvider
+- Description: n/a
+- Props:
+  - none
+
+## 9) Icon Library Summary
+
+- Package: `@minima-vue/icons`
+- Exported icon components detected: 463
+- Icon names:
+- `XMark`
+- `XMarkMini`
+- `XCircle`
+- `XCircleSolid`
+- `Wrench`
+- `Wishlists`
+- `Window`
+- `Webshipper`
+- `WandSparkle`
+- `Vite`
+- `Visa`
+- `VerifiedBadge`
+- `Vercel`
+- `Variable`
+- `Users`
+- `UsersSolid`
+- `User`
+- `UserMini`
+- `UserGroup`
+- `Unfold`
+- `Typography`
+- `Typescript`
+- `TypescriptEx`
+- `TruckFast`
+- `Trophy`
+- `TrianglesMini`
+- `TriangleUpMini`
+- `TriangleRightMini`
+- `TriangleRightMiniHover`
+- `TriangleLeftMini`
+- `TriangleDownMini`
+- `Trash`
+- `TopToBottom`
+- `Tools`
+- `ToolsSolid`
+- `TimelineVertical`
+- `ThumbnailBadge`
+- `ThumbUp`
+- `ThumbDown`
+- `Text`
+- `TextHighlight`
+- `Telescope`
+- `TelescopeSolid`
+- `Telegram`
+- `TaxInclusive`
+- `TaxExclusive`
+- `Target`
+- `Tanstack`
+- `Tailwind`
+- `Tag`
+- `TagSolid`
+- `TagIllustration`
+- `Tablet`
+- `TablePen`
+- `Swatch`
+- `SwatchSolid`
+- `Svelte`
+- `Sun`
+- `SunSolid`
+- `Stripe`
+- `Storecredits`
+- `Stopwatch`
+- `StopCircleSolid`
+- `Star`
+- `StarSolid`
+- `StackPerspective`
+- `SquaresPlus`
+- `SquaresPlusSolid`
+- `SquareTwoStack`
+- `SquareTwoStackSolid`
+- `SquareTwoStackMini`
+- `SquareRedSolid`
+- `SquarePurpleSolid`
+- `SquareOrangeSolid`
+- `SquareGreySolid`
+- `SquareGreenSolid`
+- `SquareDashedCursor`
+- `SquareBlueSolid`
+- `Spinner`
+- `Sparkles`
+- `SparklesSolid`
+- `SparklesMini`
+- `SparklesMiniSolid`
+- `Sparkle2Solid`
+- `Snooze`
+- `Slack`
+- `SidebarRight`
+- `SidebarRightFilled`
+- `SidebarLeft`
+- `SidebarLeftFilled`
+- `Shopping`
+- `ShoppingCart`
+- `ShoppingCartSolid`
+- `ShoppingBag`
+- `Shippo`
+- `Shipbob`
+- `ShieldCheck`
+- `Share`
+- `Server`
+- `ServerStack`
+- `ServerStackSolid`
+- `ServerSolid`
+- `Sendgrid`
+- `ScrollText`
+- `Scan`
+- `ScanText`
+- `Sap`
+- `Sanity`
+- `Rss`
+- `RocketLaunch`
+- `RocketLaunchSolid`
+- `Robot`
+- `Resize`
+- `Resend`
+- `ReplaySolid`
+- `Rename`
+- `Reduce`
+- `Receipt`
+- `ReceiptPercent`
+- `ReactJs`
+- `ReactJsEx`
+- `QueueSolid`
+- `QueueList`
+- `QuestionMark`
+- `QuestionMarkCircle`
+- `Puzzle`
+- `PuzzleSolid`
+- `Progress90`
+- `Progress75`
+- `Progress60`
+- `Progress45`
+- `Progress30`
+- `Progress15`
+- `Progress100`
+- `Progress0`
+- `Pointer`
+- `PointerCircleSolid`
+- `Plus`
+- `PlusMini`
+- `Plug`
+- `PlaySolid`
+- `PlayMiniSolid`
+- `PinTack`
+- `PinTackSolid`
+- `Photo`
+- `PhotoSolid`
+- `Phone`
+- `Pencil`
+- `PencilSquare`
+- `PencilSquareSolid`
+- `PenPlus`
+- `Payphone`
+- `Paypal`
+- `Pause`
+- `PauseSolid`
+- `Party`
+- `PaperPlane`
+- `PaperClip`
+- `Palette`
+- `OpenRectArrowOut`
+- `NextJs`
+- `Newspaper`
+- `Moon`
+- `MoonSolid`
+- `Minus`
+- `MinusMini`
+- `MinusCircle`
+- `MinusBadge`
+- `Microchip`
+- `Meta`
+- `MessagePlus`
+- `MemberSilverBadge`
+- `MemberGoldBadge`
+- `MemberBronzeBadge`
+- `Meilisearch`
+- `Medusa`
+- `MediaStopSolid`
+- `MediaPlay`
+- `Mastercard`
+- `MarkdownSolid`
+- `MarginTop`
+- `MarginTopBottom`
+- `MarginRight`
+- `MarginLeft`
+- `MarginLeftRight`
+- `MarginBottom`
+- `Map`
+- `MapPin`
+- `Mailbox`
+- `MagnifyingGlass`
+- `MagnifyingGlassMini`
+- `MagnifierAlert`
+- `LockOpenSolid`
+- `LockClosedSolid`
+- `LockClosedSolidMini`
+- `Loader`
+- `ListTree`
+- `ListCheckbox`
+- `ListBullet`
+- `Linkedin`
+- `Link`
+- `Linear`
+- `LightBulb`
+- `LightBulbSolid`
+- `Lifebuoy`
+- `Levels`
+- `LayoutTop`
+- `LayoutTopBottom`
+- `LayoutRight`
+- `LayoutLeft`
+- `LayoutLeftRight`
+- `LayoutBottom`
+- `Layers3`
+- `LaptopMobile`
+- `Language`
+- `Klaviyo`
+- `Klarna`
+- `KlarnaEx`
+- `Keyboard`
+- `Key`
+- `KeySolid`
+- `Javascript`
+- `JavascriptEx`
+- `InformationCircle`
+- `InformationCircleSolid`
+- `InboxSolid`
+- `Images`
+- `Image`
+- `ImageSparkle`
+- `IdBadge`
+- `House`
+- `HouseStar`
+- `History`
+- `Heart`
+- `HeartBroken`
+- `Hashtag`
+- `HandTruck`
+- `GridList`
+- `GridLayout`
+- `Google`
+- `Globe`
+- `GlobeEurope`
+- `GlobeEuropeSolid`
+- `Glasses`
+- `Github`
+- `Gift`
+- `GiftSolid`
+- `Giftcards`
+- `GhostWorried`
+- `GaugeSparkle`
+- `Gatsby`
+- `GatsbyEx`
+- `Gap`
+- `Funnel`
+- `FunnelPlus`
+- `ForwardSolid`
+- `Folder`
+- `FolderOpen`
+- `FolderOpenIllustration`
+- `FolderIllustration`
+- `Focus`
+- `FlyingBox`
+- `FloppyDisk`
+- `FlagMini`
+- `Fire`
+- `FireSolid`
+- `File`
+- `FilePlus`
+- `Figma`
+- `FeaturedBadge`
+- `Facebook`
+- `FaceSmile`
+- `FaceDisappointed`
+- `FaceCrossedOutEyes`
+- `Eye`
+- `EyeSlash`
+- `EyeSlashMini`
+- `EyeMini`
+- `Expand`
+- `ExclamationCircle`
+- `ExclamationCircleSolid`
+- `Equals`
+- `Envelope`
+- `EnvelopeSolid`
+- `EnvelopeContent`
+- `EllipsisVertical`
+- `EllipsisHorizontal`
+- `EllipseSolid`
+- `EllipseRedSolid`
+- `EllipsePurpleSolid`
+- `EllipseOrangeSolid`
+- `EllipseMiniSolid`
+- `EllipseGreySolid`
+- `EllipseGreenSolid`
+- `EllipseBlueSolid`
+- `DropCap`
+- `Draftorders`
+- `DotsSix`
+- `DocumentText`
+- `DocumentTextSolid`
+- `DocumentSeries`
+- `Discord`
+- `Directions`
+- `DescendingSorting`
+- `DecisionProcess`
+- `CursorDefault`
+- `CursorDefaultSolid`
+- `CursorArrowRays`
+- `CurrencyDollar`
+- `CurrencyDollarSolid`
+- `CubeSolid`
+- `CreditCard`
+- `CreditCardSolid`
+- `CreditCardRefresh`
+- `Contentful`
+- `ComputerDesktop`
+- `ComputerDesktopSolid`
+- `Component`
+- `ComponentSolid`
+- `CommandLine`
+- `CommandLineSolid`
+- `Collapse`
+- `CogSixTooth`
+- `CogSixToothSolid`
+- `Code`
+- `CodePullRequest`
+- `CodeMerge`
+- `CodeEditor`
+- `CodeCompare`
+- `CodeCommit`
+- `CodeBranch`
+- `CloudSolid`
+- `CloudArrowUp`
+- `CloudArrowDown`
+- `CloneDashed`
+- `Clock`
+- `ClockSolid`
+- `ClockSolidMini`
+- `ClockChangedSolidMini`
+- `CircleXmarkSolid`
+- `CircleWarningSolid`
+- `CircleThreeQuartersSolid`
+- `CircleStack`
+- `CircleStackSolid`
+- `CircleSolid`
+- `CircleSliders`
+- `CircleQuarterSolid`
+- `CirclePlus`
+- `CircleMinusSolid`
+- `CircleMiniSolid`
+- `CircleMiniFilledSolid`
+- `CircleInfoSolid`
+- `CircleHalfSolid`
+- `CircleHalfDottedClock`
+- `CircleFilledSolid`
+- `CircleDottedLine`
+- `CircleCheckSolid`
+- `CircleArrowUp`
+- `ChevronUpMini`
+- `ChevronUpDown`
+- `ChevronRight`
+- `ChevronRightMini`
+- `ChevronLeft`
+- `ChevronLeftMini`
+- `ChevronDown`
+- `ChevronDownMini`
+- `ChevronDoubleRight`
+- `ChevronDoubleRightMiniSolid`
+- `ChevronDoubleLeft`
+- `ChevronDoubleLeftMiniSolid`
+- `ChefHat`
+- `Check`
+- `CheckMini`
+- `CheckCircle`
+- `CheckCircleSolid`
+- `CheckCircleMiniSolid`
+- `ChatBubble`
+- `ChatBubbleLeftRight`
+- `ChatBubbleLeftRightSolid`
+- `ChartPie`
+- `ChartBar`
+- `ChartActivity`
+- `Channels`
+- `ChannelsSolid`
+- `Cash`
+- `CashSolid`
+- `CaretMinimizeDiagonal`
+- `CaretMaximizeDiagonal`
+- `CardSparkle`
+- `Camera`
+- `Calendar`
+- `CalendarSolid`
+- `CalendarMini`
+- `Button`
+- `Buildings`
+- `BuildingsSolid`
+- `BuildingsMini`
+- `BuildingTax`
+- `BuildingStorefront`
+- `Bug`
+- `BugAntSolid`
+- `BroomSparkle`
+- `BroomSparkleSolid`
+- `Brackets`
+- `BottomToTop`
+- `Bookmarks`
+- `Book`
+- `BookOpen`
+- `Bolt`
+- `BoltSolid`
+- `Bloom`
+- `BloomBadge`
+- `BellAlert`
+- `BellAlertSolid`
+- `BellAlertDone`
+- `Beaker`
+- `BarsThree`
+- `BarsArrowDown`
+- `BadgeCheck`
+- `BackwardSolid`
+- `AtSymbol`
+- `Astro`
+- `ArrowsReduceDiagonal`
+- `ArrowsPointingOut`
+- `ArrowsPointingOutMini`
+- `ArrowUturnLeft`
+- `ArrowUpTray`
+- `ArrowUpRightOnBox`
+- `ArrowUpRightMini`
+- `ArrowUpRightMicro`
+- `ArrowUpMini`
+- `ArrowUpDown`
+- `ArrowUpCircleSolid`
+- `ArrowTurnUp`
+- `ArrowRight`
+- `ArrowRightOnRectangle`
+- `ArrowRightMini`
+- `ArrowRightDown`
+- `ArrowPath`
+- `ArrowPathMini`
+- `ArrowLongUp`
+- `ArrowLongRight`
+- `ArrowLongLeft`
+- `ArrowLongDown`
+- `ArrowLeft`
+- `ArrowLeftMini`
+- `ArrowDown`
+- `ArrowDownTray`
+- `ArrowDownRightMini`
+- `ArrowDownMini`
+- `ArrowDownLeft`
+- `ArrowDownLeftMini`
+- `ArrowDownCircle`
+- `ArchiveBox`
+- `Apple`
+- `Amazon`
+- `AiAssistent`
+- `AiAssistentLuminosity`
+- `Adjustments`
+- `AdjustmentsDone`
+- `AcademicCap`
+- `AcademicCapSolid`
+- `WIP`
+
+## 10) Color Token Keys
+
+- Source: `ui-preset/src/theme/tokens/colors.ts`
+- Detected CSS variable keys (light/dark combined): 90
+- `--alpha-250`
+- `--alpha-400`
+- `--bg-base`
+- `--bg-base-hover`
+- `--bg-base-pressed`
+- `--bg-component`
+- `--bg-component-hover`
+- `--bg-component-pressed`
+- `--bg-disabled`
+- `--bg-field`
+- `--bg-field-component`
+- `--bg-field-component-hover`
+- `--bg-field-hover`
+- `--bg-highlight`
+- `--bg-highlight-hover`
+- `--bg-interactive`
+- `--bg-overlay`
+- `--bg-subtle`
+- `--bg-subtle-hover`
+- `--bg-subtle-pressed`
+- `--bg-switch-off`
+- `--bg-switch-off-hover`
+- `--border-base`
+- `--border-danger`
+- `--border-error`
+- `--border-interactive`
+- `--border-menu-bot`
+- `--border-menu-top`
+- `--border-strong`
+- `--border-transparent`
+- `--button-danger`
+- `--button-danger-hover`
+- `--button-danger-pressed`
+- `--button-inverted`
+- `--button-inverted-hover`
+- `--button-inverted-pressed`
+- `--button-neutral`
+- `--button-neutral-hover`
+- `--button-neutral-pressed`
+- `--button-transparent`
+- `--button-transparent-hover`
+- `--button-transparent-pressed`
+- `--contrast-bg-base`
+- `--contrast-bg-base-hover`
+- `--contrast-bg-base-pressed`
+- `--contrast-bg-subtle`
+- `--contrast-border-base`
+- `--contrast-border-bot`
+- `--contrast-border-top`
+- `--contrast-fg-primary`
+- `--contrast-fg-secondary`
+- `--fg-base`
+- `--fg-disabled`
+- `--fg-error`
+- `--fg-interactive`
+- `--fg-interactive-hover`
+- `--fg-muted`
+- `--fg-on-color`
+- `--fg-on-inverted`
+- `--fg-subtle`
+- `--tag-blue-bg`
+- `--tag-blue-bg-hover`
+- `--tag-blue-border`
+- `--tag-blue-icon`
+- `--tag-blue-text`
+- `--tag-green-bg`
+- `--tag-green-bg-hover`
+- `--tag-green-border`
+- `--tag-green-icon`
+- `--tag-green-text`
+- `--tag-neutral-bg`
+- `--tag-neutral-bg-hover`
+- `--tag-neutral-border`
+- `--tag-neutral-icon`
+- `--tag-neutral-text`
+- `--tag-orange-bg`
+- `--tag-orange-bg-hover`
+- `--tag-orange-border`
+- `--tag-orange-icon`
+- `--tag-orange-text`
+- `--tag-purple-bg`
+- `--tag-purple-bg-hover`
+- `--tag-purple-border`
+- `--tag-purple-icon`
+- `--tag-purple-text`
+- `--tag-red-bg`
+- `--tag-red-bg-hover`
+- `--tag-red-border`
+- `--tag-red-icon`
+- `--tag-red-text`
+
+## 11) Authoritative File Map
+
+- `package.json`
+- `CONTRIBUTING.md`
+- `ui/README.md`
+- `icons/README.md`
+- `ui-preset/README.md`
+- `toolbox/README.md`
+- `docs/src/data/site.ts`
+- `docs/src/data/navigation.ts`
+- `docs/src/data/content.ts`
+- `docs/src/generated/component-manifest.json`
+- `docs/src/generated/component-docs.json`
+- `docs/src/generated/reference-specs.json`
+- `ui/src/index.ts`
+- `ui/src/composables/index.ts`
+- `ui/src/utils/index.ts`
+- `icons/src/index.ts`
+- `ui-preset/src/theme/tokens/colors.ts`

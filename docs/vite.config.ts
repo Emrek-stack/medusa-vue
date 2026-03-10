@@ -19,6 +19,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "../ui/src/index.ts"),
       },
       {
+        find: /^@minima-vue\/icons$/,
+        replacement: path.resolve(__dirname, "../icons/src/index.ts"),
+      },
+      {
         find: "@minima-vue/ui/style.css",
         replacement: path.resolve(__dirname, "../ui/src/style.css"),
       },

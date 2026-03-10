@@ -29,9 +29,8 @@ import {
 import { cn } from "@/shared/utils/cn"
 import { useUiState } from "@/stores/ui-state"
 import UserMenu from "@/components/UserMenu.vue"
-
-import SidebarNavItem from "./SidebarNavItem.vue"
-import type { SidebarNavItemNode, SidebarSection } from "./types"
+import { NavItem } from "@/components/layout/nav-item"
+import type { INavItem } from "@/components/layout/nav-item"
 
 const route = useRoute()
 const router = useRouter()
@@ -56,7 +55,12 @@ const backTarget = computed(() => {
 const storeName = "Platform"
 const storeFallback = "P"
 
-const coreRoutes = computed<SidebarNavItemNode[]>(() => [
+type SidebarSection = {
+  label: string
+  items: INavItem[]
+}
+
+const coreRoutes = computed<INavItem[]>(() => [
   {
     icon: SquaresPlus,
     label: "Kontrol Paneli",
@@ -219,34 +223,23 @@ const handleLogout = async () => {
                 </button>
               </div>
 
-              <SidebarNavItem
+              <NavItem
                 v-for="item in coreRoutes"
-                :key="item.to ?? item.label"
-                :item="item"
+                :key="item.to"
+                v-bind="item"
                 type="core"
-                :current-path="currentPath"
               />
             </nav>
           </div>
 
-          <div class="py-3">
-            <div class="px-3">
-              <button
-                type="button"
-                :class="
-                  cn(
-                    'bg-ui-bg-subtle text-ui-fg-subtle flex w-full items-center gap-x-2.5 rounded-md px-2 py-1 outline-none',
-                    'hover:bg-ui-bg-subtle-hover focus-visible:shadow-borders-focus'
-                  )
-                "
-                @click="navigate('/settings/general', true)"
-              >
-                <CogSixTooth class="h-4 w-4" />
-                <div class="flex-1 text-left">
-                  <Text size="small" leading="compact" weight="plus">Ayarlar</Text>
-                </div>
-              </button>
-            </div>
+          <div class="flex flex-col gap-y-0.5 py-3">
+            <NavItem
+              label="Ayarlar"
+              to="/settings/general"
+              :from="currentPath"
+              :icon="CogSixTooth"
+              type="core"
+            />
           </div>
         </div>
 
@@ -300,13 +293,12 @@ const handleLogout = async () => {
 
                 <div class="pt-0.5">
                   <nav class="flex flex-col gap-y-0.5">
-                    <SidebarNavItem
+                    <NavItem
                       v-for="item in section.items"
-                      :key="item.to ?? item.label"
-                      :item="item"
+                      :key="item.to"
+                      v-bind="item"
                       type="setting"
-                      :current-path="currentPath"
-                      :from-path="backTarget"
+                      :from="backTarget"
                     />
                   </nav>
                 </div>
